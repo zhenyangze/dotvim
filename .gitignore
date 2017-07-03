@@ -1,0 +1,10 @@
+.DS_Store
+.netrwhist
+.init.vim-rplugin~
+
+init.vim
+
+/autoload
+/plug
+/plug-enabled/*.vim
+/eclim
