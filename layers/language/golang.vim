@@ -1,0 +1,20 @@
+Plug 'nsf/gocode', {'rtp': 'vim/', 'for': 'go'}
+Plug 'fatih/vim-go', {'for': 'go'}
+
+" vim-go " {{{golang
+    let g:go_highlight_functions = 1
+    let g:go_highlight_methods = 1
+    let g:go_highlight_structs = 1
+    let g:go_highlight_interfaces = 1
+    let g:go_highlight_operators = 1
+    let g:go_highlight_build_constraints = 1
+    au FileType go nmap <leader>gr <Plug>(go-run)
+    au FileType go nmap <leader>gb <Plug>(go-build)
+    au FileType go nmap <leader>gt <Plug>(go-test)
+    au FileType go nmap <leader>gc <Plug>(go-coverage)
+    au FileType go nmap <Leader>gds <Plug>(go-def-split)
+    au FileType go nmap <Leader>gdv <Plug>(go-def-vertical)
+    au FileType go nmap <Leader>gdt <Plug>(go-def-tab)
+    au FileType go nmap <Leader>gd <Plug>(go-doc)
+    au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
+" }}}

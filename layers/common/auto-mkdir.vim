@@ -1,0 +1,1 @@
+Plug 'DataWraith/auto_mkdir'

@@ -5,6 +5,5 @@
 init.vim
 
 /autoload
-/plug
+/plugged
 /plug-enabled/*.vim
-/eclim

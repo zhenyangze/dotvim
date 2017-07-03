@@ -1,0 +1,1 @@
+Plug 'digitaltoad/vim-jade',{'for':'jade'}

@@ -1,0 +1,1 @@
+Plug '13k/vim-nginx'

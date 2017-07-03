@@ -1,0 +1,1 @@
+Plug 'vim-jp/vim-cpp',{ 'for': ['c', 'c++']}

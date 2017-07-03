@@ -1,0 +1,1 @@
+Plug 'terryma/vim-multiple-cursors' "多光标编辑 ctrl-n选择 s编辑 c
