@@ -1,6 +1,7 @@
 let mapleader="\<Space>"
 let s:vim_home='~/.vim/'
 
+" init 
 if empty(glob("~/.vim/autoload/plug.vim"))
   echo "Installing vim-plug..."
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -8,6 +9,7 @@ if empty(glob("~/.vim/autoload/plug.vim"))
   echo "Run :PlugInstall to install plugins"
 endif
 
+" plugin
 let s:plug_files = [
   \ "layers/common/*.vim",
   \ "layers/language/*.vim",
@@ -24,4 +26,6 @@ for files in s:plug_files
 endfor
 
 call plug#end()
+
+" keymap
 source ~/.vim/layers/keymap/keymap.vim

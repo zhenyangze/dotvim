@@ -1,6 +1,6 @@
 Plug 'Valloric/YouCompleteMe', {
   \ 'do': './install.py --clang-completer --omnisharp-completer --system-libclang --system-boost'
-  \ }
+  \ , 'on': [] }
 
 "youcomplete"{{{
     augroup load_us_ycm
@@ -51,7 +51,7 @@ Plug 'Valloric/YouCompleteMe', {
     nnoremap <leader>gl :YcmCompleterGoToDeclaration<CR>
     nnoremap <leader>gf :YcmCompleterGoToDefinition<CR>
     nnoremap <leader>gt :YcmCompleterGoToDefinitionElseDeclaration<CR>
-    autocmd! User YouCompleteMe if !has('vim_starting') | call youcompleteme#Enable() | endif
+    " autocmd! User YouCompleteMe if !has('vim_starting') | call youcompleteme#Enable() | endif
 
     " YCM和Ultisnips按键冲突解决方案
     function! g:UltiSnips_Complete()
