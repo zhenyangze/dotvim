@@ -1,6 +1,4 @@
-Plug 'Valloric/YouCompleteMe', {
-  \ 'do': './install.py --clang-completer --omnisharp-completer --system-libclang --system-boost'
-  \ , 'on': [] }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --omnisharp-completer --system-libclang --system-boost'}
 
 "youcomplete"{{{
     augroup load_us_ycm
