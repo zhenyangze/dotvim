@@ -5,8 +5,8 @@
 # Created Time: 2017年07月04日 星期二 14时51分50秒
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-mv $HOME/.vim $HOME/.vim_backup
-mv $HOME/.vimrc $HOME/.vimrc_backup
+mv $HOME/.vim $HOME/.vim_backup 2>/dev/null
+mv $HOME/.vimrc $HOME/.vimrc_backup 2>/dev/null
 
 ln -s $DIR $HOME/.vim
 ln -s $DIR/vimrc $HOME/.vimrc
