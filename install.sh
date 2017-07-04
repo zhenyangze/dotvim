@@ -1,0 +1,18 @@
+#!/bin/bash
+# File Name: install.sh
+# Author: zhenyangze
+# mail: zhenyangze@gmail.com
+# Created Time: 2017年07月04日 星期二 14时51分50秒
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+mv $HOME/.vim $HOME/.vim_backup
+mv $HOME/.vimrc $HOME/.vimrc_backup
+
+ln -s $DIR $HOME/.vim
+ln -s $DIR/vimrc $HOME/.vimrc
+
+if hash nvim 2>/dev/null; then
+	mkdir -p $HOME/.config
+	ln -s $HOME/.vim $HOME/.config/nvim
+	ln -s $HOME/.vimrc $HOME/.config/nvim/init.vim
+fi
