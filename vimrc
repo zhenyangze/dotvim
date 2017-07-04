@@ -10,6 +10,9 @@ if empty(glob("~/.vim/autoload/plug.vim"))
 endif
 
 " plugin
+syn sync fromstart
+set nocompatible
+filetype off 
 let s:plug_files = [
   \ "layers/common/*.vim",
   \ "layers/language/*.vim",
@@ -26,6 +29,14 @@ for files in s:plug_files
 endfor
 
 call plug#end()
+filetype plugin indent on
 
-" keymap
-source ~/.vim/layers/keymap/keymap.vim
+" user
+let s:user_files = [
+  \ "layers/user/*.vim",
+  \ ]
+for files in s:user_files
+  for f in split(glob(s:vim_home.files), "\n")
+    exec "source ".f
+  endfor
+endfor
