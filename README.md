@@ -1,5 +1,11 @@
 # dotvim
 
+### red hat
+```shell
+sudo yum install automake gcc gcc-c++ kernel-devel cmake
+sudo yum install ctags python-devel python3-devel
+```
+
 ### one step
 ```shell
 git clone https://github.com/zhenyangze/dotvim.git
