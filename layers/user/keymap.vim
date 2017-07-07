@@ -322,6 +322,7 @@ let g:lmap.e = {
             \'name': 'Edit',
             \'p': ['normal! "+gP"', 'Pase'],
             \'x': ['normal! "+x"', 'Cut'],
+            \'f': ['let @+=expand("%")', 'Copy File Name'],
             \}
 " \'y': ['normal! `<v`>"+y', 'Copy'],
 vnoremap <leader>ey "+y"
