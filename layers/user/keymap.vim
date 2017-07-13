@@ -103,15 +103,15 @@ nnoremap ` '
 
 " @ jump
 " -----------------------------------------------------------------------------
-nmap <Leader>jw gg
-nmap <Leader>js GG
-nmap <Leader>ja ^
-nmap <Leader>jd $
+"nmap <Leader>jw gg
+"nmap <Leader>js GG
+"nmap <Leader>ja ^
+"nmap <Leader>jd $
 
-map <Leader>jh <Plug>(easymotion-linebackward)
-map <Leader>jj <Plug>(easymotion-j)
-map <Leader>jk <Plug>(easymotion-k)
-map <Leader>jl <Plug>(easymotion-lineforward)
+map <Leader>ja <Plug>(easymotion-linebackward)
+map <Leader>js <Plug>(easymotion-j)
+map <Leader>jw <Plug>(easymotion-k)
+map <Leader>jd <Plug>(easymotion-lineforward)
 nmap <silent> <Leader>jp <Plug>(ale_previous_wrap)
 nmap <silent> <Leader>jn <Plug>(ale_next_wrap)
 let g:move_key_modifier = 'C'
