@@ -292,7 +292,17 @@ else
 endif
 
 " leader-guide{{{
-let g:lmap =  {}
+let g:lmap =  {
+            \'1': ['tabn 1', 'No.1'],
+            \'2': ['tabn 2', 'No.2'],
+            \'3': ['tabn 3', 'No.3'],
+            \'4': ['tabn 4', 'No.4'],
+            \'5': ['tabn 5', 'No.5'],
+            \'6': ['tabn 6', 'No.6'],
+            \'7': ['tabn 7', 'No.7'],
+            \'8': ['tabn 8', 'No.8'],
+            \'9': ['tabn 9', 'No.9'],
+            \}
 
 let g:lmap.w = {
             \'name': 'Window',
@@ -355,16 +365,7 @@ let g:lmap.t = {
             \'d': ['tabn', 'Next'],
             \'w': ['tabfirst', 'First'],
             \'s': ['tablast', 'Last'],
-            \'1': ['tabn 1', 'No.1'],
-            \'2': ['tabn 2', 'No.2'],
-            \'3': ['tabn 3', 'No.3'],
-            \'4': ['tabn 4', 'No.4'],
-            \'5': ['tabn 5', 'No.5'],
-            \'6': ['tabn 6', 'No.6'],
-            \'7': ['tabn 7', 'No.7'],
-            \'8': ['tabn 8', 'No.8'],
-            \'9': ['tabn 9', 'No.9'],
-            \}
+           \}
 
 let g:lmap.c = { 'name': 'Comment'}
 let g:lmap.z = { 'name': 'Zoom'}
