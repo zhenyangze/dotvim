@@ -1,5 +1,6 @@
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle'  }
 Plug 'jistr/vim-nerdtree-tabs', { 'on': 'NERDTreeToggle'  }
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
 function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
 	exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
@@ -26,4 +27,17 @@ call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
 	" 是否显示隐藏文件
 	let NERDTreeShowHidden=1
 	let NERDTreeShowBookmarks=1
+"}}}
+"nerdtree-git-plugin{{{
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ "Unknown"   : "?"
+    \ }
 "}}}
