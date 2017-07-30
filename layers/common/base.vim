@@ -13,10 +13,11 @@ set noeol
 set nofixeol
 if has('win32')
     set ffs=dos,unix,mac
-elseif has('mac')
-    set ffs=mac,unix,dos
-    set fileformat=mac
-elseif has('unix')
+"elseif has('mac')
+    "set ffs=mac,unix,dos
+    "set fileformat=mac
+"elseif has('unix')
+else
     set ffs=unix,dos,mac
     set ff=unix
 endif
