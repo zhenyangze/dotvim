@@ -22,7 +22,15 @@ let g:fzf_colors =
             \ 'spinner': ['fg', 'Label'],
             \ 'header':  ['fg', 'Comment'] }
 let g:fzf_history_dir = '~/.local/share/fzf-history'
-let g:fzf_buffers_jump = 1
+let g:fzf_buffers_jump = 0
+
+command! -bang -nargs=* FzfTodo
+  \ call fzf#vim#ag('[^\w_\$\''''\>](FIXME|TODO|todo|fixme|Todo|ToDo|toDo):?[^\w_\/\(\'''']',
+  \                 <bang>0 ? fzf#vim#with_preview('up:60%')
+  \                         : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \                 <bang>0)
+
+
 autocmd VimEnter * command! -bang Colors
             \ call fzf#vim#colors({'left': '15%', 'options': '--reverse --margin 30%,0'}, <bang>0)
 let g:fzf_command_prefix = 'Fzf'

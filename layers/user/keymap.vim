@@ -360,8 +360,9 @@ let g:lmap.j = { 'name': 'Jump'}
 let g:lmap.f = { 
             \'name': 'FZF & Find',
             \'a': ['FzfAg', 'Ag'],
+            \'c': ['FzfCommits', 'Commit'],
             \'b': ['FzfBuffers', 'Buffers'],
-            \'l': ['FzfBLines', 'Buffer`s Lines'],
+            \'l': ['FzfTodo', 'Todo List'],
             \'g': ['FzfLines', 'Lines'],
             \'f': ['call ShowfindFiles()', 'File'],
             \'d': ['FzfCommands', 'Commands'],
