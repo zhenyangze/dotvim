@@ -32,6 +32,7 @@ endif
 " }}}
 " {{{vim-php-refactoring-toolbox
 let g:vim_php_refactoring_use_default_mapping = 0
+let g:vim_php_refactoring_phpdoc = '<SNR>83_DoxygenCommentFunc'
 nnoremap <unique> <Leader>prv :call PhpRenameLocalVariable()<CR>
 nnoremap <unique> <Leader>prc :call PhpRenameClassVariable()<CR>
 nnoremap <unique> <Leader>prm :call PhpRenameMethod()<CR>
