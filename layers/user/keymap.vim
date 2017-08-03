@@ -352,6 +352,15 @@ let g:lmap.e = {
             \'x': ['normal! "+x"', 'Cut'],
             \'f': ['let @+=expand("%")', 'Copy File Name'],
             \}
+let g:lmap.p = {
+            \'name': 'Php',
+            \'r': {'name': 'rename'},
+            \'e': {'name': 'Extract'},
+            \'c': {'name': 'Create'},
+            \'d': {'name': 'Doc'},
+            \'a': {'name': 'Align'},
+            \}
+
 " \'y': ['normal! `<v`>"+y', 'Copy'],
 vnoremap <leader>ey "+y"
 noremap <leader>ea ggvG

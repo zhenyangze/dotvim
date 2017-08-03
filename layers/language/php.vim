@@ -8,6 +8,7 @@ endif
 
 Plug 'stephpy/vim-php-cs-fixer' ,{ 'for': 'php'}
 Plug 'arnaud-lb/vim-php-namespace',{ 'for': 'php'}
+Plug 'adoy/vim-php-refactoring-toolbox', {'for': 'php'}
 Plug 'joonty/vdebug', {'for': 'php'} 
 
 
@@ -22,4 +23,19 @@ if !exists("g:vdebug_options")
     let g:debuggerMaxDepth = 5  
 endif
 " }}}
-
+" {{{vim-php-refactoring-toolbox
+let g:vim_php_refactoring_use_default_mapping = 0
+nnoremap <unique> <Leader>prv :call PhpRenameLocalVariable()<CR>
+nnoremap <unique> <Leader>prc :call PhpRenameClassVariable()<CR>
+nnoremap <unique> <Leader>prm :call PhpRenameMethod()<CR>
+nnoremap <unique> <Leader>peu :call PhpExtractUse()<CR>
+vnoremap <unique> <Leader>pec :call PhpExtractConst()<CR>
+nnoremap <unique> <Leader>pep :call PhpExtractClassProperty()<CR>
+vnoremap <unique> <Leader>pem :call PhpExtractMethod()<CR>
+nnoremap <unique> <Leader>pcp :call PhpCreateProperty()<CR>
+nnoremap <unique> <Leader>pdu :call PhpDetectUnusedUseStatements()<CR>
+vnoremap <unique> <Leader>pas :call PhpAlignAssigns()<CR>
+nnoremap <unique> <Leader>pcs :call PhpCreateSettersAndGetters()<CR>
+nnoremap <unique> <Leader>pcg :call PhpCreateGetters()<CR>
+nnoremap <unique> <Leader>pda :call PhpDocAll()<CR>
+" }}}
