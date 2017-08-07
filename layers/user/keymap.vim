@@ -350,7 +350,13 @@ let g:lmap.e = {
             \'name': 'Edit',
             \'p': ['normal! "+gP"', 'Pase'],
             \'x': ['normal! "+x"', 'Cut'],
-            \'f': ['let @+=expand("%")', 'Copy File Name'],
+            \'f': {
+                \'name': 'File',
+                \'f': ['let @+=expand("%:t:r")', 'Copy File Name'],
+                \'e': ['let @+=expand("%:t")', 'Copy File Name With Extension'],
+                \'a': ['let @+=expand("%:p:h")', 'Copy File Absolute Path'],
+                \'r': ['let @+=expand("%:h")', 'Copy File Relative Path'],
+                \}
             \}
 let g:lmap.p = {
             \'name': 'Php',
