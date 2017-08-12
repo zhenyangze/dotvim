@@ -20,7 +20,6 @@ colorscheme gruvbox
 "            \ | endif
 
 let g:startify_custom_header = [
-            \ '                                                            ',
             \ '    _______                 __     __                       ',
             \ '   |___  / |                \ \   / /                       ',
             \ '      / /| |__   ___ _ __    \ \_/ /_ _ _ __   __ _ _______ ',
