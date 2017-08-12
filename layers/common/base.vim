@@ -94,12 +94,6 @@ if has("gui_running")
     set guioptions-=R
     set guicursor=i:ver1
 end
-syntax enable
-set background=dark
-  " colorscheme molokai
-  " colorscheme spacegray
-  " colorscheme onedark
-" colorscheme space-vim-dark
 
 " window
 set splitright
