@@ -1,6 +1,7 @@
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --omnisharp-completer --system-libclang --system-boost'}
+if version > 741
+    Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --omnisharp-completer --system-libclang --system-boost'}
 
-"youcomplete"{{{
+    "youcomplete"{{{
     augroup load_us_ycm
         autocmd!
         autocmd InsertEnter * call plug#load('ultisnips', 'YouCompleteMe')
@@ -85,4 +86,5 @@ Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --omnisha
 
     au InsertEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
     au InsertEnter * exec "inoremap <silent> " . g:UltiSnipsJumpBackwardTrigger . " <C-R>=g:UltiSnips_Reverse()<cr>"
-"}}}
+    "}}}
+endif

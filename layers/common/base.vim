@@ -10,7 +10,9 @@ set formatoptions+=B
 "set fileformats+=dos
 "set binary " VIM Disable Automatic Newline At End Of File
 set noeol
-set nofixeol
+if version > 740
+    set nofixeol
+endif
 if has('win32')
     set ffs=dos,unix,mac
 "elseif has('mac')

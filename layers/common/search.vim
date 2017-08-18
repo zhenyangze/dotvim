@@ -1,1 +1,3 @@
-Plug 'romainl/vim-cool'
+if version > 750
+    Plug 'romainl/vim-cool'
+endif
