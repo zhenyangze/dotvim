@@ -214,7 +214,7 @@ nmap <Leader>zp :set pastetoggle=<CR>  "黏贴折行"
 nmap <Leader>zf :set foldcolumn=1<CR>  "折叠所在行"
 nmap <Leader>znf :set foldcolumn&<CR>  "取消折叠"
 nmap <Leader>zs :SyntasticToggleMode<CR>  "语法检测"
-nmap <Leader>zl :LeaderGuideToggle<CR>  "引导开关"
+nnoremap <silent> <Leader>zl :LeaderGuideToggle<CR>  "引导开关"
 nnoremap <silent> <leader>za :ArgWrap<CR>
 let g:AutoPairsFlyMode = 0
 let g:AutoPairsShortcutToggle = '<Leader>zq' "auto-pairs"
@@ -259,29 +259,15 @@ endif
  "<CTRL-g>s - same as <CTRL-s>
  "<CTRL-g>S - same as <CTRL-s><CTRL-s>
 
-" @ replace
-" -----------------------------------------------------------------------------
-" 替换函数。参数说明：
-" confirm：是否替换前逐一确认
-" wholeword：是否整词匹配
-" replace：被替换字符串
-function! Replace(confirm, wholeword, replace)
-    wa
-    let flag = ''
-    if a:confirm
-        let flag .= 'gec'
-    else
-        let flag .= 'ge'
-    endif
-    let search = ''
-    if a:wholeword
-        let search .= '\<' . escape(expand('<cword>'), '/\.*$^~[') . '\>'
-    else
-        let search .= expand('<cword>')
-    endif
-    let replace = escape(a:replace, '/\&~')
-    execute 'argdo %s/' . search . '/' . replace . '/' . flag . '| update'
-endfunction
+" @ replace 
+nmap     <Leader>rf <Plug>CtrlSFPrompt
+vmap     <Leader>rf <Plug>CtrlSFVwordPath
+vmap     <Leader>rF <Plug>CtrlSFVwordExec
+nmap     <Leader>rn <Plug>CtrlSFCwordPath
+nmap     <Leader>rp <Plug>CtrlSFPwordPath
+nnoremap <Leader>ro :CtrlSFOpen<CR>
+nnoremap <Leader>rt :CtrlSFToggle<CR>
+inoremap <Leader>rt <Esc>:CtrlSFToggle<CR>
 
 " @ tmux
 " -----------------------------------------------------------------------------
@@ -409,10 +395,6 @@ let g:lmap.r = {
             \'name': 'Reload & Replace',
             \'d': ['e ++ff=dos', 'Open As Dos'],
             \'u': ['e ++ff=unix', 'Open As Unix'],
-            \'c': ['call Replace(0, 0, input("Replace ".expand("\<cword\>")." with: "))', '不确认、非整词'],
-            \'r': ['call Replace(0, 1, input("Replace ".expand("\<cword\>")." with: "))', '不确认、整词'],
-            \'ic': ['call Replace(1, 0, input("Replace ".expand("\<cword\>")." with: "))', '确认、非整词'],
-            \'ir': ['call Replace(1, 1, input("Replace ".expand("\<cword\>")." with: "))', '确认、整词'],
             \}
 let g:lmap.s = {
             \'name': 'Session',
