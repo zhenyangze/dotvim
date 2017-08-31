@@ -17,7 +17,7 @@ Plug 'stephpy/vim-php-cs-fixer' ,{ 'for': 'php'}
 Plug 'arnaud-lb/vim-php-namespace',{ 'for': 'php'}
 Plug 'adoy/vim-php-refactoring-toolbox', {'for': 'php'}
 Plug 'joonty/vdebug', {'for': 'php'} 
-Plug 'joonty/vim-phpqa', {'for': 'php'}
+"Plug 'joonty/vim-phpqa', {'for': 'php'}
 
 " vdebug" {{{
 if !exists("g:vdebug_options")

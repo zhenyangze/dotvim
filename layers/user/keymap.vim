@@ -66,14 +66,16 @@ function! ShowShell ()
         let w:window_shell = 0
     else
         if (exists(":VimuxRunCommand") > 0 && exists('$TMUX'))
+            let w:window_shell = 1
             silent! exec "VimuxRunCommand 'll'"
         elseif (exists(":ConqueTermSplit") > 0)
-            silent! exec ":ConqueTermSplit /bin/zsh"
+            let w:window_shell = 1
+            let shellpath=substitute(system('echo $0'), '\n', '', '')
+            silent! exec "ConqueTermSplit " . shellpath . " "
         else
-            exec ":! "
+            exec ":! " . input('shell:')
         endif
 
-        let w:window_shell = 1
     endif
 endfunction
 

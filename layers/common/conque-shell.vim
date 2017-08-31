@@ -1,0 +1,1 @@
+Plug 'wkentaro/conque.vim'
