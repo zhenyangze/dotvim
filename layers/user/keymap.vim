@@ -342,6 +342,7 @@ let g:lmap.e = {
             \'x': ['normal! "+x"', 'Cut'],
             \'f': {
                 \'name': 'File',
+                \'c': ['let @+=expand("%:f")', 'Copy File Name With Path'],
                 \'f': ['let @+=expand("%:t:r")', 'Copy File Name'],
                 \'e': ['let @+=expand("%:t")', 'Copy File Name With Extension'],
                 \'a': ['let @+=expand("%:p:h")', 'Copy File Absolute Path'],
