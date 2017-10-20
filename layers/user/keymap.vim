@@ -299,6 +299,11 @@ else
     map <C-l> <C-w>l
 endif
 
+function! FzfTagsFunction()
+    let s:current_word = expand("<cword>")
+    silent! exec "FzfTags " . s:current_word
+endfunction
+
 " leader-guide{{{
 let g:lmap =  {
             \'1': ['tabn 1', 'No.1'],
@@ -373,7 +378,7 @@ let g:lmap.f = {
             \'f': ['call ShowfindFiles()', 'File'],
             \'d': ['FzfCommands', 'Commands'],
             \'t': ['FzfBTags', 'Bufer`s Tags'],
-            \'T': ['FzfTags', 'Tags'],
+            \'T': ['call FzfTagsFunction()', 'Tags'],
             \'m': ['FzfMarks', 'Marks'],
             \'p': ['FzfMaps', 'Maps'],
             \'h': ['FzfHistory', 'Histroy'],
