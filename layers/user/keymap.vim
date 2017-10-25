@@ -354,6 +354,13 @@ let g:lmap.e = {
                 \'r': ['let @+=expand("%:h")', 'Copy File Relative Path'],
                 \}
             \}
+let g:lmap.l = {
+            \'name': 'Layout',
+            \'f': ['TilerFocus', 'Focus'],
+            \'r': ['TilerReorder', 'Reorder'],
+            \'c': ['TilerClose', 'Close'],
+            \'n': ['TilerNew', 'New'],
+            \}
 let g:lmap.p = {
             \'name': 'Php',
             \'r': {'name': 'rename'},
