@@ -162,7 +162,7 @@ function! ShowfindFiles()
         silent! execute "Find ".findFileName
     endif
 endfunction
-noremap = :call ShowfindFiles()<cr>
+
 
 function! Find(cmd)
   let l:files = system(a:cmd)
