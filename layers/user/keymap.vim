@@ -302,7 +302,7 @@ endif
 
 function! FzfTagsFunction()
     let s:current_word = expand("<cword>")
-    silent! exec "FzfTags " . s:current_word
+    exec "FzfTags " . s:current_word
 endfunction
 
 " leader-guide{{{
