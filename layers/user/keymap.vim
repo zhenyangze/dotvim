@@ -149,7 +149,8 @@ nmap F <Plug>(easymotion-overwin-f2)
 "nmap <Leader>ff :call ShowfindFiles()<CR>
 function! ShowfindFiles()
     if (g:loaded_fzf > 0)
-        execute "FZF"
+        "execute "FZF"
+        call FzfFilesFunction()
     elseif (g:leaderf_loaded > 0)
         if (exists("g:Lf_ShortcutF"))
             execute "Leaderf"
@@ -303,6 +304,11 @@ endif
 function! FzfTagsFunction()
     let s:current_word = expand("<cword>")
     exec "FzfTags " . s:current_word
+endfunction
+function! FzfFilesFunction()
+    let s:current_word = expand("<cword>")
+    let g:fzf_files_options = ['-m', '--query', s:current_word]
+    exec "FzfFiles"
 endfunction
 
 " leader-guide{{{
