@@ -1,16 +1,7 @@
-Plug 'guns/xterm-color-table.vim'
-Plug 'altercation/vim-colors-solarized'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'liuchengxu/space-vim-dark'
 Plug 'Yggdroot/indentLine'
-
-Plug 'ajh17/spacegray.vim'
-Plug 'joshdick/onedark.vim'
-Plug 'tomasr/molokai'
-Plug 'mhinz/vim-janah'
-Plug 'dracula/vim'
-Plug 'morhetz/gruvbox'
+Plug 'flazz/vim-colorschemes'
 
 " vim-airline-themes"{{{theme
 if !exists("g:airline_theme")
