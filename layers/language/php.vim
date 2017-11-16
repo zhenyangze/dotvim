@@ -17,6 +17,9 @@ Plug 'stephpy/vim-php-cs-fixer' ,{ 'for': 'php'}
 Plug 'arnaud-lb/vim-php-namespace',{ 'for': 'php'}
 Plug 'adoy/vim-php-refactoring-toolbox', {'for': 'php'}
 Plug 'joonty/vdebug', {'for': 'php'} 
+Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
+nnoremap <silent><nowait> <leader>pg :call phpcd#JumpToDefinition('normal')<CR>
+nnoremap <silent><nowait> <leader>pb :call phpcd#JumpBack()<CR>
 "Plug 'joonty/vim-phpqa', {'for': 'php'}
 
 " vdebug" {{{

@@ -17,6 +17,8 @@ let g:startify_files_number = 8
 let g:startify_list_order = [
             \ ['   Projects'],
             \ 'projects',
+            \ ['   Dirs'],
+            \ 'dir',
             \ ['   Files'],
             \ 'files',
             \ ['   Sessions'],
