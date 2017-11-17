@@ -1,10 +1,10 @@
 if has('nvim')
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
-    if (has('python3'))
-        execute 'python3 import neovim'
-    else
+    if (has('mac'))
         execute 'python import neovim'
+    else
+        execute 'python3 import neovim'
     endif
 
     Plug 'roxma/vim-hug-neovim-rpc'
