@@ -372,6 +372,10 @@ let g:lmap.e = {
                 \'e': ['let @+=expand("%:t")', 'Copy File Name With Extension'],
                 \'a': ['let @+=expand("%:p:h")', 'Copy File Absolute Path'],
                 \'r': ['let @+=expand("%:h")', 'Copy File Relative Path'],
+                \},
+            \'y': {
+                \'name': 'Yank',
+                \'s': ['YRShow', 'Show Yank List']
                 \}
             \}
 let g:lmap.l = {
