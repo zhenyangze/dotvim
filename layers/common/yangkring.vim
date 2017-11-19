@@ -1,6 +1,8 @@
 Plug 'vim-scripts/YankRing.vim'
 "将yankring的历史文件夹移到~/.vim
-"let g:yankring_history_dir = '/.tmp'
+if (has('unix')) 
+    let g:yankring_history_dir = '/tmp'
+endif
 "修改历史文件名
 "let g:yankring_history_file = '.yankring_history'
 "<leader>m选择上一个复制的文本
