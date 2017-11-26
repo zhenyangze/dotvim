@@ -13,5 +13,5 @@ let CtagsCscope_Auto_Map = 1
 let GtagsCscope_Quiet = 1
 
 let g:Gtags_OpenQuickfixWindow = 1
-let g:Gtags_Auto_Map = 0 
-let g:Gtags_Auto_Update = 0
+let g:Gtags_Auto_Map = 1 
+let g:Gtags_Auto_Update = 1

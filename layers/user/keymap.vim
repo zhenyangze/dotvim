@@ -405,7 +405,8 @@ let g:lmap.f = {
             \'c': ['FzfCommits', 'Commit'],
             \'b': ['FzfBuffers', 'Buffers'],
             \'l': ['FzfTodo', 'Todo List'],
-            \'g': ['FzfLines', 'Lines'],
+            \'g': ['Gtags', 'gtags'],
+            \'G': ['Gtags -r', 'gtags'],
             \'f': ['call ShowfindFiles()', 'File'],
             \'d': ['FzfCommands', 'Commands'],
             \'t': ['FzfBTags', 'Bufer`s Tags'],
@@ -413,6 +414,9 @@ let g:lmap.f = {
             \'m': ['FzfMarks', 'Marks'],
             \'p': ['FzfMaps', 'Maps'],
             \'h': ['FzfHistory', 'Histroy'],
+            \'s': ['cs find g <cword>', 'Goto definition'],
+            \'r': ['cs find c <cword>', 'Goto calling'],
+            \'e': ['cs find e <cword>', 'Goto string'],
             \} 
 let g:lmap.d = { 
             \'name': 'Directory',
