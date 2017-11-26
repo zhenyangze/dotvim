@@ -301,6 +301,11 @@ else
     map <C-l> <C-w>l
 endif
 
+function! TagsJumpFunction()
+    let s:current_word = expand("<cword>")
+    exec "tag " . s:current_word
+endfunction
+
 function! FzfTagsFunction()
     let s:current_word = GetVisualSelection()
     exec "FzfTags " . s:current_word
@@ -335,6 +340,8 @@ let g:lmap =  {
             \'7': ['tabn 7', 'No.7'],
             \'8': ['tabn 8', 'No.8'],
             \'9': ['tabn 9', 'No.9'],
+            \'[': ['pop', 'Tag go back'],
+            \']': ['call TagsJumpFunction()', 'Go to tag'],
             \}
 
 let g:lmap.w = {
