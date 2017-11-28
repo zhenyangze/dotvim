@@ -440,17 +440,22 @@ let g:lmap.t = {
            \}
 
 let g:lmap.c = { 'name': 'Comment'}
-let g:lmap.z = { 'name': 'Zoom'}
+let g:lmap.z = { 
+            \'name': 'Zoom',
+            \'s': ['ALEToggle', 'Ale Toggle'],
+            \}
 let g:lmap.r = {
             \'name': 'Reload & Replace',
             \'d': ['e ++ff=dos', 'Open As Dos'],
             \'u': ['e ++ff=unix', 'Open As Unix'],
             \}
 let g:lmap.s = {
-            \'name': 'Session',
+            \'name': 'Session & Syntastic',
             \'l': ['SessionList', 'List'],
             \'s': ['SessionSave', 'Save'],
             \'c': ['SessionClose', 'Close'],
+            \'n': ['ALENext', 'Ale Next'],
+            \'p': ['ALEPrevious', 'Ale Previous'],
             \}
 
 " Create new menus not based on existing mappings:
