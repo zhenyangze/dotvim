@@ -328,6 +328,22 @@ function! GetVisualSelection()
     let lines[0] = lines[0][column_start - 1:]
     return join(lines, "\n")
 endfunction
+" get Regular
+function! GetSelectedText()
+       let tmp = @"
+       normal! gvy
+       normal! gv
+       let [tmp, @"] = [@", tmp]
+       return tmp
+endfunc
+
+function! PlainTextPattern(s)
+       return substitute(substitute('\V'.escape(a:s, '\'), '\n', '\\n', 'g'), '\t', '\\t', 'g')
+endfunc
+
+function! GetSearchPat()
+    let @+ = PlainTextPattern(GetSelectedText())
+endfunc
 
 " leader-guide{{{
 let g:lmap =  {
@@ -403,7 +419,9 @@ let g:lmap.p = {
 
 " \'y': ['normal! `<v`>"+y', 'Copy'],
 vnoremap <leader>ey "+y"
-noremap <leader>ea ggvG
+noremap <leader>ev ggvG
+noremap <leader>ea :%y<CR>
+noremap <leader>er :call GetSearchPat()<CR>
 
 let g:lmap.j = { 'name': 'Jump'} 
 let g:lmap.f = { 
