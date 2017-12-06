@@ -1,5 +1,5 @@
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle'  }
-Plug 'jistr/vim-nerdtree-tabs', { 'on': 'NERDTreeToggle'  }
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeTabsToggle'  }
+Plug 'jistr/vim-nerdtree-tabs', { 'on': 'NERDTreeTabsToggle'  }
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
 function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
@@ -60,3 +60,4 @@ endfunction
 " Highlight currently open buffer in NERDTree
 autocmd BufWinEnter * call SyncTree()
 "}}}
+" let g:NERDTreeWinPos = "right"
