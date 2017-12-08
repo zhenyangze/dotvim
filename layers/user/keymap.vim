@@ -24,9 +24,9 @@ vnoremap <tab> %
 
 " 将分号和冒号互换
 nnoremap ; :
-nnoremap : ;
+"nnoremap : ;
 vnoremap ; :
-vnoremap : ;
+"vnoremap : ;
 "inoremap jk <ESC>
 
 
