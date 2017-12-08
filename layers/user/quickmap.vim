@@ -1,0 +1,1 @@
+nmap F :FzfFiles<CR>
