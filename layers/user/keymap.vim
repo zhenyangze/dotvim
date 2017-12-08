@@ -10,6 +10,7 @@ nnoremap k gk
 nnoremap gk k
 nnoremap j gj
 nnoremap gj j
+nnoremap Q :q!<CR>
 command! W w !sudo tee % > /dev/null
 
 "屏蔽掉讨厌的F1键
