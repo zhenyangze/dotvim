@@ -1,1 +1,1 @@
-Plug 'aperezdc/vim-template'
+Plug 'zhenyangze/vim-template'
