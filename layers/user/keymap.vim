@@ -414,6 +414,7 @@ let g:lmap.f = {
             \'G': ['Gtags -r', 'gtags'],
             \'f': ['call ShowfindFiles()', 'File'],
             \'d': ['FzfCommands', 'Commands'],
+            \'n': ['FzfDirs', 'NerdTreeFind'],
             \'t': ['FzfBTags', 'Bufer`s Tags'],
             \'T': ['call FzfTagsFunction()', 'Tags'],
             \'m': ['FzfMarks', 'Marks'],

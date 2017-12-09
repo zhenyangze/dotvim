@@ -4,3 +4,4 @@ nmap ,t :NERDTreeTabsToggle<CR>
 nmap ,c :cclose<CR>
 nmap ,q :qall!<CR>
 nmap ,w :w!<CR>
+nmap ,d :FzfDirs<CR>

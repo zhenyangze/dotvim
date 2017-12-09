@@ -32,6 +32,8 @@ command! -bang -nargs=* FzfTodo
   \                         : fzf#vim#with_preview('right:50%:hidden', '?'),
   \                 <bang>0)
 
+command! -bang FzfDirs
+            \ call fzf#run(fzf#wrap('fzfdirs', {'source':'find .  -type d  \( ! -iname ".*" \) | sed "s|^\./||g"', 'sink': 'NERDTreeFind'}, 0))
 
 autocmd VimEnter * command! -bang Colors
             \ call fzf#vim#colors({'left': '15%', 'options': '--reverse --margin 30%,0'}, <bang>0)

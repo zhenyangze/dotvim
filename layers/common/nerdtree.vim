@@ -1,5 +1,5 @@
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeTabsToggle'  }
-Plug 'jistr/vim-nerdtree-tabs', { 'on': 'NERDTreeTabsToggle'  }
+Plug 'zhenyangze/nerdtree' ", { 'on': 'NERDTreeTabsToggle'  }
+Plug 'jistr/vim-nerdtree-tabs' ", { 'on': 'NERDTreeTabsToggle'  }
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
 function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
