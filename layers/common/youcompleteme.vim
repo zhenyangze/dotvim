@@ -24,6 +24,7 @@ if version > 751
     let g:ycm_cache_omnifunc=1
     "在注释中也可以补全  
     let g:ycm_complete_in_comments=1
+    let g:ycm_key_detailed_diagnostics=""
     let g:ycm_semantic_triggers =  {
                 \   'c' : ['->', '.'],
                 \   'objc' : ['->', '.', 're!\[[_a-zA-Z]+\w*\s', 're!^\s*[^\W\d]\w*\s',

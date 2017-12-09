@@ -352,9 +352,7 @@ let g:lmap.w = {
             \'g': ['call ShowGunDo()', 'GunDoToggle'],
             \'b': ['call ShowShell()', 'Run Shell'],
             \}
-let g:lmap.a = { 
-            \'name' : 'Tabular',
-            \}
+let g:lmap.a = { 'name' : 'Align' }
 let g:lmap.b = {
             \'name': 'Buffer',
             \'c': ['bwipeout', 'Close'],
@@ -378,7 +376,7 @@ let g:lmap.e = {
                 \},
             \'y': {
                 \'name': 'Yank',
-                \'s': ['YRShow', 'Show Yank List']
+                \'l': ['YRShow', 'Show Yank List']
                 \}
             \}
 let g:lmap.l = {
