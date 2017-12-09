@@ -1,0 +1,1 @@
+Plug 'aperezdc/vim-template'
