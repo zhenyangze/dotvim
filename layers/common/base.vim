@@ -105,7 +105,7 @@ set splitbelow
 autocmd FileType python set tabstop=4 shiftwidth=4 expandtab ai
 autocmd FileType ruby set tabstop=2 shiftwidth=2 softtabstop=2 expandtab ai
 autocmd FileType vue set tabstop=2 shiftwidth=2 softtabstop=2 expandtab ai
-autocmd FileType js set tabstop=2 shiftwidth=2 softtabstop=2 expandtab ai
+autocmd FileType javascript set tabstop=2 shiftwidth=2 softtabstop=2 expandtab ai
 autocmd Filetype gitcommit setlocal spell textwidth=80
 "autocmd FileType php setlocal noeol binary fileformat=dos
 autocmd BufRead,BufNew *.md,*.mkd,*.markdown  set filetype=markdown.mkd
