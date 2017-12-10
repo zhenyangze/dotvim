@@ -1,4 +1,5 @@
 nmap ,f :FzfFiles<CR>
+nmap ,b :FzfBuffers<CR>
 nmap ,h :Startify<CR>
 nmap ,t :NERDTreeTabsToggle<CR>
 nmap ,c :cclose<CR>
