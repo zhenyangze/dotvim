@@ -7,3 +7,4 @@ nmap ,q :qall!<CR>
 nmap ,w :w!<CR>
 nmap ,d :FzfDirs<CR>
 nmap ,s :NERDTreeFind %<CR>
+nmap ,r :Rooter<CR>
