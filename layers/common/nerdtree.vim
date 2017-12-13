@@ -1,4 +1,4 @@
-Plug 'zhenyangze/nerdtree' ", { 'on': 'NERDTreeTabsToggle'  }
+Plug 'scrooloose/nerdtree' ", { 'on': 'NERDTreeTabsToggle'  }
 Plug 'jistr/vim-nerdtree-tabs' ", { 'on': 'NERDTreeTabsToggle'  }
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
