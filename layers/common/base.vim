@@ -54,10 +54,10 @@ set helplang=cn "帮助系统设置为中文
 set shortmess=atI "启动的时候不显示那个援助索马里儿童的提示`
 
 " fold
-set foldlevel=999   " 启动vim时不要自动折叠代码
+set foldlevel=5   " 启动vim时不要自动折叠代码
 set showmatch " 高亮显示匹配的括号 
 set wrap
-set foldmethod=marker
+set foldmethod=indent
 "1. manual //手工定义折叠
 "2. indent //用缩进表示折叠
 "3. expr　 //用表达式来定义折叠
