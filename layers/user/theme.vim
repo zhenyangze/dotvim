@@ -1,10 +1,12 @@
 syntax enable
 
-let g:space_vim_dark_background = 234
-autocmd ColorScheme janah highlight Normal ctermbg=235
+"let g:space_vim_dark_background = 234
+"autocmd ColorScheme janah highlight Normal ctermbg=235
 "colorscheme space-vim-dark
-set background=dark
-colorscheme gruvbox
+"set background=dark
+"colorscheme gruvbox
+colorscheme onedark
+set termguicolors
 
 "color dracula
 " colorscheme molokai
