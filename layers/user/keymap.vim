@@ -89,6 +89,13 @@ function! JumpToWindow(num)
     silent! call win_gotoid(l:winId)
 endfunction
 
+" jump to tab
+function! JumpToTab(num)
+    exec "tabn " . a:num
+endfunction
+
+
+
 " 交换 ' `, 使得可以快速使用'跳到marked位置
 nnoremap ' `
 nnoremap ` '
@@ -336,15 +343,15 @@ endfunc
 
 " leader-guide{{{
 let g:lmap =  {
-            \'1': ['call JumpToWindow(1)', 'No.1'],
-            \'2': ['call JumpToWindow(2)', 'No.2'],
-            \'3': ['call JumpToWindow(3)', 'No.3'],
-            \'4': ['call JumpToWindow(4)', 'No.4'],
-            \'5': ['call JumpToWindow(5)', 'No.5'],
-            \'6': ['call JumpToWindow(6)', 'No.6'],
-            \'7': ['call JumpToWindow(7)', 'No.7'],
-            \'8': ['call JumpToWindow(8)', 'No.8'],
-            \'9': ['call JumpToWindow(9)', 'No.9'],
+            \'1': ['call JumpToTab(1)', 'No.1'],
+            \'2': ['call JumpToTab(2)', 'No.2'],
+            \'3': ['call JumpToTab(3)', 'No.3'],
+            \'4': ['call JumpToTab(4)', 'No.4'],
+            \'5': ['call JumpToTab(5)', 'No.5'],
+            \'6': ['call JumpToTab(6)', 'No.6'],
+            \'7': ['call JumpToTab(7)', 'No.7'],
+            \'8': ['call JumpToTab(8)', 'No.8'],
+            \'9': ['call JumpToTab(9)', 'No.9'],
             \'[': ['pop', 'Tag go back'],
             \']': ['call TagsJumpFunction()', 'Go to tag'],
             \}
