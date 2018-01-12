@@ -98,6 +98,7 @@ if has("gui_running")
     set guifont=Monaco:h13
     set noantialias
     set linespace=1
+    set guicursor=n-v-c:ver10
 end
 
 " window
