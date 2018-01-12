@@ -2,10 +2,11 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'Yggdroot/indentLine'
 Plug 'flazz/vim-colorschemes'
+Plug 'ayu-theme/ayu-vim'
 
 " vim-airline-themes"{{{theme
 if !exists("g:airline_theme")
-    let g:airline_theme="powerlineish" ":AirlineTheme {theme-name} Displays or changes the current theme.
+    let g:airline_theme="onedark" ":AirlineTheme {theme-name} Displays or changes the current theme.
     "这个是安装字体后 必须设置此项" 
     let g:airline_powerline_fonts = 1   
     let g:airline#extensions#tabline#enabled = 1

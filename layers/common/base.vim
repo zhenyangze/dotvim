@@ -95,6 +95,9 @@ if has("gui_running")
     set guioptions-=r
     set guioptions-=R
     set guicursor=i:ver1
+    set guifont=Monaco:h13
+    set noantialias
+    set linespace=1
 end
 
 " window
