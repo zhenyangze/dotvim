@@ -3,6 +3,7 @@ Plug 'arnaud-lb/vim-php-namespace',{ 'for': 'php'}
 Plug 'adoy/vim-php-refactoring-toolbox', {'for': 'php'}
 Plug 'joonty/vdebug', {'for': 'php'} 
 Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
+Plug 'phpactor/phpactor', {'do': 'composer install'}
 nnoremap <silent><nowait> <leader>pg :call phpcd#JumpToDefinition('normal')<CR>
 nnoremap <silent><nowait> <leader>pb :call phpcd#JumpBack()<CR>
 "Plug 'joonty/vim-phpqa', {'for': 'php'}
@@ -35,3 +36,17 @@ nnoremap <unique> <Leader>pcs :call PhpCreateSettersAndGetters()<CR>
 nnoremap <unique> <Leader>pcg :call PhpCreateGetters()<CR>
 nnoremap <unique> <Leader>pda :call PhpDocAll()<CR>
 " }}}
+" vim-namespace
+function! IPhpInsertUse()
+    call PhpInsertUse()
+    call feedkeys('a',  'n')
+endfunction
+autocmd FileType php inoremap <Leader>pui <Esc>:call IPhpInsertUse()<CR>
+autocmd FileType php noremap <Leader>pui :call PhpInsertUse()<CR>
+
+function! IPhpExpandClass()
+    call PhpExpandClass()
+    call feedkeys('a', 'n')
+endfunction
+autocmd FileType php inoremap <Leader>pue <Esc>:call IPhpExpandClass()<CR>
+autocmd FileType php noremap <Leader>pue :call PhpExpandClass()<CR>
