@@ -35,6 +35,6 @@ nmap ,d :FzfDirs<CR>
 nmap ,s :NERDTreeFind %<CR>
 nmap ,r :Rooter<CR>
 nmap ,c :call ToggleWindowShow('qf', 'copen', 'cclose')<CR>
-nmap ,t :call ToggleWindowShow('nerdtree', 'NERDTreeTabsToggle', 'NERDTreeTabsToggle')<CR>
-nmap ,o :call ToggleWindowShow('tagbar', 'TagbarToggle', 'TagbarToggle')<CR>
+nmap ,t :call ToggleWindowShow('nerdtree', 'call ShowNerdTree()', 'call ShowNerdTree()')<CR>
+nmap ,o :call ToggleWindowShow('tagbar', 'call ShowTagbarToggle()', 'call ShowTagbarToggle()')<CR>
 nmap ,b :call ToggleWindowShow(['conque_term', 'zsh'], 'call ShowShell()', 'quit')<CR>

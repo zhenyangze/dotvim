@@ -1,5 +1,5 @@
 Plug 'scrooloose/nerdtree' ", { 'on': 'NERDTreeTabsToggle'  }
-Plug 'jistr/vim-nerdtree-tabs' ", { 'on': 'NERDTreeTabsToggle'  }
+"Plug 'jistr/vim-nerdtree-tabs' ", { 'on': 'NERDTreeTabsToggle'  }
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
 function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
@@ -19,7 +19,8 @@ call NERDTreeHighlightFile('css', 'cyan', 'none', 'cyan', '#151515')
 call NERDTreeHighlightFile('coffee', 'Red', 'none', 'red', '#151515')
 call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', '#151515')
 call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
-
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+let g:nerdtree_tabs_open_on_console_startup=1
 
 "jistr/vim-nerdtree-tabs{{{
 	let NERDTreeShowLineNumbers=1
@@ -51,8 +52,8 @@ endfunction
 " file, and we're not in vimdiff
 function! SyncTree()
     if &modifiable && IsNERDTreeOpen() && strlen(expand('%')) > 0 && !&diff
-        "NERDTreeFind
-        NERDTreeTabsFind
+        NERDTreeFind
+        "NERDTreeTabsFind
         wincmd p
     endif
 endfunction
