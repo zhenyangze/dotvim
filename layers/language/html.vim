@@ -1,5 +1,5 @@
-Plug 'mattn/emmet-vim',{'for':['html','php', 'htm']}
-Plug 'Valloric/MatchTagAlways', {'for':['html']}
+Plug 'mattn/emmet-vim',{'for':['html','php', 'htm', 'blade']}
+Plug 'Valloric/MatchTagAlways', {'for':['html', 'blade']}
 
 
 " emmet-vim"{{{
