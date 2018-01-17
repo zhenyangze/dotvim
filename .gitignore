@@ -7,3 +7,4 @@ init.vim
 /autoload
 /plugged
 /plug-enabled/*.vim
+session
