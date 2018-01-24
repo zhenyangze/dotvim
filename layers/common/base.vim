@@ -117,6 +117,7 @@ autocmd BufRead,BufNew *.md,*.mkd,*.markdown  set filetype=markdown.mkd
 autocmd! bufwritepost _vimrc source %
 " vimrc文件修改之后自动加载, linux
 autocmd! bufwritepost .vimrc source %
+au BufWinEnter * if &buftype == 'terminal' | setlocal bufhidden=hide | endif
 
 " 自动补全配置
 set completeopt=longest,menu	"让Vim的补全菜单行为与一般IDE一致(参考VimTip1228)
