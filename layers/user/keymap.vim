@@ -409,6 +409,7 @@ let g:lmap.p = {
             \'c': {'name': 'Create'},
             \'d': {'name': 'Doc'},
             \'a': {'name': 'Align'},
+            \'f': ['PhpFmt', 'formt'],
             \}
 
 " \'y': ['normal! `<v`>"+y', 'Copy'],

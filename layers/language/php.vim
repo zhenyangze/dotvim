@@ -4,6 +4,8 @@ Plug 'adoy/vim-php-refactoring-toolbox', {'for': 'php'}
 Plug 'joonty/vdebug', {'for': 'php'} 
 Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
 Plug 'phpactor/phpactor', {'do': 'composer install'}
+Plug 'beanworks/vim-phpfmt', { 'for': 'php' }
+let g:phpfmt_autosave = 0
 nnoremap <silent><nowait> <leader>pg :call phpcd#JumpToDefinition('normal')<CR>
 nnoremap <silent><nowait> <leader>pb :call phpcd#JumpBack()<CR>
 "Plug 'joonty/vim-phpqa', {'for': 'php'}
