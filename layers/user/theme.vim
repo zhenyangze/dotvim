@@ -6,7 +6,9 @@ syntax enable
 "set background=dark
 "colorscheme gruvbox
 colorscheme onedark
-set termguicolors
+if !exists('$TMUX')
+    set termguicolors
+endif
 
 "color dracula
 " colorscheme molokai
