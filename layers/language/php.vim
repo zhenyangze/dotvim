@@ -38,6 +38,20 @@ nnoremap <unique> <Leader>pcs :call PhpCreateSettersAndGetters()<CR>
 nnoremap <unique> <Leader>pcg :call PhpCreateGetters()<CR>
 nnoremap <unique> <Leader>pda :call PhpDocAll()<CR>
 " }}}
+" phpactor {{{
+" Include use statement
+nmap <Leader>pua :call phpactor#UseAdd()<CR>
+" Invoke the context menu
+nmap <Leader>pcm :call phpactor#ContextMenu()<CR>
+" Goto definition of class or class member under the cursor
+nmap <Leader>pgd :call phpactor#GotoDefinition()<CR>
+" Transform the classes in the current file
+nmap <Leader>ptf :call phpactor#Transform()<CR>
+" Generate a new class (replacing the current file)
+nmap <Leader>pcn :call phpactor#ClassNew()<CR>
+" Extract method from selection
+"vmap <silent><Leader>pem :<C-U>call phpactor#ExtractMethod()<CR>
+" }}}
 " vim-namespace
 function! IPhpInsertUse()
     call PhpInsertUse()

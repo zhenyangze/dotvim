@@ -26,17 +26,43 @@ let g:fzf_buffers_jump = 0
 imap <C-x><C-f> <plug>(fzf-complete-file-ag)
 imap <C-x><C-l> <plug>(fzf-complete-line)
 
+autocmd VimEnter * command! -nargs=* Rg  
+            \ call fzf#vim#grep(
+            \   'rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1,
+            \   <bang>0 ? fzf#vim#with_preview('up:60%')
+            \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+            \   <bang>0
+            \ )
+
+autocmd VimEnter * command! -bang Colors
+            \ call fzf#vim#colors({'left': '15%', 'options': '--reverse --margin 30%,0'}, <bang>0)
+
 command! -bang -nargs=* FzfTodo
   \ call fzf#vim#ag('[^\w_\$\''''\>](FIXME|TODO|todo|fixme|Todo|ToDo|toDo):?[^\w_\/\(\'''']',
   \                 <bang>0 ? fzf#vim#with_preview('up:60%')
   \                         : fzf#vim#with_preview('right:50%:hidden', '?'),
   \                 <bang>0)
 
+command! -bang -nargs=* FzfPHPClass
+            \ call fzf#vim#grep(
+            \   'rg --column --line-number --no-heading --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" -t php  -e  "^[\s]*class\s+(\S+)"', 1,
+            \   <bang>0 ? fzf#vim#with_preview('up:60%')
+            \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+            \   <bang>0
+            \ )
+
+command! -bang -nargs=* FzfPHPFunction
+            \ call fzf#vim#grep(
+            \   'rg --column --line-number --no-heading --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" -t php  -e  "^[\s]*(private|protected|public)?\s*(static)?\s*function\s+(\S+)"', 1,
+            \   <bang>0 ? fzf#vim#with_preview('up:60%')
+            \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+            \   <bang>0
+            \ )
+
+
 command! -bang FzfDirs
             \ call fzf#run(fzf#wrap('fzfdirs', {'source':'find .  -type d  \( ! -iname ".*" \) | sed "s|^\./||g"', 'sink': 'NERDTreeFind'}, 0))
 
-autocmd VimEnter * command! -bang Colors
-            \ call fzf#vim#colors({'left': '15%', 'options': '--reverse --margin 30%,0'}, <bang>0)
 let g:fzf_command_prefix = 'Fzf'
 let s:ag_options = ' --one-device --skip-vcs-ignores --smart-case '
 "}}}
