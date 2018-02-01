@@ -45,7 +45,7 @@ command! -bang -nargs=* FzfTodo
 
 command! -bang -nargs=* FzfPHPClass
             \ call fzf#vim#grep(
-            \   'rg --column --line-number --no-heading --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" -t php  -e  "^[\s]*class\s+(\S+)"', 1,
+            \   'rg --column --line-number --no-heading --ignore-case --no-ignore --hidden --follow --glob "!.git/*" -t php  -e  "^[\s]*class\s+(\S+)"', 1,
             \   <bang>0 ? fzf#vim#with_preview('up:60%')
             \           : fzf#vim#with_preview('right:50%:hidden', '?'),
             \   <bang>0
@@ -53,7 +53,7 @@ command! -bang -nargs=* FzfPHPClass
 
 command! -bang -nargs=* FzfPHPFunction
             \ call fzf#vim#grep(
-            \   'rg --column --line-number --no-heading --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" -t php  -e  "^[\s]*(private|protected|public)?\s*(static)?\s*function\s+(\S+)"', 1,
+            \   'rg --column --line-number --no-heading --ignore-case --no-ignore --hidden --follow --glob "!.git/*" -t php  -e  "^[\s]*(private|protected|public)?\s*(static)?\s*function\s+(\S+)"', 1,
             \   <bang>0 ? fzf#vim#with_preview('up:60%')
             \           : fzf#vim#with_preview('right:50%:hidden', '?'),
             \   <bang>0
