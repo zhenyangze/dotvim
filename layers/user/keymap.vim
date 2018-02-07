@@ -465,6 +465,9 @@ let g:lmap.r = {
             \'d': ['e ++ff=dos', 'Open As Dos'],
             \'u': ['e ++ff=unix', 'Open As Unix'],
             \}
+let g:lmap.v = {
+            \'name': 'EasyGrep'
+            \}
 let g:lmap.s = {
             \'name': 'Session & Syntastic',
             \'l': ['SessionList', 'List'],
