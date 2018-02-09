@@ -21,6 +21,7 @@ call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', '#151515')
 call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 let g:nerdtree_tabs_open_on_console_startup=1
+let g:NERDTreeMapToggleFilters='&'
 
 "jistr/vim-nerdtree-tabs{{{
 	let NERDTreeShowLineNumbers=1

@@ -1,0 +1,1 @@
+Plug 'vim-scripts/Color-Scheme-Explorer'
