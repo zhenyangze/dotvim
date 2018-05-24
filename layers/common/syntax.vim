@@ -23,5 +23,5 @@ Plug 'w0rp/ale'
 " phpmd {{{
 " https://www.kancloud.cn/bajiao/phpmd/128478
 "let g:ale_php_phpmd_ruleset = get(g:, 'ale_php_phpmd_ruleset', 'cleancode,codesize,controversial,design,naming,unusedcode')
-let g:ale_php_phpmd_ruleset = "codesize,naming,unusedcode"
+let g:ale_php_phpmd_ruleset = "codesize,unusedcode"
 " }}}

@@ -444,16 +444,30 @@ let g:lmap.f = {
 let g:lmap.d = { 
             \'name': 'Directory',
             \} 
+
+"let g:lmap.t = {
+            "\'name': 'Tab',
+            "\'n': ['tabnew', 'New'],
+            "\'c': ['tabc', 'Close'],
+            "\'o': ['tabo', 'Only'],
+            "\'a': ['tabp', 'Previous'],
+            "\'d': ['tabn', 'Next'],
+            "\'w': ['tabfirst', 'First'],
+            "\'s': ['tablast', 'Last'],
+           "\}
 let g:lmap.t = {
-            \'name': 'Tab',
-            \'n': ['tabnew', 'New'],
-            \'c': ['tabc', 'Close'],
-            \'o': ['tabo', 'Only'],
-            \'a': ['tabp', 'Previous'],
-            \'d': ['tabn', 'Next'],
-            \'w': ['tabfirst', 'First'],
-            \'s': ['tablast', 'Last'],
-           \}
+            \'name': 'Tool',
+            \'e': {
+                \'name' : 'Encoding',
+                \'g': ['set fileencoding=GBK', 'Save as Gbk'],
+                \'u': ['set fileencoding=UTF-8', 'Save as Utf-8'],
+                \'b': ['set nobomb', 'Delete Bom'],
+                \},
+            \'d': {
+                \'name' : 'Delete',
+                \'s': ['g/^\s*$/d', 'Delete Space line']
+                \}
+            \}
 
 let g:lmap.c = { 'name': 'Comment'}
 let g:lmap.z = { 
