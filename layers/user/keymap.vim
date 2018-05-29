@@ -366,7 +366,7 @@ let g:lmap.w = {
             \'s': ['NERDTreeTabsFind', 'NerdFind'],
             \'f': ['call ShowTagbarToggle()', 'TagBarToggle'],
             \'g': ['call ShowGunDo()', 'GunDoToggle'],
-            \'b': ['call ShowShell()', 'Run Shell'],
+            \'b': ['terminal', 'Run Shell'],
             \}
 let g:lmap.a = { 'name' : 'Align' }
 let g:lmap.b = {
