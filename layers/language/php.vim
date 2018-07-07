@@ -1,7 +1,12 @@
 Plug 'stephpy/vim-php-cs-fixer' ,{ 'for': 'php'}
 Plug 'arnaud-lb/vim-php-namespace',{ 'for': 'php'}
 Plug 'adoy/vim-php-refactoring-toolbox', {'for': 'php'}
-Plug 'joonty/vdebug', {'for': 'php'} 
+if has('python3')
+    Plug 'joonty/vdebug', {'for': 'php'} 
+endif
+Plug 'Shougo/echodoc.vim'
+set noshowmode
+let g:echodoc_enable_at_startup = 1
 Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
 Plug 'phpactor/phpactor', {'do': 'composer install'}
 Plug 'beanworks/vim-phpfmt', { 'for': 'php' }
