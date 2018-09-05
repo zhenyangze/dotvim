@@ -71,3 +71,4 @@ function! IPhpExpandClass()
 endfunction
 autocmd FileType php inoremap <Leader>pue <Esc>:call IPhpExpandClass()<CR>
 autocmd FileType php noremap <Leader>pue :call PhpExpandClass()<CR>
+autocmd BufRead,BufNewFile *.blade.php set filetype=html
