@@ -39,6 +39,9 @@ nmap ,w :w!<CR>
 nmap ,d :FzfDirs<CR>
 nmap ,s :NERDTreeFind %<CR>
 nmap ,r :Rooter<CR>
+nmap ,n :tabnew<CR>
+nmap ,y :YRShow<CR>
+nmap ,a gg0vG$<CR>
 nmap ,c :call ToggleWindowShow('qf', 'copen', 'cclose')<CR>
 nmap ,t :call ToggleWindowShow('nerdtree', 'call ShowNerdTree()', 'call ShowNerdTree()')<CR>
 nmap ,o :call ToggleWindowShow('tagbar', 'call ShowTagbarToggle()', 'call ShowTagbarToggle()')<CR>
