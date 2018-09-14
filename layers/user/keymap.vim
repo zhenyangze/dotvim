@@ -416,7 +416,7 @@ let g:lmap.p = {
 
 " \'y': ['normal! `<v`>"+y', 'Copy'],
 vnoremap <leader>ey "+y"
-noremap <leader>ev ggvG
+noremap <leader>ev ggvG$
 noremap <leader>ea :%y<CR>
 noremap <leader>er :call GetSearchPat()<CR>
 
