@@ -44,8 +44,11 @@ open vim and then execute `:PlugInstall`
 
 ### install ycm (if not installed)
 ```shell
+sudo apt-get install libboost-all-dev
+sudo apt-get install libclang-dev
 cd ~/.vim/plugged/YouCompleteMe
 ./install.py
+# ./install.py --clang-completer --omnisharp-completer --system-libclang --system-boost
 ```
 
 ### screen
