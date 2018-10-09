@@ -49,6 +49,7 @@ cd ~/.vim/plugged/YouCompleteMe
 ```
 
 ### screen
-![image1](http://wx2.sinaimg.cn/large/0060lm7Tly1fw1zsyj883j31kw0yn49p.jpg)
-![image2](http://wx1.sinaimg.cn/large/0060lm7Tly1fw1zsz198vj31kw0ynqed.jpg
+![image2](http://wx1.sinaimg.cn/large/0060lm7Tly1fw20btpf51j31kw0ynalp.jpg
 )
+![image3](http://wx3.sinaimg.cn/large/0060lm7Tly1fw20bu3hnpj31kw0ynqg3.jpg)
+![image1](http://wx4.sinaimg.cn/large/0060lm7Tly1fw20bs1a16j31kw0yntjc.jpg)
