@@ -94,6 +94,19 @@ function! JumpToTab(num)
     exec "tabn " . a:num
 endfunction
 
+" ToggleMouse 
+let g:mouse_status = 0
+function! ToggleMouse()
+    if (g:mouse_status == 0) 
+        let g:mouse_status = 1
+        set mouse=a
+        set scrolloff=0
+    else
+        let g:mouse_status = 0
+        set mouse=""
+        set scrolloff=30
+    endif
+endfunction
 
 
 " 交换 ' `, 使得可以快速使用'跳到marked位置
@@ -213,7 +226,7 @@ nmap <Leader>znw :set nowrap<CR> "关闭折行"
 nmap <Leader>zp :set pastetoggle=<CR>  "黏贴折行"
 nmap <Leader>zf :set foldcolumn=1<CR>  "折叠所在行"
 nmap <Leader>znf :set foldcolumn&<CR>  "取消折叠"
-nmap <Leader>zs :SyntasticToggleMode<CR>  "语法检测"
+"nmap <Leader>zs :SyntasticToggleMode<CR>  "语法检测"
 nnoremap <silent> <Leader>zl :LeaderGuideToggle<CR>  "引导开关"
 nnoremap <silent> <leader>za :ArgWrap<CR>
 let g:AutoPairsFlyMode = 0
@@ -473,6 +486,7 @@ let g:lmap.c = { 'name': 'Comment'}
 let g:lmap.z = { 
             \'name': 'Zoom',
             \'s': ['ALEToggle', 'Ale Toggle'],
+            \'m': ['call ToggleMouse()', 'Toggle Mouse']
             \}
 let g:lmap.r = {
             \'name': 'Reload & Replace',
