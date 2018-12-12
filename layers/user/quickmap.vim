@@ -45,7 +45,8 @@ nmap ,a gg0vG$<CR>
 nmap ,c :call ToggleWindowShow('qf', 'copen', 'cclose')<CR>
 nmap ,t :call ToggleWindowShow('nerdtree', 'call ShowNerdTree()', 'call ShowNerdTree()')<CR>
 nmap ,o :call ToggleWindowShow('tagbar', 'call ShowTagbarToggle()', 'call ShowTagbarToggle()')<CR>
-nmap ,b :call ToggleWindowShow(['conque_term', 'zsh'], 'call ShowShell()', 'quit')<CR>
+nmap ,b :call ToggleWindowShow(['conque_term', 'zsh'], 'VSTerminalToggle', 'quit')<CR>
+tmap ,b <C-w>:call ToggleWindowShow(['conque_term', 'zsh'], 'VSTerminalToggle', 'quit')<CR>
 nmap ,1 :call JumpToWindow(1)<CR>
 nmap ,2 :call JumpToWindow(2)<CR>
 nmap ,3 :call JumpToWindow(3)<CR>
