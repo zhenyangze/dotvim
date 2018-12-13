@@ -30,5 +30,5 @@ endif
      set list lcs=tab:\¦\ 
 "}}}
 " taboo.vim {{{
-let g:taboo_tab_format = " %m%N %f "
+let g:taboo_tab_format = " %m[%N] %f "
 " }}}
