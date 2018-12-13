@@ -3,6 +3,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'Yggdroot/indentLine'
 Plug 'flazz/vim-colorschemes'
 Plug 'ayu-theme/ayu-vim'
+Plug 'gcmt/taboo.vim'
 
 " vim-airline-themes"{{{theme
 if !exists("g:airline_theme")
@@ -28,3 +29,6 @@ endif
     "let g:indentLine_char = '┆'
      set list lcs=tab:\¦\ 
 "}}}
+" taboo.vim {{{
+let g:taboo_tab_format = " %m%N %f "
+" }}}
