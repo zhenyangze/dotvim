@@ -1,5 +1,6 @@
 Plug 'mattn/emmet-vim',{'for':['html','php', 'htm', 'blade']}
 Plug 'Valloric/MatchTagAlways', {'for':['html', 'blade']}
+Plug 'chrisgillis/vim-bootstrap3-snippets', {'for':['html','php', 'htm', 'blade']}
 
 
 " emmet-vim"{{{
