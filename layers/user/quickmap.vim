@@ -31,22 +31,24 @@ function! JumpToWindow(winNo)
     endif
 endfunction
 
-nmap ,f :FzfFiles<CR>
 "nmap ,b :FzfBuffers<CR>
-nmap ,h :Startify<CR>
-nmap ,q :q!<CR>
-nmap ,w :w!<CR>
-nmap ,d :FzfDirs<CR>
-nmap ,s :NERDTreeFind %<CR>
-nmap ,r :Rooter<CR>
-nmap ,n :tabnew<CR>
-nmap ,y :YRShow<CR>
 nmap ,a gg0vG$<CR>
-nmap ,c :call ToggleWindowShow('qf', 'copen', 'cclose')<CR>
-nmap ,t :call ToggleWindowShow('nerdtree', 'call ShowNerdTree()', 'call ShowNerdTree()')<CR>
-nmap ,o :call ToggleWindowShow('tagbar', 'call ShowTagbarToggle()', 'call ShowTagbarToggle()')<CR>
 nmap ,b :call ToggleWindowShow(['conque_term', 'zsh'], 'VSTerminalToggle', 'quit')<CR>
+nmap ,c :call ToggleWindowShow('qf', 'copen', 'cclose')<CR>
+nmap ,d :FzfDirs<CR>
+nmap ,f :FzfFiles<CR>
+nmap ,g :FzfAg<CR>
+nmap ,h :Startify<CR>
+nmap ,n :tabnew<CR>
+nmap ,o :call ToggleWindowShow('tagbar', 'call ShowTagbarToggle()', 'call ShowTagbarToggle()')<CR>
+nmap ,q :q!<CR>
+nmap ,r :Rooter<CR>
+nmap ,s :NERDTreeFind %<CR>
+nmap ,t :call ToggleWindowShow('nerdtree', 'call ShowNerdTree()', 'call ShowNerdTree()')<CR>
+nmap ,w :w!<CR>
+nmap ,y :YRShow<CR>
 tmap ,b <C-w>:call ToggleWindowShow(['conque_term', 'zsh'], 'VSTerminalToggle', 'quit')<CR>
+vmap ,f :call FzfFilesFunction()<CR>
 nmap ,1 :call JumpToWindow(1)<CR>
 nmap ,2 :call JumpToWindow(2)<CR>
 nmap ,3 :call JumpToWindow(3)<CR>
