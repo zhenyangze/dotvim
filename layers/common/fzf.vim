@@ -30,7 +30,7 @@ imap <C-x><C-l> <plug>(fzf-complete-line)
 command! -bang -nargs=* Ag
   \ call fzf#vim#ag(<q-args>,
   \                 <bang>0 ? fzf#vim#with_preview('up:60%')
-  \                         : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \                         : fzf#vim#with_preview('right:50%', '?'),
   \                 <bang>0)
 
 " Similarly, we can apply it to fzf#vim#grep. To use ripgrep instead of ag:
@@ -38,7 +38,7 @@ command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
   \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
   \   <bang>0 ? fzf#vim#with_preview('up:60%')
-  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \           : fzf#vim#with_preview('right:50%', '?'),
   \   <bang>0)
 
 autocmd VimEnter * command! -bang Colors
@@ -47,14 +47,14 @@ autocmd VimEnter * command! -bang Colors
 command! -bang -nargs=* FzfTodo
   \ call fzf#vim#ag('[^\w_\$\''''\>](FIXME|TODO|todo|fixme|Todo|ToDo|toDo):?[^\w_\/\(\'''']',
   \                 <bang>0 ? fzf#vim#with_preview('up:60%')
-  \                         : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \                         : fzf#vim#with_preview('right:50%', '?'),
   \                 <bang>0)
 
 command! -bang -nargs=* FzfPHPClass
             \ call fzf#vim#grep(
             \   'rg --column --line-number --no-heading --ignore-case --no-ignore --hidden --follow --glob "!.git/*" -t php  -e  "^[\s]*class\s+(\S+)"', 1,
             \   <bang>0 ? fzf#vim#with_preview('up:60%')
-            \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+            \           : fzf#vim#with_preview('right:50%', '?'),
             \   <bang>0
             \ )
 
@@ -62,9 +62,15 @@ command! -bang -nargs=* FzfPHPFunction
             \ call fzf#vim#grep(
             \   'rg --column --line-number --no-heading --ignore-case --no-ignore --hidden --follow --glob "!.git/*" -t php  -e  "^[\s]*(private|protected|public)?\s*(static)?\s*function\s+(\S+)"', 1,
             \   <bang>0 ? fzf#vim#with_preview('up:60%')
-            \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+            \           : fzf#vim#with_preview('right:50%', '?'),
             \   <bang>0
             \ )
+
+inoremap <expr> <c-x><c-l> fzf#vim#complete(fzf#wrap({
+            \ 'prefix': '^.*$',
+            \ 'source': 'rg -n ^ --color always .',
+            \ 'options': '--ansi --delimiter : --nth 3..',
+            \ 'reducer': { lines -> join(split(lines[0], ':\zs')[2:], '') }}))
 
 
 command! -bang FzfDirs
