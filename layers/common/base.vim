@@ -3,7 +3,7 @@ syn on " 语法支持
 
 " encoding
 set encoding=utf-8
-set fileencodings=utf-8,gb2312,ucs-bom,euc-cn,euc-tw,gb18030,gbk,cp936
+set fileencodings=utf-8,gb2312,ucs-bom,euc-cn,euc-tw,gb18030,gbk,cp936,unicode
 set termencoding=utf-8
 set formatoptions+=m
 set formatoptions+=B
