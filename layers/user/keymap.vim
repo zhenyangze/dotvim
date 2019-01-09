@@ -355,7 +355,7 @@ function! GetSearchPat()
 endfunc
 
 " leader-guide{{{
-let g:lmap =  {
+let g:which_key_map =  {
             \'1': ['call JumpToTab(1)', 'No.1'],
             \'2': ['call JumpToTab(2)', 'No.2'],
             \'3': ['call JumpToTab(3)', 'No.3'],
@@ -369,7 +369,7 @@ let g:lmap =  {
             \']': ['call TagsJumpFunction()', 'Go to tag'],
             \}
 
-let g:lmap.w = {
+let g:which_key_map.w = {
             \'name': 'Window',
             \'o': ['only', 'Only'],
             \'q': ['q', 'Quite'],
@@ -381,8 +381,8 @@ let g:lmap.w = {
             \'g': ['call ShowGunDo()', 'GunDoToggle'],
             \'b': ['VSTerminalToggle', 'Run Shell'],
             \}
-let g:lmap.a = { 'name' : 'Align' }
-let g:lmap.b = {
+let g:which_key_map.a = { 'name' : 'Align' }
+let g:which_key_map.b = {
             \'name': 'Buffer',
             \'c': ['bwipeout', 'Close'],
             \'d': ['bnext', 'Next'],
@@ -391,7 +391,7 @@ let g:lmap.b = {
             \'s': ['blast', 'Last'],
             \'n': ['enew', 'New'],
             \}
-let g:lmap.e = {
+let g:which_key_map.e = {
             \'name': 'Edit',
             \'p': ['normal! "+gP"', 'Pase'],
             \'x': ['normal! "+x"', 'Cut'],
@@ -408,14 +408,14 @@ let g:lmap.e = {
                 \'l': ['YRShow', 'Show Yank List']
                 \}
             \}
-let g:lmap.l = {
+let g:which_key_map.l = {
             \'name': 'Layout',
             \'f': ['TilerFocus', 'Focus'],
             \'r': ['TilerReorder', 'Reorder'],
             \'c': ['TilerClose', 'Close'],
             \'n': ['TilerNew', 'New'],
             \}
-let g:lmap.p = {
+let g:which_key_map.p = {
             \'name': 'Php',
             \'r': {'name': 'rename'},
             \'e': {'name': 'Extract'},
@@ -433,8 +433,8 @@ noremap <leader>ev ggvG$
 noremap <leader>ea :%y<CR>
 noremap <leader>er :call GetSearchPat()<CR>
 
-let g:lmap.j = { 'name': 'Jump'} 
-let g:lmap.f = { 
+let g:which_key_map.j = { 'name': 'Jump'} 
+let g:which_key_map.f = { 
             \'name': 'FZF & Find',
             \'G': ['Gtags -r', 'gtags'],
             \'T': ['call FzfTagsFunction()', 'Tags'],
@@ -454,11 +454,11 @@ let g:lmap.f = {
             \'s': ['cs find g <cword>', 'Goto definition'],
             \'t': ['FzfBTags', 'Bufer`s Tags'],
             \} 
-let g:lmap.d = { 
+let g:which_key_map.d = { 
             \'name': 'Directory',
             \} 
 
-"let g:lmap.t = {
+"let g:which_key_map.t = {
             "\'name': 'Tab',
             "\'n': ['tabnew', 'New'],
             "\'c': ['tabc', 'Close'],
@@ -468,7 +468,7 @@ let g:lmap.d = {
             "\'w': ['tabfirst', 'First'],
             "\'s': ['tablast', 'Last'],
            "\}
-let g:lmap.t = {
+let g:which_key_map.t = {
             \'name': 'Tool',
             \'e': {
                 \'name' : 'Encoding',
@@ -482,21 +482,21 @@ let g:lmap.t = {
                 \}
             \}
 
-let g:lmap.c = { 'name': 'Comment'}
-let g:lmap.z = { 
+let g:which_key_map.c = { 'name': 'Comment'}
+let g:which_key_map.z = { 
             \'name': 'Zoom',
             \'s': ['ALEToggle', 'Ale Toggle'],
             \'m': ['call ToggleMouse()', 'Toggle Mouse']
             \}
-let g:lmap.r = {
+let g:which_key_map.r = {
             \'name': 'Reload & Replace',
             \'d': ['e ++ff=dos', 'Open As Dos'],
             \'u': ['e ++ff=unix', 'Open As Unix'],
             \}
-let g:lmap.v = {
+let g:which_key_map.v = {
             \'name': 'EasyGrep'
             \}
-let g:lmap.s = {
+let g:which_key_map.s = {
             \'name': 'Session & Syntastic',
             \'l': ['SessionList', 'List'],
             \'s': ['SessionSave', 'Save'],
@@ -504,9 +504,12 @@ let g:lmap.s = {
             \'n': ['ALENext', 'Ale Next'],
             \'p': ['ALEPrevious', 'Ale Previous'],
             \}
+call which_key#register('<Space>', "g:which_key_map")
+nnoremap <silent> <leader> :<c-u>WhichKey '<Space>'<CR>
+vnoremap <silent> <leader> :<c-u>WhichKeyVisual '<Space>'<CR>
 
 " Create new menus not based on existing mappings:
-call leaderGuide#register_prefix_descriptions("<Space>", "g:lmap")
-nnoremap <silent><nowait> <leader> :<c-u>LeaderGuide '<Space>'<CR>
-vnoremap <silent><nowait> <leader> :<c-u>LeaderGuideVisual '<Space>'<CR>
+"call leaderGuide#register_prefix_descriptions("<Space>", "g:which_key_map")
+"nnoremap <silent><nowait> <leader> :<c-u>LeaderGuide '<Space>'<CR>
+"vnoremap <silent><nowait> <leader> :<c-u>LeaderGuideVisual '<Space>'<CR>
 "}}}
