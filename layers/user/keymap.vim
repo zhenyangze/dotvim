@@ -1,6 +1,10 @@
 " leader
-let mapleader = "\<Space>"  " 这个leader就映射为逗号
 let g:mapleader = "\<Space>"
+let g:maplocalleader = ","
+set timeoutlen=300
+
+nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
+nnoremap <silent> <localleader> :WhichKey ','<CR>
 
 " @ keymap
 " -----------------------------------------------------------------------------
@@ -381,7 +385,7 @@ let g:which_key_map.w = {
             \'g': ['call ShowGunDo()', 'GunDoToggle'],
             \'b': ['VSTerminalToggle', 'Run Shell'],
             \}
-let g:which_key_map.a = { 'name' : 'Align' }
+let g:which_key_map.a = 'EasyAlign'
 let g:which_key_map.b = {
             \'name': 'Buffer',
             \'c': ['bwipeout', 'Close'],
@@ -456,6 +460,7 @@ let g:which_key_map.f = {
             \} 
 let g:which_key_map.d = { 
             \'name': 'Directory',
+            \'r': ['Rooter', 'Change Root Path'],
             \} 
 
 "let g:which_key_map.t = {
@@ -478,7 +483,8 @@ let g:which_key_map.t = {
                 \},
             \'d': {
                 \'name' : 'Delete',
-                \'s': ['g/^\s*$/d', 'Delete Space line']
+                \'s': ['g/^\s*$/d', 'Delete Space line'],
+                \'c': ['%s/^#.*$//g', 'Delete Comment line'],
                 \}
             \}
 
@@ -504,12 +510,9 @@ let g:which_key_map.s = {
             \'n': ['ALENext', 'Ale Next'],
             \'p': ['ALEPrevious', 'Ale Previous'],
             \}
+
+" Create new menus not based on existing mappings:
 call which_key#register('<Space>', "g:which_key_map")
 nnoremap <silent> <leader> :<c-u>WhichKey '<Space>'<CR>
 vnoremap <silent> <leader> :<c-u>WhichKeyVisual '<Space>'<CR>
-
-" Create new menus not based on existing mappings:
-"call leaderGuide#register_prefix_descriptions("<Space>", "g:which_key_map")
-"nnoremap <silent><nowait> <leader> :<c-u>LeaderGuide '<Space>'<CR>
-"vnoremap <silent><nowait> <leader> :<c-u>LeaderGuideVisual '<Space>'<CR>
 "}}}
