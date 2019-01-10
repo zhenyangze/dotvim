@@ -26,3 +26,5 @@ command! -bang -nargs=* LListener
 
 command! -bang -nargs=* LResource
             \ call fzf#run(fzf#wrap('LResource', {'source':'find .  -type f \( ! -iname ".*" \) | grep -v "app/Modules/" | grep "app/Http/Resources" | grep -i "' . (<q-args>) . '" | sed "s|^\./||g"', 'sink': 'e'}, 0))
+command! -bang -nargs=* LAdminController
+            \ call fzf#run(fzf#wrap('LAdminController', {'source':'find .  -type f \( ! -iname ".*" \) | grep -v "app/Modules/" | grep "app/Admin/Controllers/" | grep -i "' . (<q-args>) . '" | sed "s|^\./||g"', 'sink': 'e'}, 0))

@@ -414,15 +414,16 @@ let g:which_key_map.e = {
             \}
 let g:which_key_map.l = {
             \'name': 'Laravel',
-            \'M': ['LMModule', 'Search Module'],
-            \'R': ['LMRouter', 'Search Router in Module'],
+            \'A': ['LAdminController', 'Search Controller in Admin'],
             \'C': ['LMConfig', 'Search Config in Module'],
             \'H': ['LMController', 'Search Controller in Module'],
+            \'M': ['LMModule', 'Search Module'],
+            \'R': ['LMRouter', 'Search Router in Module'],
             \'V': ['LMView', 'Search View in Module'],
             \'c': ['LConfig', 'Search Config'],
-            \'m': ['LModel', 'Search Model'],
             \'e': ['LEvent', ', Search Event'],
             \'l': ['LListener', 'Search Listener'],
+            \'m': ['LModel', 'Search Model'],
             \'r': ['LResource', 'Search Resource'],
             \}
 let g:which_key_map.p = {
