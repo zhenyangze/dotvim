@@ -401,11 +401,11 @@ let g:which_key_map.e = {
             \'x': ['normal! "+x"', 'Cut'],
             \'f': {
                 \'name': 'File',
-                \'c': ['let @+=expand("%:f")', 'Copy File Name With Path'],
-                \'f': ['let @+=expand("%:t:r:r")', 'Copy File Name'],
-                \'e': ['let @+=expand("%:t")', 'Copy File Name With Extension'],
-                \'a': ['let @+=expand("%:p:h")', 'Copy File Absolute Path'],
-                \'r': ['let @+=expand("%:h")', 'Copy File Relative Path'],
+                \'c': ['exec "let @+=expand(\"%:f\")"', 'Copy File Name With Path'],
+                \'f': ['exec "let @+=expand(\"%:t:r:r\")"', 'Copy File Name'],
+                \'e': ['exec "let @+=expand(\"%:t\")"', 'Copy File Name With Extension'],
+                \'a': ['exec "let @+=expand(\"%:p:h\")"', 'Copy File Absolute Path'],
+                \'r': ['exec "let @+=expand(\"%:h\")"', 'Copy File Relative Path'],
                 \},
             \'y': {
                 \'name': 'Yank',
