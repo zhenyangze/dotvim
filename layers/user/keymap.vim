@@ -413,11 +413,17 @@ let g:which_key_map.e = {
                 \}
             \}
 let g:which_key_map.l = {
-            \'name': 'Layout',
-            \'f': ['TilerFocus', 'Focus'],
-            \'r': ['TilerReorder', 'Reorder'],
-            \'c': ['TilerClose', 'Close'],
-            \'n': ['TilerNew', 'New'],
+            \'name': 'Laravel',
+            \'M': ['LMModule', 'Search Module'],
+            \'R': ['LMRouter', 'Search Router in Module'],
+            \'C': ['LMConfig', 'Search Config in Module'],
+            \'H': ['LMController', 'Search Controller in Module'],
+            \'V': ['LMView', 'Search View in Module'],
+            \'c': ['LConfig', 'Search Config'],
+            \'m': ['LModel', 'Search Model'],
+            \'e': ['LEvent', ', Search Event'],
+            \'l': ['LListener', 'Search Listener'],
+            \'r': ['LResource', 'Search Resource'],
             \}
 let g:which_key_map.p = {
             \'name': 'Php',
@@ -485,6 +491,13 @@ let g:which_key_map.t = {
                 \'name' : 'Delete',
                 \'s': ['g/^\s*$/d', 'Delete Space line'],
                 \'c': ['%s/^#.*$//g', 'Delete Comment line'],
+                \},
+            \'l': {
+                \'name' : 'Layout',
+                \'f': ['TilerFocus', 'Focus'],
+                \'r': ['TilerReorder', 'Reorder'],
+                \'c': ['TilerClose', 'Close'],
+                \'n': ['TilerNew', 'New'],
                 \}
             \}
 
