@@ -231,7 +231,7 @@ nmap <Leader>zp :set pastetoggle=<CR>  "黏贴折行"
 nmap <Leader>zf :set foldcolumn=1<CR>  "折叠所在行"
 nmap <Leader>znf :set foldcolumn&<CR>  "取消折叠"
 "nmap <Leader>zs :SyntasticToggleMode<CR>  "语法检测"
-nnoremap <silent> <Leader>zl :LeaderGuideToggle<CR>  "引导开关"
+"nnoremap <silent> <Leader>zl :LeaderGuideToggle<CR>  "引导开关"
 nnoremap <silent> <leader>za :ArgWrap<CR>
 let g:AutoPairsFlyMode = 0
 let g:AutoPairsShortcutToggle = '<Leader>zq' "auto-pairs"
