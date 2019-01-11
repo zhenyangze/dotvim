@@ -410,6 +410,19 @@ let g:which_key_map.e = {
             \'y': {
                 \'name': 'Yank',
                 \'l': ['YRShow', 'Show Yank List']
+                \},
+            \'s': {
+                \'name' : 'Encoding',
+                \'g': ['set fileencoding=GBK', 'Save as Gbk'],
+                \'u': ['set fileencoding=UTF-8', 'Save as Utf-8'],
+                \'b': ['set nobomb', 'Delete Bom'],
+                \},
+            \'d': {
+                \'name' : 'Delete',
+                \'s': ['g/^\s*$/d', 'Delete Space line'],
+                \'c': ['%s/^#.*$//g', 'Delete Comment line'],
+                \'m': ['%s/\r//g', 'Delete ^M'],
+                \'e': ['%s#\s*\r\?$##', 'Delete End of line Space'],
                 \}
             \}
 let g:which_key_map.l = {
@@ -482,24 +495,18 @@ let g:which_key_map.d = {
            "\}
 let g:which_key_map.t = {
             \'name': 'Tool',
-            \'e': {
-                \'name' : 'Encoding',
-                \'g': ['set fileencoding=GBK', 'Save as Gbk'],
-                \'u': ['set fileencoding=UTF-8', 'Save as Utf-8'],
-                \'b': ['set nobomb', 'Delete Bom'],
-                \},
-            \'d': {
-                \'name' : 'Delete',
-                \'s': ['g/^\s*$/d', 'Delete Space line'],
-                \'c': ['%s/^#.*$//g', 'Delete Comment line'],
-                \},
             \'l': {
                 \'name' : 'Layout',
                 \'f': ['TilerFocus', 'Focus'],
                 \'r': ['TilerReorder', 'Reorder'],
                 \'c': ['TilerClose', 'Close'],
                 \'n': ['TilerNew', 'New'],
-                \}
+                \},
+            \'m': {
+                \'name' : 'Model',
+                \'x': ['%!xxd', 'Into Hex Model'],
+                \'r': ['%!xxd -r', 'Info Custom Model'],
+                \},
             \}
 
 let g:which_key_map.c = { 'name': 'Comment'}
