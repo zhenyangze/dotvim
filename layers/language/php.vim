@@ -55,6 +55,10 @@ nmap <Leader>pgd :call phpactor#GotoDefinition()<CR>
 nmap <Leader>ptf :call phpactor#Transform()<CR>
 " Generate a new class (replacing the current file)
 nmap <Leader>pcn :call phpactor#ClassNew()<CR>
+nmap <Leader>pgn :call phpactor#Navigate()<CR>
+nmap <silent><Leader>pi :call phpactor#Hover()<CR>
+nmap <silent><Leader>pee :call phpactor#ExtractExpression(v:false)<CR>
+vmap <silent><Leader>pee :<C-U>call phpactor#ExtractExpression(v:true)<CR>
 " Extract method from selection
 "vmap <silent><Leader>pem :<C-U>call phpactor#ExtractMethod()<CR>
 " }}}
