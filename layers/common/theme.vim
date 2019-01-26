@@ -5,6 +5,10 @@ Plug 'flazz/vim-colorschemes'
 Plug 'ayu-theme/ayu-vim'
 Plug 'gcmt/taboo.vim'
 Plug 'zhenyangze/vim-material'
+if has('mac')
+    Plug 'ryanoasis/vim-devicons'
+    set guifont=DroidSansMono_Nerd_Font:h12
+endif
 
 " indentLine  "{{{ 缩进格式
     let g:indentLine_color_term = 239
