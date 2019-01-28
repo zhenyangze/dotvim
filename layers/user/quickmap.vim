@@ -36,6 +36,7 @@ nmap ,a gg0vG$<CR>
 tmap ,b <C-w>:call ToggleWindowShow(['conque_term', 'zsh'], 'VSTerminalToggle', 'quit')<CR>
 nmap ,c :call ToggleWindowShow('qf', 'copen', 'cclose')<CR>
 nmap ,d :FzfDirs<CR>
+map ,f :FzfFiles<CR>
 vmap ,f :call FzfFilesFunction()<CR>
 nmap ,g :Ag<CR>
 nmap ,h :Startify<CR>
