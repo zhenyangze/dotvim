@@ -85,21 +85,6 @@ set mouse=
 let mapleader = "\<Space>"  " 这个leader就映射为逗号
 let g:mapleader = "\<Space>"
 
-" theme
-if has("gui_running")
-    set guioptions-=m
-    set guioptions-=T
-    " 禁止显示滚动条
-    set guioptions-=l
-    set guioptions-=L
-    set guioptions-=r
-    set guioptions-=R
-    set guicursor=i:ver1
-    set noantialias
-    set linespace=1
-    set guicursor=n-v-c:ver10
-    set guifont=Menlo:h14,Monaco:h14,Courier\ New:h14,monospace:14
-end
 
 " window
 set splitright
@@ -125,3 +110,20 @@ set wildmenu
 " Ignore compiled files
 set wildignore=*.o,*~,*.pyc,*.class
 inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"	"回车即选中当前项
+
+" theme
+if has("gui_running")
+    set guioptions-=m
+    set guioptions-=T
+    " 禁止显示滚动条
+    set guioptions-=l
+    set guioptions-=L
+    set guioptions-=r
+    set guioptions-=R
+    set guicursor=i:ver1
+    set noantialias
+    set linespace=1
+    set guicursor=n-v-c:ver10
+    set scrolloff=0
+    set mouse=a
+end
