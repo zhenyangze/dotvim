@@ -406,6 +406,7 @@ let g:which_key_map.e = {
                 \'e': ['exec "let @+=expand(\"%:t\")"', 'Copy File Name With Extension'],
                 \'a': ['exec "let @+=expand(\"%:p:h\")"', 'Copy File Absolute Path'],
                 \'r': ['exec "let @+=expand(\"%:h\")"', 'Copy File Relative Path'],
+                \'l': ['e!', 'Reload File'],
                 \},
             \'y': {
                 \'name': 'Yank',
