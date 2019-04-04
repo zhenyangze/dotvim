@@ -360,6 +360,7 @@ endfunc
 
 " leader-guide{{{
 let g:which_key_map =  {
+            \'0': ['tabonly', 'Close all other tab'],
             \'1': ['call JumpToTab(1)', 'No.1'],
             \'2': ['call JumpToTab(2)', 'No.2'],
             \'3': ['call JumpToTab(3)', 'No.3'],
