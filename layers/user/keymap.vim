@@ -425,6 +425,7 @@ let g:which_key_map.e = {
                 \'c': ['%s/^#.*$//g', 'Delete Comment line'],
                 \'m': ['%s/\r//g', 'Delete ^M'],
                 \'e': ['%s#\s*\r\?$##', 'Delete End of line Space'],
+                \'a': ['%s#^\+\s*##', 'Delete Start of line Space'],
                 \}
             \}
 let g:which_key_map.l = {
