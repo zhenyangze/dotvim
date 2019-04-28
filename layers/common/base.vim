@@ -7,8 +7,16 @@ set fileencodings=utf-8,gb2312,ucs-bom,euc-cn,euc-tw,gb18030,gbk,cp936,unicode
 set termencoding=utf-8
 set formatoptions+=m
 set formatoptions+=B
+set fileformats=unix,dos,mac
 "set fileformats+=dos
 "set binary " VIM Disable Automatic Newline At End Of File
+
+if exists('$SHELL')
+    set shell=$SHELL
+else
+    set shell=/bin/sh
+endif
+
 set noeol
 if version > 740
     set nofixeol
@@ -150,3 +158,12 @@ if has("gui_running")
     set scrolloff=0
     set mouse=a
 end
+augroup vimrc-sync-fromstart
+  autocmd!
+  autocmd BufEnter * :syntax sync maxlines=200
+augroup END
+set noerrorbells visualbell t_vb=
+if has('autocmd')
+  autocmd GUIEnter * set visualbell t_vb=
+endif
+

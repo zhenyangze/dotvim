@@ -486,6 +486,18 @@ let g:which_key_map.d = {
             \'r': ['Rooter', 'Change Root Path'],
             \} 
 
+let g:which_key_map.g = { 
+            \'name': 'Git',
+            \'a': ['Gwrite', 'git add'],
+            \'b': ['Gblame', 'git blame'],
+            \'c': ['Gcommit', 'git commit'],
+            \'d': ['Gvdiff', 'git diff'],
+            \'l': ['Gpull', 'git pull'],
+            \'p': ['Gpush', 'git push'],
+            \'r': ['Gremove', 'git remove'],
+            \'s': ['Gstatus', 'git status'],
+            \} 
+
 "let g:which_key_map.t = {
             "\'name': 'Tab',
             "\'n': ['tabnew', 'New'],
