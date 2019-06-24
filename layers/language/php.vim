@@ -11,6 +11,9 @@ Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
 Plug 'phpactor/phpactor', {'do': 'composer install'}
 Plug 'beanworks/vim-phpfmt', { 'for': 'php' }
 Plug 'zhenyangze/vim-laravel5-snippets', { 'for': 'php' }
+" A standard type: PEAR, PHPCS, PSR1, PSR2, Squiz and Zend
+let g:phpfmt_standard = 'PSR2'
+"let g:phpfmt_standard = '/path/to/custom/standard.xml'
 let g:phpfmt_autosave = 0
 "nnoremap <silent><nowait> <leader>pg :call phpcd#JumpToDefinition('normal')<CR>
 nnoremap <silent><nowait> <leader>pgb :call phpcd#JumpBack()<CR>

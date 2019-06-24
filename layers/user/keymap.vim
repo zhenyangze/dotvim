@@ -413,6 +413,11 @@ let g:which_key_map.e = {
                 \'name': 'Yank',
                 \'l': ['YRShow', 'Show Yank List']
                 \},
+            \'t': {
+                \'name': 'transform',
+                \'u': ['set ff=unix', 'Set file to Unix'],
+                \'d': ['set ff=dos', 'Set file type to Dos']
+                \},
             \'s': {
                 \'name' : 'Encoding',
                 \'g': ['set fileencoding=GBK', 'Save as Gbk'],
