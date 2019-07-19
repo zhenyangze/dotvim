@@ -19,9 +19,3 @@ Plug 'w0rp/ale'
 	let g:ale_lint_on_text_changed = 0
     let g:ale_lint_on_enter = 0
 "}}}
-
-" phpmd {{{
-" https://www.kancloud.cn/bajiao/phpmd/128478
-"let g:ale_php_phpmd_ruleset = get(g:, 'ale_php_phpmd_ruleset', 'cleancode,codesize,controversial,design,naming,unusedcode')
-let g:ale_php_phpmd_ruleset = "codesize,unusedcode"
-" }}}
