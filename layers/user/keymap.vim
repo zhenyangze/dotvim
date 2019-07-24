@@ -328,7 +328,26 @@ function! FzfFilesFunction()
     let s:current_word = GetVisualSelection()
     let g:fzf_files_options = ['-m', '--query', s:current_word]
     exec "FzfFiles"
+    let g:fzf_files_options = ['-m', '--query', '']
 endfunction
+function! JumpToFile()
+    let s:current_word = expand("<cword>")
+    let g:fzf_files_options = ['-m', '--query', s:current_word]
+    exec "FzfFiles"
+    let g:fzf_files_options = ['-m', '--query', '']
+endfunction
+function! JumpToCode()
+    let s:current_word = expand("<cword>")
+    "let g:fzf_files_options = ['-m', '--query', s:current_word]
+    exec "Ag " . s:current_word
+endfunction
+function! JumpToLine()
+    let s:current_word = expand("<cword>")
+    let g:fzf_files_options = ['-m', '--query', s:current_word]
+    exec "FzfLines"
+    let g:fzf_files_options = ['-m', '--query', '']
+endfunction
+
 function! GetVisualSelection()
     " Why is this not a built-in Vim script function?!
     let [line_start, column_start] = getpos("'<")[1:2]
@@ -465,7 +484,12 @@ noremap <leader>ev ggvG$
 noremap <leader>ea :%y<CR>
 noremap <leader>er :call GetSearchPat()<CR>
 
-let g:which_key_map.j = { 'name': 'Jump'} 
+let g:which_key_map.j = { 
+            \'name': 'Jump',
+            \'f': ['call JumpToFile()', 'Jump to File'],
+            \'c': ['call JumpToCode()', 'Jump to Code'],
+            \'l': ['call JumpToLine()', 'Jump to Line']
+            \} 
 let g:which_key_map.f = { 
             \'name': 'FZF & Find',
             \'G': ['Gtags -r', 'gtags'],
