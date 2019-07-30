@@ -569,9 +569,8 @@ let g:which_key_map.v = {
             \}
 let g:which_key_map.s = {
             \'name': 'Session & Syntastic',
-            \'l': ['SessionList', 'List'],
-            \'s': ['SessionSave', 'Save'],
-            \'c': ['SessionClose', 'Close'],
+            \'t': ['Obsession!', 'Stop'],
+            \'s': ['Obsession', 'Start'],
             \'n': ['ALENext', 'Ale Next'],
             \'p': ['ALEPrevious', 'Ale Previous'],
             \}
