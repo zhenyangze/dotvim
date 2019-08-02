@@ -399,6 +399,8 @@ let g:which_key_map.w = {
             \'q': ['q', 'Quite'],
             \'c': ['q!', 'Close'],
             \'i': ['vs', 'Double'],
+            \'|': ['vs', 'Double'],
+            \'-': ['split', 'Split'],
             \'t': ['call ShowNerdTree()', 'NerdTree'],
             \'s': ['NERDTreeTabsFind', 'NerdFind'],
             \'f': ['call ShowTagbarToggle()', 'TagBarToggle'],
