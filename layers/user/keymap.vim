@@ -112,6 +112,16 @@ function! ToggleMouse()
     endif
 endfunction
 
+let g:toggle_list_data = {}
+function! ToggleSet(type, firstCommand, secondCommand)
+    if (get(g:toggle_list_data, a:type) == 0) 
+        let g:toggle_list_data[a:type]=1
+        exec a:firstCommand
+    else
+        let g:toggle_list_data[a:type]=0
+        exec a:secondCommand
+    endif
+endfunction
 
 " 交换 ' `, 使得可以快速使用'跳到marked位置
 nnoremap ' `
@@ -225,8 +235,6 @@ let g:SignatureMap = {
 
 " @ config
 " -----------------------------------------------------------------------------
-nmap <Leader>zw :set wrap<CR> "折行"
-nmap <Leader>znw :set nowrap<CR> "关闭折行"
 nmap <Leader>zp :set pastetoggle=<CR>  "黏贴折行"
 nmap <Leader>zf :set foldcolumn=1<CR>  "折叠所在行"
 nmap <Leader>znf :set foldcolumn&<CR>  "取消折叠"
@@ -277,14 +285,14 @@ endif
  "<CTRL-g>S - same as <CTRL-s><CTRL-s>
 
 " @ replace 
-nmap     <Leader>rf <Plug>CtrlSFPrompt
-vmap     <Leader>rf <Plug>CtrlSFVwordPath
-vmap     <Leader>rF <Plug>CtrlSFVwordExec
-nmap     <Leader>rn <Plug>CtrlSFCwordPath
-nmap     <Leader>rp <Plug>CtrlSFPwordPath
-nnoremap <Leader>ro :CtrlSFOpen<CR>
-nnoremap <Leader>rt :CtrlSFToggle<CR>
-inoremap <Leader>rt <Esc>:CtrlSFToggle<CR>
+"nmap     <Leader>rf <Plug>CtrlSFPrompt
+"vmap     <Leader>rf <Plug>CtrlSFVwordPath
+"vmap     <Leader>rF <Plug>CtrlSFVwordExec
+"nmap     <Leader>rn <Plug>CtrlSFCwordPath
+"nmap     <Leader>rp <Plug>CtrlSFPwordPath
+"nnoremap <Leader>ro :CtrlSFOpen<CR>
+"nnoremap <Leader>rt :CtrlSFToggle<CR>
+"inoremap <Leader>rt <Esc>:CtrlSFToggle<CR>
 
 " @ tmux
 " -----------------------------------------------------------------------------
@@ -389,9 +397,24 @@ let g:which_key_map =  {
             \'7': ['call JumpToTab(7)', 'No.7'],
             \'8': ['call JumpToTab(8)', 'No.8'],
             \'9': ['call JumpToTab(9)', 'No.9'],
-            \'[': ['pop', 'Tag go back'],
-            \']': ['call TagsJumpFunction()', 'Go to tag'],
             \}
+
+let g:which_key_map['['] = {
+            \'name': 'Jump Pre',
+            \'q': ['cp', 'Pre Quick'],
+            \'s': ['ALEPrevious', 'Pre Ale'],
+            \'e': ["execute 'move -1-'. v:count1", 'Pre Edit'],
+            \'t': ['pop', 'Pre Tag'],
+            \}
+
+let g:which_key_map[']'] = {
+            \'name': 'Jump Next',
+            \'q': ['cn', 'Next Quick'],
+            \'s': ['ALENext', 'Next Ale'],
+            \'e': ["execute 'move +'. v:count1", 'Next Edit'],
+            \'t': ['call TagsJumpFunction()', 'Next Tag'],
+            \}
+
 
 let g:which_key_map.w = {
             \'name': 'Window',
@@ -407,7 +430,7 @@ let g:which_key_map.w = {
             \'g': ['call ShowGunDo()', 'GunDoToggle'],
             \'b': ['VSTerminalToggle', 'Run Shell'],
             \}
-let g:which_key_map.a = 'EasyAlign'
+"let g:which_key_map.a = 'EasyAlign'
 let g:which_key_map.b = {
             \'name': 'Buffer',
             \'c': ['bwipeout', 'Close'],
@@ -416,9 +439,17 @@ let g:which_key_map.b = {
             \'w': ['bfirst', 'First'],
             \'s': ['blast', 'Last'],
             \'n': ['enew', 'New'],
+            \'l': ['FzfBuffers', 'List'],
             \}
+
+vnoremap <leader>ecy "+y"
+noremap <leader>ecv ggvG$
+noremap <leader>eca :%y<CR>
+noremap <leader>ecr :call GetSearchPat()<CR> "复制选中正则
 let g:which_key_map.e = {
             \'name': 'Edit',
+            \'a': {'name': 'Align'},
+            \'c': {'name': 'Copy'},
             \'p': ['normal! "+gP"', 'Pase'],
             \'x': ['normal! "+x"', 'Cut'],
             \'f': {
@@ -434,24 +465,35 @@ let g:which_key_map.e = {
                 \'name': 'Yank',
                 \'l': ['YRShow', 'Show Yank List']
                 \},
+            \'m': {
+                \'name' : 'Model',
+                \'x': ['%!xxd', 'Into Hex Model'],
+                \'r': ['%!xxd -r', 'Info Custom Model'],
+                \},
             \'t': {
                 \'name': 'transform',
                 \'u': ['set ff=unix', 'Set file to Unix'],
                 \'d': ['set ff=dos', 'Set file type to Dos']
                 \},
+            \'r': {
+                \'name': 'Reload',
+                \'d': ['e ++ff=dos', 'Open As Dos'],
+                \'u': ['e ++ff=unix', 'Open As Unix'],
+                \},
             \'s': {
-                \'name' : 'Encoding',
+                \'name' : 'Save Encoding',
                 \'g': ['set fileencoding=GBK', 'Save as Gbk'],
                 \'u': ['set fileencoding=UTF-8', 'Save as Utf-8'],
-                \'b': ['set nobomb', 'Delete Bom'],
                 \},
             \'d': {
                 \'name' : 'Delete',
-                \'s': ['g/^\s*$/d', 'Delete Space line'],
-                \'c': ['%s/^#.*$//g', 'Delete Comment line'],
-                \'m': ['%s/\r//g', 'Delete ^M'],
-                \'e': ['%s#\s*\r\?$##', 'Delete End of line Space'],
                 \'a': ['%s#^\+\s*##', 'Delete Start of line Space'],
+                \'b': ['set nobomb', 'Delete Bom'],
+                \'c': ['%s/^#.*$//g', 'Delete Comment line'],
+                \'e': ['%s#\s*\r\?$##', 'Delete End of line Space'],
+                \'m': ['%s/\r//g', 'Delete ^M'],
+                \'n': ['%s/\n//g', 'Delete \n'],
+                \'s': ['g/^\s*$/d', 'Delete Space line'],
                 \}
             \}
 let g:which_key_map.l = {
@@ -481,11 +523,6 @@ let g:which_key_map.p = {
             \}
 
 " \'y': ['normal! `<v`>"+y', 'Copy'],
-vnoremap <leader>ey "+y"
-noremap <leader>ev ggvG$
-noremap <leader>ea :%y<CR>
-noremap <leader>er :call GetSearchPat()<CR>
-
 let g:which_key_map.j = { 
             \'name': 'Jump',
             \'f': ['call JumpToFile()', 'Jump to File'],
@@ -512,10 +549,6 @@ let g:which_key_map.f = {
             \'s': ['cs find g <cword>', 'Goto definition'],
             \'t': ['FzfBTags', 'Bufer`s Tags'],
             \} 
-let g:which_key_map.d = { 
-            \'name': 'Directory',
-            \'r': ['Rooter', 'Change Root Path'],
-            \} 
 
 let g:which_key_map.g = { 
             \'name': 'Git',
@@ -529,52 +562,27 @@ let g:which_key_map.g = {
             \'s': ['Gstatus', 'git status'],
             \} 
 
-"let g:which_key_map.t = {
-            "\'name': 'Tab',
-            "\'n': ['tabnew', 'New'],
-            "\'c': ['tabc', 'Close'],
-            "\'o': ['tabo', 'Only'],
-            "\'a': ['tabp', 'Previous'],
-            "\'d': ['tabn', 'Next'],
-            "\'w': ['tabfirst', 'First'],
-            "\'s': ['tablast', 'Last'],
-           "\}
-let g:which_key_map.t = {
-            \'name': 'Tool',
-            \'l': {
-                \'name' : 'Layout',
-                \'f': ['TilerFocus', 'Focus'],
-                \'r': ['TilerReorder', 'Reorder'],
-                \'c': ['TilerClose', 'Close'],
-                \'n': ['TilerNew', 'New'],
-                \},
-            \'m': {
-                \'name' : 'Model',
-                \'x': ['%!xxd', 'Into Hex Model'],
-                \'r': ['%!xxd -r', 'Info Custom Model'],
-                \},
-            \}
+let g:which_key_map.q = { 
+            \'name': 'Quick List',
+            \'n': ['cn', 'Next'],
+            \'p': ['cp', 'Previous'],
+            \'q': ['cq', 'Quit'],
+            \'l': ['cl', 'List'],
+            \} 
+
 
 let g:which_key_map.c = { 'name': 'Comment'}
 let g:which_key_map.z = { 
             \'name': 'Zoom',
             \'s': ['ALEToggle', 'Ale Toggle'],
-            \'m': ['call ToggleMouse()', 'Toggle Mouse']
-            \}
-let g:which_key_map.r = {
-            \'name': 'Reload & Replace',
-            \'d': ['e ++ff=dos', 'Open As Dos'],
-            \'u': ['e ++ff=unix', 'Open As Unix'],
-            \}
-let g:which_key_map.v = {
-            \'name': 'EasyGrep'
+            \'m': ['call ToggleMouse()', 'Toggle Mouse'],
+            \'w': ['call ToggleSet("wrap", "set nowrap", "set wrap")', 'Toggle Wrap'],
+            \'r': ['Rooter', 'Change Root Path']
             \}
 let g:which_key_map.s = {
-            \'name': 'Session & Syntastic',
+            \'name': 'Session',
             \'t': ['Obsession!', 'Stop'],
             \'s': ['Obsession', 'Start'],
-            \'n': ['ALENext', 'Ale Next'],
-            \'p': ['ALEPrevious', 'Ale Previous'],
             \}
 
 " Create new menus not based on existing mappings:

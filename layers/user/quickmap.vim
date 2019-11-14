@@ -60,3 +60,12 @@ nnoremap ]e  :<c-u>execute 'move +'. v:count1<cr>
 
 nnoremap [<space>  :<c-u>put! =repeat(nr2char(10), v:count1)<cr>
 nnoremap ]<space>  :<c-u>put =repeat(nr2char(10), v:count1)<cr>
+
+nnoremap [c :<c-u>cp<cr>
+nnoremap ]c :<c-u>cn<cr>
+
+nnoremap [s :<c-u>ALEPrevious<cr>
+nnoremap ]s :<c-u>ALENext<cr>
+
+nnoremap [t :<c-u>pop<cr>
+nnoremap ]t :<c-u>call TagsJumpFunction()<cr>

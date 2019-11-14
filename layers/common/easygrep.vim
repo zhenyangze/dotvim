@@ -1,1 +1,0 @@
-Plug 'dkprice/vim-easygrep'

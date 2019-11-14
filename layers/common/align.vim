@@ -1,7 +1,7 @@
 Plug 'junegunn/vim-easy-align'
 
-nmap <Leader>a <Plug>(EasyAlign)
-xmap <Leader>a <Plug>(EasyAlign)
+nmap <Leader>ea <Plug>(EasyAlign)
+xmap <Leader>ea <Plug>(EasyAlign)
 
 if !exists('g:easy_align_delimiters')
     let g:easy_align_delimiters = {}
