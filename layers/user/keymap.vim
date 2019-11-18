@@ -612,6 +612,9 @@ let g:which_key_map.s = {
             \'t': ['Obsession!', 'Stop'],
             \'s': ['Obsession', 'Start'],
             \}
+let g:which_key_map.d = {
+            \'name': 'Debug',
+            \}
 
 " Create new menus not based on existing mappings:
 call which_key#register('<Space>', "g:which_key_map")
