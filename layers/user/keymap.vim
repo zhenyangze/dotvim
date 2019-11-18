@@ -207,6 +207,32 @@ command! -nargs=1 Gfind call Find('git ls-files | grep -E ' . shellescape('<args
 command! -nargs=1 Gtfind call Find('git rev-parse --show-toplevel && git ls-files | grep -E ' . shellescape('<args>'))
 command! -nargs=1 Locate call Find('locate ' . shellescape('<args>'))
 
+function! BesideFile(type)
+    let l:current_dir = expand("%:p:h")
+    let l:current_file = expand("%:p:f")
+    if (a:type == 'invert')
+        let l:file_list = split(system("find " . l:current_dir . " -type f -maxdepth 1 ! -name '*.o' ! -name '.*' | sort -r"), "\n")
+    else
+        let l:file_list = split(system("find " . l:current_dir . " -type f -maxdepth 1 ! -name '*.o' ! -name '.*'"), "\n")
+    endif
+    let l:current_index = -1
+    let l:index = 0
+    for item in l:file_list
+        let l:index += 1
+        if (item == l:current_file) 
+            let l:current_index = l:index
+        endif
+        if (l:index == (l:current_index + 1))
+            echomsg "open " . item
+            silent! execute('e ' . item)
+            break
+        endif
+    endfor
+    if (l:current_index == l:index)
+        echomsg "the last one"
+    endif
+endfunction
+
 "SignatureMap{
 let g:SignatureMap = {
             \ 'Leader'             :  "m",
@@ -405,6 +431,7 @@ let g:which_key_map['['] = {
             \'s': ['ALEPrevious', 'Pre Ale'],
             \'e': ["execute 'move -1-'. v:count1", 'Pre Edit'],
             \'t': ['pop', 'Pre Tag'],
+            \'f': ['BesideFile("invert")', 'Pre File in Current Dir'],
             \}
 
 let g:which_key_map[']'] = {
@@ -413,6 +440,7 @@ let g:which_key_map[']'] = {
             \'s': ['ALENext', 'Next Ale'],
             \'e': ["execute 'move +'. v:count1", 'Next Edit'],
             \'t': ['call TagsJumpFunction()', 'Next Tag'],
+            \'f': ['BesideFile("")', 'Next File in Current Dir'],
             \}
 
 
