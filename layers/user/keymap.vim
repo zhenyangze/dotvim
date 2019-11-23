@@ -381,6 +381,10 @@ function! JumpToLine()
     exec "FzfLines"
     let g:fzf_files_options = ['-m', '--query', '']
 endfunction
+function! AckVisualSearch()
+    let s:current_word = GetVisualSelection()
+    exec "Ack " . s:current_word
+endfunction
 
 function! GetVisualSelection()
     " Why is this not a built-in Vim script function?!
@@ -588,6 +592,8 @@ let g:which_key_map.g = {
             \'p': ['Gpush', 'git push'],
             \'r': ['Gremove', 'git remove'],
             \'s': ['Gstatus', 'git status'],
+            \'j': ['<plug>(signify-next-hunk)', 'Jump Next Change'],
+            \'k': ['<plug>(signify-prev-hunk)', 'Jump Prev Change'],
             \} 
 
 let g:which_key_map.q = { 
