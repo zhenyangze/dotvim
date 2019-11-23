@@ -383,7 +383,7 @@ function! JumpToLine()
 endfunction
 function! AckVisualSearch()
     let s:current_word = GetVisualSelection()
-    exec "Ack " . s:current_word
+    exec "Ack " . substitute(escape(s:current_word, '\'), ' ', '\\ ', 'g')
 endfunction
 
 function! GetVisualSelection()
