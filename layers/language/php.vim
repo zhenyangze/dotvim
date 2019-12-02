@@ -19,6 +19,9 @@ let g:phpfmt_autosave = 0
 nnoremap <silent><nowait> <leader>pgb :call phpcd#JumpBack()<CR>
 "Plug 'joonty/vim-phpqa', {'for': 'php'}
 
+".phpcd.vim 
+"let g:phpcd_autoload_path = 'path/to/autoload_file.php'
+
 " vdebug" {{{
 if !exists("g:vdebug_options")
     let g:vdebug_options = {
