@@ -1,5 +1,6 @@
-Plug 'nsf/gocode', {'rtp': 'vim/', 'for': 'go'}
-Plug 'fatih/vim-go', {'for': 'go'}
+"Plug 'nsf/gocode', {'rtp': 'vim/', 'for': 'go'}
+Plug 'fatih/vim-go', {'tag': '*'}
+"Plug 'mdempsky/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
 
 " vim-go " {{{golang
     let g:go_highlight_functions = 1
@@ -18,3 +19,8 @@ Plug 'fatih/vim-go', {'for': 'go'}
     au FileType go nmap <Leader>gd <Plug>(go-doc)
     au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
 " }}}
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
+let g:ale_linters = {
+    \ 'go': ['gopls'],
+\}
