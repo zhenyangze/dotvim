@@ -1,1 +1,1 @@
-"Plug 'kshenoy/vim-signature' "mx dmx m, m- ]` [`
+Plug 'kshenoy/vim-signature' "mx dmx m, m- ]` [`
