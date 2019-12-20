@@ -1,5 +1,5 @@
 if version > 751
-    Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --omnisharp-completer --system-libclang --system-boost'}
+    Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --omnisharp-completer --system-libclang --system-boost', 'on': []}
 
     "youcomplete"{{{
     augroup load_us_ycm

@@ -1,5 +1,6 @@
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+"Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline-themes'
+Plug 'liuchengxu/eleline.vim'
 Plug 'Yggdroot/indentLine'
 Plug 'flazz/vim-colorschemes'
 Plug 'ayu-theme/ayu-vim'
@@ -19,3 +20,4 @@ endif
 " taboo.vim {{{
 let g:taboo_tab_format = " %m[%N] %f "
 " }}}
+"let g:airline_powerline_fonts = 1
