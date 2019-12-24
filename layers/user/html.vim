@@ -1,1 +1,1 @@
-autocmd FileType html,css EmmetInstall
+autocmd FileType html EmmetInstall

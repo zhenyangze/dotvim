@@ -1,1 +1,1 @@
-Plug 'ap/vim-css-color',{'for':['css']}
+"Plug 'ap/vim-css-color',{'for':['css']}

@@ -112,6 +112,14 @@ function! ToggleMouse()
     endif
 endfunction
 
+function! ToggleSyntax()
+    if exists("g:syntax_on") 
+        syntax off 
+    else 
+        syntax enable
+    endif
+endfunction
+
 let g:toggle_list_data = {}
 function! ToggleSet(type, firstCommand, secondCommand)
     if (get(g:toggle_list_data, a:type) == 0) 
@@ -608,10 +616,11 @@ let g:which_key_map.q = {
 let g:which_key_map.c = { 'name': 'Comment'}
 let g:which_key_map.z = { 
             \'name': 'Zoom',
-            \'s': ['ALEToggle', 'Ale Toggle'],
+            \'a': ['ALEToggle', 'Ale Toggle'],
             \'m': ['call ToggleMouse()', 'Toggle Mouse'],
             \'w': ['call ToggleSet("wrap", "set nowrap", "set wrap")', 'Toggle Wrap'],
-            \'r': ['Rooter', 'Change Root Path']
+            \'r': ['Rooter', 'Change Root Path'],
+            \'s': ['call ToggleSyntax()', 'Syntax Toggle']
             \}
 let g:which_key_map.s = {
             \'name': 'Session',
