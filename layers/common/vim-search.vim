@@ -1,5 +1,5 @@
 Plug 'wincent/ferret'
-let g:FerretExecutable='rg.ag'
+let g:FerretExecutable='rg,ag'
 
 nmap <leader>foa <Plug>(FerretAck)
 vmap <leader>foa :call AckVisualSearch()<cr>
