@@ -21,8 +21,8 @@ nnoremap <silent><nowait> <leader>pgb :call phpcd#JumpBack()<CR>
 
 ".phpcd.vim 
 "创建 .autoload.php 文件，并写入以下内容：
-"require './vendor/autoload.php';
-"require './_ide_helper.php';
+"require_once __DIR__ . '/vendor/autoload.php';
+"require_once __DIR__ . '/_ide_helper.php';
 "创建 .phpcd.vim 文件，并写入以下内容：
 "let g:phpcd_autoload_path = 'path/to/autoload_file.php'
 
