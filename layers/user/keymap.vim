@@ -394,6 +394,17 @@ function! AckVisualSearch()
     exec "Ack " . substitute(escape(s:current_word, '\'), ' ', '\\ ', 'g')
 endfunction
 
+function! AckSearch()
+    let l:search_str = input("Search String: ", "")
+    let l:search_path = input("Search Path: ", "./", "file")
+    let l:reg_list = ['$', '-', '(', ' ', ')']
+    for item in l:reg_list 
+        let l:search_str = escape(l:search_str, item)
+    endfor
+
+    exec "Ack " . search_str . " ". l:search_path
+endfunction
+
 function! GetVisualSelection()
     " Why is this not a built-in Vim script function?!
     let [line_start, column_start] = getpos("'<")[1:2]
@@ -588,6 +599,7 @@ let g:which_key_map.f = {
             \'r': ['cs find c <cword>', 'Goto calling'],
             \'s': ['cs find g <cword>', 'Goto definition'],
             \'t': ['FzfBTags', 'Bufer`s Tags'],
+            \'i': ['call AckSearch()', 'Search'],
             \} 
 
 let g:which_key_map.g = { 
