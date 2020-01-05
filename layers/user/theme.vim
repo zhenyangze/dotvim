@@ -6,14 +6,22 @@ syntax enable
 "set background=dark
 "colorscheme gruvbox
 "colorscheme onedark
+"color dracula
+" colorscheme molokai
+" colorscheme spacegray
+" colorscheme onedark
+" colorscheme space-vim-dark
 if !exists('$TMUX')
     set termguicolors
+    set background=dark
+    let g:material_style='palenight'
+    let g:airline_theme='onedark'
+    hi comment guifg=#676E95
+    colorscheme vim-material
+else
+    set background=dark 
+    colorscheme gruvbox
 endif
-colorscheme vim-material
-let g:material_style='palenight'
-set background=dark
-let g:airline_theme='onedark'
-hi comment guifg=#676E95
 
 " vim-airline-themes"{{{theme
 if !exists("g:airline_theme")
@@ -63,14 +71,6 @@ else
   let g:airline_symbols.linenr = ''
 endif
 " set laststatus=2 " 增强vim下方状态栏显示
-
-
-
-"color dracula
-" colorscheme molokai
-" colorscheme spacegray
-" colorscheme onedark
-" colorscheme space-vim-dark
 
 "autocmd VimEnter *
             "\   if !argc()
