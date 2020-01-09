@@ -479,7 +479,19 @@ let g:which_key_map.w = {
             \'s': ['NERDTreeTabsFind', 'NerdFind'],
             \'f': ['call ShowTagbarToggle()', 'TagBarToggle'],
             \'g': ['call ShowGunDo()', 'GunDoToggle'],
-            \'b': ['VSTerminalToggle', 'Run Shell'],
+            \}
+
+let g:which_key_map.t = {
+            \'name': 'Terminal',
+            \'1': ['call TerminalOpenIndex(1)', 'Open 1st Terminal'],
+            \'2': ['call TerminalOpenIndex(2)', 'Open 2st Terminal'],
+            \'3': ['call TerminalOpenIndex(3)', 'Open 3st Terminal'],
+            \'4': ['call TerminalOpenIndex(4)', 'Open 4st Terminal'],
+            \'5': ['call TerminalOpenIndex(5)', 'Open 5st Terminal'],
+            \'t': ['VSTerminalToggle', 'Terminal Toggle'],
+            \'c': ['VSTerminalOpenNew', 'Terminal Open New'],
+            \'d': ['call TerminalDeleteWithIndex()', 'Terminal Delete With Index'],
+            \'o': ['call TerminalOpenWithIndex()', 'Terminal Open With Index'],
             \}
 "let g:which_key_map.a = 'EasyAlign'
 let g:which_key_map.b = {
