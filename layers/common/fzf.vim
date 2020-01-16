@@ -95,3 +95,24 @@ if executable('rg')
   set grepprg=rg\ --vimgrep
   command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
 endif
+
+function! ListSessions()
+  let ArgLead = a:0 >= 1 ? a:1 : ''
+  let fldr = fnamemodify(expand(ArgLead), ':h')
+  if !empty(ArgLead) && fldr != '.' && isdirectory(fldr)
+    let flist = glob(ArgLead . '*', 0, 1)
+  else
+    let flead = empty(ArgLead) ? '' : '*' . ArgLead
+    let flist = glob(fnamemodify(g:prosession_dir, ':p') . flead . '*.vim', 0, 1)
+    let flist = map(flist, "fnamemodify(v:val, ':t:r')")
+  endif
+  let flist = map(flist, "substitute(v:val, '%', '/', 'g')")
+  return flist
+endfunction
+
+
+command! -bang FzfSession
+    \ call fzf#run(fzf#wrap('fzfsession', {'source': ListSessions(), 'sink': 'Prosession'}, 0))
+
+command! -bang FzfSessionDelete
+    \ call fzf#run(fzf#wrap('fzfsession', {'source': ListSessions(), 'sink': 'ProsessionDelete'}, 0))

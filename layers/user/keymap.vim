@@ -650,6 +650,8 @@ let g:which_key_map.s = {
             \'name': 'Session',
             \'t': ['Obsession!', 'Stop'],
             \'s': ['Obsession', 'Start'],
+            \'l': ['FzfSession', 'List'],
+            \'d': ['FzfSessionDelete', 'Delete'],
             \}
 let g:which_key_map.d = {
             \'name': 'Debug',
