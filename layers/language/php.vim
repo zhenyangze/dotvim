@@ -7,7 +7,7 @@ endif
 Plug 'Shougo/echodoc.vim'
 set noshowmode
 let g:echodoc_enable_at_startup = 1
-Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
+"Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
 Plug 'phpactor/phpactor', {'do': 'composer install'}
 Plug 'beanworks/vim-phpfmt', { 'for': 'php' }
 Plug 'zhenyangze/vim-laravel5-snippets', { 'for': 'php' }
@@ -16,7 +16,7 @@ let g:phpfmt_standard = 'PSR2'
 "let g:phpfmt_standard = '/path/to/custom/standard.xml'
 let g:phpfmt_autosave = 0
 "nnoremap <silent><nowait> <leader>pg :call phpcd#JumpToDefinition('normal')<CR>
-nnoremap <silent><nowait> <leader>pgb :call phpcd#JumpBack()<CR>
+"nnoremap <silent><nowait> <leader>pgb :call phpcd#JumpBack()<CR>
 "Plug 'joonty/vim-phpqa', {'for': 'php'}
 
 ".phpcd.vim 

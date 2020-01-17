@@ -45,8 +45,8 @@ function! ShowNerdTree()
 endfunction
 
 function! ShowTagbarToggle()
-    if (exists(":TagbarToggle") > 0 )
-        silent! exec "TagbarToggle"
+    if (exists(":Vista") > 0 )
+        silent! exec "Vista!!"
     else
         nmap <Leader>wf :Sex!<CR>
     endif
