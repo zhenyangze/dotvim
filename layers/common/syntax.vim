@@ -23,3 +23,12 @@ augroup load_ale
     autocmd!
     autocmd InsertEnter * call plug#load('ale') | autocmd! load_ale
 augroup END
+
+
+let g:ale_fixers = {
+\  'php': [
+\    'remove_trailing_lines',
+\    'isort',
+\    'trim_whitespace'
+\   ]
+\}
