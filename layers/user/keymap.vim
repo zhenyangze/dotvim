@@ -644,12 +644,13 @@ let g:which_key_map.z = {
             \'m': ['call ToggleMouse()', 'Toggle Mouse'],
             \'w': ['call ToggleSet("wrap", "set nowrap", "set wrap")', 'Toggle Wrap'],
             \'r': ['Rooter', 'Change Root Path'],
-            \'s': ['call ToggleSyntax()', 'Syntax Toggle']
+            \'s': ['call ToggleSyntax()', 'Syntax Toggle'],
+            \'c' : ['call popup_clear()', 'Clear Popup']
             \}
 let g:which_key_map.s = {
             \'name': 'Session',
             \'t': ['Obsession!', 'Stop'],
-            \'s': ['Obsession', 'Start'],
+            \'s': ['Prosession .', 'Start'],
             \'l': ['FzfSession', 'List'],
             \'d': ['FzfSessionDelete', 'Delete'],
             \}
