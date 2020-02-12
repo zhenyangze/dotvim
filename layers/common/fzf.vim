@@ -25,6 +25,11 @@ let g:fzf_colors =
             \ 'marker':  ['fg', 'Keyword'],
             \ 'spinner': ['fg', 'Label'],
             \ 'header':  ['fg', 'Comment'] }
+if version > 801
+    autocmd! FileType fzf
+    autocmd  FileType fzf set noshowmode noruler nonu
+    let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
+endif
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 let g:fzf_buffers_jump = 0
 imap <C-x><C-f> <plug>(fzf-complete-file-ag)
