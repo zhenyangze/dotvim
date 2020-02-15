@@ -2,8 +2,6 @@
 .netrwhist
 .init.vim-rplugin~
 
-init.vim
-
 /autoload
 /plugged
 /plug-enabled/*.vim
