@@ -100,6 +100,9 @@ set splitbelow
 
 " autocmd
 autocmd FileType python set tabstop=4 shiftwidth=4 expandtab ai
+autocmd FileType php set tabstop=4 shiftwidth=4 expandtab ai
+autocmd FileType html set tabstop=4 shiftwidth=4 expandtab ai
+autocmd FileType blade set tabstop=4 shiftwidth=4 expandtab ai
 autocmd FileType ruby set tabstop=2 shiftwidth=2 softtabstop=2 expandtab ai
 autocmd FileType vue set tabstop=2 shiftwidth=2 softtabstop=2 expandtab ai
 autocmd FileType javascript set tabstop=2 shiftwidth=2 softtabstop=2 expandtab ai
