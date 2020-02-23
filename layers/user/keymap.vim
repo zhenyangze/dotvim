@@ -482,7 +482,7 @@ let g:which_key_map.w = {
             \}
 
 let g:which_key_map.t = {
-            \'name': 'Terminal',
+            \'name': 'Terminal && Tab',
             \'1': ['call TerminalOpenIndex(1)', 'Open 1st Terminal'],
             \'2': ['call TerminalOpenIndex(2)', 'Open 2st Terminal'],
             \'3': ['call TerminalOpenIndex(3)', 'Open 3st Terminal'],
@@ -492,6 +492,7 @@ let g:which_key_map.t = {
             \'c': ['VSTerminalOpenNew', 'Terminal Open New'],
             \'d': ['call TerminalDeleteWithIndex()', 'Terminal Delete With Index'],
             \'o': ['call TerminalOpenWithIndex()', 'Terminal Open With Index'],
+            \'n': ['tabnew', 'New Tab'],
             \}
 "let g:which_key_map.a = 'EasyAlign'
 let g:which_key_map.b = {
@@ -613,6 +614,27 @@ let g:which_key_map.f = {
             \'t': ['FzfBTags', 'Bufer`s Tags'],
             \'i': ['call AckSearch()', 'Search'],
             \} 
+
+let g:which_key_map.o = { 
+            \'name': 'Clap',
+            \'b': ['Clap buffers', 'buffer'],
+            \'c': ['Clap colors', 'colors'],
+            \'d': ['Clap command', 'command'],
+            \'h': ['Clap hist', 'history'],
+            \'f': ['Clap files', 'files'],
+            \'g': ['Clap gfiles', 'gfiles'],
+            \'s': ['Clap grep', 'search'],
+            \'+': ['Clap git_diff_files', 'git_diff_files'],
+            \'j': ['Clap jumps', 'jumps'],
+            \'q': ['Clap quickfix', 'quickfix'],
+            \'l': ['Clap loclist', 'loclist'],
+            \'r': ['Clap registers', 'registers'],
+            \'t': ['Clap tags', 'tags'],
+            \'y': ['Clap yanks', 'yanks'],
+            \'p': ['Clap providers', 'providers'],
+            \'w': ['Clap windows', 'windows'],
+            \} 
+
 
 let g:which_key_map.g = { 
             \'name': 'Git',

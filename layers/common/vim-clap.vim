@@ -1,0 +1,1 @@
+Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
