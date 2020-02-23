@@ -88,6 +88,7 @@ set visualbell t_vb=
 set showcmd "显示指令输入"
 set history=2000
 set mouse=
+set cmdheight=1
 
 " leader
 let mapleader = "\<Space>"  " 这个leader就映射为逗号

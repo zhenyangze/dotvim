@@ -13,3 +13,4 @@ let g:gen_tags#blacklist += split(glob('~/.config/dotvim/plugged/*'))
 
 
 let g:fzf_layout = { 'down': '~40%' }
+set cmdheight=1

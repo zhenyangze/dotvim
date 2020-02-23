@@ -131,6 +131,17 @@ function! ToggleSet(type, firstCommand, secondCommand)
     endif
 endfunction
 
+let g:fzf_popup_status = 0
+function! TogglePopup()
+    if (g:fzf_popup_status == 0)
+        let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
+        let g:fzf_popup_status = 1
+    else 
+        let g:fzf_layout = { 'down': '~40%' }
+        let g:fzf_popup_status = 0
+    endif
+endfunction
+
 " 交换 ' `, 使得可以快速使用'跳到marked位置
 nnoremap ' `
 nnoremap ` '
@@ -667,7 +678,8 @@ let g:which_key_map.z = {
             \'w': ['call ToggleSet("wrap", "set nowrap", "set wrap")', 'Toggle Wrap'],
             \'r': ['Rooter', 'Change Root Path'],
             \'s': ['call ToggleSyntax()', 'Syntax Toggle'],
-            \'c' : ['call popup_clear()', 'Clear Popup']
+            \'c' : ['call popup_clear()', 'Clear Popup'],
+            \'l' : ['call TogglePopup()', 'Toggle Popup']
             \}
 let g:which_key_map.s = {
             \'name': 'Session',
