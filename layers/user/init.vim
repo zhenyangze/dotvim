@@ -1,6 +1,6 @@
 silent! call determined#command('PHP', 'php', { 'vertical': 0, 'rows': '8', 'cols': '40%' })
 
-autocmd InsertLeave * silent! exec "call popup_clear()"
+autocmd TextChangedI,CompleteDone * silent! exec "call popup_clear()"
 
 let g:phpactorPhpBin = "/Applications/MxSrvs/bin/php/bin/php"
 let g:phpactorOmniAutoClassImport = v:true
