@@ -17,5 +17,6 @@
         }
     },
     "suggest.noselect": false,
-    "suggest.floatEnable": true
+    "suggest.floatEnable": true,
+    "todolist.monitor": true
 }

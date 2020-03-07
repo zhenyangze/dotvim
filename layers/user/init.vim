@@ -6,6 +6,7 @@ let g:phpactorPhpBin = "/Applications/MxSrvs/bin/php/bin/php"
 let g:phpactorOmniAutoClassImport = v:true
 
 let g:gen_tags#blacklist = ['$HOME']
+let g:gen_tags#blacklist += split(glob('/Users/yangze'))
 let g:gen_tags#blacklist += split(glob('~/.vim/plugged/*'))
 let g:gen_tags#blacklist += split(glob('~/.vim/*'))
 let g:gen_tags#blacklist += split(glob('~/.config/dotvim/*'))

@@ -2,6 +2,7 @@
 Plug 'kh3phr3n/python-syntax',{ 'for': 'python'}
 "Plug 'davidhalter/jedi-vim'
 Plug 'vim-scripts/indentpython.vim',{ 'for': 'python'}
+Plug 'zhenyangze/sklearn-snippets',{ 'for': 'python'}
 "Plug 'cjrh/vim-conda',{ 'for': 'python'}
 fun! LoadPythonEnv()
     "python with virtualenv support

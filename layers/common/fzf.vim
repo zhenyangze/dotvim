@@ -75,7 +75,7 @@ command! -bang -nargs=* FzfPHPFunction
             \ )
 
 inoremap <expr> <c-x><c-l> fzf#vim#complete(fzf#wrap({
-            \ 'prefix': '^.*$',
+            \ 'prefix': '\S*$',
             \ 'source': 'rg -n ^ --color always .',
             \ 'options': '--ansi --delimiter : --nth 3..',
             \ 'reducer': { lines -> join(split(lines[0], ':\zs')[2:], '') }}))
