@@ -2,10 +2,11 @@
 "Plug 'vim-airline/vim-airline-themes'
 Plug 'liuchengxu/eleline.vim'
 Plug 'Yggdroot/indentLine'
-Plug 'flazz/vim-colorschemes'
 Plug 'ayu-theme/ayu-vim'
 Plug 'gcmt/taboo.vim'
 Plug 'zhenyangze/vim-material'
+Plug 'https://gitee.com/zhenyangze/onehalf', {'rtp': 'vim/'}
+Plug 'colepeters/spacemacs-theme.vim'
 if has('mac')
     Plug 'ryanoasis/vim-devicons'
     set guifont=DroidSansMono_Nerd_Font:h12

@@ -16,8 +16,9 @@ if !exists('$TMUX')
     set background=dark
     let g:material_style='palenight'
     let g:airline_theme='onedark'
-    hi comment guifg=#676E95
-    colorscheme vim-material
+    colorscheme spacemacs-theme
+    "colorscheme onehalfdark
+    "colorscheme vim-material
 else
     set background=dark 
     colorscheme gruvbox
