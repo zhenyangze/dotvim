@@ -448,22 +448,22 @@ endfunc
 " leader-guide{{{
 let g:which_key_map =  {
             \'0': ['tabonly', 'Close all other tab'],
-            \'1': ['call JumpToTab(1)', 'No.1'],
-            \'2': ['call JumpToTab(2)', 'No.2'],
-            \'3': ['call JumpToTab(3)', 'No.3'],
-            \'4': ['call JumpToTab(4)', 'No.4'],
-            \'5': ['call JumpToTab(5)', 'No.5'],
-            \'6': ['call JumpToTab(6)', 'No.6'],
-            \'7': ['call JumpToTab(7)', 'No.7'],
-            \'8': ['call JumpToTab(8)', 'No.8'],
-            \'9': ['call JumpToTab(9)', 'No.9'],
+            \'1': ['JumpToTab(1)', 'No.1'],
+            \'2': ['JumpToTab(2)', 'No.2'],
+            \'3': ['JumpToTab(3)', 'No.3'],
+            \'4': ['JumpToTab(4)', 'No.4'],
+            \'5': ['JumpToTab(5)', 'No.5'],
+            \'6': ['JumpToTab(6)', 'No.6'],
+            \'7': ['JumpToTab(7)', 'No.7'],
+            \'8': ['JumpToTab(8)', 'No.8'],
+            \'9': ['JumpToTab(9)', 'No.9'],
             \}
 
 let g:which_key_map['['] = {
             \'name': 'Jump Pre',
             \'q': ['cp', 'Pre Quick'],
             \'s': ['ALEPrevious', 'Pre Ale'],
-            \'e': ["execute 'move -1-'. v:count1", 'Pre Edit'],
+            \'e': [":execute 'move -1-'. v:count1", 'Pre Edit'],
             \'t': ['pop', 'Pre Tag'],
             \'f': ['BesideFile("invert")', 'Pre File in Current Dir'],
             \}
@@ -472,7 +472,7 @@ let g:which_key_map[']'] = {
             \'name': 'Jump Next',
             \'q': ['cn', 'Next Quick'],
             \'s': ['ALENext', 'Next Ale'],
-            \'e': ["execute 'move +'. v:count1", 'Next Edit'],
+            \'e': [":execute 'move +'. v:count1", 'Next Edit'],
             \'t': ['call TagsJumpFunction()', 'Next Tag'],
             \'f': ['BesideFile("")', 'Next File in Current Dir'],
             \}
@@ -486,23 +486,23 @@ let g:which_key_map.w = {
             \'i': ['vs', 'Double'],
             \'|': ['vs', 'Double'],
             \'-': ['split', 'Split'],
-            \'t': ['call ShowNerdTree()', 'NerdTree'],
+            \'t': ['ShowNerdTree()', 'NerdTree'],
             \'s': ['NERDTreeTabsFind', 'NerdFind'],
-            \'f': ['call ShowTagbarToggle()', 'TagBarToggle'],
-            \'g': ['call ShowGunDo()', 'GunDoToggle'],
+            \'f': ['ShowTagbarToggle()', 'TagBarToggle'],
+            \'g': ['ShowGunDo()', 'GunDoToggle'],
             \}
 
 let g:which_key_map.t = {
             \'name': 'Terminal && Tab',
-            \'1': ['call TerminalOpenIndex(1)', 'Open 1st Terminal'],
-            \'2': ['call TerminalOpenIndex(2)', 'Open 2st Terminal'],
-            \'3': ['call TerminalOpenIndex(3)', 'Open 3st Terminal'],
-            \'4': ['call TerminalOpenIndex(4)', 'Open 4st Terminal'],
-            \'5': ['call TerminalOpenIndex(5)', 'Open 5st Terminal'],
+            \'1': ['TerminalOpenIndex(1)', 'Open 1st Terminal'],
+            \'2': ['TerminalOpenIndex(2)', 'Open 2st Terminal'],
+            \'3': ['TerminalOpenIndex(3)', 'Open 3st Terminal'],
+            \'4': ['TerminalOpenIndex(4)', 'Open 4st Terminal'],
+            \'5': ['TerminalOpenIndex(5)', 'Open 5st Terminal'],
             \'t': ['VSTerminalToggle', 'Terminal Toggle'],
             \'c': ['VSTerminalOpenNew', 'Terminal Open New'],
-            \'d': ['call TerminalDeleteWithIndex()', 'Terminal Delete With Index'],
-            \'o': ['call TerminalOpenWithIndex()', 'Terminal Open With Index'],
+            \'d': ['TerminalDeleteWithIndex()', 'Terminal Delete With Index'],
+            \'o': ['TerminalOpenWithIndex()', 'Terminal Open With Index'],
             \'n': ['tabnew', 'New Tab'],
             \}
 "let g:which_key_map.a = 'EasyAlign'
@@ -529,12 +529,12 @@ let g:which_key_map.e = {
             \'x': ['normal! "+x"', 'Cut'],
             \'f': {
                 \'name': 'File',
-                \'c': ['exec "let @+=expand(\"%:f\")"', 'Copy File Name With Path'],
-                \'f': ['exec "let @+=expand(\"%:t:r:r\")"', 'Copy File Name'],
-                \'e': ['exec "let @+=expand(\"%:t\")"', 'Copy File Name With Extension'],
-                \'a': ['exec "let @+=expand(\"%:p:h\")"', 'Copy File Absolute Path'],
-                \'r': ['exec "let @+=expand(\"%:h\")"', 'Copy File Relative Path'],
-                \'l': ['e!', 'Reload File'],
+                \'c': [':exec "let @+=expand(\"%:f\")"', 'Copy File Name With Path'],
+                \'f': [':exec "let @+=expand(\"%:t:r:r\")"', 'Copy File Name'],
+                \'e': [':exec "let @+=expand(\"%:t\")"', 'Copy File Name With Extension'],
+                \'a': [':exec "let @+=expand(\"%:p:h\")"', 'Copy File Absolute Path'],
+                \'r': [':exec "let @+=expand(\"%:h\")"', 'Copy File Relative Path'],
+                \'l': [':e!', 'Reload File'],
                 \},
             \'y': {
                 \'name': 'Yank',
@@ -542,33 +542,33 @@ let g:which_key_map.e = {
                 \},
             \'m': {
                 \'name' : 'Model',
-                \'x': ['%!xxd', 'Into Hex Model'],
-                \'r': ['%!xxd -r', 'Info Custom Model'],
+                \'x': [':%!xxd', 'Into Hex Model'],
+                \'r': [':%!xxd -r', 'Info Custom Model'],
                 \},
             \'t': {
                 \'name': 'transform',
-                \'u': ['set ff=unix', 'Set file to Unix'],
-                \'d': ['set ff=dos', 'Set file type to Dos']
+                \'u': [':set ff=unix', 'Set file to Unix'],
+                \'d': [':set ff=dos', 'Set file type to Dos']
                 \},
             \'r': {
                 \'name': 'Reload',
-                \'d': ['e ++ff=dos', 'Open As Dos'],
-                \'u': ['e ++ff=unix', 'Open As Unix'],
+                \'d': [':e ++ff=dos', 'Open As Dos'],
+                \'u': [':e ++ff=unix', 'Open As Unix'],
                 \},
             \'s': {
                 \'name' : 'Save Encoding',
-                \'g': ['set fileencoding=GBK', 'Save as Gbk'],
-                \'u': ['set fileencoding=UTF-8', 'Save as Utf-8'],
+                \'g': [':set fileencoding=GBK', 'Save as Gbk'],
+                \'u': [':set fileencoding=UTF-8', 'Save as Utf-8'],
                 \},
             \'d': {
                 \'name' : 'Delete',
-                \'a': ['%s#^\+\s*##', 'Delete Start of line Space'],
-                \'b': ['set nobomb', 'Delete Bom'],
-                \'c': ['%s/^#.*$//g', 'Delete Comment line'],
-                \'e': ['%s#\s*\r\?$##', 'Delete End of line Space'],
-                \'m': ['%s/\r//g', 'Delete ^M'],
-                \'n': ['%s/\n//g', 'Delete \n'],
-                \'s': ['g/^\s*$/d', 'Delete Space line'],
+                \'a': [':%s#^\+\s*##', 'Delete Start of line Space'],
+                \'b': [':set nobomb', 'Delete Bom'],
+                \'c': [':%s/^#.*$//g', 'Delete Comment line'],
+                \'e': [':%s#\s*\r\?$##', 'Delete End of line Space'],
+                \'m': [':%s/\r//g', 'Delete ^M'],
+                \'n': [':%s/\n//g', 'Delete \n'],
+                \'s': [':g/^\s*$/d', 'Delete Space line'],
                 \}
             \}
 let g:which_key_map.l = {
@@ -600,30 +600,30 @@ let g:which_key_map.p = {
 " \'y': ['normal! `<v`>"+y', 'Copy'],
 let g:which_key_map.j = { 
             \'name': 'Jump',
-            \'f': ['call JumpToFile()', 'Jump to File'],
-            \'c': ['call JumpToCode()', 'Jump to Code'],
-            \'l': ['call JumpToLine()', 'Jump to Line']
+            \'f': ['JumpToFile()', 'Jump to File'],
+            \'c': ['JumpToCode()', 'Jump to Code'],
+            \'l': ['JumpToLine()', 'Jump to Line']
             \} 
 let g:which_key_map.f = { 
             \'name': 'FZF & Find',
             \'G': ['Gtags -r', 'gtags'],
-            \'T': ['call FzfTagsFunction()', 'Tags'],
+            \'T': ['FzfTagsFunction()', 'Tags'],
             \'a': ['FzfAg', 'Ag'],
             \'b': ['FzfBuffers', 'Buffers'],
             \'c': ['FzfCommits', 'Commit'],
             \'d': ['FzfCommands', 'Commands'],
-            \'e': ['cs find e <cword>', 'Goto string'],
-            \'f': ['call ShowfindFiles()', 'File'],
+            \'e': [':cs find e <cword>', 'Goto string'],
+            \'f': ['ShowfindFiles()', 'File'],
             \'g': ['Gtags', 'gtags'],
             \'h': ['FzfHistory', 'Histroy'],
             \'l': ['FzfTodo', 'Todo List'],
             \'m': ['FzfMarks', 'Marks'],
             \'n': ['FzfDirs', 'NerdTreeFind'],
             \'p': ['FzfMaps', 'Maps'],
-            \'r': ['cs find c <cword>', 'Goto calling'],
-            \'s': ['cs find g <cword>', 'Goto definition'],
+            \'r': [':cs find c <cword>', 'Goto calling'],
+            \'s': [':cs find g <cword>', 'Goto definition'],
             \'t': ['FzfBTags', 'Bufer`s Tags'],
-            \'i': ['call AckSearch()', 'Search'],
+            \'i': ['AckSearch()', 'Search'],
             \} 
 
 let g:which_key_map.o = { 
@@ -674,12 +674,12 @@ let g:which_key_map.c = { 'name': 'Comment'}
 let g:which_key_map.z = { 
             \'name': 'Zoom',
             \'a': ['ALEToggle', 'Ale Toggle'],
-            \'m': ['call ToggleMouse()', 'Toggle Mouse'],
-            \'w': ['call ToggleSet("wrap", "set nowrap", "set wrap")', 'Toggle Wrap'],
+            \'m': ['ToggleMouse()', 'Toggle Mouse'],
+            \'w': ['ToggleSet("wrap", "set nowrap", "set wrap")', 'Toggle Wrap'],
             \'r': ['Rooter', 'Change Root Path'],
-            \'s': ['call ToggleSyntax()', 'Syntax Toggle'],
-            \'c' : ['call popup_clear()', 'Clear Popup'],
-            \'l' : ['call TogglePopup()', 'Toggle Popup']
+            \'s': ['ToggleSyntax()', 'Syntax Toggle'],
+            \'c' : ['popup_clear()', 'Clear Popup'],
+            \'l' : ['TogglePopup()', 'Toggle Popup']
             \}
 let g:which_key_map.s = {
             \'name': 'Session',
