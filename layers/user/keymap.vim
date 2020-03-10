@@ -383,38 +383,35 @@ function! FzfFilesFunction()
     exec "FzfFiles"
     let g:fzf_files_options = ['-m', '--query', '']
 endfunction
-function! JumpToFile()
-    let s:current_word = expand("<cword>")
-    let g:fzf_files_options = ['-m', '--query', s:current_word]
-    exec "FzfFiles"
-    let g:fzf_files_options = ['-m', '--query', '']
-endfunction
-function! JumpToCode()
-    let s:current_word = expand("<cword>")
-    "let g:fzf_files_options = ['-m', '--query', s:current_word]
-    exec "Ag " . s:current_word
-endfunction
-function! JumpToLine()
-    let s:current_word = expand("<cword>")
-    let g:fzf_files_options = ['-m', '--query', s:current_word]
-    exec "FzfLines"
-    let g:fzf_files_options = ['-m', '--query', '']
-endfunction
 function! AckVisualSearch()
     let s:current_word = GetVisualSelection()
     exec "Ack " . substitute(escape(s:current_word, '\'), ' ', '\\ ', 'g')
 endfunction
 
-function! AckSearch()
+function! AckReplace(is_replace)
     let l:search_str = input("Search String: ", "")
+    if a:is_replace == 1
+        let l:replace_str = input("Replace String: ", "")
+    endif
     let l:search_path = input("Search Path: ", "./", "file")
-    let l:reg_list = ['$', '-', '(', ' ', ')']
-    for item in l:reg_list 
+    let l:reg_list = ['\\', '$', '-', '[', ']', '(', ')', ' ', '{', '}']
+
+    for item in l:reg_list
         let l:search_str = escape(l:search_str, item)
     endfor
-
-    exec "Ack " . search_str . " ". l:search_path
+    if a:is_replace == 1
+        for item in l:reg_list
+            let l:replace_str = escape(l:replace_str, item)
+        endfor
+    endif
+ 
+    if a:is_replace == 1
+        exec "Acks /" . search_str . "/" . l:replace_str . "/ ". l:search_path
+    else
+        exec "Ack " . search_str . " ". l:search_path
+    endif
 endfunction
+
 
 function! GetVisualSelection()
     " Why is this not a built-in Vim script function?!
@@ -505,7 +502,6 @@ let g:which_key_map.t = {
             \'o': ['TerminalOpenWithIndex()', 'Terminal Open With Index'],
             \'n': ['tabnew', 'New Tab'],
             \}
-"let g:which_key_map.a = 'EasyAlign'
 let g:which_key_map.b = {
             \'name': 'Buffer',
             \'c': ['bwipeout', 'Close'],
@@ -520,13 +516,11 @@ let g:which_key_map.b = {
 vnoremap <leader>ecy "+y"
 noremap <leader>ecv ggvG$
 noremap <leader>eca :%y<CR>
-noremap <leader>ecr :call GetSearchPat()<CR> "复制选中正则
+noremap <leader>ecr :call GetSearchPat()<CR>
 let g:which_key_map.e = {
             \'name': 'Edit',
             \'a': {'name': 'Align'},
             \'c': {'name': 'Copy'},
-            \'p': ['normal! "+gP"', 'Pase'],
-            \'x': ['normal! "+x"', 'Cut'],
             \'f': {
                 \'name': 'File',
                 \'c': [':exec "let @+=expand(\"%:f\")"', 'Copy File Name With Path'],
@@ -571,6 +565,13 @@ let g:which_key_map.e = {
                 \'s': [':g/^\s*$/d', 'Delete Space line'],
                 \}
             \}
+let g:which_key_map.e.a = "Align"
+let g:which_key_map.e.c.a = "Copy All"
+let g:which_key_map.e.c.r = "Copy Selection Regular"
+let g:which_key_map.e.c.v = "Select All"
+map <leader>ep "+gP
+let g:which_key_map.e.p = "Paste"
+
 let g:which_key_map.l = {
             \'name': 'Laravel',
             \'A': ['LAdminController', 'Search Controller in Admin'],
@@ -580,7 +581,7 @@ let g:which_key_map.l = {
             \'R': ['LMRouter', 'Search Router in Module'],
             \'V': ['LMView', 'Search View in Module'],
             \'c': ['LConfig', 'Search Config'],
-            \'e': ['LEvent', ', Search Event'],
+            \'e': ['LEvent', 'Search Event'],
             \'l': ['LListener', 'Search Listener'],
             \'m': ['LModel', 'Search Model'],
             \'r': ['LResource', 'Search Resource'],
@@ -600,10 +601,13 @@ let g:which_key_map.p = {
 " \'y': ['normal! `<v`>"+y', 'Copy'],
 let g:which_key_map.j = { 
             \'name': 'Jump',
-            \'f': ['JumpToFile()', 'Jump to File'],
-            \'c': ['JumpToCode()', 'Jump to Code'],
-            \'l': ['JumpToLine()', 'Jump to Line']
             \} 
+let g:which_key_map.j.a = "Jump to Left"
+let g:which_key_map.j.w = "Jump to Up"
+let g:which_key_map.j.s = "Jump to Down"
+let g:which_key_map.j.d = "Jump to Right"
+let g:which_key_map.j.n = "Jump to Next wrap"
+let g:which_key_map.j.p = "Jump to Previous wrap"
 let g:which_key_map.f = { 
             \'name': 'FZF & Find',
             \'G': ['Gtags -r', 'gtags'],
@@ -616,15 +620,23 @@ let g:which_key_map.f = {
             \'f': ['ShowfindFiles()', 'File'],
             \'g': ['Gtags', 'gtags'],
             \'h': ['FzfHistory', 'Histroy'],
+            \'i': ['AckReplace(0)', 'Search'],
+            \'I': ['AckReplace(1)', 'Replace'],
             \'l': ['FzfTodo', 'Todo List'],
             \'m': ['FzfMarks', 'Marks'],
             \'n': ['FzfDirs', 'NerdTreeFind'],
+            \'o': {
+                \'name': "AckSearch"
+            \},
             \'p': ['FzfMaps', 'Maps'],
             \'r': [':cs find c <cword>', 'Goto calling'],
             \'s': [':cs find g <cword>', 'Goto definition'],
             \'t': ['FzfBTags', 'Bufer`s Tags'],
-            \'i': ['AckSearch()', 'Search'],
             \} 
+let g:which_key_map.f.o.a = 'Ack Search in Quickfix'
+let g:which_key_map.f.o.l = 'Ack Search in Lack'
+let g:which_key_map.f.o.r = 'Ack Search and Replace in Quickfix'
+let g:which_key_map.f.o.w = 'Ack Search Current Word'
 
 let g:which_key_map.o = { 
             \'name': 'Clap',
@@ -668,8 +680,21 @@ let g:which_key_map.q = {
             \'l': ['cl', 'List'],
             \} 
 
-
 let g:which_key_map.c = { 'name': 'Comment'}
+let g:which_key_map.c.a = "切换//和/**/"
+let g:which_key_map.c.A = "行尾追加注释"
+let g:which_key_map.c.b = "两端对齐注释"
+let g:which_key_map.c.c = "添加注释"
+let g:which_key_map.c.i = "反转注释"
+let g:which_key_map.c.l = "左端对齐注释"
+let g:which_key_map.c.m = "最小化注释"
+let g:which_key_map.c.n = "嵌套注释"
+let g:which_key_map.c.s = "性感注释"
+let g:which_key_map.c.u = "取消注释"
+let g:which_key_map.c.y = "复制并且注释"
+let g:which_key_map.c[' '] = "切换注释"
+let g:which_key_map.c['$'] = "注释到末尾"
+
 let g:which_key_map.z = { 
             \'name': 'Zoom',
             \'a': ['ALEToggle', 'Ale Toggle'],
@@ -687,8 +712,12 @@ let g:which_key_map.s = {
             \'l': ['FzfSession', 'List'],
             \'d': ['FzfSessionDelete', 'Delete'],
             \}
-let g:which_key_map.d = {
-            \'name': 'Debug',
+let g:which_key_map.a = {
+            \'name': 'AsyncRun',
+            \'r': ['AsyncRunRun()', 'Run Current File'],
+            \'m': ['AsyncRunMake()', 'Make File'],
+            \'t': ['asyncrun#quickfix_toggle(6)', 'Toggle Async'],
+            \'q': ['asyncrun#stop(6)', 'Stop Async']
             \}
 
 " Create new menus not based on existing mappings:
