@@ -1,4 +1,4 @@
-Plug 'scrooloose/nerdtree' ", { 'on': 'NERDTreeTabsToggle'  }
+Plug 'scrooloose/nerdtree'
 "Plug 'jistr/vim-nerdtree-tabs' ", { 'on': 'NERDTreeTabsToggle'  }
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
@@ -24,11 +24,11 @@ let g:nerdtree_tabs_open_on_console_startup=1
 let g:NERDTreeMapToggleFilters='&'
 
 "jistr/vim-nerdtree-tabs{{{
-	let NERDTreeShowLineNumbers=1
-	let NERDTreeAutoCenter=1
+    let NERDTreeShowLineNumbers=1
+    let NERDTreeAutoCenter=1
 	" 是否显示隐藏文件
-	let NERDTreeShowHidden=1
-	let NERDTreeShowBookmarks=1
+    let NERDTreeShowHidden=1
+    let NERDTreeShowBookmarks=1
 "}}}
 "nerdtree-git-plugin{{{
 let g:NERDTreeIndicatorMapCustom = {
@@ -60,6 +60,6 @@ function! SyncTree()
 endfunction
 
 " Highlight currently open buffer in NERDTree
-autocmd BufWinEnter * call SyncTree()
+"autocmd BufWinEnter * call SyncTree()
 "}}}
 " let g:NERDTreeWinPos = "right"
