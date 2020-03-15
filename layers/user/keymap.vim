@@ -572,6 +572,22 @@ let g:which_key_map.e.c.v = "Select All"
 map <leader>ep "+gP
 let g:which_key_map.e.p = "Paste"
 
+let g:which_key_map.d = {
+            \'name': 'Debug',
+            \'l': ['vimspector#Launch()', 'Launch Debug'],
+            \'s': ['vimspector#Stop()', 'Stop Debug'],
+            \'b': ['vimspector#ToggleBreakpoint()', 'Toggle Breakpoint'],
+            \'c': ['vimspector#ClearBreakpoints()', 'Clear Breakpoint'],
+            \'q': ['vimspector#Reset()', 'Quite Debug'],
+            \'r': ['vimspector#Continue()', 'Continue Run'],
+            \'R': ['vimspector#Restart()', 'Restart Debug'],
+            \'i': ['vimspector#StepInto()', 'Step Info'],
+            \'o': ['vimspector#StepOut()', 'Step Out'],
+            \'v': ['vimspector#StepOver()', 'Step Over'],
+            \'p': ['vimspector#Pause()', 'Pause'],
+            \'B': ['vimspector#ListBreakpoints()', 'List Breakpoints'],
+            \}
+
 let g:which_key_map.l = {
             \'name': 'Laravel',
             \'A': ['LAdminController', 'Search Controller in Admin'],

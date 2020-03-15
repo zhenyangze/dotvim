@@ -10,6 +10,7 @@ mv $HOME/.vimrc $HOME/.vimrc_backup 2>/dev/null
 
 ln -s $DIR $HOME/.vim
 ln -s $DIR/vimrc $HOME/.vimrc
+ln -s $DIR/vimspector.json $HOME/.vimspector.json
 
 if hash nvim 2>/dev/null; then
 	mkdir -p $HOME/.config
