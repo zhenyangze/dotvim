@@ -1,9 +1,6 @@
 Plug 'stephpy/vim-php-cs-fixer' ,{ 'for': 'php'}
 Plug 'arnaud-lb/vim-php-namespace',{ 'for': 'php'}
 Plug 'adoy/vim-php-refactoring-toolbox', {'for': 'php'}
-if has('python3')
-    Plug 'joonty/vdebug', {'for': 'php'} 
-endif
 Plug 'Shougo/echodoc.vim'
 set noshowmode
 let g:echodoc_enable_at_startup = 1
@@ -26,17 +23,6 @@ let g:phpfmt_autosave = 0
 "创建 .phpcd.vim 文件，并写入以下内容：
 "let g:phpcd_autoload_path = 'path/to/autoload_file.php'
 
-" vdebug" {{{
-if !exists("g:vdebug_options")
-    let g:vdebug_options = {
-                \    'break_on_open': 1,
-                \    'port': '9000',
-                \    'watch_window_style': 'compact',
-                \    'ide_key': 'xdebug'
-                \}
-    let g:debuggerMaxDepth = 5  
-endif
-" }}}
 " {{{vim-php-refactoring-toolbox
 let g:vim_php_refactoring_use_default_mapping = 0
 "let g:vim_php_refactoring_phpdoc = '<SNR>85_DoxygenCommentFunc'
