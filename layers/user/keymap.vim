@@ -58,32 +58,6 @@ function! ShowGunDo()
     endif
 endfunction
 
-" 显示命令窗口
-function! ShowShell ()
-    if !exists("w:window_shell")
-        let w:window_shell = 0
-    endif
-
-    if w:window_shell > 0 
-        if (exists(":VimuxRunCommand") > 0 && exists('$TMUX'))
-            silent! exec "VimuxCloseRunner"
-        endif
-        let w:window_shell = 0
-    else
-        if (exists(":VimuxRunCommand") > 0 && exists('$TMUX'))
-            let w:window_shell = 1
-            silent! exec "VimuxRunCommand 'll'"
-        elseif (exists(":ConqueTermSplit") > 0)
-            let w:window_shell = 1
-            let shellpath=substitute(system('echo $0'), '\n', '', '')
-            silent! exec "ConqueTermSplit " . shellpath . " "
-        else
-            exec ":! " . input('shell:')
-        endif
-
-    endif
-endfunction
-
 " jump to window
 function! JumpToWindow(num)
     let l:winId = win_getid(a:num)
@@ -280,14 +254,8 @@ let g:SignatureMap = {
 
 " @ config
 " -----------------------------------------------------------------------------
-nmap <Leader>zp :set pastetoggle=<CR>  "黏贴折行"
-nmap <Leader>zf :set foldcolumn=1<CR>  "折叠所在行"
-nmap <Leader>znf :set foldcolumn&<CR>  "取消折叠"
-"nmap <Leader>zs :SyntasticToggleMode<CR>  "语法检测"
-"nnoremap <silent> <Leader>zl :LeaderGuideToggle<CR>  "引导开关"
-nnoremap <silent> <leader>za :ArgWrap<CR>
 let g:AutoPairsFlyMode = 0
-let g:AutoPairsShortcutToggle = '<Leader>zq' "auto-pairs"
+let g:AutoPairsShortcutToggle = '<Leader>zq' 
 
 " @ surround
 " -----------------------------------------------------------------------------
@@ -483,10 +451,6 @@ let g:which_key_map.w = {
             \'i': ['vs', 'Double'],
             \'|': ['vs', 'Double'],
             \'-': ['split', 'Split'],
-            \'t': ['ShowNerdTree()', 'NerdTree'],
-            \'s': ['NERDTreeFind', 'NerdFind'],
-            \'f': ['ShowTagbarToggle()', 'TagBarToggle'],
-            \'g': ['ShowGunDo()', 'GunDoToggle'],
             \}
 
 let g:which_key_map.t = {
@@ -721,6 +685,8 @@ let g:which_key_map.z = {
             \'c' : ['popup_clear()', 'Clear Popup'],
             \'l' : ['TogglePopup()', 'Toggle Popup']
             \}
+let g:which_key_map.z.q = 'Toggle Pairs'
+
 let g:which_key_map.s = {
             \'name': 'Session',
             \'t': ['Obsession!', 'Stop'],
@@ -734,6 +700,16 @@ let g:which_key_map.a = {
             \'m': ['AsyncRunMake()', 'Make File'],
             \'t': ['asyncrun#quickfix_toggle(6)', 'Toggle Async'],
             \'q': ['asyncrun#stop(6)', 'Stop Async']
+            \}
+
+let g:which_key_map.v = {
+            \'name': 'View',
+            \'a': ['ArgWrap', '参数折叠'],
+            \'v': ['Voom', 'Show Outline'],
+            \'t': ['ShowNerdTree()', 'NerdTree'],
+            \'s': ['NERDTreeFind', 'NerdFind'],
+            \'f': ['ShowTagbarToggle()', 'TagBarToggle'],
+            \'g': ['ShowGunDo()', 'GunDoToggle'],
             \}
 
 " Create new menus not based on existing mappings:

@@ -1,1 +1,0 @@
-"Plug 'lilydjwg/fcitx.vim'
