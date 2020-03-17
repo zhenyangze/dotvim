@@ -705,7 +705,7 @@ let g:which_key_map.a = {
 let g:which_key_map.v = {
             \'name': 'View',
             \'a': ['ArgWrap', '参数折叠'],
-            \'v': ['Voom', 'Show Outline'],
+            \'v': ['VoomToggle', 'Toggle Outline'],
             \'t': ['ShowNerdTree()', 'NerdTree'],
             \'s': ['NERDTreeFind', 'NerdFind'],
             \'f': ['ShowTagbarToggle()', 'TagBarToggle'],
