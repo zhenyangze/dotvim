@@ -1,4 +1,4 @@
-Plug 'artur-shaik/vim-javacomplete2'
+Plug 'artur-shaik/vim-javacomplete2',{ 'for': 'java'}
 
 let g:JavaComplete_EnableDefaultMappings = 0
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
