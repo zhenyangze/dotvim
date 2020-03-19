@@ -580,7 +580,9 @@ let g:which_key_map.p = {
 
 " \'y': ['normal! `<v`>"+y', 'Copy'],
 let g:which_key_map.j = { 
-            \'name': 'Jump',
+            \'name': 'Java && Jump',
+            \'i' : 'Import',
+            \'g': 'Generate',
             \} 
 let g:which_key_map.j.a = "Jump to Left"
 let g:which_key_map.j.w = "Jump to Up"
@@ -588,6 +590,24 @@ let g:which_key_map.j.s = "Jump to Down"
 let g:which_key_map.j.d = "Jump to Right"
 let g:which_key_map.j.n = "Jump to Next wrap"
 let g:which_key_map.j.p = "Jump to Previous wrap"
+
+let g:which_key_map.j.i = {'name': 'Import'}
+let g:which_key_map.j.i.A = "Import All Missing"
+let g:which_key_map.j.i.a = "Import Missing with Ask"
+let g:which_key_map.j.i.r = "RemoveUnused Imports"
+let g:which_key_map.j.i.c = "Import Current Word Class"
+let g:which_key_map.j.i.m = "Generate AbstractMethods"
+
+let g:which_key_map.j.g = {'name': 'Generate'}
+let g:which_key_map.j.g.A = "Generate All Accessors"
+let g:which_key_map.j.g.a = "Generate Cursor Accessors"
+let g:which_key_map.j.g.s = "Generate AccessorSetter"
+let g:which_key_map.j.g.g = "Generate AccessorGetter"
+let g:which_key_map.j.g.t = "Generate ToString"
+let g:which_key_map.j.g.e = "Generate EqualsAndHashCode"
+let g:which_key_map.j.g.c = "Generate empty Constructor"
+let g:which_key_map.j.g.C = "Generate Constructor With Args"
+
 let g:which_key_map.f = { 
             \'name': 'FZF & Find',
             \'G': ['Gtags -r', 'gtags'],

@@ -26,6 +26,8 @@ function! AsyncRunRun()
         execute 'AsyncRun! -cwd=<root> go run "$(VIM_RELNAME)"'
     elseif &filetype == 'sh'
         execute 'AsyncRun! -cwd=<root> sh "$(VIM_RELNAME)"'
+    elseif &filetype == 'java'
+        execute 'AsyncRun! -cwd=<root> javac "$(VIM_RELNAME)" ; java $(VIM_FILENOEXT)'
     endif
 endfunction
 
