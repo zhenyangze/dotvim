@@ -8,6 +8,7 @@ set termencoding=utf-8
 set formatoptions+=m
 set formatoptions+=B
 set fileformats=unix,dos,mac
+set noshowmode
 "set fileformats+=dos
 "set binary " VIM Disable Automatic Newline At End Of File
 

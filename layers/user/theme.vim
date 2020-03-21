@@ -21,7 +21,7 @@ if !exists('$TMUX')
     "colorscheme vim-material
 else
     set background=dark 
-    colorscheme gruvbox
+    colorscheme onehalfdark
 endif
 
 " vim-airline-themes"{{{theme

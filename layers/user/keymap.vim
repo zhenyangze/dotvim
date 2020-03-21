@@ -566,16 +566,62 @@ let g:which_key_map.l = {
             \'m': ['LModel', 'Search Model'],
             \'r': ['LResource', 'Search Resource'],
             \}
+
 let g:which_key_map.p = {
             \'name': 'Php',
-            \'r': {'name': 'rename'},
-            \'e': {'name': 'Extract'},
-            \'c': {'name': 'Create Or Content'},
-            \'d': {'name': 'Doc'},
-            \'a': {'name': 'Align'},
-            \'f': ['PhpFmt', 'formt'],
-            \'t': { 'name': 'Transform' },
-            \'u': { 'name': 'Use' }
+            \'r': {
+            \'name': 'Rename',
+            \'V': ['PhpRenameLocalVariable()', 'Rename Local Variable'],
+            \'v': ['PhpRenameClassVariable()', 'Rename Class Variable'],
+            \'m': ['PhpRenameMethod()', 'Rename Method'],
+            \},
+            \'e': {
+                \'name': 'Extract && Expand',
+                \'e': ['PhpactorExtractExpression', 'Extract Expression'],
+                \'f': ['PhpactorClassExpand', 'Expand Full CLass Name'],
+                \'c': ['PhpExtractConst()', 'Extract Const'],
+                \'u': ['PhpExtractUse()', 'Extract Use'],
+                \'p': ['PhpExtractClassProperty()', 'Extract Property'],
+                \'m': ['PhpExtractMethod()', 'Extract Method'],
+            \},
+            \'c': {
+                \'name': 'Create && Content && Change',
+                \'c': ['PhpactorClassNew', 'Create New Class'],
+                \'i': ['PhpactorClassInflect', 'Create an Interface current Class'],
+                \'v': ['PhpactorChangeVisibility', 'Rotate the Visiblity'],
+                \'a': ['PhpactorGenerateAccessors', 'Create Accessors'],
+                \'s': ['PhpCreateSettersAndGetters', 'Create Setters And Getters'],
+                \'g': ['PhpCreateGetters', 'Create Getters'],
+            \},
+            \'i': {
+                \'name': 'Import',
+                \'c': ['PhpactorImportClass', 'Import Class'],
+                \'m': ['PhpactorImportMissingClasses', 'Import Missing Class'],
+            \},
+            \'g': {
+                \'name': 'Goto',
+                \'d': ['PhpactorGotoDefinition', 'Goto Definition'],
+                \'v': ['PhpactorGotoDefinitionVsplit', 'Goto Definition With Vertical Split'],
+                \'t': ['PhpactorGotoDefinitionTab', 'Goto Definition In New Tab'],
+                \'h': ['PhpactorGotoDefinitionHsplit', 'Goto Definition With Horizontal Split'],
+                \'i': ['PhpactorGotoImplementations', 'Goto Implementations'],
+                \'f': ['PhpactorFindReferences', 'Find References'],
+                \'n': ['PhpactorNavigate', 'Jump to Relationships'],
+            \},
+            \'d': {
+            \'name': 'Doc',
+                \'a': ['PhpDocAll()', 'Create ALl Doc'],
+            \},
+            \'a': [":'<,'>call PhpAlignAssigns()<cr>", 'Align'],
+            \'f': {
+                \'name': 'File',
+                \'f': ['PhpFmt', 'formt'],
+                \'c': ['PhpactorCopyFile', 'Copy File'],
+                \'m': ['PhpactorMoveFile', 'Move File'],
+            \},
+            \'t': ['PhpactorTransform', 'Transform'],
+            \'k': ['PhpactorHover', 'Show Hover Information'],
+            \'m': ['PhpactorContextMenu', 'Show Menu'],
             \}
 
 " \'y': ['normal! `<v`>"+y', 'Copy'],
