@@ -1,1 +1,1 @@
-Plug 'chemzqm/wxapp.vim'
+Plug 'chemzqm/wxapp.vim', {'for': 'wxapp'}

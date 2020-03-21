@@ -4,7 +4,7 @@ Plug 'adoy/vim-php-refactoring-toolbox', {'for': 'php'}
 Plug 'Shougo/echodoc.vim'
 let g:echodoc_enable_at_startup = 1
 "Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
-Plug 'phpactor/phpactor', {'do': 'composer install'}
+Plug 'phpactor/phpactor', {'do': 'composer install', 'for': 'php'}
 Plug 'beanworks/vim-phpfmt', { 'for': 'php' }
 Plug 'zhenyangze/vim-laravel5-snippets', { 'for': 'php' }
 " A standard type: PEAR, PHPCS, PSR1, PSR2, Squiz and Zend
