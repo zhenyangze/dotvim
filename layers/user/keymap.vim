@@ -468,7 +468,8 @@ let g:which_key_map.t = {
             \}
 let g:which_key_map.b = {
             \'name': 'Buffer',
-            \'c': ['bwipeout', 'Close'],
+            \'c': ['bwipeout', 'Clear Current Buffer'],
+            \'C': [':%bwipeout', 'Clear All Buffer'],
             \'d': ['bnext', 'Next'],
             \'a': ['bprevious', 'Previous'],
             \'w': ['bfirst', 'First'],
