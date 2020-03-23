@@ -1,7 +1,7 @@
 Plug 'jsfaint/gen_tags.vim'
 Plug 'whatot/gtags-cscope.vim'
 "gen_tags
-let g:gen_tags#gtags_auto_gen = 1
+let g:gen_tags#gtags_auto_gen = 0
 
 " cscope
 set cscopetag                  " 使用 cscope 作为 tags 命令
