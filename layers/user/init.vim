@@ -1,4 +1,5 @@
-silent! call determined#command('PHP', 'php', { 'vertical': 0, 'rows': '8', 'cols': '40%' })
+"silent! call determined#command('PHP', 'php', { 'vertical': 0, 'rows': '8', 'cols': '40%' })
+"silent! call determined#command('S', ' ', { 'vertical': 0, 'rows': '8', 'cols': '40%', 'singleton': '1' })
 
 autocmd TextChangedI,CompleteDone,InsertLeave * silent! exec "call popup_clear()"
 

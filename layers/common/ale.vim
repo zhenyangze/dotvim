@@ -12,12 +12,13 @@ Plug 'w0rp/ale', {'on': []}
 	let g:ale_echo_msg_warning_str = 'W'
 	let g:ale_echo_msg_format = '[%linter%] %s [%severity%]' 
 	let g:ale_set_loclist = 1
-	let g:ale_set_quickfix = 1
+	let g:ale_set_quickfix = 0
 	let g:ale_open_list = 1
 	let g:ale_keep_list_window_open = 0
 	let g:ale_lint_on_save = 1
 	let g:ale_lint_on_text_changed = 0
     let g:ale_lint_on_enter = 0
+    let g:ale_list_vertical = 0
 "}}}
 augroup load_ale
     autocmd!

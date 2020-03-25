@@ -18,9 +18,9 @@ nnoremap Q :qall!<CR>
 command! W w !sudo tee % > /dev/null
 
 "屏蔽掉讨厌的F1键
-inoremap <F1> <ESC>
-nnoremap <F1> <ESC>
-vnoremap <F1> <ESC>
+"inoremap <F1> <ESC>
+"nnoremap <F1> <ESC>
+"vnoremap <F1> <ESC>
 
 "使用tab键来代替%进行匹配跳转
 nnoremap <tab> %
