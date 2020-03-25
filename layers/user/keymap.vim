@@ -199,6 +199,7 @@ command! -nargs=1 Find call Find("find . -iname '*'" . shellescape('<args>') . "
 command! -nargs=1 Gfind call Find('git ls-files | grep -E ' . shellescape('<args>'))
 command! -nargs=1 Gtfind call Find('git rev-parse --show-toplevel && git ls-files | grep -E ' . shellescape('<args>'))
 command! -nargs=1 Locate call Find('locate ' . shellescape('<args>'))
+command! -nargs=1 Grep call Find("rg --column --line-number --no-heading --no-ignore --smart-case " . shellescape('<args>'))
 
 function! BesideFile(type)
     let l:current_dir = expand("%:p:h")
@@ -607,7 +608,7 @@ let g:which_key_map.p = {
                 \'h': ['PhpactorGotoDefinitionHsplit', 'Goto Definition With Horizontal Split'],
                 \'i': ['PhpactorGotoImplementations', 'Goto Implementations'],
                 \'f': ['PhpactorFindReferences', 'Find References'],
-                \'n': ['PhpactorNavigate', 'Jump to Relationships'],
+                \'n': ['phpactor#Navigate()', 'Jump to Relationships'],
             \},
             \'d': {
             \'name': 'Doc',
@@ -620,7 +621,7 @@ let g:which_key_map.p = {
                 \'c': ['PhpactorCopyFile', 'Copy File'],
                 \'m': ['PhpactorMoveFile', 'Move File'],
             \},
-            \'t': ['PhpactorTransform', 'Transform'],
+            \'t': ['phpactor#Transform()', 'Transform'],
             \'k': ['PhpactorHover', 'Show Hover Information'],
             \'m': ['PhpactorContextMenu', 'Show Menu'],
             \}
