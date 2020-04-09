@@ -7,6 +7,7 @@ Plug 'gcmt/taboo.vim'
 Plug 'zhenyangze/vim-material'
 Plug 'https://gitee.com/zhenyangze/onehalf', {'rtp': 'vim/'}
 Plug 'colepeters/spacemacs-theme.vim'
+Plug 'arcticicestudio/nord-vim'
 if has('mac')
     Plug 'ryanoasis/vim-devicons'
     set guifont=DroidSansMono_Nerd_Font:h12

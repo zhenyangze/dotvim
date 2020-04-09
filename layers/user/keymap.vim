@@ -136,11 +136,24 @@ nmap <silent> <Leader>jp <Plug>(ale_previous_wrap)
 nmap <silent> <Leader>jn <Plug>(ale_next_wrap)
 let g:move_key_modifier = 'C'
 
+" ALT+h/l 快速左右按单词移动（正常模式+插入模式）
+noremap ˙ h
+noremap ¬ l
+inoremap ˙ <left>
+inoremap ¬ <right>
+
+" ALT+j/k 逻辑跳转下一行/上一行（按 wrap 逻辑换行进行跳转） 
+" ctrl+v 再输入Alt+key 
+noremap ∆ gj
+noremap ˚ gk
+inoremap ∆ <c-\><c-o>gj
+inoremap ˚ <c-\><c-o>gk
+
 "插入模式下移动
-inoremap <c-j> <down>
-inoremap <c-k> <up>
-inoremap <c-l> <right>
-inoremap <c-h> <left>
+"inoremap <c-j> <down>
+"inoremap <c-k> <up>
+"inoremap <c-l> <right>
+"inoremap <c-h> <left>
 
 nmap f <Plug>(easymotion-bd-f)
 nmap f <Plug>(easymotion-overwin-f)
