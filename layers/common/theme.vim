@@ -10,7 +10,9 @@ Plug 'colepeters/spacemacs-theme.vim'
 Plug 'arcticicestudio/nord-vim'
 if has('mac')
     Plug 'ryanoasis/vim-devicons'
-    set guifont=DroidSansMono_Nerd_Font:h12
+    if !has('nvim')
+        set guifont=DroidSansMono_Nerd_Font:h12
+    end
 endif
 
 " indentLine  "{{{ 缩进格式

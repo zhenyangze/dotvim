@@ -157,7 +157,9 @@ if has("gui_running")
     set guioptions-=r
     set guioptions-=R
     set guicursor=i:ver1
-    set noantialias
+    if !has('nvim')
+        set noantialias
+    end
     set linespace=1
     set guicursor=n-v-c:ver10
     set scrolloff=0
