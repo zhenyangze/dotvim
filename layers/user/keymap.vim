@@ -200,10 +200,11 @@ function! Find(cmd)
     echomsg 'No matching files.'
     return
   endif
-  new
+  "new
+  vne
   set filetype=filelist
   set buftype=nofile
-  put =l:files
+  silent! put =l:files
   normal ggdd
   nnoremap <buffer> <Enter> <C-W>gf
   execute 'autocmd BufEnter <buffer> lcd ' . getcwd()
