@@ -24,30 +24,41 @@ let g:nerdtree_tabs_open_on_console_startup=1
 let g:NERDTreeMapToggleFilters='&'
 
 "jistr/vim-nerdtree-tabs{{{
-    let NERDTreeShowLineNumbers=1
+    let NERDTreeShowLineNumbers=0
     let NERDTreeAutoCenter=1
 	" 是否显示隐藏文件
     let NERDTreeShowHidden=1
     let NERDTreeShowBookmarks=1
-"}}}
-"nerdtree-git-plugin{{{
-let g:NERDTreeIndicatorMapCustom = {
-    \ "Modified"  : "✹",
-    \ "Staged"    : "✚",
-    \ "Untracked" : "✭",
-    \ "Renamed"   : "➜",
-    \ "Unmerged"  : "═",
-    \ "Deleted"   : "✖",
-    \ "Dirty"     : "✗",
-    \ "Clean"     : "✔︎",
-    \ "Unknown"   : "?"
-    \ }
-"}}}
-"{{{
-" Check if NERDTree is open or active
-function! IsNERDTreeOpen()        
-    return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
-endfunction
+    let g:NERDTreeWinSize=30
+    let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
+    let NERDTreeChDirMode=2
+    let NERDTreeQuitOnOpen=0
+    let NERDTreeMouseMode=2
+    let NERDTreeShowHidden=1
+    let NERDTreeKeepTreeInNewTab=1
+    let g:NERDTreeUpdateOnWrite = 0
+    let g:nerdtree_tabs_open_on_gui_startup=0
+    let g:NERDTreeShowIgnoredStatus = 1
+
+    "}}}
+    "nerdtree-git-plugin{{{
+    let g:NERDTreeIndicatorMapCustom = {
+                \ "Modified"  : "✹",
+                \ "Staged"    : "✚",
+                \ "Untracked" : "✭",
+                \ "Renamed"   : "➜",
+                \ "Unmerged"  : "═",
+                \ "Deleted"   : "✖",
+                \ "Dirty"     : "✗",
+                \ "Clean"     : "✔︎",
+                \ "Unknown"   : "?"
+                \ }
+    "}}}
+    "{{{
+    " Check if NERDTree is open or active
+    function! IsNERDTreeOpen()        
+        return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
+    endfunction
 
 " Call NERDTreeFind iff NERDTree is active, current window contains a modifiable
 " file, and we're not in vimdiff
