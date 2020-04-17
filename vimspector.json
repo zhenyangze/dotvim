@@ -1,28 +1,113 @@
 {
-  "configurations": {
-    "Listen for XDebug": {
-      "adapter": "vscode-php-debug",
-      "configuration": {
-        "name": "Listen for XDebug",
-        "type": "php",
-        "request": "launch",
-        "port": 9000,
-        "stopOnEntry": false,
-        "pathMappings": {
-          "/var/www/html": "${workspaceRoot}"
+    "adapters": {
+        "lldb-vscode": {
+            "variables": {
+                "LLVM": {
+                    "shell": "brew --prefix llvm"
+                }
+            },
+            "attach": {
+                "pidProperty": "pid",
+                "pidSelect": "ask"
+            },
+            "command": [
+                "${LLVM}/bin/lldb-vscode"
+            ],
+            "env": {
+                "LLDB_LAUNCH_FLAG_LAUNCH_IN_TTY": "YES"
+            },
+            "name": "lldb"
+        },
+        "vscode-cpptools": {
+            "attach": {
+                "pidProperty": "processId",
+                "pidSelect": "ask"
+            },
+            "command": [
+                "${gadgetDir}/vscode-cpptools/debugAdapters/OpenDebugAD7"
+            ],
+            "name": "cppdbg"
+        },
+        "vscode-node": {
+            "command": [
+                "node",
+                "${gadgetDir}/vscode-node-debug2/out/src/nodeDebug.js"
+            ],
+            "name": "node2",
+            "type": "node2"
+        },
+        "vscode-python": {
+            "command": [
+                "node",
+                "${gadgetDir}/vscode-python/out/client/debugger/debugAdapter/main.js"
+            ],
+            "name": "vscode-python"
         }
-      }
     },
-    "Launch currently open script": {
-      "adapter": "vscode-php-debug",
-      "configuration": {
-        "name": "Launch currently open script",
-        "type": "php",
-        "request": "launch",
-        "program": "${file}",
-        "cwd": "${fileDirname}",
-        "port": 9000
-      }
+    "configurations": {
+        "php - XDebug": {
+            "adapter": "vscode-php-debug",
+            "configuration": {
+                "name": "Listen for XDebug",
+                "type": "php",
+                "request": "launch",
+                "port": 9000,
+                "stopOnEntry": false,
+                "pathMappings": {
+                    "/var/www/html": "${workspaceRoot}"
+                }
+            }
+        },
+        "php - Launch": {
+            "adapter": "vscode-php-debug",
+            "configuration": {
+                "name": "Launch php script",
+                "type": "php",
+                "request": "launch",
+                "program": "${file}",
+                "cwd": "${fileDirname}",
+                "port": 9000
+            }
+        },
+        "Cpp - Launch": {
+            "adapter": "lldb-vscode",
+            "configuration": {
+                "name": "Cpp - Launch",
+                "type": "cppdbg",
+                "request": "launch",
+                "args": [],
+                "cwd": "${cwd}",
+                "program": "${fileDirname}/${fileBasenameNoExtension}",
+                "environment": [],
+                "externalConsole": true,
+                "MIMode": "lldb"
+            }
+        },
+        "Cpp - Attach": {
+            "adapter": "lldb-vscode",
+            "configuration": {
+                "name": "Cpp - Attach",
+                "type": "cppdbg",
+                "request": "attach",
+                "cwd": "${cwd}",
+                "MIMode": "lldb"
+            }
+        },
+        "Python - Launch": {
+            "adapter": "debugpy",
+            "configuration": {
+                "name": "Python: Launch current file",
+                "python" : "/Users/yangze/anaconda2/envs/python36/bin/python",
+                "type": "python",
+                "request": "launch",
+                "stopOnEntry": true,
+                "stopAtEntry": true,
+                "console": "externalTerminal",
+                "debugOptions": [],
+                "cwd": "${cwd}",
+                "program": "${file}",
+                "justMyCode": true
+            }
+        }
     }
-  }
 }

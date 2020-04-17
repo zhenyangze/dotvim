@@ -1,6 +1,9 @@
 Plug 'puremourning/vimspector'
 
 let g:vimspector_enable_mappings = 'HUMAN'
+"./install_gadget.py --enable-c --enable-go --enable-python --force-enable-php
+"php export XDEBUG_CONFIG="idekey=xdebug"
+"c: gcc 1.c -ggdb -o 1
 
 "Action                        | WinBar   | Keyboard
 "Start debugging               | None     | <F5>

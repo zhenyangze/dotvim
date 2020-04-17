@@ -561,7 +561,7 @@ let g:which_key_map.d = {
             \'q': ['vimspector#Reset()', 'Quite Debug'],
             \'r': ['vimspector#Continue()', 'Continue Run'],
             \'R': ['vimspector#Restart()', 'Restart Debug'],
-            \'i': ['vimspector#StepInto()', 'Step Info'],
+            \'i': ['vimspector#StepInto()', 'Step Into'],
             \'o': ['vimspector#StepOut()', 'Step Out'],
             \'v': ['vimspector#StepOver()', 'Step Over'],
             \'p': ['vimspector#Pause()', 'Pause'],
