@@ -11,7 +11,9 @@ let g:asyncrun_rootmarks = ['.svn', '.git', '.root', '_darcs', 'build.xml']
 "nnoremap <silent> <Leader>ap :AsyncRun -cwd=<root> -mode=4 make run <cr>
 
 function! AsyncRunMake()
-
+    if &filetype == 'python'
+        execute 'CocCommand python.execInTerminal'
+    endif
 endfunction
 
 function! AsyncRunRun()
