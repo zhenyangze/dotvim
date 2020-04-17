@@ -15,15 +15,15 @@ let g:startify_bookmarks = [
 
 let g:startify_files_number = 8
 let g:startify_list_order = [
-            \ ['   Projects'],
+            \ ['   ✅ Projects'],
             \ 'projects',
-            \ ['   Dirs'],
+            \ ['   📂 Dirs'],
             \ 'dir',
-            \ ['   Files'],
+            \ ['   📔 Files'],
             \ 'files',
-            \ ['   Sessions'],
+            \ ['   📦 Sessions'],
             \ 'sessions',
-            \ ['   Bookmarks'],
+            \ ['   🔖 Bookmarks'],
             \ 'bookmarks',
             \ ['   commands'],
             \ 'commands',
