@@ -563,7 +563,7 @@ let g:which_key_map.d = {
             \'R': ['vimspector#Restart()', 'Restart Debug'],
             \'i': ['vimspector#StepInto()', 'Step Into'],
             \'o': ['vimspector#StepOut()', 'Step Out'],
-            \'v': ['vimspector#StepOver()', 'Step Over'],
+            \'n': ['vimspector#StepOver()', 'Step Over'],
             \'p': ['vimspector#Pause()', 'Pause'],
             \'B': ['vimspector#ListBreakpoints()', 'List Breakpoints'],
             \}
