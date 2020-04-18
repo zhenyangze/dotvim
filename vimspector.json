@@ -103,7 +103,9 @@
                 "stopOnEntry": true,
                 "stopAtEntry": true,
                 "console": "externalTerminal",
-                "debugOptions": [],
+                "debugOptions": [
+                    "DebugStdLib"
+                ],
                 "cwd": "${cwd}",
                 "program": "${file}",
                 "justMyCode": true
