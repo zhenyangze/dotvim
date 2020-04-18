@@ -105,7 +105,7 @@ function! ToggleSet(type, firstCommand, secondCommand)
     endif
 endfunction
 
-let g:fzf_popup_status = 0
+let g:fzf_popup_status = 1
 function! TogglePopup()
     if (g:fzf_popup_status == 0)
         let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }

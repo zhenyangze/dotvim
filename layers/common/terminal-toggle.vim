@@ -35,4 +35,4 @@ function! TerminalDeleteWithIndex()
 endfunction
 
 au TerminalOpen * if &buftype == 'terminal' | setlocal bufhidden=hide | endif
-autocmd bufenter * if (winnr("$") == 1 && &buftype == 'terminal') | q! | endif
+autocmd bufenter * if (winnr("$") == 1 && exists('b:rootDir') && &buftype == 'terminal') | q! | endif

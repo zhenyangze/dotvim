@@ -14,5 +14,7 @@ let g:gen_tags#blacklist += split(glob('~/.config/dotvim/*'))
 let g:gen_tags#blacklist += split(glob('~/.config/dotvim/plugged/*'))
 
 
-let g:fzf_layout = { 'down': '~40%' }
+"let g:fzf_layout = { 'down': '~40%' }
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
+let g:fzf_popup_status = 1
 set cmdheight=1
