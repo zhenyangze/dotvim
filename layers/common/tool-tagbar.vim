@@ -60,3 +60,5 @@ let g:vista#renderer#icons = {
 \   "function": "\uf794",
 \   "variable": "\uf71b",
 \  }
+
+let g:vista_sidebar_position="vertical topleft"
