@@ -425,6 +425,10 @@ function! GetSearchPat()
     let @+ = PlainTextPattern(GetSelectedText())
 endfunc
 
+function! InitTemplate()
+    silent! execute 'Template *.' . expand('%:e')
+endfunction
+
 " leader-guide{{{
 let g:which_key_map =  {
             \'0': ['tabonly', 'Close all other tab'],
@@ -466,6 +470,11 @@ let g:which_key_map.w = {
             \'i': ['vs', 'Double'],
             \'|': ['vs', 'Double'],
             \'-': ['split', 'Split'],
+            \'v': ['VoomToggle', 'Toggle Outline'],
+            \'t': ['ShowNerdTree()', 'NerdTree'],
+            \'s': ['NERDTreeFind', 'NerdFind'],
+            \'f': ['ShowTagbarToggle()', 'TagBarToggle'],
+            \'g': ['ShowGunDo()', 'GunDoToggle'],
             \}
 
 let g:which_key_map.t = {
@@ -521,6 +530,7 @@ let g:which_key_map.e = {
                 \},
             \'t': {
                 \'name': 'transform',
+                \'a': ['ArgWrap', '参数折叠'],
                 \'u': [':set ff=unix', 'Set file to Unix'],
                 \'d': [':set ff=dos', 'Set file type to Dos']
                 \},
@@ -533,6 +543,9 @@ let g:which_key_map.e = {
                 \'name' : 'Save Encoding',
                 \'g': [':set fileencoding=GBK', 'Save as Gbk'],
                 \'u': [':set fileencoding=UTF-8', 'Save as Utf-8'],
+                \},
+            \'i': {
+                \'t': ['InitTemplate()', 'Init Template']
                 \},
             \'d': {
                 \'name' : 'Delete',
@@ -787,16 +800,6 @@ let g:which_key_map.a = {
             \'m': ['AsyncRunMake()', 'Make File'],
             \'t': ['asyncrun#quickfix_toggle(6)', 'Toggle Async'],
             \'q': ['asyncrun#stop(6)', 'Stop Async']
-            \}
-
-let g:which_key_map.v = {
-            \'name': 'View',
-            \'a': ['ArgWrap', '参数折叠'],
-            \'v': ['VoomToggle', 'Toggle Outline'],
-            \'t': ['ShowNerdTree()', 'NerdTree'],
-            \'s': ['NERDTreeFind', 'NerdFind'],
-            \'f': ['ShowTagbarToggle()', 'TagBarToggle'],
-            \'g': ['ShowGunDo()', 'GunDoToggle'],
             \}
 
 " Create new menus not based on existing mappings:
