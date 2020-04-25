@@ -1,4 +1,4 @@
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
+Plug 'junegunn/fzf', {'do': './install --all'  }
 Plug 'junegunn/fzf.vim'
 
 set wildmode=list:longest,list:full
@@ -121,3 +121,6 @@ command! -bang FzfSession
 
 command! -bang FzfSessionDelete
     \ call fzf#run(fzf#wrap('fzfsession', {'source': ListSessions(), 'sink': 'ProsessionDelete'}, 0))
+
+command! -bang FzfChangeFiles
+  \ call fzf#vim#grep('git status --porcelain | sed s/^...//', 0,fzf#vim#with_preview(), <bang>0)

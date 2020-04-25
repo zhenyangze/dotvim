@@ -688,6 +688,7 @@ let g:which_key_map.j.g.C = "Generate Constructor With Args"
 
 let g:which_key_map.f = { 
             \'name': 'FZF & Find',
+            \'+': ['FzfChangeFiles', 'Git Change Files'],
             \'G': ['Gtags -r', 'gtags'],
             \'T': ['FzfTagsFunction()', 'Tags'],
             \'a': ['FzfAg', 'Ag'],
@@ -696,6 +697,7 @@ let g:which_key_map.f = {
             \'d': ['FzfCommands', 'Commands'],
             \'e': [':cs find e <cword>', 'Goto string'],
             \'f': ['ShowfindFiles()', 'File'],
+            \'F': [':Clap filer', 'Dirs'],
             \'g': ['Gtags', 'gtags'],
             \'h': ['FzfHistory', 'Histroy'],
             \'i': ['AckReplace(0)', 'Search'],
