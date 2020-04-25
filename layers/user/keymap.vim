@@ -371,12 +371,15 @@ function! AckVisualSearch()
     exec "Ack " . substitute(escape(s:current_word, '\'), ' ', '\\ ', 'g')
 endfunction
 
+let g:ack_search_str = ""
 function! AckReplace(is_replace)
-    let l:search_str = input("Search String: ", "")
+    let l:search_str = input("Search String: ", g:ack_search_str)
+    let g:ack_search_str = l:search_str
     if a:is_replace == 1
         let l:replace_str = input("Replace String: ", "")
+    else
+        let l:search_path = input("Search Path: ", "./", "file")
     endif
-    let l:search_path = input("Search Path: ", "./", "file")
     let l:reg_list = ['\\', '$', '-', '[', ']', '(', ')', ' ', '{', '}']
 
     for item in l:reg_list
@@ -389,7 +392,7 @@ function! AckReplace(is_replace)
     endif
  
     if a:is_replace == 1
-        exec "Acks /" . search_str . "/" . l:replace_str . "/ ". l:search_path
+        exec "Acks /" . search_str . "/" . l:replace_str . "/ "
     else
         exec "Ack " . search_str . " ". l:search_path
     endif
@@ -700,18 +703,11 @@ let g:which_key_map.f = {
             \'l': ['FzfTodo', 'Todo List'],
             \'m': ['FzfMarks', 'Marks'],
             \'n': ['FzfDirs', 'NerdTreeFind'],
-            \'o': {
-                \'name': "AckSearch"
-            \},
             \'p': ['FzfMaps', 'Maps'],
             \'r': [':cs find c <cword>', 'Goto calling'],
             \'s': [':cs find g <cword>', 'Goto definition'],
             \'t': ['FzfBTags', 'Bufer`s Tags'],
             \} 
-let g:which_key_map.f.o.a = 'Ack Search in Quickfix'
-let g:which_key_map.f.o.l = 'Ack Search in Lack'
-let g:which_key_map.f.o.r = 'Ack Search and Replace in Quickfix'
-let g:which_key_map.f.o.w = 'Ack Search Current Word'
 
 let g:which_key_map.o = { 
             \'name': 'Clap',
