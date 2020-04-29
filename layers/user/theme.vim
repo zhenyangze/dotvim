@@ -6,12 +6,17 @@ syntax enable
 " colorscheme onedark
 " colorscheme space-vim-dark
 if !exists('$TMUX')
+    colorscheme space_vim_theme
     set termguicolors
     set background=dark
     let g:material_style='palenight'
-    colorscheme spacemacs-theme
     "colorscheme onehalfdark
     "colorscheme vim-material
+    "hi Normal     ctermbg=NONE guibg=NONE
+    "hi LineNr     ctermbg=NONE guibg=NONE
+    "hi SignColumn ctermbg=NONE guibg=NONE
+    hi LineNr ctermbg=NONE guibg=NONE
+    hi Comment guifg=#5C6370 ctermfg=59
 else
     set background=dark 
     colorscheme onehalfdark

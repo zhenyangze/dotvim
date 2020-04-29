@@ -4,8 +4,8 @@ Plug 'ayu-theme/ayu-vim'
 Plug 'gcmt/taboo.vim'
 Plug 'zhenyangze/vim-material'
 Plug 'https://gitee.com/zhenyangze/onehalf', {'rtp': 'vim/'}
-Plug 'colepeters/spacemacs-theme.vim'
 Plug 'arcticicestudio/nord-vim'
+Plug 'liuchengxu/space-vim-theme'
 if has('mac')
     Plug 'ryanoasis/vim-devicons'
     if !has('nvim')
