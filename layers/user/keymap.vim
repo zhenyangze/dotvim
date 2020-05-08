@@ -474,9 +474,9 @@ let g:which_key_map.w = {
             \'|': ['vs', 'Double'],
             \'-': ['split', 'Split'],
             \'v': ['VoomToggle', 'Toggle Outline'],
-            \'t': ['ShowNerdTree()', 'NerdTree'],
+            \'f': ['ShowNerdTree()', 'NerdTree'],
             \'s': ['NERDTreeFind', 'NerdFind'],
-            \'f': ['ShowTagbarToggle()', 'TagBarToggle'],
+            \'t': ['ShowTagbarToggle()', 'TagBarToggle'],
             \'g': ['ShowGunDo()', 'GunDoToggle'],
             \}
 
