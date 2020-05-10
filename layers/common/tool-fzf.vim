@@ -124,3 +124,42 @@ command! -bang FzfSessionDelete
 
 command! -bang FzfChangeFiles
   \ call fzf#vim#grep('git status --porcelain | sed s/^...//', 0,fzf#vim#with_preview(), <bang>0)
+
+command! -bang FzfArtisan
+    \ call fzf#run(fzf#wrap('fzfartisan', {'source': 'php artisan | grep ":" | awk "{print \$1}"', 'sink': 'fzfAg'}, 0))
+
+
+function! CscopeFind(line)
+    let l:fileName = split(a:line, ':')[2]
+    let l:fileLineNum = split(a:line, ':')[1]
+    execute 'e ' . l:fileName
+    execute ':' . l:fileLineNum
+endfunction
+
+function! FzfCscope(option, query)
+    let l:output = execute('cs find ' . a:option . ' ' . a:query)
+    let l:cscopeList = split(l:output, "\n")
+    let l:newcscopeList = []
+    let l:nums = -1
+    let l:tempStr = ''
+    for item in l:cscopeList
+        let l:nums += 1 
+        if (l:nums <= 1)
+            continue
+        endif
+        let l:tempNum = (l:nums - l:nums % 2) / 2
+        if (l:nums % 2) == 0 
+            let l:tempStr = join(split(item), ':')
+        else 
+            let l:tempStr .= item
+        endif
+
+        if (l:nums % 2) == 1
+            call add(l:newcscopeList, l:tempStr)
+            let l:tempStr = ''
+        endif
+    endfor
+    call fzf#run(fzf#wrap('fzfcscope', {'source': l:newcscopeList, 'sink': 'CscopeFind'}, 0))
+endfunction
+
+command! -nargs=1 -bang CscopeFind call CscopeFind(<q-args>)

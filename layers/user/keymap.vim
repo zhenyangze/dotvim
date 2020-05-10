@@ -695,7 +695,7 @@ let g:which_key_map.f = {
             \'b': ['FzfBuffers', 'Buffers'],
             \'c': ['FzfCommits', 'Commit'],
             \'d': ['FzfCommands', 'Commands'],
-            \'e': [':cs find e <cword>', 'Goto string'],
+            \'e': ['FzfCscope("e", "<cword>")', 'Goto string'],
             \'f': ['ShowfindFiles()', 'File'],
             \'F': [':Clap filer', 'Dirs'],
             \'g': ['Gtags', 'gtags'],
@@ -706,7 +706,7 @@ let g:which_key_map.f = {
             \'m': ['FzfMarks', 'Marks'],
             \'n': ['FzfDirs', 'NerdTreeFind'],
             \'p': ['FzfMaps', 'Maps'],
-            \'r': [':cs find c <cword>', 'Goto calling'],
+            \'r': ['FzfCscope("c", "<cword>")', 'Goto calling'],
             \'s': [':cs find g <cword>', 'Goto definition'],
             \'t': ['FzfBTags', 'Bufer`s Tags'],
             \} 
