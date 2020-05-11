@@ -738,6 +738,7 @@ let g:which_key_map.o = {
 
 let g:which_key_map.g = { 
             \'name': 'Git',
+            \'+': ['FzfChangeFiles', 'git change files'],
             \'a': ['Gwrite', 'git add'],
             \'b': ['Gblame', 'git blame'],
             \'c': ['Gcommit', 'git commit'],

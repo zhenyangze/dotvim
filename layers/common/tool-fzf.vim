@@ -122,8 +122,9 @@ command! -bang FzfSession
 command! -bang FzfSessionDelete
     \ call fzf#run(fzf#wrap('fzfsession', {'source': ListSessions(), 'sink': 'ProsessionDelete'}, 0))
 
-command! -bang FzfChangeFiles
-  \ call fzf#vim#grep('git status --porcelain | sed s/^...//', 0,fzf#vim#with_preview(), <bang>0)
+
+command! -bang FzfChangeFiles 
+            \ call fzf#run(fzf#wrap('FzfChangeFiles', {'source': 'git status --porcelain | sed s/^...//', 'sink': 'e', 'options': ['--layout=reverse', '--info=inline', '--preview','~/.vim/plugged/fzf.vim/bin/preview.sh {}']}, 0))
 
 command! -bang FzfArtisan
     \ call fzf#run(fzf#wrap('fzfartisan', {'source': 'php artisan | grep ":" | awk "{print \$1}"', 'sink': 'fzfAg'}, 0))
