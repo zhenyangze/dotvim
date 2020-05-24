@@ -377,7 +377,7 @@ function! AckReplace(is_replace)
     let g:ack_search_str = l:search_str
     if a:is_replace == 1
         let l:replace_str = input("Replace String: ", "")
-    else
+    elseif a:is_replace == 2
         let l:search_path = input("Search Path: ", "./", "file")
     endif
     let l:reg_list = ['\\', '$', '-', '[', ']', '(', ')', ' ', '{', '}']
@@ -393,8 +393,10 @@ function! AckReplace(is_replace)
  
     if a:is_replace == 1
         exec "Acks /" . search_str . "/" . l:replace_str . "/ "
-    else
+    elseif a:is_replace == 2
         exec "Ack " . search_str . " ". l:search_path
+    else
+        exec "Ag " . search_str
     endif
 endfunction
 
@@ -691,7 +693,7 @@ let g:which_key_map.f = {
             \'+': ['FzfChangeFiles', 'Git Change Files'],
             \'G': ['Gtags -r', 'gtags'],
             \'T': ['FzfTagsFunction()', 'Tags'],
-            \'a': ['FzfAg', 'Ag'],
+            \'a': ['AckReplace(3)', 'Rg'],
             \'b': ['FzfBuffers', 'Buffers'],
             \'c': ['FzfCommits', 'Commit'],
             \'d': ['FzfCommands', 'Commands'],
