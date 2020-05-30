@@ -1,3 +1,4 @@
+if version > 800
 Plug 'w0rp/ale', {'on': []}
 
 "ale {{{
@@ -33,3 +34,4 @@ let g:ale_fixers = {
 \    'trim_whitespace'
 \   ]
 \}
+endif
