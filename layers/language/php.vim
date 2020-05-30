@@ -1,8 +1,10 @@
 Plug 'stephpy/vim-php-cs-fixer' ,{ 'for': 'php'}
 Plug 'arnaud-lb/vim-php-namespace',{ 'for': 'php'}
 Plug 'adoy/vim-php-refactoring-toolbox', {'for': 'php'}
+if version > 800
 Plug 'Shougo/echodoc.vim'
 let g:echodoc_enable_at_startup = 1
+endif
 "Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
 Plug 'phpactor/phpactor', {'do': 'composer install', 'for': 'php'}
 Plug 'beanworks/vim-phpfmt', { 'for': 'php' }
