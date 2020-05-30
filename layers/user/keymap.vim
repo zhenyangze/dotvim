@@ -376,24 +376,24 @@ function! AckReplace(is_replace)
     let l:search_str = input("Search String: ", g:ack_search_str)
     let g:ack_search_str = l:search_str
     if a:is_replace == 1
-        let l:replace_str = input("Replace String: ", "")
-    elseif a:is_replace == 2
         let l:search_path = input("Search Path: ", "./", "file")
+    elseif a:is_replace == 2
+        let l:replace_str = input("Replace String: ", "")
     endif
     let l:reg_list = ['\\', '$', '-', '[', ']', '(', ')', ' ', '{', '}']
 
     for item in l:reg_list
         let l:search_str = escape(l:search_str, item)
     endfor
-    if a:is_replace == 1
+    if a:is_replace == 2
         for item in l:reg_list
             let l:replace_str = escape(l:replace_str, item)
         endfor
     endif
  
-    if a:is_replace == 1
+    if a:is_replace == 2
         exec "Acks /" . search_str . "/" . l:replace_str . "/ "
-    elseif a:is_replace == 2
+    elseif a:is_replace == 1
         exec "Ack " . search_str . " ". l:search_path
     else
         exec "Ag " . search_str
@@ -702,8 +702,8 @@ let g:which_key_map.f = {
             \'F': [':Clap filer', 'Dirs'],
             \'g': ['Gtags', 'gtags'],
             \'h': ['FzfHistory', 'Histroy'],
-            \'i': ['AckReplace(0)', 'Search'],
-            \'I': ['AckReplace(1)', 'Replace'],
+            \'i': ['AckReplace(1)', 'Search'],
+            \'I': ['AckReplace(2)', 'Replace'],
             \'l': ['FzfTodo', 'Todo List'],
             \'m': ['FzfMarks', 'Marks'],
             \'n': ['FzfDirs', 'NerdTreeFind'],
