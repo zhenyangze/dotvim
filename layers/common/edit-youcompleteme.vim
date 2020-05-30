@@ -1,4 +1,4 @@
-if version > 1051
+if 0
     Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --omnisharp-completer --system-libclang --system-boost', 'on': []}
 
     "youcomplete"{{{

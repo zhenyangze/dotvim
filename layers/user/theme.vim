@@ -7,7 +7,9 @@ syntax enable
 " colorscheme space-vim-dark
 if !exists('$TMUX')
     colorscheme space_vim_theme
-    set termguicolors
+    if version > 800
+        set termguicolors
+    endif
     set background=dark
     let g:material_style='palenight'
     "colorscheme onehalfdark

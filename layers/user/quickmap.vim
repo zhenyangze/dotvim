@@ -33,7 +33,9 @@ endfunction
 
 "nmap ,b :FzfBuffers<CR>
 nmap ,a gg0vG$<CR>
+if version > 800
 tmap ,b <C-w>:call ToggleWindowShow(['conque_term', 'zsh'], 'VSTerminalToggle', 'quit')<CR>
+endif
 nmap ,b <C-w>:call ToggleWindowShow(['conque_term', 'zsh'], 'VSTerminalToggle', 'quit')<CR>
 nmap ,c :call ToggleWindowShow('qf', 'copen', 'cclose')<CR>
 nmap ,d :FzfDirs<CR>

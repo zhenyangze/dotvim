@@ -1,3 +1,4 @@
+if version > 802
 Plug 'PangPangPangPangPang/vim-terminal'
 
 map <silent> <F2> :VSTerminalToggle<cr>
@@ -36,3 +37,4 @@ endfunction
 
 au TerminalOpen * if &buftype == 'terminal' | setlocal bufhidden=hide | endif
 autocmd bufenter * if (winnr("$") == 1 && exists('b:rootDir') && &buftype == 'terminal') | q! | endif
+endif
