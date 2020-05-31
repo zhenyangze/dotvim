@@ -1,4 +1,4 @@
-if version > 802
+if version > 800
 Plug 'PangPangPangPangPang/vim-terminal'
 
 map <silent> <F2> :VSTerminalToggle<cr>
