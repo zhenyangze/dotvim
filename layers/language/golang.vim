@@ -1,5 +1,5 @@
 "Plug 'nsf/gocode', {'rtp': 'vim/', 'for': 'go'}
-"Plug 'fatih/vim-go', {'tag': '*'}
+Plug 'fatih/vim-go', {'tag': '*'}
 "Plug 'mdempsky/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
 
 " vim-go " {{{golang
