@@ -31,6 +31,16 @@ let g:vdebug_keymap = {
             \    "eval_under_cursor" : "<F12>",
             \    "eval_visual" : "<Leader>de",
             \}
+let g:vdebug_keymap['run'] = '<Leader>dr'
+let g:vdebug_keymap['run_to_cursor'] = '<Leader>dh'
+let g:vdebug_keymap['step_into'] = '<Leader>di'
+let g:vdebug_keymap['step_over'] = '<Leader>dn'
+let g:vdebug_keymap['step_out'] = '<Leader>do'
+let g:vdebug_keymap['close'] = '<Leader>dc'
+let g:vdebug_keymap['set_breakpoint'] = '<Leader>db'
+let g:vdebug_keymap['get_context'] = '<Leader>dv'
+let g:vdebug_keymap['eval_under_cursor'] = '<Leader>de'
+
 let g:vdebug_options = {
             \    'port' : 9000,
             \    'timeout' : 20,

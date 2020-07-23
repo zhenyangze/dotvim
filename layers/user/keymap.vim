@@ -586,6 +586,21 @@ let g:which_key_map.e.p = "Paste"
             "\'B': ['vimspector#ListBreakpoints()', 'List Breakpoints'],
             "\}
 
+
+
+let g:which_key_map.d = {
+            \'name': 'Debug',
+            \'b': 'Breakpoint',
+            \'r': 'Run',
+            \'h': 'Run To Here',
+            \'i': 'Step Into',
+            \'o': 'Step Out',
+            \'n': 'Step Over',
+            \'c': 'Close',
+            \'v': 'Content',
+            \'e': 'Eval',
+            \}
+
 let g:which_key_map.l = {
             \'name': 'Laravel',
             \'A': ['LAdminController', 'Search Controller in Admin'],
