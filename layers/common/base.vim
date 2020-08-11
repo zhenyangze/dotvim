@@ -110,7 +110,7 @@ autocmd FileType vue set tabstop=2 shiftwidth=2 softtabstop=2 expandtab ai
 autocmd FileType javascript set tabstop=2 shiftwidth=2 softtabstop=2 expandtab ai
 autocmd Filetype gitcommit setlocal spell textwidth=80
 "autocmd FileType php setlocal noeol binary fileformat=dos
-autocmd BufRead,BufNew *.md,*.mkd,*.markdown  set filetype=markdown.mkd
+"autocmd BufRead,BufNew *.md,*.mkd,*.markdown  set filetype=markdown.mkd
 " vimrc文件修改之后自动加载, windows
 autocmd! bufwritepost _vimrc source %
 " vimrc文件修改之后自动加载, linux
