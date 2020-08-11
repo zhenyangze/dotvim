@@ -1,4 +1,4 @@
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release', 'tag': '*', 'do': { -> coc#util#install()}}
 
 " if hidden is not set, TextEdit might fail.
 set hidden
