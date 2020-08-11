@@ -13,6 +13,8 @@ let g:asyncrun_rootmarks = ['.svn', '.git', '.root', '_darcs', 'build.xml']
 function! AsyncRunMake()
     if &filetype == 'python'
         execute 'CocCommand python.execInTerminal'
+    elseif &filetype == 'go'
+        execute 'AsyncRun! -cwd=<root> go build "$(VIM_RELNAME)"'
     endif
 endfunction
 
