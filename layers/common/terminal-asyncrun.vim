@@ -14,7 +14,7 @@ function! AsyncRunMake()
     if &filetype == 'python'
         execute 'CocCommand python.execInTerminal'
     elseif &filetype == 'go'
-        execute 'AsyncRun! -cwd=<root> go build "$(VIM_RELNAME)"'
+        execute 'AsyncRun! -cwd=<root> -raw go build "$(VIM_RELNAME)"'
     endif
 endfunction
 
@@ -27,7 +27,7 @@ function! AsyncRunRun()
         let $PYTHONNUNBUFFERED=1
         execute 'AsyncRun! -cwd=<root> -raw python %'
     elseif &filetype == 'go'
-        execute 'AsyncRun! -cwd=<root> go run "$(VIM_RELNAME)"'
+        execute 'AsyncRun! -cwd=<root> -raw go run "$(VIM_RELNAME)"'
     elseif &filetype == 'sh'
         execute 'AsyncRun! -cwd=<root> sh "$(VIM_RELNAME)"'
     elseif &filetype == 'java'

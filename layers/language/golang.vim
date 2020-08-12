@@ -9,6 +9,7 @@ Plug 'fatih/vim-go', {'tag': '*'}
     let g:go_highlight_interfaces = 1
     let g:go_highlight_operators = 1
     let g:go_highlight_build_constraints = 1
+    let g:go_template_autocreate = 0
     au FileType go nmap <leader>gr <Plug>(go-run)
     au FileType go nmap <leader>gb <Plug>(go-build)
     au FileType go nmap <leader>gt <Plug>(go-test)
