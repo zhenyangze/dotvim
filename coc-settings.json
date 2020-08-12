@@ -18,6 +18,5 @@
     },
     "suggest.noselect": false,
     "suggest.floatEnable": true,
-    "todolist.monitor": true,
-    "diagnostic.displayByAle": true
+    "todolist.monitor": true
 }
