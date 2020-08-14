@@ -42,6 +42,13 @@
                 "${gadgetDir}/vscode-python/out/client/debugger/debugAdapter/main.js"
             ],
             "name": "vscode-python"
+        },
+        "vscode-go": {
+            "command": [
+                "node",
+                "${gadgetDir}/vscode-go/out/src/debugAdapter/goDebug.js"
+            ],
+            "name": "vscode-go"
         }
     },
     "configurations": {
