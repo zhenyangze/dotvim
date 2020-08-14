@@ -110,6 +110,17 @@
                 "program": "${file}",
                 "justMyCode": true
             }
+        },
+        "Go - Launch": {
+            "adapter": "vscode-go",
+            "configuration": {
+                "request": "launch",
+                "program": "${fileDirname}",
+                "mode": "debug",
+                "trace": true,
+                "env": { "GO111MODULE": "on" },
+                "dlvToolPath": "${GOPATH}/bin/dlv"
+            }
         }
     }
 }

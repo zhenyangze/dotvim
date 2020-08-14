@@ -1,7 +1,7 @@
-"Plug 'puremourning/vimspector'
+Plug 'puremourning/vimspector'
 Plug 'vim-vdebug/vdebug'
 
-"let g:vimspector_enable_mappings = 'HUMAN'
+let g:vimspector_enable_mappings = 'HUMAN'
 "./install_gadget.py --enable-c --enable-go --enable-python --force-enable-php
 "php export XDEBUG_CONFIG="idekey=xdebug"
 "c: gcc 1.c -ggdb -o 1
@@ -16,7 +16,6 @@ Plug 'vim-vdebug/vdebug'
 "Stop debugging                | Reset    | <F3>
 "Start again with same options | Restart  | <F4>
 "Interrupt the debugee         | Pause    | <F6>
-
 
 let g:vdebug_keymap = {
             \    "run" : "<F5>",
