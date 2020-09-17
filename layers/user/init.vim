@@ -24,3 +24,6 @@ endif
 let g:fzf_popup_status = 1
 
 set cmdheight=1
+
+" close quickfix
+autocmd bufenter * if (winnr("$") == 1 && &buftype == 'quickfix') | q | endif
