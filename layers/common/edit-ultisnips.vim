@@ -1,5 +1,6 @@
 Plug 'SirVer/ultisnips', { 'on': []  }
 Plug 'honza/vim-snippets'
+Plug 'zhenyangze/vim-snippets-append'
 
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"

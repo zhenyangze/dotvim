@@ -1,1 +1,0 @@
-Plug 'zhenyangze/vim-sphinx-snippets'

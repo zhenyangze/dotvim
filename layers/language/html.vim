@@ -1,7 +1,6 @@
 Plug 'mattn/emmet-vim',{'for':['html','php', 'htm', 'blade']}
 Plug 'Valloric/MatchTagAlways', {'for':['html', 'blade']}
 Plug 'chrisgillis/vim-bootstrap3-snippets', {'for':['html','php', 'htm', 'blade']}
-Plug 'zhenyangze/vim-layui-snippets', {'for':['html','php', 'htm', 'blade']}
 
 " emmet-vim"{{{
     let g:user_emmet_mode='n'    "only enable normal mode functions.
