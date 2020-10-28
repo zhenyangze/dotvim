@@ -772,6 +772,7 @@ let g:which_key_map.q = {
             \'p': ['cp', 'Previous'],
             \'q': ['cq', 'Quit'],
             \'l': ['cl', 'List'],
+            \'o': ['copen', 'Open'],
             \} 
 
 let g:which_key_map.c = { 'name': 'Comment'}
