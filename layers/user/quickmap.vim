@@ -47,7 +47,7 @@ nmap ,n :tabnew<CR>
 nmap ,o :call ToggleWindowShow('tagbar', 'call ShowTagbarToggle()', 'call ShowTagbarToggle()')<CR>
 nmap ,q :q!<CR>
 nmap ,r :Rooter<CR>
-nmap ,s :NERDTreeFind %<CR>
+nmap ,s :silent! NERDTreeFind %<CR>
 nmap ,t :call ToggleWindowShow('nerdtree', 'call ShowNerdTree()', 'call ShowNerdTree()')<CR>
 nmap ,w :w!<CR>
 nmap ,y :YRShow<CR>
