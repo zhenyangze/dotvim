@@ -476,8 +476,8 @@ let g:which_key_map.w = {
             \'|': ['vs', 'Double'],
             \'-': ['split', 'Split'],
             \'v': ['VoomToggle', 'Toggle Outline'],
-            \'f': ['ShowNerdTree()', 'NerdTree'],
-            \'s': ['NERDTreeFind', 'NerdFind'],
+            \'f': ['Fern . -drawer', 'NerdTree'],
+            \'s': ['Fern . -reveal=% -drawer', 'NerdFind'],
             \'t': ['ShowTagbarToggle()', 'TagBarToggle'],
             \'g': ['ShowGunDo()', 'GunDoToggle'],
             \}
@@ -598,6 +598,12 @@ let g:which_key_map.d = {
             \'v': 'Content',
             \'e': 'Eval',
             \}
+
+let g:which_key_map.h = {
+            \'name': 'Helper',
+            \'f': ['TranslateW', 'Translate'],
+            \}
+
 
 let g:which_key_map.l = {
             \'name': 'Laravel',
