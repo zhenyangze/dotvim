@@ -643,8 +643,8 @@ let g:which_key_map.p = {
                 \'i': ['PhpactorClassInflect', 'Create an Interface current Class'],
                 \'v': ['PhpactorChangeVisibility', 'Rotate the Visiblity'],
                 \'a': ['PhpactorGenerateAccessors', 'Create Accessors'],
-                \'s': ['PhpCreateSettersAndGetters', 'Create Setters And Getters'],
-                \'g': ['PhpCreateGetters', 'Create Getters'],
+                \'s': ['PhpCreateSettersAndGetters()', 'Create Setters And Getters'],
+                \'g': ['PhpCreateGetters()', 'Create Getters'],
             \},
             \'i': {
                 \'name': 'Import',
