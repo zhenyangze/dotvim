@@ -20,18 +20,18 @@ endfunction
 
 function! AsyncRunRun()
     if &filetype == 'php'
-        execute 'AsyncRun! -cwd=<root> php $(VIM_RELNAME)'
+        execute 'AsyncRun! -mode=term -pos=bottom -rows=10 -cwd=<root> php $(VIM_RELNAME)'
     elseif &filetype == 'c'
-        execute 'AsyncRun! gcc -Wall -O2 "$(VIM_FILEPATH)" -o "$(VIM_FILEDIR)/$(VIM_FILENOEXT)" ; "$(VIM_FILEDIR)/$(VIM_FILENOEXT)"'
+        execute 'AsyncRun! -mode=term -pos=bottom -rows=10 gcc -Wall -O2 "$(VIM_FILEPATH)" -o "$(VIM_FILEDIR)/$(VIM_FILENOEXT)" ; "$(VIM_FILEDIR)/$(VIM_FILENOEXT)"'
     elseif &filetype == 'python'
         let $PYTHONNUNBUFFERED=1
-        execute 'AsyncRun! -cwd=<root> -raw python %'
+        execute 'AsyncRun! -mode=term -pos=bottom -rows=10 -cwd=<root> -raw python %'
     elseif &filetype == 'go'
-        execute 'AsyncRun! -cwd=<root> -raw go run "$(VIM_RELNAME)"'
+        execute 'AsyncRun! -mode=term -pos=bottom -rows=10 -cwd=<root> -raw go run "$(VIM_RELNAME)"'
     elseif &filetype == 'sh'
-        execute 'AsyncRun! -cwd=<root> sh "$(VIM_RELNAME)"'
+        execute 'AsyncRun! -mode=term -pos=bottom -rows=10 -cwd=<root> sh "$(VIM_RELNAME)"'
     elseif &filetype == 'java'
-        execute 'AsyncRun! -cwd=<root> javac "$(VIM_RELNAME)" ; java $(VIM_FILENOEXT)'
+        execute 'AsyncRun! -mode=term -pos=bottom -rows=10 -cwd=<root> javac "$(VIM_RELNAME)" ; java $(VIM_FILENOEXT)'
     endif
 endfunction
 
