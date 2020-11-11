@@ -719,7 +719,7 @@ let g:which_key_map.f = {
             \'D': ['FzfDirs', 'NerdTreeFind'],
             \'e': ['FzfCscope("e", "<cword>")', 'Goto string'],
             \'f': ['ShowfindFiles()', 'File'],
-            \'F': [':Clap filer', 'Dirs'],
+            \'F': ['FzfFiletypes', 'File types'],
             \'g': ['Gtags', 'gtags'],
             \'h': ['FzfHistory', 'Histroy'],
             \'i': ['AckReplace(1)', 'Search'],
@@ -731,31 +731,7 @@ let g:which_key_map.f = {
             \'r': ['FzfCscope("c", "<cword>")', 'Goto calling'],
             \'s': [':cs find g <cword>', 'Goto definition'],
             \'t': ['FzfBTags', 'Bufer`s Tags'],
-            \} 
-
-let g:which_key_map.o = { 
-            \'name': 'Clap',
-            \'b': [':Clap buffers', 'buffer'],
-            \'c': [':Clap colors', 'colors'],
-            \'d': [':Clap command', 'command'],
-            \'D': [':Clap edit_dot', 'Dotconfig'],
-            \'h': [':Clap hist', 'history'],
-            \'f': [':Clap files', 'files'],
-            \'F': [':Clap filer', 'Filer'],
-            \'g': [':Clap gfiles', 'gfiles'],
-            \'m': [':Clap marks', 'marks'],
-            \'M': [':Clap maps', 'maps'],
-            \'s': [':Clap grep2', 'search'],
-            \'+': [':Clap git_diff_files', 'git_diff_files'],
-            \'j': [':Clap jumps', 'jumps'],
-            \'q': [':Clap quickfix', 'quickfix'],
-            \'l': [':Clap loclist', 'loclist'],
-            \'r': [':Clap registers', 'registers'],
-            \'t': [':Clap tags', 'tags'],
-            \'T': [':Clap filetypes', 'filetypes'],
-            \'y': [':Clap yanks', 'yanks'],
-            \'p': [':Clap providers', 'providers'],
-            \'w': [':Clap windows', 'windows'],
+            \'w': ['FzfWindows', 'Windows'],
             \} 
 
 let g:which_key_map.g = { 
@@ -811,10 +787,10 @@ let g:which_key_map.z.q = 'Toggle Pairs'
 
 let g:which_key_map.s = {
             \'name': 'Session',
-            \'t': ['Obsession!', 'Stop'],
-            \'s': ['Prosession .', 'Start'],
-            \'l': ['FzfSession', 'List'],
-            \'d': ['FzfSessionDelete', 'Delete'],
+            \'t': [':Obsession!', 'Stop'],
+            \'s': [':Prosession .', 'Start'],
+            \'l': [':FzfSession', 'List'],
+            \'d': [':FzfSessionDelete', 'Delete'],
             \}
 let g:which_key_map.a = {
             \'name': 'AsyncRun',
