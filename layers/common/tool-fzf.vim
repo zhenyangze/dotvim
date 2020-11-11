@@ -169,9 +169,9 @@ endfunction
 command! -nargs=1 -bang CscopeFind call CscopeFind(<q-args>)
 
 function! s:fzf_neighbouring_files()
-  let current_file =expand("%")
+  let current_file = expand("%")
   let cwd = fnamemodify(current_file, ':p:h')
-  let command = 'ag -g "" -f ' . cwd . ' --depth 0'
+  let command = 'ag -g "" -f ' . cwd . ' --depth 2'
   call fzf#run(fzf#wrap('fzfneigh', {
         \ 'source': command,
         \ 'sink':   'e',
