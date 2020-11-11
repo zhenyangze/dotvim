@@ -16,6 +16,7 @@
             ]
         }
     },
+    "python.jediEnabled": false,
     "suggest.noselect": false,
     "suggest.floatEnable": true,
     "todolist.monitor": true

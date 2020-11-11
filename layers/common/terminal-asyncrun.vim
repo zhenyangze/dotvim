@@ -24,8 +24,9 @@ function! AsyncRunRun()
     elseif &filetype == 'c'
         execute 'AsyncRun! gcc -Wall -O2 "$(VIM_FILEPATH)" -o "$(VIM_FILEDIR)/$(VIM_FILENOEXT)" ; "$(VIM_FILEDIR)/$(VIM_FILENOEXT)"'
     elseif &filetype == 'python'
-        let $PYTHONNUNBUFFERED=1
-        execute 'AsyncRun! -cwd=<root> -raw python %'
+        execute 'CocCommand python.execInTerminal'
+        "let $PYTHONNUNBUFFERED=1
+        "execute 'AsyncRun! -cwd=<root> -raw python %'
     elseif &filetype == 'go'
         execute 'AsyncRun! -cwd=<root> -raw go run "$(VIM_RELNAME)"'
     elseif &filetype == 'sh'
