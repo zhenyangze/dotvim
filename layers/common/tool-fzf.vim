@@ -80,9 +80,12 @@ inoremap <expr> <c-x><c-l> fzf#vim#complete(fzf#wrap({
             \ 'options': '--ansi --delimiter : --nth 3..',
             \ 'reducer': { lines -> join(split(lines[0], ':\zs')[2:], '') }}))
 
+function! s:fzfdir(e) 
+    exec 'Fern  . -reveal=' . a:e . ' -drawer'
+endfunction
 
 command! -bang FzfDirs
-            \ call fzf#run(fzf#wrap('fzfdirs', {'source':'find .  -type d  \( ! -iname ".*" \) | sed "s|^\./||g"', 'sink': 'NERDTreeFind'}, 0))
+            \ call fzf#run(fzf#wrap('fzfdirs', {'source':'find .  -type d  \( ! -iname ".*" \) | sed "s|^\./||g"', 'sink': function('<sid>fzfdir')}, 0))
 
 let g:fzf_command_prefix = 'Fzf'
 let s:ag_options = ' --one-device --skip-vcs-ignores --smart-case '
@@ -164,3 +167,15 @@ function! FzfCscope(option, query)
 endfunction
 
 command! -nargs=1 -bang CscopeFind call CscopeFind(<q-args>)
+
+function! s:fzf_neighbouring_files()
+  let current_file = expand("%")
+  let cwd = fnamemodify(current_file, ':p:h')
+  let command = 'ag -g "" -f ' . cwd . ' --depth 2'
+  call fzf#run(fzf#wrap('fzfneigh', {
+        \ 'source': command,
+        \ 'sink':   'e',
+        \ 'options': '-m -x +s',
+        \ 'window':  { 'width': 0.8, 'height': 0.6, 'border': 'rounded' } }))
+endfunction
+command! FZFNeigh call s:fzf_neighbouring_files()
