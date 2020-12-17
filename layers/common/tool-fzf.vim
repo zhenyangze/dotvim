@@ -102,6 +102,10 @@ if executable('rg')
   let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.git/*"'
   set grepprg=rg\ --vimgrep
   command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
+  command! -bang RgFiles 
+              \ call fzf#run(fzf#wrap('RgFiles', {'source':'rg --files --hidden --follow --no-ignore --glob "!.git/*"' , 'sink': 'e', 'options': ['--layout=reverse', '--info=inline', '--preview','~/.vim/plugged/fzf.vim/bin/preview.sh {}']}, 0))
+
+
 endif
 
 function! ListSessions()
