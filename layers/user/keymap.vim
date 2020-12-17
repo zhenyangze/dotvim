@@ -195,19 +195,23 @@ endfunction
 
 
 function! Find(cmd)
-  let l:files = system(a:cmd)
-  if (l:files =~ '^\s*$')
-    echomsg 'No matching files.'
-    return
-  endif
-  "new
-  vne
-  set filetype=filelist
-  set buftype=nofile
-  silent! put =l:files
-  normal ggdd
-  nnoremap <buffer> <Enter> <C-W>gf
-  execute 'autocmd BufEnter <buffer> lcd ' . getcwd()
+    if (executable('ag'))
+        call fzf#run(fzf#wrap('fzffind', {'source': a:cmd}, 0))
+    else
+        let l:files = system(a:cmd)
+        if (l:files =~ '^\s*$')
+            echomsg 'No matching files.'
+            return
+        endif
+        "new
+        vne
+        set filetype=filelist
+        set buftype=nofile
+        silent! put =l:files
+        normal ggdd
+        nnoremap <buffer> <Enter> <C-W>gf
+        execute 'autocmd BufEnter <buffer> lcd ' . getcwd()
+    endif
 endfunction
 command! -nargs=1 Find call Find("find . -iname '*'" . shellescape('<args>') . "'*'")
 command! -nargs=1 Gfind call Find('git ls-files | grep -E ' . shellescape('<args>'))
