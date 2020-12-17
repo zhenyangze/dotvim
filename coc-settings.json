@@ -9,14 +9,20 @@
         "golang": {
             "command": "gopls",
             "rootPatterns": [
-                "go.mod"
+                "go.mod",
+                ".vim/",
+                ".git/",
+                ".hg/"
             ],
             "filetypes": [
                 "go"
-            ]
+            ],
+            "initializationOptions": {
+                "usePlaceholders": true
+            }
         }
     },
-    "python.jediEnabled": true,
+    "python.jediEnabled": false,
     "suggest.noselect": false,
     "suggest.floatEnable": true,
     "todolist.monitor": true
