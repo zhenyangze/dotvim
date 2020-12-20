@@ -3,7 +3,7 @@
 
 autocmd TextChangedI,CompleteDone,InsertLeave * silent! exec "call popup_clear()"
 
-let g:coc_global_extensions = ['coc-css', 'coc-snippets', 'coc-phpls', 'coc-python', 'coc-html']
+let g:coc_global_extensions = ['coc-ccls', 'coc-css', 'coc-bookmark', 'coc-snippets', 'coc-phpls', 'coc-python', 'coc-html', 'coc-json']
 
 let g:phpactorPhpBin = "/Applications/MxSrvs/bin/php/bin/php"
 let g:phpactorOmniAutoClassImport = v:true
