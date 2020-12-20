@@ -6,3 +6,4 @@
 /plugged
 /plug-enabled/*.vim
 session
+layers/user/test.vim
