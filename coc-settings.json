@@ -25,5 +25,6 @@
     "python.jediEnabled": false,
     "suggest.noselect": false,
     "suggest.floatEnable": true,
-    "todolist.monitor": true
+    "todolist.monitor": true,
+    "java.enabled": false
 }
