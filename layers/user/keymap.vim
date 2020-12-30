@@ -223,9 +223,9 @@ function! BesideFile(type)
     let l:current_dir = expand("%:p:h")
     let l:current_file = expand("%:p:f")
     if (a:type == 'invert')
-        let l:file_list = split(system("find " . l:current_dir . " -type f -maxdepth 1 ! -name '*.o' ! -name '.*' | sort -r"), "\n")
+        let l:file_list = split(system("find " . l:current_dir . " -type f -maxdepth 1 ! -name '*.o' ! -name '.*' | sort -f -r"), "\n")
     else
-        let l:file_list = split(system("find " . l:current_dir . " -type f -maxdepth 1 ! -name '*.o' ! -name '.*'"), "\n")
+        let l:file_list = split(system("find " . l:current_dir . " -type f -maxdepth 1 ! -name '*.o' ! -name '.*' | sort -f"), "\n")
     endif
     let l:current_index = -1
     let l:index = 0
