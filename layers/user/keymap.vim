@@ -480,8 +480,8 @@ let g:which_key_map.w = {
             \'|': ['vs', 'Double'],
             \'-': ['split', 'Split'],
             \'v': ['VoomToggle', 'Toggle Outline'],
-            \'f': ['Fern . -drawer', 'NerdTree'],
-            \'s': ['Fern . -reveal=% -drawer', 'NerdFind'],
+            \'f': [':Fern . -drawer', 'Files Tree'],
+            \'s': [':Fern . -reveal=% -drawer', 'Find Files'],
             \'t': ['ShowTagbarToggle()', 'TagBarToggle'],
             \'g': ['ShowGunDo()', 'GunDoToggle'],
             \}
