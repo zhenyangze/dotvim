@@ -17,7 +17,8 @@ endif
     let g:indentLine_color_term = 239
     let g:indentLine_char = '¦'
     "let g:indentLine_char = '┆'
-     set list lcs=tab:\¦\ 
+    set list lcs=tab:\¦\ 
+    "let g:indentLine_fileTypeExclude = ['fern']
 "}}}
 " taboo.vim {{{
 let g:taboo_tab_format = " %m[%N] %f "
