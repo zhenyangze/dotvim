@@ -23,6 +23,7 @@ command! W w !sudo tee % > /dev/null
 "vnoremap <F1> <ESC>
 
 "使用tab键来代替%进行匹配跳转
+nnoremap <C-p> <C-i>
 nnoremap <tab> %
 vnoremap <tab> %
 
