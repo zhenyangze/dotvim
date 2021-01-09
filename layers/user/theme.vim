@@ -21,7 +21,7 @@ if !exists('$TMUX')
     hi Comment guifg=#5C6370 ctermfg=59
 else
     set background=dark 
-    colorscheme onehalfdark
+    colorscheme ayu
 endif
 
 "autocmd VimEnter *
