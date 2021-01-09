@@ -41,8 +41,10 @@ nmap ,c :call ToggleWindowShow('qf', 'copen', 'cclose')<CR>
 nmap ,d :FzfDirs<CR>
 nmap ,f :FzfFiles<CR>
 vmap ,f :<C-u>call FzfFilesFunction()<CR>
+nmap ,F :call FzfFilesFunction()<CR>
 nmap ,g :Ag<CR>
 vmap ,g :<C-u>Ag <C-R>=expand("<cword>")<CR><CR>
+nmap ,G :Ag <C-R>=expand("<cword>")<CR><CR>
 nmap ,h :Startify<CR>
 nmap ,n :tabnew<CR>
 nmap ,o :call ToggleWindowShow('tagbar', 'call ShowTagbarToggle()', 'call ShowTagbarToggle()')<CR>

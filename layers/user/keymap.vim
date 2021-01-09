@@ -365,8 +365,10 @@ function! FzfTagsFunction()
     exec "FzfTags " . s:current_word
 endfunction
 function! FzfFilesFunction()
-    "let s:current_word = expand("<cword>")
     let s:current_word = GetVisualSelection()
+    if len(s:current_word) == 0 
+        let s:current_word = expand("<cword>")
+    endif
     let g:fzf_files_options = ['-m', '--query', s:current_word]
     exec "FzfFiles"
     let g:fzf_files_options = ['-m', '--query', '']
