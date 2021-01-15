@@ -793,11 +793,13 @@ let g:which_key_map.z = {
 let g:which_key_map.z.q = 'Toggle Pairs'
 
 let g:which_key_map.s = {
-            \'name': 'Session',
-            \'t': [':Obsession!', 'Stop'],
-            \'s': [':Prosession .', 'Start'],
-            \'l': [':FzfSession', 'List'],
-            \'d': [':FzfSessionDelete', 'Delete'],
+            \'name': 'Project',
+            \'l': [':ProjectList', 'Project List'],
+            \'i': [':ProjectInfo', 'Project Info'],
+            \'e': [':ProjectExit', 'Project Exit'],
+            \'r': [':ProjectRoot', 'Project Root'],
+            \'c': [':ProjectConfig', 'Project Config'],
+            \'h': [':ProjectPluginConfig', 'Project Plugin Config'],
             \}
 let g:which_key_map.a = {
             \'name': 'AsyncRun',

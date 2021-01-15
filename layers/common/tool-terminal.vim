@@ -1,0 +1,1 @@
+Plug 'voldikss/vim-floaterm'
