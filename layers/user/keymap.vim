@@ -794,7 +794,7 @@ let g:which_key_map.z.q = 'Toggle Pairs'
 
 let g:which_key_map.s = {
             \'name': 'Project',
-            \'l': [':ProjectList', 'Project List'],
+            \'l': [':FzfProject', 'Project List'],
             \'i': [':ProjectInfo', 'Project Info'],
             \'e': [':ProjectExit', 'Project Exit'],
             \'r': [':ProjectRoot', 'Project Root'],

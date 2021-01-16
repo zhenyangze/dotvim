@@ -108,27 +108,55 @@ if executable('rg')
 
 endif
 
-function! ListSessions()
-  let ArgLead = a:0 >= 1 ? a:1 : ''
-  let fldr = fnamemodify(expand(ArgLead), ':h')
-  if !empty(ArgLead) && fldr != '.' && isdirectory(fldr)
-    let flist = glob(ArgLead . '*', 0, 1)
-  else
-    let flead = empty(ArgLead) ? '' : '*' . ArgLead
-    let flist = glob(fnamemodify(g:prosession_dir, ':p') . flead . '*.vim', 0, 1)
-    let flist = map(flist, "fnamemodify(v:val, ':t:r')")
-  endif
-  let flist = map(flist, "substitute(v:val, '%', '/', 'g')")
-  return flist
+function! FzfProjectList()
+  let list = exists('g:vim_project_projects')
+        \ ? g:vim_project_projects
+        \ : []
+
+  let showList = []
+  let max = {}
+  for item in list
+    for key in keys(item)
+      if !has_key(max, key)
+            \|| (type(item[key]) == v:t_string && len(item[key]) > max[key])
+        let max[key] = len(item[key])
+      endif
+    endfor
+  endfor
+
+  for item in list
+    for key in keys(item)
+      if type(item[key]) == v:t_string && key[0:1] != '__'
+        let item['__'.key] = s:AddRightPadding(item[key], max[key])
+      endif
+    endfor
+  endfor
+
+  for item in list
+      call add(showList, join([item['__name'], "\t", item['__path']], ''))
+  endfor
+
+  return showList
 endfunction
 
+function! s:FzfProjectOpen(projectName)
+    let s:projectList = split(a:projectName, "\t")
+    if (len(s:projectList) != 2) 
+        return
+    endif
 
-command! -bang FzfSession
-    \ call fzf#run(fzf#wrap('fzfsession', {'source': ListSessions(), 'sink': 'Prosession'}, 0))
+    let s:project_name = trim(s:projectList[0])
 
-command! -bang FzfSessionDelete
-    \ call fzf#run(fzf#wrap('fzfsession', {'source': ListSessions(), 'sink': 'ProsessionDelete'}, 0))
+    exec "ProjectOpen '" . s:project_name . "'"
+endfunction
 
+function! s:AddRightPadding(string, length)
+  let padding = repeat(' ', a:length - len(a:string))
+  return a:string.padding
+endfunction
+
+command! -bang FzfProject
+    \ call fzf#run(fzf#wrap('fzfsession', {'source': FzfProjectList(), 'sink': function('s:FzfProjectOpen')}, 0))
 
 command! -bang FzfChangeFiles 
             \ call fzf#run(fzf#wrap('FzfChangeFiles', {'source': 'git status --porcelain | sed s/^...//', 'sink': 'e', 'options': ['--layout=reverse', '--info=inline', '--preview','~/.vim/plugged/fzf.vim/bin/preview.sh {}']}, 0))

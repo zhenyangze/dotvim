@@ -49,7 +49,8 @@ nmap ,h :Startify<CR>
 nmap ,n :tabnew<CR>
 nmap ,o :call ToggleWindowShow('tagbar', 'call ShowTagbarToggle()', 'call ShowTagbarToggle()')<CR>
 nmap ,q :q!<CR>
-nmap ,p :ProjectList<cr>
+"nmap ,p :ProjectList<cr>
+nmap ,p :FzfProject<cr>
 nmap ,r :Rooter<CR>
 nmap ,s :silent! Fern . -reveal=% -drawer<CR>
 nmap ,t :silent! Fern . -drawer<CR>
