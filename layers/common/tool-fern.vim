@@ -1,5 +1,7 @@
 Plug 'lambdalisue/fern.vim'
 Plug 'lambdalisue/fern-git-status.vim'
+Plug 'lambdalisue/nerdfont.vim'
+Plug 'lambdalisue/fern-renderer-nerdfont.vim'
 
 
 " Disable listing ignored files/directories
@@ -62,8 +64,9 @@ nmap <buffer> <Plug>(fern-my-leave-and-tcd)
       \ <Plug>(fern-action-tcd:root)
 endfunction
 
-let g:fern#renderer#default#leading="  "
-let g:fern#renderer#default#root_symbol=" "
-let g:fern#renderer#default#leaf_symbol="  "
-let g:fern#renderer#default#collapsed_symbol="  "
-let g:fern#renderer#default#expanded_symbol="  "
+"let g:fern#renderer#default#leading="  "
+"let g:fern#renderer#default#root_symbol=" "
+"let g:fern#renderer#default#leaf_symbol="  "
+"let g:fern#renderer#default#collapsed_symbol="  "
+"let g:fern#renderer#default#expanded_symbol="  "
+let g:fern#renderer = "nerdfont"

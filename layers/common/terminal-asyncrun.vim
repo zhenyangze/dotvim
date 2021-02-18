@@ -30,7 +30,7 @@ function! AsyncRunRun()
         let $PYTHONNUNBUFFERED=1
     elseif &filetype == 'go'
         if len(matchstr(expand('%:t'), '_test.go')) > 0
-            execute 'AsyncRun! -mode=term -pos=bottom -rows=10 -cwd=<root> -raw go test "$(VIM_RELNAME)"'
+            execute 'AsyncRun! -mode=term -pos=bottom -rows=10 -cwd=<root> -raw go test -v "$(VIM_RELNAME)"'
         else
             execute 'AsyncRun! -mode=term -pos=bottom -rows=10 -cwd=<root> -raw go run "$(VIM_RELNAME)"'
         endif
