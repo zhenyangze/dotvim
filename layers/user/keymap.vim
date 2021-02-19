@@ -48,6 +48,8 @@ endfunction
 function! ShowTagbarToggle()
     if (exists(":Vista") > 0 )
         silent! exec "Vista!!"
+    elseif (exists(":TagbarToggle") > 0 )
+        silent! exec "TagbarToggle"
     else
         nmap <Leader>wf :Sex!<CR>
     endif

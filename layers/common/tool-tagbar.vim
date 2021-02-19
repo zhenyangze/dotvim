@@ -1,18 +1,19 @@
-"Plug 'majutsushi/tagbar'", {'on': 'TagbarToggle' }
+Plug 'preservim/tagbar', {'on': 'TagbarToggle' }
 
-"let g:tagbar_type_php  = {
-    "\ 'ctagstype' : 'php',
-    "\ 'kinds'     : [
-        "\ 'n:namespaces',
-        "\ 'i:interfaces',
-        "\ 'c:classes',
-        "\ 'd:constant definitions',
-        "\ 'f:functions',
-        "\ 'j:javascript functions:1'
-        "\]
-"    \}
+let g:tagbar_type_php  = {
+    \ 'ctagstype' : 'php',
+    \ 'kinds'     : [
+        \ 'n:namespaces',
+        \ 'i:interfaces',
+        \ 'c:classes',
+        \ 'd:constant definitions',
+        \ 'f:functions',
+        \ 'j:javascript functions:1'
+        \]
+    \}
 "let g:tagbar_phpctags_bin='/usr/bin/ctags' 
-"
+
+if 0 > 1
 Plug 'liuchengxu/vista.vim'
 " brew install --with-jansson universal-ctags/universal-ctags/universal-ctags
 " sudo apt-get install libjansson-dev
@@ -62,3 +63,4 @@ let g:vista#renderer#icons = {
 \  }
 
 let g:vista_sidebar_position="vertical botright"
+endif

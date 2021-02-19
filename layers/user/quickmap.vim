@@ -53,7 +53,8 @@ nmap ,q :q!<CR>
 nmap ,p :FzfProject<cr>
 nmap ,r :Rooter<CR>
 nmap ,s :silent! Fern . -reveal=% -drawer<CR>
-nmap ,t :silent! Fern . -drawer<CR>
+"nmap ,t :silent! Fern . -drawer<CR>
+nmap ,t :TagbarToggle<CR>
 nmap ,w :w!<CR>
 nmap ,y :YRShow<CR>
 nmap ,1 :call JumpToWindow(1)<CR>
