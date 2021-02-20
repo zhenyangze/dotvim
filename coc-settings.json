@@ -26,5 +26,6 @@
     "suggest.noselect": false,
     "suggest.floatEnable": true,
     "todolist.monitor": true,
-    "java.enabled": false
+    "java.enabled": false,
+    "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/11.0.0/clangd_11.0.0/bin/clangd"
 }
