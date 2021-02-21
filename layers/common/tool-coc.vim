@@ -67,7 +67,7 @@ endfunction
 "autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Remap for rename current word
-"nmap <leader>rn <Plug>(coc-rename)
+nmap <leader>eR <Plug>(coc-rename)
 
 " Remap for format selected region
 "xmap <leader>f  <Plug>(coc-format-selected)
@@ -90,6 +90,7 @@ augroup end
 " Fix autofix problem of current line
 "nmap <leader>qf  <Plug>(coc-fix-current)
 
+nnoremap <silent><nowait> <space>fS  :<C-u>CocList -I symbols<cr>
 " Create mappings for function text object, requires document symbols feature of languageserver.
 "xmap if <Plug>(coc-funcobj-i)
 "xmap af <Plug>(coc-funcobj-a)
