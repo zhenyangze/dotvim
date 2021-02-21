@@ -79,6 +79,9 @@ nnoremap [t :<c-u>pop<cr>
 nnoremap ]t :<c-u>call TagsJumpFunction()<cr>
 
 
+nnoremap [b :<c-u>bp<cr>
+nnoremap ]b :<c-u>bn<cr>
+
 nnoremap [f :<c-u>call BesideFile("invert")<cr>
 nnoremap ]f :<c-u>call BesideFile("")<cr>
 
