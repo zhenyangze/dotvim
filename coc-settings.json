@@ -20,12 +20,21 @@
             "initializationOptions": {
                 "usePlaceholders": true
             }
+        },
+        "ccls": {
+            "command": "ccls",
+            "filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"],
+            "rootPatterns": [".ccls", "compile_commands.json", ".git/", ".hg/"],
+            "initializationOptions": {
+                "cache": {
+                    "directory": "/tmp/ccls"
+                }
+            }
         }
     },
     "python.jediEnabled": false,
     "suggest.noselect": false,
     "suggest.floatEnable": true,
     "todolist.monitor": true,
-    "java.enabled": false,
-    "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/11.0.0/clangd_11.0.0/bin/clangd"
+    "java.enabled": false
 }
