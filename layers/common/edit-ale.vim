@@ -34,4 +34,22 @@ let g:ale_fixers = {
 \    'trim_whitespace'
 \   ]
 \}
+
+let g:ale_linters = {
+            \ 'cpp': ['ccls'],
+            \ 'c++': ['ccls'],
+            \ 'c': ['ccls'],
+            \ 'go': ['gopls'],
+            \}
+
+let g:ale_cpp_ccls_init_options = {
+\   'cache': {
+\       'directory': '/tmp/ccls/'
+\   }
+\ }
+
+"nn <silent> <M-d> :ALEGoToDefinition<cr>
+"nn <silent> <M-r> :ALEFindReferences<cr>
+"nn <silent> <M-a> :ALESymbolSearch<cr>
+"nn <silent> <M-h> :ALEHover<cr>
 endif

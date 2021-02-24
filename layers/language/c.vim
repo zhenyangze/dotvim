@@ -13,8 +13,14 @@
 "nn <silent> xc :call CocLocations('ccls','$ccls/call')<cr>
 " callee
 nn <silent>gc :call CocLocations('ccls','$ccls/call',{'callee':v:true})<cr>
+".ccls
+"clang
+"%c -std=c11
+"%cpp -std=c++2a
+"%h %hpp
+"-Iheaders
 
-" $ccls/member
+"$ccls/member
 " member variables / variables in a namespace
 "nn <silent> xm :call CocLocations('ccls','$ccls/member')<cr>
 " member functions / functions in a namespace

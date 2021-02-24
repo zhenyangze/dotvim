@@ -29,20 +29,18 @@
                 "cache": {
                     "directory": "/tmp/ccls"
                 },
-                "clang" : {
-//                    "resourceDir": "/Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/",
-//                    "extraArgs": [
-//                        "-isystem",
-//                        "-I",
-//                        "/Library/Developer/CommandLineTools/usr/include/c++/v1"
-//                    ]
-                }
+                "client": {
+                    "snippetSupport": true
+                },
+                "highlight": { "lsRanges": true }
             }
         }
     },
+    "diagnostic.displayByAle": true,
     "python.jediEnabled": false,
     "suggest.noselect": false,
     "suggest.floatEnable": true,
     "todolist.monitor": true,
-    "java.enabled": false
+    "java.enabled": false,
+    "ccls.completion.detailedLabel": true
 }
