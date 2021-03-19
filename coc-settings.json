@@ -41,6 +41,6 @@
     "suggest.noselect": false,
     "suggest.floatEnable": true,
     "todolist.monitor": true,
-    "java.enabled": true,
+    "java.enabled": false,
     "ccls.completion.detailedLabel": true
 }

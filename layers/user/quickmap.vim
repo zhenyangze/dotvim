@@ -39,7 +39,7 @@ endif
 nmap ,b <C-w>:call ToggleWindowShow(['conque_term', 'zsh'], 'VSTerminalToggle', 'quit')<CR>
 nmap ,c :call ToggleWindowShow('qf', 'copen', 'cclose')<CR>
 nmap ,d :FzfDirs<CR>
-nmap ,f :FzfFiles<CR>
+nmap ,f :RgFiles<CR>
 vmap ,f :<C-u>call FzfFilesFunction()<CR>
 nmap ,F :call FzfFilesFunction()<CR>
 nmap ,g :Ag<CR>
