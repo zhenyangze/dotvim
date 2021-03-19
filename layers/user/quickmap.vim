@@ -63,6 +63,12 @@ nmap ,3 :call JumpToWindow(3)<CR>
 nmap ,4 :call JumpToWindow(4)<CR>
 nmap ,5 :call JumpToWindow(5)<CR>
 
+nmap =1 :q 1<CR>
+nmap =2 :q 2<CR>
+nmap =3 :q 3<CR>
+nmap =4 :q 4<CR>
+nmap =5 :q 5<CR>
+
 noremap [e  :<c-u>execute 'move -1-'. v:count1<cr>
 nnoremap ]e  :<c-u>execute 'move +'. v:count1<cr>
 
