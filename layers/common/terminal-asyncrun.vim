@@ -23,6 +23,8 @@ function! AsyncRunRun()
         execute 'AsyncRun! -mode=term -pos=bottom -rows=10 -cwd=<root> php $(VIM_RELNAME)'
     elseif &filetype == 'c'
         execute 'AsyncRun! -mode=term -pos=bottom -rows=10 gcc -Wall -O2 "$(VIM_FILEPATH)" -o "$(VIM_FILEDIR)/$(VIM_FILENOEXT)" ; "$(VIM_FILEDIR)/$(VIM_FILENOEXT)"'
+    elseif &filetype == 'cpp'
+        execute 'AsyncRun! -mode=term -pos=bottom -rows=10 g++ -Wall -O2 "$(VIM_FILEPATH)" -levent -o "$(VIM_FILEDIR)/$(VIM_FILENOEXT)" ; "$(VIM_FILEDIR)/$(VIM_FILENOEXT)"'
     elseif &filetype == 'python'
         execute 'CocCommand python.execInTerminal'
         "let $PYTHONNUNBUFFERED=1
