@@ -2,6 +2,7 @@ Plug 'lambdalisue/fern.vim'
 Plug 'lambdalisue/fern-git-status.vim'
 Plug 'lambdalisue/nerdfont.vim'
 Plug 'lambdalisue/fern-renderer-nerdfont.vim'
+Plug 'lambdalisue/fern-hijack.vim'
 
 
 " Disable listing ignored files/directories
@@ -62,6 +63,24 @@ nmap <buffer> <Plug>(fern-my-leave-and-tcd)
       \ <Plug>(fern-action-leave)
       \ <Plug>(fern-wait)
       \ <Plug>(fern-action-tcd:root)
+  nnoremap <buffer><silent>
+        \ <Plug>(fern-my-enter-project-root)
+        \ :<C-u>call fern#helper#call(funcref('<SID>map_enter_project_root'))<CR>
+  nmap <buffer><expr><silent>
+        \ ^
+        \ fern#smart#scheme(
+        \   "^",
+        \   {
+        \     'file': "\<Plug>(fern-my-enter-project-root)",
+        \   }
+        \ )
+endfunction
+
+function! s:map_enter_project_root(helper) abort
+  " NOTE: require 'file' scheme
+  silent! execute "Rooter"
+  "let path = getcwd()
+  execute printf('silent! Fern %s -drawer', fnameescape('.'))
 endfunction
 
 "let g:fern#renderer#default#leading="  "

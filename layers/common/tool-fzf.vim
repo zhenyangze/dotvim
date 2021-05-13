@@ -85,7 +85,7 @@ function! s:fzfdir(e)
 endfunction
 
 command! -bang FzfDirs
-            \ call fzf#run(fzf#wrap('fzfdirs', {'source':'find .  -type d  \( ! -iname ".*" \) | sed "s|^\./||g"', 'sink': function('<sid>fzfdir')}, 0))
+            \ call fzf#run(fzf#wrap('fzfdirs', {'source':'find .  -type d  \( ! -iname ".*" \) | sed "s|^\./||g" | grep -v "^\."', 'sink': function('<sid>fzfdir')}, 0))
 
 let g:fzf_command_prefix = 'Fzf'
 let s:ag_options = ' --one-device --skip-vcs-ignores --smart-case '
