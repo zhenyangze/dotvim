@@ -81,7 +81,7 @@ inoremap <expr> <c-x><c-l> fzf#vim#complete(fzf#wrap({
             \ 'reducer': { lines -> join(split(lines[0], ':\zs')[2:], '') }}))
 
 function! s:fzfdir(e) 
-    exec 'Fern  . -reveal=' . a:e . ' -drawer'
+    exec 'silent! Fern  . -reveal=' . a:e . ' -drawer'
 endfunction
 
 command! -bang FzfDirs
