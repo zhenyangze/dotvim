@@ -44,7 +44,7 @@ command! -bang -nargs=* Ag
 " Similarly, we can apply it to fzf#vim#grep. To use ripgrep instead of ag:
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --color=always --no-ignore --smart-case '.shellescape(<q-args>), 1,
+  \   'rg --column --line-number --no-heading --color=always --no-ignore --smart-case '.shellescape(<q-args>) . ' 2> /dev/null', 1,
   \   <bang>0 ? fzf#vim#with_preview('up:60%')
   \           : fzf#vim#with_preview('right:50%', '?'),
   \   <bang>0)
@@ -60,7 +60,7 @@ command! -bang -nargs=* FzfTodo
 
 command! -bang -nargs=* FzfPHPClass
             \ call fzf#vim#grep(
-            \   'rg --column --line-number --no-heading --ignore-case --no-ignore --hidden --follow --glob "!.git/*" -t php  -e  "^[\s]*class\s+(\S+)"', 1,
+            \   'rg --column --line-number --no-heading --ignore-case --no-ignore --hidden --follow --glob "!.git/*" -t php  -e  "^[\s]*class\s+(\S+)" 2> /dev/null', 1,
             \   <bang>0 ? fzf#vim#with_preview('up:60%')
             \           : fzf#vim#with_preview('right:50%', '?'),
             \   <bang>0
@@ -68,7 +68,7 @@ command! -bang -nargs=* FzfPHPClass
 
 command! -bang -nargs=* FzfPHPFunction
             \ call fzf#vim#grep(
-            \   'rg --column --line-number --no-heading --ignore-case --no-ignore --hidden --follow --glob "!.git/*" -t php  -e  "^[\s]*(private|protected|public)?\s*(static)?\s*function\s+(\S+)"', 1,
+            \   'rg --column --line-number --no-heading --ignore-case --no-ignore --hidden --follow --glob "!.git/*" -t php  -e  "^[\s]*(private|protected|public)?\s*(static)?\s*function\s+(\S+)" 2> /dev/null', 1,
             \   <bang>0 ? fzf#vim#with_preview('up:60%')
             \           : fzf#vim#with_preview('right:50%', '?'),
             \   <bang>0
@@ -85,7 +85,7 @@ function! s:fzfdir(e)
 endfunction
 
 command! -bang FzfDirs
-            \ call fzf#run(fzf#wrap('fzfdirs', {'source':'find .  -type d  \( ! -iname ".*" \) | sed "s|^\./||g"', 'sink': function('<sid>fzfdir')}, 0))
+            \ call fzf#run(fzf#wrap('fzfdirs', {'source':'find .  -type d  \( ! -iname ".*" \) | sed "s|^\./||g" 2> /dev/null', 'sink': function('<sid>fzfdir')}, 0))
 
 let g:fzf_command_prefix = 'Fzf'
 let s:ag_options = ' --one-device --skip-vcs-ignores --smart-case '
@@ -93,7 +93,7 @@ let s:ag_options = ' --one-device --skip-vcs-ignores --smart-case '
 "
 " The Silver Searcher
 if executable('ag')
-  let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
+  let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g "" 2> /dev/null'
   set grepprg=ag\ --nogroup\ --nocolor
 endif
 
@@ -103,7 +103,7 @@ if executable('rg')
   set grepprg=rg\ --vimgrep
   command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
   command! -bang RgFiles 
-              \ call fzf#run(fzf#wrap('RgFiles', {'source':'rg --files --hidden --follow --no-ignore --glob "!.git/*"' , 'sink': 'e', 'options': '--reverse --ansi --delimiter / --nth -2..'}, 0))
+              \ call fzf#run(fzf#wrap('RgFiles', {'source':'rg --files --hidden --follow --no-ignore --glob "!.git/*" 2>/dev/null' , 'sink': 'e', 'options': '--reverse --ansi --delimiter / --nth -2..'}, 0))
 
 
 endif
