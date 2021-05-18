@@ -81,11 +81,11 @@ inoremap <expr> <c-x><c-l> fzf#vim#complete(fzf#wrap({
             \ 'reducer': { lines -> join(split(lines[0], ':\zs')[2:], '') }}))
 
 function! s:fzfdir(e) 
-    exec 'Fern  . -reveal=' . a:e . ' -drawer'
+    exec 'silent! Fern  . -reveal=' . a:e . ' -drawer'
 endfunction
 
 command! -bang FzfDirs
-            \ call fzf#run(fzf#wrap('fzfdirs', {'source':'find .  -type d  \( ! -iname ".*" \) | sed "s|^\./||g" 2> /dev/null', 'sink': function('<sid>fzfdir')}, 0))
+            \ call fzf#run(fzf#wrap('fzfdirs', {'source':'find .  -type d  \( ! -iname ".*" \) 2> /dev/null | sed "s|^\./||g" | grep -v "^\."', 'sink': function('<sid>fzfdir')}, 0))
 
 let g:fzf_command_prefix = 'Fzf'
 let s:ag_options = ' --one-device --skip-vcs-ignores --smart-case '

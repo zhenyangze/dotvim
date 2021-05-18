@@ -485,8 +485,8 @@ let g:which_key_map.w = {
             \'|': ['vs', 'Double'],
             \'-': ['split', 'Split'],
             \'v': ['VoomToggle', 'Toggle Outline'],
-            \'f': [':Fern . -drawer', 'Files Tree'],
-            \'s': [':Fern . -reveal=% -drawer', 'Find Files'],
+            \'f': [':silent! Fern . -drawer', 'Files Tree'],
+            \'s': [':silent! Fern . -reveal=% -drawer', 'Find Files'],
             \'t': ['ShowTagbarToggle()', 'TagBarToggle'],
             \'g': ['ShowGunDo()', 'GunDoToggle'],
             \}
