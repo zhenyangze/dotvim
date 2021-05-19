@@ -739,7 +739,7 @@ let g:which_key_map.f = {
             \'n': ['FZFNeigh', 'Neighbouring Files'],
             \'p': ['FzfMaps', 'Maps'],
             \'r': ['FzfCscope("c", "<cword>")', 'Goto calling'],
-            \'s': [':cs find g <cword>', 'Goto definition'],
+            \'s': ['FzfCscope("g", "<cword>")', 'Goto definition'],
             \'t': ['FzfBTags', 'Bufer`s Tags'],
             \'w': ['FzfWindows', 'Windows'],
             \} 

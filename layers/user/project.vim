@@ -1,4 +1,7 @@
-call project#begin()
+if !exists('g:load_project_plugin') 
+    call project#begin()
+    let g:load_project_plugin = 1
+endif
 
 " Add '~/repository/project-name'
 "ProjectBase '~/repository'

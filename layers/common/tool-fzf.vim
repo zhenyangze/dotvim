@@ -166,35 +166,62 @@ command! -bang FzfArtisan
 
 
 function! CscopeFind(line)
-    let l:fileName = split(a:line, ':')[2]
-    let l:fileLineNum = split(a:line, ':')[1]
-    execute 'e ' . l:fileName
-    execute ':' . l:fileLineNum
+    let l:fileName = split(a:line)[0]
+    let l:fileLineNum = split(l:fileName, ":")[-1]
+    let l:fileName = join(split(l:fileName, ":")[:-2])
+    execute 'e ' . trim(trim(l:fileName), '\')
+    execute ':' . trim(trim(l:fileLineNum), '\')
 endfunction
 
 function! FzfCscope(option, query)
-    let l:output = execute('cs find ' . a:option . ' ' . a:query)
+    let l:output = execute('silent! cs find ' . a:option . ' ' . a:query)
     let l:cscopeList = split(l:output, "\n")
+    if len(l:cscopeList) == 0
+        return
+    endif
     let l:newcscopeList = []
     let l:nums = -1
     let l:tempStr = ''
+    let l:start = 0
     for item in l:cscopeList
         let l:nums += 1 
-        if (l:nums <= 1)
+        if l:nums <= 1
+            continue
+        endif
+
+        if stridx(item, '(empty cancels)') > -1
             continue
         endif
         let l:tempNum = (l:nums - l:nums % 2) / 2
-        if (l:nums % 2) == 0 
-            let l:tempStr = join(split(item), ':')
-        else 
-            let l:tempStr .= item
+        let l:itemList = split(item)
+        let l:type = 0
+        if match(item, '\d\{1,\}\s*\d\{1,\}\s*\S*\s*<<\S*>>') > -1
+            let l:type = 1
+            let l:start = 1
         endif
 
-        if (l:nums % 2) == 1
+        if l:start < 1 
+            return
+        endif
+        if (l:type == 1)
+            if (l:tempStr != '')
+                call add(l:newcscopeList, l:tempStr)
+                let l:tempStr = ''
+            endif
+            let l:tempStr = join([l:itemList[2] . ':' . l:itemList[1] ], "\t")
+        else
+            let l:tempStr .= "\t" . trim(item)
+        endif
+
+        if (l:type != 1 && l:tempStr != '') 
             call add(l:newcscopeList, l:tempStr)
             let l:tempStr = ''
         endif
     endfor
+    if (l:tempStr != '')
+        call add(l:newcscopeList, l:tempStr)
+        let l:tempStr = ''
+    endif
     call fzf#run(fzf#wrap('fzfcscope', {'source': l:newcscopeList, 'sink': 'CscopeFind'}, 0))
 endfunction
 
