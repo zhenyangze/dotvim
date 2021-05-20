@@ -1,1 +1,4 @@
-Plug 'machakann/vim-swap' "g<, g>, gs
+Plug 'AndrewRadev/sideways.vim'
+
+nnoremap ,, :SidewaysLeft<cr>
+nnoremap ,. :SidewaysRight<cr>

@@ -1,4 +1,4 @@
-Plug 'liuchengxu/eleline.vim'
+Plug 'zhenyangze/eleline.vim'
 Plug 'Yggdroot/indentLine'
 Plug 'ayu-theme/ayu-vim'
 Plug 'gcmt/taboo.vim'
