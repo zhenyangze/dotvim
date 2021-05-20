@@ -41,6 +41,9 @@
     "suggest.noselect": false,
     "suggest.floatEnable": true,
     "todolist.monitor": true,
-    "java.enabled": false,
-    "ccls.completion.detailedLabel": true
+    "java.enabled": true,
+    "ccls.completion.detailedLabel": true,
+    "codeLens.enable": true,
+    "java.referencesCodeLens.enabled": true,
+    "java.jdt.ls.vmargs": "-javaagent:/usr/local/share/lombok/lombok.jar"
 }

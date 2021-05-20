@@ -12,6 +12,10 @@ ln -s $DIR $HOME/.vim
 ln -s $DIR/vimrc $HOME/.vimrc
 ln -s $DIR/vimspector.json $HOME/.vimspector.json
 
+
+#sudo mkdir /usr/local/share/lombok
+#sudo wget https://projectlombok.org/downloads/lombok.jar -O /usr/local/share/lombok/lombok.jar
+
 if hash nvim 2>/dev/null; then
 	mkdir -p $HOME/.config
 	ln -s $HOME/.vim $HOME/.config/nvim
