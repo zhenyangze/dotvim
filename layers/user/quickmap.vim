@@ -53,7 +53,7 @@ nmap ,q :q!<CR>
 "nmap ,p :ProjectList<cr>
 nmap ,p :FzfProject<cr>
 nmap ,r :Rooter<CR>
-nmap ,s :silent! Fern . -reveal=% -drawer<CR>
+nmap ,s :call FernFindCurrentFile()<CR>
 "nmap ,t :silent! Fern . -drawer<CR>
 nmap ,t :TagbarToggle<CR>
 nmap ,w :w!<CR>

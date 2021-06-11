@@ -34,6 +34,10 @@ vnoremap ; :
 "vnoremap : ;
 "inoremap jk <ESC>
 
+"nnoremap d "_d
+"nnoremap D "_D
+"vnoremap d "_d
+"vnoremap D "_D
 
 " @ window
 " -----------------------------------------------------------------------------
@@ -117,6 +121,11 @@ function! TogglePopup()
         let g:fzf_layout = { 'down': '~40%' }
         let g:fzf_popup_status = 0
     endif
+endfunction
+
+function! FernFindCurrentFile()
+    let l:filename = trim(expand('%'), './')
+    silent! exec "Fern . -drawer -reveal=" . l:filename
 endfunction
 
 " 交换 ' `, 使得可以快速使用'跳到marked位置
@@ -486,7 +495,7 @@ let g:which_key_map.w = {
             \'-': ['split', 'Split'],
             \'v': ['VoomToggle', 'Toggle Outline'],
             \'f': [':silent! Fern . -drawer', 'Files Tree'],
-            \'s': [':silent! Fern . -reveal=% -drawer', 'Find Files'],
+            \'s': ['FernFindCurrentFile()', 'Find Files'],
             \'t': ['ShowTagbarToggle()', 'TagBarToggle'],
             \'g': ['ShowGunDo()', 'GunDoToggle'],
             \}
