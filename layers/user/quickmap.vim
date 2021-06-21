@@ -53,9 +53,11 @@ nmap ,q :q!<CR>
 "nmap ,p :ProjectList<cr>
 nmap ,p :FzfProject<cr>
 nmap ,r :Rooter<CR>
+nmap ,R :redraw<CR>
 nmap ,s :call FernFindCurrentFile()<CR>
 "nmap ,t :silent! Fern . -drawer<CR>
 nmap ,t :TagbarToggle<CR>
+nmap ,T :TMToggle<CR>
 nmap ,w :w!<CR>
 nmap ,y :YRShow<CR>
 nmap ,1 :call JumpToWindow(1)<CR>
