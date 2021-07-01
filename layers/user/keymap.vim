@@ -398,7 +398,7 @@ function! AckReplace(is_replace)
     elseif a:is_replace == 2
         let l:replace_str = input("Replace String: ", "")
     endif
-    let l:reg_list = ['\\', '$', '-', '[', ']', '(', ')', ' ', '{', '}', '?']
+    let l:reg_list = ['\\', '$', '-', '[', ']', '(', ')', ' ', '{', '}', '?', '|']
 
     for item in l:reg_list
         let l:search_str = escape(l:search_str, item)
