@@ -410,9 +410,9 @@ function! AckReplace(is_replace)
     endif
  
     if a:is_replace == 2
-        exec "Acks /" . search_str . "/" . l:replace_str . "/ "
+        exec "Lacks /" . search_str . "/" . l:replace_str . "/ "
     elseif a:is_replace == 1
-        exec "Ack " . search_str . " ". l:search_path
+        exec "Lack " . search_str . " ". l:search_path
     else
         exec "Ag " . search_str
     endif
