@@ -18,7 +18,9 @@ let g:gen_tags#blacklist += split(glob('~/.config/dotvim/plugged/*'))
 
 "let g:fzf_layout = { 'down': '~40%' }
 let $FZF_DEFAULT_OPTS .= ' --inline-info --layout=reverse'
-if version > 800
+if has("nvim") > 0
+    let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.6, 'border': 'rounded' } }
+elseif version > 800
     let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.6, 'border': 'rounded' } }
 else
     let g:fzf_layout = { 'down': '~40%' }

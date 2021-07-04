@@ -6,11 +6,16 @@ syntax enable
 " colorscheme onedark
 " colorscheme space-vim-dark
 if !exists('$TMUX')
-    colorscheme space_vim_theme
-    if version > 800
-        set termguicolors
+    if has("nvim")
+        set background=dark
+        colorscheme ayu
+    else
+        colorscheme space_vim_theme
+        if version > 800
+            set termguicolors
+        endif
+        set background=dark
     endif
-    set background=dark
     let g:material_style='palenight'
     "colorscheme onehalfdark
     "colorscheme vim-material
