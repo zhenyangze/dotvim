@@ -6,7 +6,7 @@ Plug 'zhenyangze/vim-material'
 Plug 'https://gitee.com/zhenyangze/onehalf', {'rtp': 'vim/'}
 Plug 'arcticicestudio/nord-vim'
 Plug 'liuchengxu/space-vim-theme'
-Plug 'rakr/vim-one'
+Plug 'rakr/vim-two-firewatch'
 if has('mac')
     Plug 'ryanoasis/vim-devicons'
     if !has('nvim')

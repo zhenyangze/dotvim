@@ -7,23 +7,26 @@ syntax enable
 " colorscheme space-vim-dark
 if !exists('$TMUX')
     if has("nvim")
-        set background=dark
-        colorscheme ayu
+        set termguicolors
+        set background=dark " or light if you prefer the light version
+        let g:two_firewatch_italics=1
+        colo two-firewatch
+        let g:airline_theme='twofirewatch'
     else
+        let g:material_style='palenight'
+        set background=dark
         colorscheme space_vim_theme
         if version > 800
             set termguicolors
         endif
-        set background=dark
+        "colorscheme onehalfdark
+        "colorscheme vim-material
+        "hi Normal     ctermbg=NONE guibg=NONE
+        "hi LineNr     ctermbg=NONE guibg=NONE
+        "hi SignColumn ctermbg=NONE guibg=NONE
+        hi LineNr ctermbg=NONE guibg=NONE
+        hi Comment guifg=#5C6370 ctermfg=59
     endif
-    let g:material_style='palenight'
-    "colorscheme onehalfdark
-    "colorscheme vim-material
-    "hi Normal     ctermbg=NONE guibg=NONE
-    "hi LineNr     ctermbg=NONE guibg=NONE
-    "hi SignColumn ctermbg=NONE guibg=NONE
-    hi LineNr ctermbg=NONE guibg=NONE
-    hi Comment guifg=#5C6370 ctermfg=59
 else
     set background=dark 
     colorscheme ayu
