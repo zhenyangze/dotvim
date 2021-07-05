@@ -1,11 +1,6 @@
 let mapleader="\<Space>"
 let s:vim_home='~/.vim/'
 
-if has('nvim')
-    let g:python3_host_prog = '/Users/yangze/anaconda2/envs/python36/bin/python3'
-    let g:python_host_prog = '/usr/bin/python'
-end
-
 " init 
 if empty(glob("~/.vim/autoload/plug.vim"))
   echo "Installing vim-plug..."
