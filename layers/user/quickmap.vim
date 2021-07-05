@@ -96,3 +96,5 @@ nnoremap ]f :<c-u>call BesideFile("")<cr>
 
 nmap [q :<c-u>cp<cr>
 nmap ]q :<c-u>cn<cr>
+nmap [l :<c-u>lprevious<cr>
+nmap ]l :<c-u>lnext<cr>
