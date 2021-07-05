@@ -2,7 +2,7 @@ Plug 'stephpy/vim-php-cs-fixer' ,{ 'for': 'php'}
 Plug 'arnaud-lb/vim-php-namespace',{ 'for': 'php'}
 Plug 'adoy/vim-php-refactoring-toolbox', {'for': 'php'}
 Plug 'xwsoul/vim-zephir', {'for': 'zep'}
-if version > 800
+if version > 800 || has("nvim")
 Plug 'Shougo/echodoc.vim'
 let g:echodoc_enable_at_startup = 1
 endif

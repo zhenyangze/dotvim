@@ -1,4 +1,4 @@
-if version > 800
+if version > 800 || has("nvim")
 Plug 'PangPangPangPangPang/vim-terminal'
 
 map <silent> <F2> :VSTerminalToggle<cr>
@@ -35,6 +35,8 @@ function! TerminalDeleteWithIndex()
     endif
 endfunction
 
-au TerminalOpen * if &buftype == 'terminal' | setlocal bufhidden=hide | endif
+if !has("nvim")
+    au TerminalOpen * if &buftype == 'terminal' | setlocal bufhidden=hide | endif
+endif
 autocmd bufenter * if (winnr("$") == 1 && exists('b:rootDir') && &buftype == 'terminal') | q! | endif
 endif

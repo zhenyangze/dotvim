@@ -33,7 +33,7 @@ endfunction
 
 "nmap ,b :FzfBuffers<CR>
 nmap ,a gg0vG$<CR>
-if version > 800
+if version > 800 || has("nvim")
 tmap ,b <C-w>:call ToggleWindowShow(['conque_term', 'zsh'], 'VSTerminalToggle', 'quit')<CR>
 endif
 nmap ,b <C-w>:call ToggleWindowShow(['conque_term', 'zsh'], 'VSTerminalToggle', 'quit')<CR>

@@ -16,7 +16,7 @@ set updatetime=2000
 " don't give |ins-completion-menu| messages.
 set shortmess+=c
 
-if version > 800
+if version > 800 || has("nvim")
     " always show signcolumns
     set signcolumn=yes
 endif

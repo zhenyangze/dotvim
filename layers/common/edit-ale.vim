@@ -1,4 +1,4 @@
-if version > 800
+if version > 800 || has("nvim")
 Plug 'w0rp/ale', {'on': []}
 
 "ale {{{

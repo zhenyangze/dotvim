@@ -12,6 +12,10 @@ if !exists('$TMUX')
         let g:two_firewatch_italics=1
         colo two-firewatch
         let g:airline_theme='twofirewatch'
+
+        hi SignColumn ctermbg=NONE guibg=NONE
+        hi StatusLineNC guifg=#444444 guibg=#3a3a3a
+        hi TabLine cterm=None ctermbg=59 gui=None guibg=59
     else
         let g:material_style='palenight'
         set background=dark
