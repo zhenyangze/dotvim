@@ -3,7 +3,7 @@
 
 autocmd TextChangedI,CompleteDone,InsertLeave * silent! exec "call popup_clear()"
 
-let g:coc_global_extensions = ['coc-css', 'coc-snippets', 'coc-phpls', 'coc-python', 'coc-html', 'coc-json', 'coc-sh', 'coc-java', 'coc-tabnine', 'coc-tsserver', 'coc-lua']
+let g:coc_global_extensions = ['coc-css', 'coc-snippets', 'coc-phpls', 'coc-python', 'coc-html', 'coc-json', 'coc-sh', 'coc-java', 'coc-tabnine', 'coc-tsserver']
 
 "let g:phpactorPhpBin = "/Applications/MxSrvs/bin/php/bin/php"
 let g:phpactorOmniAutoClassImport = v:true
@@ -48,3 +48,5 @@ function! AdjustWindowHeight(minheight, maxheight)
     "endw
     exe max([min([line('$'), a:maxheight]), a:minheight]) . "wincmd _"
 endfunction
+
+ let g:context_enabled = 0

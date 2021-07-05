@@ -34,6 +34,10 @@
                 },
                 "highlight": { "lsRanges": true }
             }
+        },
+        "lua": {
+            "command": "lua-lsp",
+            "filetypes": ["lua"]
         }
     },
     "diagnostic.displayByAle": true,
@@ -45,5 +49,7 @@
     "ccls.completion.detailedLabel": true,
     "codeLens.enable": true,
     "java.referencesCodeLens.enabled": true,
-    "java.jdt.ls.vmargs": "-javaagent:/usr/local/share/lombok/lombok.jar"
+    "java.jdt.ls.vmargs": "-javaagent:/usr/local/share/lombok/lombok.jar",
+    "java.codeGeneration.generateComments": "true",
+    "java.home": "/Library/Java/JavaVirtualMachines/adoptopenjdk-11.jdk/Contents/Home/"
 }
