@@ -19,6 +19,8 @@ if !exists('$TMUX')
             hi TabLine cterm=None ctermbg=59 gui=None guibg=59
         elseif version > 800
             hi Comment cterm=none guifg=#5C6370 ctermfg=59
+            hi TabLineSel ctermfg=70 ctermbg=234 guifg=#67b11d guibg=#212026 guisp=NONE cterm=NONE gui=NONE
+            hi TabLine cterm=none guifg=#5C6370 ctermfg=59 guibg=#282c34
         endif
     else
         let g:material_style='palenight'
