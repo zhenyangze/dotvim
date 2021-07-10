@@ -6,7 +6,7 @@ syntax enable
 " colorscheme onedark
 " colorscheme space-vim-dark
 if !exists('$TMUX')
-    if has("nvim")
+    if has("nvim") || version > 800
         set termguicolors
         set background=dark " or light if you prefer the light version
         let g:two_firewatch_italics=1
@@ -15,7 +15,11 @@ if !exists('$TMUX')
 
         hi SignColumn ctermbg=NONE guibg=NONE
         hi StatusLineNC guifg=#444444 guibg=#3a3a3a
-        hi TabLine cterm=None ctermbg=59 gui=None guibg=59
+        if has("nvim")
+            hi TabLine cterm=None ctermbg=59 gui=None guibg=59
+        elseif version > 800
+            hi Comment cterm=none guifg=#5C6370 ctermfg=59
+        endif
     else
         let g:material_style='palenight'
         set background=dark
