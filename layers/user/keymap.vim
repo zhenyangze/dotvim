@@ -126,6 +126,7 @@ function! TogglePopup()
 endfunction
 
 function! FernFindCurrentFile()
+    silent! execute "Rooter"
     let l:filename = trim(expand('%'), './')
     silent! exec "Fern . -drawer -reveal=" . l:filename
 endfunction
