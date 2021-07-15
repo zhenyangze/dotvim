@@ -64,6 +64,12 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nmap <silent> ga :CocAction<CR>
 
+nmap <silent> ]d <Plug>(coc-definition)
+nmap <silent> ]y <Plug>(coc-type-definition)
+nmap <silent> ]i <Plug>(coc-implementation)
+nmap <silent> ]r <Plug>(coc-references)
+
+
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
