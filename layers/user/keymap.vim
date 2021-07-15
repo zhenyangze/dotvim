@@ -84,12 +84,14 @@ let g:mouse_status = 0
 function! ToggleMouse()
     if (g:mouse_status == 0) 
         let g:mouse_status = 1
-        set mouse=a
+        set mouse=n
         set scrolloff=0
+        echomsg "Mouse Active"
     else
         let g:mouse_status = 0
         set mouse=""
         set scrolloff=30
+        echomsg "Mouse Disable"
     endif
 endfunction
 
@@ -129,9 +131,9 @@ function! FernFindCurrentFile()
 endfunction
 
 " 交换 ' `, 使得可以快速使用'跳到marked位置
-nnoremap ' `
-nnoremap ` '
-
+"nnoremap ' `
+"nnoremap ` '
+nnoremap ` :call ToggleMouse()<CR>
 
 " @ jump
 " -----------------------------------------------------------------------------
