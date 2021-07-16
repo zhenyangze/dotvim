@@ -128,7 +128,15 @@ endfunction
 function! FernFindCurrentFile()
     silent! execute "Rooter"
     let l:filename = trim(expand('%'), './')
-    silent! exec "Fern . -drawer -reveal=" . l:filename
+    if exists(":NERDTreeFind")
+        if l:filename == 'Startify' || l:filename == ''
+            silent! exec "NERDTree"
+        else
+            silent! exec "NERDTreeFind"
+        endif
+    else 
+        "silent! exec "Fern . -drawer -reveal=" . l:filename
+    endif
 endfunction
 
 " 交换 ' `, 使得可以快速使用'跳到marked位置
@@ -497,7 +505,7 @@ let g:which_key_map.w = {
             \'|': ['vs', 'Double'],
             \'-': ['split', 'Split'],
             \'v': ['VoomToggle', 'Toggle Outline'],
-            \'f': [':silent! Fern . -drawer', 'Files Tree'],
+            \'f': ['NERDTree', 'Files Tree'],
             \'s': ['FernFindCurrentFile()', 'Find Files'],
             \'t': ['ShowTagbarToggle()', 'TagBarToggle'],
             \'g': ['ShowGunDo()', 'GunDoToggle'],

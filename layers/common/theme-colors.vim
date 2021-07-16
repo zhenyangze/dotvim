@@ -24,3 +24,9 @@ endif
 " taboo.vim {{{
 let g:taboo_tab_format = " %m[%N] %f "
 " }}}
+
+let g:webdevicons_enable_nerdtree = 0
+let g:webdevicons_conceal_nerdtree_brackets = 1
+let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
+let g:WebDevIconsNerdTreeBeforeGlyphPadding = ''
+let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1

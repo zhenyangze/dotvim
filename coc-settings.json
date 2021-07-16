@@ -38,6 +38,13 @@
         "lua": {
             "command": "lua-lsp",
             "filetypes": ["lua"]
+        },
+        "efm": {
+            "command": "efm-langserver",
+            "args": [],
+            // custom config path
+            // "args": ["-c", "/path/to/your/config.yaml"],
+            "filetypes": ["vim", "eruby", "markdown"]
         }
     },
     "diagnostic.displayByAle": true,
