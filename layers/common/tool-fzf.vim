@@ -81,7 +81,12 @@ inoremap <expr> <c-x><c-l> fzf#vim#complete(fzf#wrap({
             \ 'reducer': { lines -> join(split(lines[0], ':\zs')[2:], '') }}))
 
 function! s:fzfdir(e) 
-    exec 'silent! Fern  . -reveal=' . a:e . ' -drawer'
+    let l:filename = trim(a:e, './')
+    if exists(":NERDTreeFind")
+        silent! exec 'NERDTreeFind ' . l:filename
+    else
+        silent! exec 'Fern  . -reveal=' . l:filename . ' -drawer'
+    endif
 endfunction
 
 command! -bang FzfDirs

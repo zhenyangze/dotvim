@@ -1,7 +1,7 @@
 Plug 'preservim/nerdtree', {'on': ['NERDTreeToggle', 'NERDTreeFind', 'NERDTree', 'NERDTreeClose']}
 "Plug 'jistr/vim-nerdtree-tabs' ", { 'on': 'NERDTreeTabsToggle'  }
 Plug 'Xuyuanp/nerdtree-git-plugin', {'on': ['NERDTreeToggle', 'NERDTreeFind', 'NERDTree', 'NERDTreeClose']}
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight', {'on': ['NERDTreeToggle', 'NERDTreeFind', 'NERDTree', 'NERDTreeClose']}
+"Plug 'tiagofumo/vim-nerdtree-syntax-highlight', {'on': ['NERDTreeToggle', 'NERDTreeFind', 'NERDTree', 'NERDTreeClose']}
 
 function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
 	exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
