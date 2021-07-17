@@ -8,3 +8,4 @@
 session
 layers/user/test.vim
 init.vim
+coc-settings.json
