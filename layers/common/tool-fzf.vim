@@ -194,7 +194,7 @@ function! FzfCscope(option, query)
             continue
         endif
 
-        if stridx(item, '(empty cancels)') > -1
+        if stridx(item, '(empty cancels)') > -1 || stridx(item, 'Type number and') > -1
             continue
         endif
         let l:tempNum = (l:nums - l:nums % 2) / 2
