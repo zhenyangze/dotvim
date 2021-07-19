@@ -747,7 +747,6 @@ let g:which_key_map.f = {
             \'c': ['FzfCommits', 'Commit'],
             \'d': ['FzfCommands', 'Commands'],
             \'D': ['FzfDirs', 'NerdTreeFind'],
-            \'e': ['FzfCscope("e", "<cword>")', 'Goto string'],
             \'f': ['ShowfindFiles()', 'File'],
             \'F': ['FzfFiletypes', 'File types'],
             \'g': ['Gtags', 'gtags'],
@@ -758,11 +757,26 @@ let g:which_key_map.f = {
             \'m': ['FzfMarks', 'Marks'],
             \'n': ['FZFNeigh', 'Neighbouring Files'],
             \'p': ['FzfMaps', 'Maps'],
-            \'r': ['FzfCscope("c", "<cword>")', 'Goto calling'],
-            \'s': ['FzfCscope("g", "<cword>")', 'Goto definition'],
             \'t': ['FzfBTags', 'Bufer`s Tags'],
             \'w': ['FzfWindows', 'Windows'],
             \} 
+
+
+let g:which_key_map.k = { 
+            \'name': 'Cscope',
+            \'n': ['GenGTAGS', 'Gen GTAGS'],
+            \'r': ['FzfCscope("s", "<cword>")', 'References'],
+            \'g': ['FzfCscope("g", "<cword>")', 'Global Definition'],
+            \'c': ['FzfCscope("c", "<cword>")', 'Calls'],
+            \'t': ['FzfCscope("t", "<cword>")', 'Text'],
+            \'e': ['FzfCscope("e", "<cword>")', 'Egrep Search'],
+            \'f': ['FzfCscope("f", "<cword>")', 'Filename'],
+            \'i': ['FzfCscope("i", "<cword>")', 'Includes'],
+            \'d': ['FzfCscope("d", "<cword>")', 'called'],
+            \'a': ['FzfCscope("a", "<cword>")', 'Assigned'],
+            \} 
+
+
 
 let g:which_key_map.g = { 
             \'name': 'Git',
