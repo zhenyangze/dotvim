@@ -182,6 +182,7 @@ function! FzfCscope(option, query)
     let l:output = execute('silent! cs find ' . a:option . ' ' . a:query)
     let l:cscopeList = split(l:output, "\n")
     if len(l:cscopeList) == 0
+        echomsg "没有找到匹配的结果"
         return
     endif
     let l:newcscopeList = []
@@ -197,23 +198,36 @@ function! FzfCscope(option, query)
         if stridx(item, '(empty cancels)') > -1 || stridx(item, 'Type number and') > -1
             continue
         endif
-        let l:tempNum = (l:nums - l:nums % 2) / 2
+
+        let item = trim(item)
         let l:itemList = split(item)
         let l:type = 0
-        if match(item, '\d\{1,\}\s*\d\{1,\}\s*\S*\s*<<\S*>>') > -1
+        if match(item, '^\d\{1,\}\s*\d\{1,\}\s*\S*[\s*<<\S*>>]*') > -1
             let l:type = 1
             let l:start = 1
+        elseif match(item, '^<<\s*\S*>>') > -1
+            let l:type = 3
+            continue
         endif
 
         if l:start < 1 
+            echomsg "没有找到匹配的结果"
             return
         endif
+
         if (l:type == 1)
             if (l:tempStr != '')
                 call add(l:newcscopeList, l:tempStr)
                 let l:tempStr = ''
             endif
-            let l:tempStr = join([l:itemList[2] . ':' . l:itemList[1] ], "\t")
+            if ( strlen(getcwd()) + 1 < strlen(l:itemList[2])) 
+                let l:file = strpart(l:itemList[2], strlen(getcwd()) + 1)
+            else
+                let l:file = l:itemList[2]
+            endif
+            let l:tempStr = join([l:file . ':' . l:itemList[1] ], "\t")
+        elseif l:type == 3 
+            continue
         else
             let l:tempStr .= "\t" . trim(item)
         endif
@@ -227,6 +241,7 @@ function! FzfCscope(option, query)
         call add(l:newcscopeList, l:tempStr)
         let l:tempStr = ''
     endif
+    "call fzf#run(fzf#wrap('fzfcscope', {'source': l:newcscopeList, 'sink': 'CscopeFind', 'options': ['--layout=reverse', '--info=inline', '--preview', '~/.vim/plugged/fzf.vim/bin/preview.sh {}']}, 0))
     call fzf#run(fzf#wrap('fzfcscope', {'source': l:newcscopeList, 'sink': 'CscopeFind'}, 0))
 endfunction
 
