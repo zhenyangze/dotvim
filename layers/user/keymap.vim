@@ -766,13 +766,13 @@ let g:which_key_map.k = {
             \'name': 'Cscope',
             \'n': ['GenGTAGS', 'Gen GTAGS'],
             \'r': ['FzfCscope("s", "<cword>")', 'References'],
-            \'g': ['FzfCscope("g", "<cword>")', 'Global Definition'],
-            \'c': ['FzfCscope("c", "<cword>")', 'Calls'],
+            \'d': ['FzfCscope("g", "<cword>")', 'Global Definition'],
+            \'C': ['FzfCscope("c", "<cword>")', 'Calls'],
             \'t': ['FzfCscope("t", "<cword>")', 'Text'],
             \'e': ['FzfCscope("e", "<cword>")', 'Egrep Search'],
             \'f': ['FzfCscope("f", "<cword>")', 'Filename'],
             \'i': ['FzfCscope("i", "<cword>")', 'Includes'],
-            \'d': ['FzfCscope("d", "<cword>")', 'called'],
+            \'c': ['FzfCscope("d", "<cword>")', 'called'],
             \'a': ['FzfCscope("a", "<cword>")', 'Assigned'],
             \} 
 
