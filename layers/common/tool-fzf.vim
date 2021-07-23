@@ -179,7 +179,18 @@ function! CscopeFind(line)
 endfunction
 
 function! FzfCscope(option, query)
-    let l:output = execute('silent! cs find ' . a:option . ' ' . a:query)
+    if stridx(a:query, '<cword>') == 0
+        let l:symbol = trim(expand(a:query))
+    else
+        let l:symbol = trim(a:query)
+    endif
+    if strlen(l:symbol) == 0 
+        let l:symbol = input("Input the Symbol: ")
+        call FzfCscope(a:option, l:symbol)
+        return
+    endif
+
+    let l:output = execute('silent! cs find ' . a:option . ' ' . l:symbol)
     let l:cscopeList = split(l:output, "\n")
     if len(l:cscopeList) == 0
         echomsg "没有找到匹配的结果"
