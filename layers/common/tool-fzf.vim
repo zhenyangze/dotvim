@@ -172,8 +172,8 @@ command! -bang FzfArtisan
 
 function! CscopeFind(line)
     let l:fileName = split(a:line)[0]
-    let l:fileLineNum = split(l:fileName, ":")[-1]
-    let l:fileName = join(split(l:fileName, ":")[:-2])
+    let l:fileLineNum = split(l:fileName, ":")[1]
+    let l:fileName = split(l:fileName, ":")[0]
     execute 'e ' . trim(trim(l:fileName), '\')
     execute ':' . trim(trim(l:fileLineNum), '\')
 endfunction
@@ -220,7 +220,7 @@ function! FzfCscope(option, query)
                 call add(l:newcscopeList, l:tempStr)
                 let l:tempStr = ''
             endif
-            if ( strlen(getcwd()) + 1 < strlen(l:itemList[2])) 
+            if (stridx(l:itemList[2], getcwd()) == 0 && strlen(getcwd()) + 1 < strlen(l:itemList[2])) 
                 let l:file = strpart(l:itemList[2], strlen(getcwd()) + 1)
             else
                 let l:file = l:itemList[2]
@@ -241,7 +241,11 @@ function! FzfCscope(option, query)
         call add(l:newcscopeList, l:tempStr)
         let l:tempStr = ''
     endif
-    call fzf#run(fzf#wrap('fzfcscope', fzf#vim#with_preview({'source': l:newcscopeList, 'sink': 'CscopeFind', 'options':["--delimiter=:", '--preview-window', '+{2}-/2']}), 0))
+    if (g:fzf_popup_status == 1)
+        call fzf#run(fzf#wrap('fzfcscope', fzf#vim#with_preview({'source': l:newcscopeList, 'sink': 'CscopeFind', 'options':["--delimiter=:", '--preview-window', '+{2}-/2']}), 0))
+    else
+        call fzf#run(fzf#wrap('fzfcscope', {'source': l:newcscopeList, 'sink': 'CscopeFind', 'options':["--delimiter=:", '--preview-window', '+{2}-/2']}, 0))
+    endif
 endfunction
 
 command! -nargs=1 -bang CscopeFind call CscopeFind(<q-args>)
