@@ -84,7 +84,7 @@ let g:mouse_status = 0
 function! ToggleMouse()
     if (g:mouse_status == 0) 
         let g:mouse_status = 1
-        set mouse=n
+        set mouse=nc
         set scrolloff=0
         echomsg "Mouse Active"
     else
