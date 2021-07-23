@@ -225,7 +225,7 @@ function! FzfCscope(option, query)
             else
                 let l:file = l:itemList[2]
             endif
-            let l:tempStr = join([l:file . ':' . l:itemList[1] ], "\t")
+            let l:tempStr = join([l:file . ':' . l:itemList[1] . ':' ], "\t")
         elseif l:type == 3 
             continue
         else
@@ -241,8 +241,7 @@ function! FzfCscope(option, query)
         call add(l:newcscopeList, l:tempStr)
         let l:tempStr = ''
     endif
-    "call fzf#run(fzf#wrap('fzfcscope', {'source': l:newcscopeList, 'sink': 'CscopeFind', 'options': ['--layout=reverse', '--info=inline', '--preview', '~/.vim/plugged/fzf.vim/bin/preview.sh {}']}, 0))
-    call fzf#run(fzf#wrap('fzfcscope', {'source': l:newcscopeList, 'sink': 'CscopeFind'}, 0))
+    call fzf#run(fzf#wrap('fzfcscope', fzf#vim#with_preview({'source': l:newcscopeList, 'sink': 'CscopeFind', 'options':["--delimiter=:", '--preview-window', '+{2}-/2']}), 0))
 endfunction
 
 command! -nargs=1 -bang CscopeFind call CscopeFind(<q-args>)
