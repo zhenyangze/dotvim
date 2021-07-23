@@ -26,6 +26,8 @@ else
     let g:fzf_layout = { 'down': '~40%' }
 endif
 let g:fzf_popup_status = 1
+"let g:fzf_preview_window = "right:50%"
+let g:fzf_preview_window = "down"
 
 set cmdheight=1
 
