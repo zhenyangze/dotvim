@@ -409,7 +409,7 @@ function! AckReplace(is_replace)
     elseif a:is_replace == 2
         let l:replace_str = input("Replace String: ", "")
     endif
-    let l:reg_list = ['\\', '$', '-', '[', ']', '(', ')', ' ', '{', '}', '?', '|']
+    let l:reg_list = ['\\', '$', '-', '[', ']', '(', ')', ' ', '{', '}', '?', '|', '.']
 
     for item in l:reg_list
         let l:search_str = escape(l:search_str, item)
@@ -421,11 +421,13 @@ function! AckReplace(is_replace)
     endif
  
     if a:is_replace == 2
-        exec "Lacks /" . search_str . "/" . l:replace_str . "/ "
+        let l:replace_str = escape(l:replace_str, '/')
+        let l:search_str = escape(l:search_str, '/')
+        exec "Lacks /" . l:search_str . "/" . l:replace_str . "/ "
     elseif a:is_replace == 1
-        exec "Lack " . search_str . " ". l:search_path
+        exec "Lack " . l:search_str . " ". l:search_path
     else
-        exec "Ag " . search_str
+        exec "Ag " . l:search_str
     endif
 endfunction
 
