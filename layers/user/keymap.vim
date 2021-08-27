@@ -769,12 +769,12 @@ let g:which_key_map.k = {
             \'n': ['GenGTAGS', 'Gen GTAGS'],
             \'r': ['FzfCscope("s", "<cword>")', 'References'],
             \'d': ['FzfCscope("g", "<cword>")', 'Global Definition'],
-            \'C': ['FzfCscope("c", "<cword>")', 'Calls'],
+            \'C': ['FzfCscope("d", "<cword>")', 'Calls'],
             \'t': ['FzfCscope("t", "<cword>")', 'Text'],
             \'e': ['FzfCscope("e", "<cword>")', 'Egrep Search'],
             \'f': ['FzfCscope("f", "<cword>")', 'Filename'],
             \'i': ['FzfCscope("i", "<cword>")', 'Includes'],
-            \'c': ['FzfCscope("d", "<cword>")', 'called'],
+            \'c': ['FzfCscope("c", "<cword>")', 'called'],
             \'a': ['FzfCscope("a", "<cword>")', 'Assigned'],
             \} 
 
