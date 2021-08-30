@@ -18,6 +18,19 @@ function! AsyncRunMake()
     endif
 endfunction
 
+function! AsyncRunTest()
+    if &filetype == 'php'
+        let l:funcName = expand("<cword>")
+        if match(l:funcName, "test") == 0 
+            execute 'AsyncRun! -mode=term -pos=bottom -rows=10 -cwd=<root> ./vendor/bin/phpunit $(VIM_RELNAME) --filter ' . l:funcName
+        else
+            execute 'AsyncRun! -mode=term -pos=bottom -rows=10 -cwd=<root> ./vendor/bin/phpunit $(VIM_RELNAME)'
+        endif
+    endif
+endfunction
+
+
+
 function! AsyncRunRun()
     if &filetype == 'php'
         execute 'AsyncRun! -mode=term -pos=bottom -rows=10 -cwd=<root> php $(VIM_RELNAME)'
