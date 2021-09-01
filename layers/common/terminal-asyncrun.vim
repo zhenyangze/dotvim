@@ -20,7 +20,19 @@ endfunction
 
 function! AsyncRunTest()
     if &filetype == 'php'
+        let save_cursor = getcurpos()
+
+        let l:line = getline(".")
+        if match(l:line, "function test") < 0 
+            normal [[
+            let l:line = getline(".")
+        endif
+        let l:funcIndex = match(l:line, "test") + 1
+        for i in  range(l:funcIndex)
+            normal l
+        endfor
         let l:funcName = expand("<cword>")
+        call setpos('.', save_cursor)
         if match(l:funcName, "test") == 0 
             execute 'AsyncRun! -mode=term -pos=bottom -rows=10 -cwd=<root> ./vendor/bin/phpunit $(VIM_RELNAME) --filter ' . l:funcName
         else
