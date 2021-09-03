@@ -39,6 +39,26 @@ function! AsyncRunTest()
             execute 'AsyncRun! -mode=term -pos=bottom -rows=10 -cwd=<root> ./vendor/bin/phpunit $(VIM_RELNAME)'
         endif
     endif
+    if &filetype == 'go'
+        let save_cursor = getcurpos()
+
+        let l:line = getline(".")
+        if match(l:line, "function test") < 0 
+            normal [[
+            let l:line = getline(".")
+        endif
+        let l:funcIndex = match(l:line, "Test_") + 1
+        for i in  range(l:funcIndex)
+            normal l
+        endfor
+        let l:funcName = expand("<cword>")
+        call setpos('.', save_cursor)
+        if match(l:funcName, "Test_") == 0 
+            execute 'AsyncRun! -mode=term -pos=bottom -rows=10 -cwd=<root> -raw go test -v "$(VIM_RELNAME)" -run="' . l:funcName . '"'
+        else
+            execute 'AsyncRun! -mode=term -pos=bottom -rows=10 -cwd=<root> -raw go test -v "$(VIM_RELNAME)"'
+        endif
+    endif
 endfunction
 
 
