@@ -43,11 +43,11 @@ function! AsyncRunTest()
         let save_cursor = getcurpos()
 
         let l:line = getline(".")
-        if match(l:line, "function test") < 0 
+        if match(l:line, "func Test") < 0 
             normal [[
             let l:line = getline(".")
         endif
-        let l:funcIndex = match(l:line, "Test_") + 1
+        let l:funcIndex = match(l:line, "Test") + 1
         for i in  range(l:funcIndex)
             normal l
         endfor
