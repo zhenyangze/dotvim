@@ -53,7 +53,7 @@ function! AsyncRunTest()
         endfor
         let l:funcName = expand("<cword>")
         call setpos('.', save_cursor)
-        if match(l:funcName, "Test_") == 0 
+        if match(l:funcName, "Test") == 0 
             execute 'AsyncRun! -mode=term -pos=bottom -rows=10 -cwd=<root> -raw go test -v "$(VIM_RELNAME)" -run="' . l:funcName . '"'
         else
             execute 'AsyncRun! -mode=term -pos=bottom -rows=10 -cwd=<root> -raw go test -v "$(VIM_RELNAME)"'
