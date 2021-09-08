@@ -469,6 +469,20 @@ function! GetRgSearchTextV2(s)
     let l:s = substitute(substitute(l:s, '\n', '\\n', 'g'), '\t', '\\t', 'g')
     return l:s
 endfunction
+function! GetCtrlsfSearchText(s)
+    let l:s = a:s
+    if len(l:s) == 0
+        let l:s = GetVisualSelection()
+    endif
+    let l:reg_list = ['\\', '$', '[', ']', '(', ')', '*', '{', '}', '?', '|', '.', "'"]
+
+    for item in l:reg_list
+        let l:s = escape(l:s, item)
+    endfor
+
+    let l:s = substitute(substitute(l:s, '\n', '\\n', 'g'), '\t', '\\t', 'g')
+    return l:s
+endfunction
 
 
 function! GetRgSearchText(s)
