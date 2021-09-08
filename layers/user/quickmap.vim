@@ -47,8 +47,8 @@ nmap ,F :call FzfFilesFunction()<CR>
 "vmap ,g :<C-u>Ag <C-R>=expand("<cword>")<CR><CR>
 nmap ,g :Rg<CR>
 vmap ,g :<C-U>execute("Rg " . GetRgSearchTextV2(""))<CR>
-vmap ,v :<C-U>execute("CtrlSF '" . GetCtrlsfSearchText("") . "'")<CR>
-nmap ,v :<C-U>execute("CtrlSF '" . GetCtrlsfSearchText("") . "'")<CR>
+vmap ,v :<C-U>execute("CtrlSF \"" . GetCtrlsfSearchText("") . "\"")<CR>
+nmap ,v :<C-U>execute("CtrlSF \"" . GetCtrlsfSearchText("") . "\"")<CR>
 nmap ,V :CtrlSFToggle<CR>
 nmap ,G :Ag <C-R>=expand("<cword>")<CR><CR>
 nmap ,h :Startify<CR>

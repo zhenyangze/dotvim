@@ -474,7 +474,7 @@ function! GetCtrlsfSearchText(s)
     if len(l:s) == 0
         let l:s = GetVisualSelection()
     endif
-    let l:reg_list = ['\\', '$', '[', ']', '(', ')', '*', '{', '}', '?', '|', '.', "'"]
+    let l:reg_list = ['\\', '\\', '$', '[', ']', '(', ')', '*', '{', '}', '?', '|', '.', "'", "\""]
 
     for item in l:reg_list
         let l:s = escape(l:s, item)
