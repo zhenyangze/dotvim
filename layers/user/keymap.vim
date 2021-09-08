@@ -409,15 +409,9 @@ function! AckReplace(is_replace)
     elseif a:is_replace == 2
         let l:replace_str = input("Replace String: ", "")
     endif
-    let l:reg_list = ['\\', '$', '-', '[', ']', '(', ')', ' ', '{', '}', '?', '|', '.']
-
-    for item in l:reg_list
-        let l:search_str = escape(l:search_str, item)
-    endfor
+    let l:search_str = GetRgSearchText(l:search_str)
     if a:is_replace == 2
-        for item in l:reg_list
-            let l:replace_str = escape(l:replace_str, item)
-        endfor
+        let l:replace_str = GetRgSearchText(l:replace_str)
     endif
  
     if a:is_replace == 2
@@ -460,6 +454,42 @@ endfunc
 function! GetSearchPat()
     let @+ = PlainTextPattern(GetSelectedText())
 endfunc
+
+function! GetRgSearchTextV2(s)
+    let l:s = a:s
+    if len(l:s) == 0
+        let l:s = GetVisualSelection()
+    endif
+    let l:reg_list = ['\\', '$', '-', '[', ']', '(', ')', '*', '{', '}', '?', '|', '.']
+
+    for item in l:reg_list
+        let l:s = escape(l:s, item)
+    endfor
+
+    let l:s = substitute(substitute(l:s, '\n', '\\n', 'g'), '\t', '\\t', 'g')
+    return l:s
+endfunction
+
+
+function! GetRgSearchText(s)
+    let l:s = a:s
+    if len(l:s) == 0
+        let l:s = GetVisualSelection()
+    endif
+    let l:reg_list = ['\\', '$', '-', '[', ']', '(', ')', ' ', '*', '{', '}', '?', '|', '.']
+
+    for item in l:reg_list
+        let l:s = escape(l:s, item)
+    endfor
+
+    " repalce \t \n
+    let l:s = substitute(l:s, '\r', '\\r', 'g')
+    let l:s = substitute(l:s, '\n', '\\n', 'g')
+    let l:s = substitute(l:s, '\t', '\\t', 'g')
+
+    return l:s
+endfunction
+
 
 function! InitTemplate()
     silent! execute 'Template *.' . expand('%:e')

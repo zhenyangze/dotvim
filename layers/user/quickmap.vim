@@ -43,8 +43,10 @@ nmap ,D :Dox<CR>
 nmap ,f :RgFiles<CR>
 vmap ,f :<C-u>call FzfFilesFunction()<CR>
 nmap ,F :call FzfFilesFunction()<CR>
-nmap ,g :Ag<CR>
-vmap ,g :<C-u>Ag <C-R>=expand("<cword>")<CR><CR>
+"nmap ,g :Ag<CR>
+"vmap ,g :<C-u>Ag <C-R>=expand("<cword>")<CR><CR>
+nmap ,g :Rg<CR>
+vmap ,g :<C-U>execute("Rg " . GetRgSearchTextV2(""))<CR>
 nmap ,G :Ag <C-R>=expand("<cword>")<CR><CR>
 nmap ,h :Startify<CR>
 nmap ,n :tabnew<CR>
