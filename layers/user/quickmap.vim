@@ -1,36 +1,3 @@
-function! ToggleWindowShow(fileTypeName, openCommend, closeCommend)
-    let l:current_window_id = win_getid()
-    let l:fileTypeName = []
-    if type(a:fileTypeName) != type([])
-        call add(l:fileTypeName, a:fileTypeName)
-    else 
-        let l:fileTypeName = a:fileTypeName
-    endif
-    let l:has_quick_list = 0
-    for index in range(1, winnr('$'))
-        let l:window_id = win_getid(index)
-        call win_gotoid(l:window_id)
-
-        let l:window_type = &filetype
-        if index(l:fileTypeName, l:window_type) >= 0
-            let l:has_quick_list = 1
-            break
-        endif
-    endfor
-    if l:has_quick_list
-        exec a:closeCommend
-        silent! call win_gotoid(l:current_window_id)
-    else
-        exec a:openCommend
-    endif
-endfunction
-function! JumpToWindow(winNo) 
-    let l:window_id = win_getid(a:winNo)
-    if l:window_id >= 1000
-        call win_gotoid(l:window_id)
-    endif
-endfunction
-
 "nmap ,b :FzfBuffers<CR>
 nmap ,a gg0vG$<CR>
 if version > 800 || has("nvim")

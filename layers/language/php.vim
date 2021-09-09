@@ -21,6 +21,11 @@ let g:phpfmt_autosave = 0
 "创建 .phpcd.vim 文件，并写入以下内容：
 "let g:phpcd_autoload_path = 'path/to/autoload_file.php'
 
+" .phpactor.json
+"{
+    ""composer.autoloader_path": "%project_root%\/thinkphp\/base.php"
+"}
+
 " {{{vim-php-refactoring-toolbox
 let g:vim_php_refactoring_use_default_mapping = 0
 "let g:vim_php_refactoring_phpdoc = '<SNR>85_DoxygenCommentFunc'
