@@ -8,8 +8,8 @@ nmap ,c :call ToggleWindowShow('qf', 'copen', 'cclose')<CR>
 nmap ,d :FzfDirs<CR>
 nmap ,D :Dox<CR>
 nmap ,f :RgFiles<CR>
+nmap ,F :RgAllFiles<CR>
 vmap ,f :<C-u>call FzfFilesFunction()<CR>
-nmap ,F :call FzfFilesFunction()<CR>
 "nmap ,g :Ag<CR>
 "vmap ,g :<C-u>Ag <C-R>=expand("<cword>")<CR><CR>
 nmap ,g :Rg<CR>
