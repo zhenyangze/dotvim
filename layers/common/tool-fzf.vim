@@ -185,13 +185,17 @@ function! FzfCscope(option, query)
     else
         let l:symbol = trim(a:query)
     endif
-    if strlen(l:symbol) == 0 
+    if strlen(l:symbol) == 0
         let l:symbol = input("Input the Symbol: ")
         call FzfCscope(a:option, l:symbol)
         return
     endif
 
-    let l:output = execute('silent! cs find ' . a:option . ' ' . l:symbol)
+    if a:option == "tag"
+        let l:output = execute('silent! cstag ' . l:symbol)
+    else 
+        let l:output = execute('silent! cs find ' . a:option . ' ' . l:symbol)
+    endif
     let l:cscopeList = split(l:output, "\n")
     if len(l:cscopeList) == 0
         echomsg "没有找到匹配的结果"
