@@ -44,6 +44,13 @@ command! -bang -nargs=* Ag
 " Similarly, we can apply it to fzf#vim#grep. To use ripgrep instead of ag:
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
+  \   'rg -U --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>) . ' 2> /dev/null', 1,
+  \   <bang>0 ? fzf#vim#with_preview('up:60%')
+  \           : fzf#vim#with_preview('down:50%', '?'),
+  \   <bang>0)
+
+command! -bang -nargs=* RgAll
+  \ call fzf#vim#grep(
   \   'rg -U --column --line-number --no-heading --color=always --no-ignore --smart-case '.shellescape(<q-args>) . ' 2> /dev/null', 1,
   \   <bang>0 ? fzf#vim#with_preview('up:60%')
   \           : fzf#vim#with_preview('down:50%', '?'),
