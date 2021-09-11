@@ -1,5 +1,5 @@
 Plug 'puremourning/vimspector'
-Plug 'vim-vdebug/vdebug'
+Plug 'vim-vdebug/vdebug', {'for': 'php'}
 
 let g:vimspector_enable_mappings = 'HUMAN'
 "./install_gadget.py --enable-c --enable-go --enable-python --force-enable-php

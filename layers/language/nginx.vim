@@ -1,1 +1,1 @@
-Plug '13k/vim-nginx'
+Plug '13k/vim-nginx', {'for': 'nginx'}
