@@ -30,7 +30,7 @@ nmap ,R :redraw<CR>
 nmap ,s :call FernFindCurrentFile()<CR>
 "nmap ,t :silent! Fern . -drawer<CR>
 nmap ,t :TagbarToggle<CR>
-nmap ,k :call FzfCscope("tag", ".")<CR>
+nmap ,k :FzfGtags<CR>
 nmap ,T :TMToggle<CR>
 nmap ,w :w!<CR>
 nmap ,y :YRShow<CR>
