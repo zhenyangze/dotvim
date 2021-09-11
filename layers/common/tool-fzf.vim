@@ -178,7 +178,7 @@ command! -bang FzfArtisan
     \ call fzf#run(fzf#wrap('fzfartisan', {'source': 'php artisan | grep ":" | awk "{print \$1}"', 'sink': 'fzfAg'}, 0))
 
 command! -bang FzfGtags
-            \ call fzf#run(fzf#wrap('FzfGtags', fzf#vim#with_preview({'source': 'cd ' . gen_tags#get_db_dir() . ' && global -x . --path-style="through" | sed "s/\.\///" | awk "{ print \$3\":\"\$2\"\\t:\"\$1\"\\t\"\$3 }" ', 'sink': 'CscopeFind', 'options': ["--delimiter=:", '--with-nth', '3..', '--preview-window', '+{3}-/2']}), 0))
+            \ call fzf#run(fzf#wrap('FzfGtags', fzf#vim#with_preview({'source': 'cd ' . gen_tags#get_db_dir() . ' && global -x . --path-style="through" | sed "s/\.\///" | awk "{ print \$3\":\"\$2\"\\t:\"\$1\"\\t\"\$3 }" ', 'sink': 'CscopeFind', 'options': ["--delimiter=:", '--with-nth', '3..', '--preview-window', '+{2}-/2']}), 0))
 
 function! CscopeFind(line)
     let l:fileName = split(a:line)[0]
