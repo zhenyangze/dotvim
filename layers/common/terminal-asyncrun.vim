@@ -1,6 +1,10 @@
 Plug 'skywind3000/asyncrun.vim'
 let g:asyncrun_open = 6
 let g:asyncrun_bell = 1
+let g:asyncrun_mode = "term"
+if has("nvim")
+    let g:asyncrun_mode = "async"
+endif
 
 "nnoremap <Leader>at :call asyncrun#quickfix_toggle(6)<cr>
 "nnoremap <silent> <leader>ac :AsyncRun gcc -Wall -O2 "$(VIM_FILEPATH)" -o "$(VIM_FILEDIR)/$(VIM_FILENOEXT)" <cr>
@@ -34,9 +38,9 @@ function! AsyncRunTest()
         let l:funcName = expand("<cword>")
         call setpos('.', save_cursor)
         if match(l:funcName, "test") == 0 
-            execute 'AsyncRun! -mode=term -pos=bottom -rows=10 -cwd=<root> ./vendor/bin/phpunit $(VIM_RELNAME) --filter ' . l:funcName
+            execute 'AsyncRun! -mode=' . g:asyncrun_mode . ' -pos=bottom -rows=10 -cwd=<root> ./vendor/bin/phpunit $(VIM_RELNAME) --filter ' . l:funcName
         else
-            execute 'AsyncRun! -mode=term -pos=bottom -rows=10 -cwd=<root> ./vendor/bin/phpunit $(VIM_RELNAME)'
+            execute 'AsyncRun! -mode=' . g:asyncrun_mode . ' -pos=bottom -rows=10 -cwd=<root> ./vendor/bin/phpunit $(VIM_RELNAME)'
         endif
     endif
     if &filetype == 'go'
@@ -54,9 +58,9 @@ function! AsyncRunTest()
         let l:funcName = expand("<cword>")
         call setpos('.', save_cursor)
         if match(l:funcName, "Test") == 0 
-            execute 'AsyncRun! -mode=term -pos=bottom -rows=10 -cwd=<root> -raw go test -v "$(VIM_RELNAME)" -run="' . l:funcName . '"'
+            execute 'AsyncRun! -mode=' . g:asyncrun_mode . ' -pos=bottom -rows=10 -cwd=<root> -raw go test -v "$(VIM_RELNAME)" -run="' . l:funcName . '"'
         else
-            execute 'AsyncRun! -mode=term -pos=bottom -rows=10 -cwd=<root> -raw go test -v "$(VIM_RELNAME)"'
+            execute 'AsyncRun! -mode=' . g:asyncrun_mode . ' -pos=bottom -rows=10 -cwd=<root> -raw go test -v "$(VIM_RELNAME)"'
         endif
     endif
 endfunction
@@ -65,13 +69,13 @@ endfunction
 
 function! AsyncRunRun()
     if &filetype == 'php'
-        execute 'AsyncRun! -mode=term -pos=bottom -rows=10 -cwd=<root> php $(VIM_RELNAME)'
+        execute 'AsyncRun! -mode=' . g:asyncrun_mode . ' -pos=bottom -rows=10 -cwd=<root> php $(VIM_RELNAME)'
     elseif &filetype == 'lua'
-        execute 'AsyncRun! -mode=term -pos=bottom -rows=10 -cwd=<root> lua $(VIM_RELNAME)'
+        execute 'AsyncRun! -mode=' . g:asyncrun_mode . ' -pos=bottom -rows=10 -cwd=<root> lua $(VIM_RELNAME)'
     elseif &filetype == 'c'
-        execute 'AsyncRun! -mode=term -pos=bottom -rows=10 gcc -Wall -O2 "$(VIM_FILEPATH)" -o "$(VIM_FILEDIR)/$(VIM_FILENOEXT)" ; "$(VIM_FILEDIR)/$(VIM_FILENOEXT)"'
+        execute 'AsyncRun! -mode=' . g:asyncrun_mode . ' -pos=bottom -rows=10 gcc -Wall -O2 "$(VIM_FILEPATH)" -o "$(VIM_FILEDIR)/$(VIM_FILENOEXT)" ; "$(VIM_FILEDIR)/$(VIM_FILENOEXT)"'
     elseif &filetype == 'cpp'
-        execute 'AsyncRun! -mode=term -pos=bottom -rows=10 g++ -Wall -O2 "$(VIM_FILEPATH)" -levent -o "$(VIM_FILEDIR)/$(VIM_FILENOEXT)" ; "$(VIM_FILEDIR)/$(VIM_FILENOEXT)"'
+        execute 'AsyncRun! -mode=' . g:asyncrun_mode . ' -pos=bottom -rows=10 g++ -Wall -O2 "$(VIM_FILEPATH)" -levent -o "$(VIM_FILEDIR)/$(VIM_FILENOEXT)" ; "$(VIM_FILEDIR)/$(VIM_FILENOEXT)"'
     elseif &filetype == 'python'
         execute 'CocCommand python.execInTerminal'
         "let $PYTHONNUNBUFFERED=1
@@ -79,14 +83,14 @@ function! AsyncRunRun()
         let $PYTHONNUNBUFFERED=1
     elseif &filetype == 'go'
         if len(matchstr(expand('%:t'), '_test.go')) > 0
-            execute 'AsyncRun! -mode=term -pos=bottom -rows=10 -cwd=<root> -raw go test -v "$(VIM_RELNAME)"'
+            execute 'AsyncRun! -mode=' . g:asyncrun_mode . ' -pos=bottom -rows=10 -cwd=<root> -raw go test -v "$(VIM_RELNAME)"'
         else
-            execute 'AsyncRun! -mode=term -pos=bottom -rows=10 -cwd=<root> -raw go run "$(VIM_RELNAME)"'
+            execute 'AsyncRun! -mode=' . g:asyncrun_mode . ' -pos=bottom -rows=10 -cwd=<root> -raw go run "$(VIM_RELNAME)"'
         endif
     elseif &filetype == 'sh'
-        execute 'AsyncRun! -mode=term -pos=bottom -rows=10 -cwd=<root> sh "$(VIM_RELNAME)"'
+        execute 'AsyncRun! -mode=' . g:asyncrun_mode . ' -pos=bottom -rows=10 -cwd=<root> sh "$(VIM_RELNAME)"'
     elseif &filetype == 'java'
-        execute 'AsyncRun! -mode=term -pos=bottom -rows=10 -cwd=<root> javac "$(VIM_RELNAME)" ; java $(VIM_FILENOEXT)'
+        execute 'AsyncRun! -mode=' . g:asyncrun_mode . ' -pos=bottom -rows=10 -cwd=<root> javac "$(VIM_RELNAME)" ; java $(VIM_FILENOEXT)'
     endif
 endfunction
 
