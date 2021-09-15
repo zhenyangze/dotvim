@@ -22,3 +22,101 @@ let g:vim_php_refactoring_phpdoc = 'RunDox'
 "let g:ale_php_phpmd_ruleset = get(g:, 'ale_php_phpmd_ruleset', 'cleancode,codesize,controversial,design,naming,unusedcode')
 let g:ale_php_phpmd_ruleset = "unusedcode"
 " }}}
+
+
+"lang action{{{
+function! PhpRenameLocalVariable()
+    call PhpRenameLocalVariable()
+endfunction
+
+function! PhpRenameClassVariable()
+    call PhpRenameClassVariable()
+endfunction
+
+function! PhpRenameMethod()
+    call PhpRenameMethod()
+endfunction
+
+function! PhpExtractExpression()
+    exec 'PhpactorExtractExpression'
+endfunction
+
+function! PhpClassExpand()
+    exec 'PhpactorClassExpand'
+endfunction
+
+function! PhpExtractConst()
+    call PhpExtractConst()
+endfunction
+
+function! PhpExtractUse()
+    call PhpExtractUse()
+endfunction
+
+function! PhpExtractClassProperty()
+    call PhpExtractClassProperty()
+endfunction
+
+function! PhpExtractMethod()
+    call PhpExtractMethod()
+endfunction
+
+function! PhpClassNew()
+    exec 'PhpactorClassNew'
+endfunction
+
+function! PhpClassInflect()
+    exec 'PhpactorClassInflect'
+endfunction
+
+function! PhpChangeVisibility()
+    exec 'PhpactorChangeVisibility'
+endfunction
+
+function! PhpGenerateAccessors()
+    exec 'PhpactorGenerateAccessors'
+endfunction
+
+function! PhpCreateSettersAndGetters()
+    call PhpCreateSettersAndGetters()
+endfunction
+
+function! PhpCreateGetters()
+    call PhpCreateGetters()
+endfunction
+
+function! PhpImportClass()
+    exec 'PhpactorImportClass'
+endfunction
+
+function! PhpImportMissingClasses()
+    exec 'PhpactorImportMissingClasses'
+endfunction
+
+function! PhpGotoDefinition()
+    exec 'PhpactorGotoDefinition'
+endfunction
+function! PhpGotoImplementations()
+    exec 'PhpactorGotoImplementations'
+endfunction
+function! PhpFindReferences()
+    exec 'PhpactorFindReferences'
+endfunction
+function! PhpDocAll()
+    call PhpDocAll()
+endfunction
+function! PhpUnitSwitchFile()
+    call PhpUnitSwitchFile()
+endfunction
+function! PhpTransform()
+    call phpactor#Transform()
+endfunction
+function! PhpHover()
+    exec 'PhpactorHover'
+endfunction
+function! PhpContextMenu()
+    exec 'PhpactorContextMenu'
+endfunction
+
+
+"}}}

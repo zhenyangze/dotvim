@@ -1,3 +1,4 @@
+"{{{common function
 function! ShowNerdTree()
     if (exists(":NERDTreeTabsToggle") == 0)
         silent! exec "NERDTreeToggle"
@@ -349,3 +350,109 @@ function! PhpUnitSwitchFile()
         execute cmd . "vsplit " . f
     endif
 endfunction
+"}}}
+
+"{{{============================= language ================================
+function! LangFunctionCall(method)
+    let l:filetype = &filetype
+    let l:firstLetter = strpart(l:filetype, 0, 1)
+    let l:funcName = toupper(l:firstLetter) . strpart(l:filetype, 1) . a:method
+    if exists("*" . l:funcName)
+        exec 'call ' . l:funcName . '()'
+    else
+        echomsg "function not found: " . l:funcName
+    endif
+endfunction
+function! LangRenameLocalVariable()
+    call LangFunctionCall("RenameLocalVariable")
+endfunction
+
+function! LangRenameClassVariable()
+    call LangFunctionCall("RenameClassVariable")
+endfunction
+
+function! LangRenameMethod()
+    call LangFunctionCall("RenameMethod")
+endfunction
+
+function! LangExtractExpression()
+    call LangFunctionCall("ExtractExpression")
+endfunction
+
+function! LangClassExpand()
+    call LangFunctionCall("ClassExpand")
+endfunction
+
+function! LangExtractConst()
+    call LangFunctionCall("ExtractConst")
+endfunction
+
+function! LangExtractUse()
+    call LangFunctionCall("ExtractUse")
+endfunction
+
+function! LangExtractClassProperty()
+    call LangFunctionCall("ExtractClassProperty")
+endfunction
+
+function! LangExtractMethod()
+    call LangFunctionCall("ExtractMethod")
+endfunction
+
+function! LangClassNew()
+    call LangFunctionCall("ClassNew")
+endfunction
+
+function! LangClassInflect()
+    call LangFunctionCall("ClassInflect")
+endfunction
+
+function! LangChangeVisibility()
+    call LangFunctionCall("ChangeVisibility")
+endfunction
+
+function! LangGenerateAccessors()
+    call LangFunctionCall("GenerateAccessors")
+endfunction
+
+function! LangCreateSettersAndGetters()
+    call LangFunctionCall("CreateSettersAndGetters")
+endfunction
+
+function! LangCreateGetters()
+    call LangFunctionCall("CreateGetters")
+endfunction
+
+function! LangImportClass()
+    call LangFunctionCall("ImportClass")
+endfunction
+
+function! LangImportMissingClasses()
+    call LangFunctionCall("ImportMissingClasses")
+endfunction
+
+function! LangGotoDefinition()
+    call LangFunctionCall("GotoDefinition")
+endfunction
+function! LangGotoImplementations()
+    call LangFunctionCall("GotoImplementations")
+endfunction
+function! LangFindReferences()
+    call LangFunctionCall("FindReferences")
+endfunction
+function! LangDocAll()
+    call LangFunctionCall("DocAll")
+endfunction
+function! LangUnitSwitchFile()
+    call LangFunctionCall("UnitSwitchFile")
+endfunction
+function! LangTransform()
+    call LangFunctionCall("Transform")
+endfunction
+function! LangHover()
+    call LangFunctionCall("Hover")
+endfunction
+function! LangContextMenu()
+    call LangFunctionCall("ContextMenu")
+endfunction
+"============================= language end ============================ }}}
