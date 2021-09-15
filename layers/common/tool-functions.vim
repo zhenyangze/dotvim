@@ -326,30 +326,6 @@ function! JumpToWindow(winNo)
     endif
 endfunction
 
-function! PhpUnitSwitchFile()
-    let f = expand('%')
-    let cmd = ''
-    let is_test = expand('%:t') =~ "Test\."
-    exec 'Rooter'
-    let rpwd = getcwd()
-    if is_test
-        " remove phpunit_testroot
-        let f = substitute(f,'^'.rpwd.'/tests/','','')
-        " remove 'Test.' from filename
-        let f = substitute(f,'Test\.','.','')
-        let cmd = 'to '
-    else
-        let f = rpwd . "/tests/" . expand('%:r') . "Test.php"
-        let cmd = 'bo '
-    endif
-    " is there window with complent file open?
-    let win = bufwinnr(f)
-    if win > 0
-        execute win . "wincmd w"
-    else
-        execute cmd . "vsplit " . f
-    endif
-endfunction
 "}}}
 
 "{{{============================= language ================================
