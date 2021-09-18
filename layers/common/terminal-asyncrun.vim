@@ -19,6 +19,8 @@ function! AsyncRunMake()
         execute 'CocCommand python.execInTerminal'
     elseif &filetype == 'go'
         execute 'AsyncRun! -cwd=<root> -raw go build "$(VIM_RELNAME)"'
+    elseif &filetype == 'rust'
+        execute 'AsyncRun! -cwd=<root> -raw cargo build --release'
     endif
 endfunction
 
@@ -63,6 +65,10 @@ function! AsyncRunTest()
             execute 'AsyncRun! -mode=' . g:asyncrun_mode . ' -pos=bottom -rows=10 -cwd=<root> -raw go test -v "$(VIM_RELNAME)"'
         endif
     endif
+    if &filetype == "rust"
+        exec 'RustTest'
+        "execute 'AsyncRun! -mode=' . g:asyncrun_mode . ' -pos=bottom -rows=10 -cwd=<root> -raw cargo test'
+    endif
 endfunction
 
 
@@ -91,6 +97,9 @@ function! AsyncRunRun()
         execute 'AsyncRun! -mode=' . g:asyncrun_mode . ' -pos=bottom -rows=10 -cwd=<root> sh "$(VIM_RELNAME)"'
     elseif &filetype == 'java'
         execute 'AsyncRun! -mode=' . g:asyncrun_mode . ' -pos=bottom -rows=10 -cwd=<root> javac "$(VIM_RELNAME)" ; java $(VIM_FILENOEXT)'
+    elseif &filetype == 'rust'
+        exec 'RustRun'
+        "execute 'AsyncRun! -mode=' . g:asyncrun_mode . ' -pos=bottom -rows=10 -cwd=<root> -raw cargo run'
     endif
 endfunction
 
