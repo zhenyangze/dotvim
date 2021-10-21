@@ -287,6 +287,22 @@ let g:which_key_map.b = {
             \'l': ['FzfBuffers', 'List'],
             \}
 
+let g:which_key_map.m = {
+            \'name': 'Macro',
+            \'q': 'Play',
+            \'c': 'Record New',
+            \'h': 'History',
+            \'a': 'Append',
+            \'p': 'Prepend',
+            \'o': 'Search And Overwrite',
+            \'r': 'Search And Rename',
+            \'d': 'Search And Delete',
+            \'e': "Search And Play",
+            \'s': 'Search And Select',
+            \}
+
+
+
 vnoremap <leader>ecy "+y"
 noremap <leader>ecv ggvG$
 noremap <leader>eca :%y<CR>
