@@ -2,8 +2,8 @@ Plug 'svermeulen/vim-macrobatics'
 
 
 " Use <nowait> to override the default bindings which wait for another key press
-nmap <nowait><leader>mq q <plug>(Mac_Play)
-nmap <nowait><leader>mc gq <plug>(Mac_RecordNew)
+nmap <nowait><leader>mq <plug>(Mac_Play)
+nmap <nowait><leader>mc <plug>(Mac_RecordNew)
 
 nmap <leader>mh :DisplayMacroHistory<cr>
 
