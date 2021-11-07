@@ -14,7 +14,7 @@ if has("nvim")
     tmap <silent><Leader>t3 <C-\><C-n>:call TerminalOpenIndex(3)<cr>
     tmap <silent><Leader>t4 <C-\><C-n>:call TerminalOpenIndex(4)<cr>
     tmap <silent><Leader>t5 <C-\><C-n>:call TerminalOpenIndex(5)<cr>
-elseif 
+else
     tmap <silent> <F2> <c-w>:VSTerminalToggle<cr>
     tmap <silent><Leader>tt <c-w>:VSTerminalToggle<cr>
     tmap <silent><Leader>to <c-w>:call TerminalOpenWithIndex()<cr>
