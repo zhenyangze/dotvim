@@ -174,7 +174,7 @@ endif
 
 " Mappings for CoCList
 " Show all diagnostics.
-nnoremap <silent><nowait> <space>oa  :<C-u>CocList diagnostics<cr>
+nnoremap <silent><nowait> <space>od  :<C-u>CocList diagnostics<cr>
 " Manage extensions.
 nnoremap <silent><nowait> <space>oe  :<C-u>CocList extensions<cr>
 " Show commands.
@@ -189,3 +189,4 @@ nnoremap <silent><nowait> <space>oj  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>ok  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>op  :<C-u>CocListResume<CR>
+nnoremap <silent><nowait> <space>om  :<C-u>CocAction<CR>
