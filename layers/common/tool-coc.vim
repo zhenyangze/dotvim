@@ -190,3 +190,4 @@ nnoremap <silent><nowait> <space>ok  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>op  :<C-u>CocListResume<CR>
 nnoremap <silent><nowait> <space>om  :<C-u>CocAction<CR>
+vmap <silent><nowait> <space>om  :<C-u>CocAction<CR>
