@@ -1,6 +1,6 @@
 Plug 'artur-shaik/vim-javacomplete2',{ 'for': 'java'}
 
-let g:JavaComplete_EnableDefaultMappings = 0
+let g:JavaComplete_EnableDefaultMappings = 1
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
 autocmd FileType java set completefunc=javacomplete#CompleteParamsInf
 autocmd FileType java,javascript,jsp inoremap <buffer>. .<C-X><C-O><C-P>
@@ -27,3 +27,8 @@ nmap <leader>jgc <Plug>(JavaComplete-Generate-DefaultConstructor)
 vmap <leader>jgs <Plug>(JavaComplete-Generate-AccessorSetter)
 vmap <leader>jgg <Plug>(JavaComplete-Generate-AccessorGetter)
 vmap <leader>jga <Plug>(JavaComplete-Generate-AccessorSetterGetter)
+
+
+imap <leader>jgs <Plug>(JavaComplete-Generate-AccessorSetter)
+imap <leader>jgg <Plug>(JavaComplete-Generate-AccessorGetter)
+imap <leader>jga <Plug>(JavaComplete-Generate-AccessorSetterGetter)
