@@ -6,6 +6,7 @@
  let g:vim_project_config = '~/.cache/'
  let g:vim_project_debug = 0
  let g:vim_project_ignore_branch = 1
+ let g:vim_project_auto_detect_sign = '.git,.svn'
 
  let g:vim_project_prompt_mapping = {
   \'open_project': "\<cr>",
