@@ -42,7 +42,7 @@ vnoremap ; :
 " 交换 ' `, 使得可以快速使用'跳到marked位置
 "nnoremap ' `
 "nnoremap ` '
-nnoremap ` :call ToggleMouse()<CR>
+"nnoremap ` :call ToggleMouse()<CR>
 
 " @ jump
 " -----------------------------------------------------------------------------

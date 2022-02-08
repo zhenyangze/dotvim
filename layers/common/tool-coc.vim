@@ -62,7 +62,7 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
-nmap <silent> ga :CocAction<CR>
+map <silent> ga :CocAction<CR>
 
 nmap <silent> ]d <Plug>(coc-definition)
 nmap <silent> [d <C-o>
