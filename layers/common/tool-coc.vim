@@ -54,8 +54,8 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " Use `[g` and `]g` to navigate diagnostics
-"nmap <silent> [g <Plug>(coc-diagnostic-prev)
-"nmap <silent> ]g <Plug>(coc-diagnostic-next)
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
@@ -65,6 +65,7 @@ nmap <silent> gr <Plug>(coc-references)
 nmap <silent> ga :CocAction<CR>
 
 nmap <silent> ]d <Plug>(coc-definition)
+nmap <silent> [d <C-o>
 nmap <silent> ]y <Plug>(coc-type-definition)
 nmap <silent> ]i <Plug>(coc-implementation)
 nmap <silent> ]r <Plug>(coc-references)
@@ -87,11 +88,11 @@ endfunction
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Remap for rename current word
-nmap <leader>eR <Plug>(coc-rename)
+nmap <leader>oR <Plug>(coc-rename)
 
 " Remap for format selected region
-"xmap <leader>f  <Plug>(coc-format-selected)
-"nmap <leader>f  <Plug>(coc-format-selected)
+xmap <leader>oF  <Plug>(coc-format-selected)
+nmap <leader>oF  <Plug>(coc-format-selected)
 
 augroup mygroup
   autocmd!
@@ -110,7 +111,7 @@ augroup end
 " Fix autofix problem of current line
 "nmap <leader>qf  <Plug>(coc-fix-current)
 
-nnoremap <silent><nowait> <space>fS  :<C-u>CocList -I symbols<cr>
+nnoremap <silent><nowait> <space>fs  :<C-u>CocList -I symbols<cr>
 " Create mappings for function text object, requires document symbols feature of languageserver.
 "xmap if <Plug>(coc-funcobj-i)
 "xmap af <Plug>(coc-funcobj-a)
@@ -191,3 +192,5 @@ nnoremap <silent><nowait> <space>ok  :<C-u>CocPrev<CR>
 nnoremap <silent><nowait> <space>op  :<C-u>CocListResume<CR>
 nnoremap <silent><nowait> <space>om  :<C-u>CocAction<CR>
 vmap <silent><nowait> <space>om  :<C-u>CocAction<CR>
+nnoremap <silent><nowait> <space>of  :Format<cr>
+nnoremap <silent><nowait> <space>oz  :Fold<cr>
