@@ -11,6 +11,7 @@ set fileformats=unix,dos,mac
 set noshowmode
 "set fileformats+=dos
 "set binary " VIM Disable Automatic Newline At End Of File
+set path+=**
 
 if exists('$SHELL')
     set shell=$SHELL
@@ -174,3 +175,42 @@ if has('autocmd')
   autocmd GUIEnter * set visualbell t_vb=
 endif
 
+if !exists("g:plug_threads")
+    let g:netrw_banner=0        " disable annoying banner
+    let g:netrw_browse_split=4  " open in prior window
+    let g:netrw_altv=1          " open splits to the right
+    let g:netrw_liststyle=3     " tree view
+    let g:netrw_winsize=20
+    let g:netrw_list_hide=netrw_gitignore#Hide()
+    let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
+
+    vnoremap < <gv
+    vnoremap > >gv
+    nnoremap k gk
+    nnoremap gk k
+    nnoremap j gj
+    nnoremap gj j
+    nnoremap Q :qall!<CR>
+    command! W w !sudo tee % > /dev/null
+    nnoremap <C-p> <C-i>
+    nnoremap <tab> %
+    vnoremap <tab> %
+    nnoremap ; :
+    vnoremap ; :
+
+    nmap ,a gg0vG$<CR>
+    nmap ,d :Lexplore<CR>
+    nmap ,0 :only<CR>
+    nmap ,f :find<space>
+    nmap ,n :tabnew<CR>
+    nmap ,b :b<space>
+    nmap ,g :vimgrep<space>*<space>**/*
+    nmap ,q :q!<CR>
+    nmap ,w :w!<CR>
+
+    nmap <space>1 :tabn 1<CR>
+    nmap <space>2 :tabn 2<CR>
+    nmap <space>3 :tabn 3<CR>
+    nmap <space>4 :tabn 4<CR>
+    nmap <space>5 :tabn 5<CR>
+endif
