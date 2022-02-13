@@ -42,7 +42,7 @@ set shiftwidth=4 "一个缩进的长度
 set expandtab "使用空格替代制表符
 set smarttab "智能制表符
 set autoindent "自动缩进
-set smartindent "只能缩进
+set smartindent "智能缩进
 
 " line
 set number "显示行号
@@ -213,4 +213,31 @@ if !exists("g:plug_threads")
     nmap <space>3 :tabn 3<CR>
     nmap <space>4 :tabn 4<CR>
     nmap <space>5 :tabn 5<CR>
+
+    set complete-=i
+    set omnifunc=syntaxcomplete#Complete
+
+    function! Smart_TabComplete()
+        let line = getline('.')                         " current line
+        let substr = strpart(line, -1, col('.')+1)      " from the start of the current
+        " line to one character right
+        " of the cursor
+        let substr = matchstr(substr, "[^ \t]*$")       " word till cursor
+        if (strlen(substr)==0)                          " nothing to match on empty string
+            return "\<tab>"
+        endif
+        let has_period = match(substr, '\.') != -1      " position of period, if any
+        let has_slash = match(substr, '\/') != -1       " position of slash, if any
+        if pumvisible()
+            return "\<C-N>"                         " existing text matching
+        elseif (!has_period && !has_slash)
+            return "\<C-X>\<C-P>"                         " existing text matching
+        elseif ( has_slash )
+            return "\<C-X>\<C-F>"                         " file matching
+        else
+            return "\<C-X>\<C-O>"                         " plugin matching
+        endif
+    endfunction
+
+    inoremap <tab> <c-r>=Smart_TabComplete()<CR>
 endif
