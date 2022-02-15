@@ -36,7 +36,7 @@ nmap ,t :TagbarToggle<CR>
 nmap ,k :FzfGtags<CR>
 nmap ,T :TMToggle<CR>
 nmap ,w :w!<CR>
-nmap ,y :YRShow<CR>
+nmap ,y :YankHistoryRgPaste<CR>
 nmap ,1 :call JumpToWindow(1)<CR>
 nmap ,2 :call JumpToWindow(2)<CR>
 nmap ,3 :call JumpToWindow(3)<CR>
