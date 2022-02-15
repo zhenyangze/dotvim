@@ -323,7 +323,7 @@ let g:which_key_map.e = {
                 \},
             \'y': {
                 \'name': 'Yank',
-                \'l': ['YRShow', 'Show Yank List']
+                \'l': ['YankHistoryRgPaste', 'Show Yank List']
                 \},
             \'m': {
                 \'name' : 'Model',
