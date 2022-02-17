@@ -1,4 +1,4 @@
- Plug 'leafOfTree/vim-project'
+ Plug 'zhenyangze/vim-project'
  
 
  let g:vim_project_autoload_on_start = 0
