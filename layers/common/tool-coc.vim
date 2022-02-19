@@ -61,7 +61,12 @@ nmap <silent> ]g <Plug>(coc-diagnostic-next)
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+nmap <silent> gh <Plug>(coc-references)
+nmap <silent> gr <Plug>(coc-rename)
+nmap <silent> gn :CocCommand document.renameCurrentWord<CR>
+nmap <silent> gp <Plug>(coc-cursors-word)
+nmap <silent> gc <Plug>(coc-refactor)
+nmap <silent> gs :CocSearch -w <C-R><C-W><CR>
 map <silent> ga :CocAction<CR>
 
 nmap <silent> ]d <Plug>(coc-definition)
