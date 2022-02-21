@@ -1,1 +1,1 @@
-Plug 'paroxayte/vwm.vim'
+"Plug 'paroxayte/vwm.vim'

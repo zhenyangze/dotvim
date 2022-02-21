@@ -9,11 +9,11 @@ let g:coc_global_extensions = ['coc-css', 'coc-snippets', 'coc-phpls', 'coc-pyth
 let g:phpactorOmniAutoClassImport = v:true
 
 let g:gen_tags#blacklist = ['$HOME']
-let g:gen_tags#blacklist += split(glob('/Users/yangze'))
-let g:gen_tags#blacklist += split(glob('~/.vim/plugged/*'))
-let g:gen_tags#blacklist += split(glob('~/.vim/*'))
-let g:gen_tags#blacklist += split(glob('~/.config/dotvim/*'))
-let g:gen_tags#blacklist += split(glob('~/.config/dotvim/plugged/*'))
+"let g:gen_tags#blacklist += split(glob('/Users/yangze'))
+"let g:gen_tags#blacklist += split(glob('~/.vim/plugged/*'))
+"let g:gen_tags#blacklist += split(glob('~/.vim/*'))
+"let g:gen_tags#blacklist += split(glob('~/.config/dotvim/*'))
+"let g:gen_tags#blacklist += split(glob('~/.config/dotvim/plugged/*'))
 
 
 "let g:fzf_layout = { 'down': '~40%' }

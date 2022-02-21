@@ -1,5 +1,12 @@
-Plug 'jsfaint/gen_tags.vim'
-Plug 'whatot/gtags-cscope.vim'
+Plug 'jsfaint/gen_tags.vim', { 'on': [] }
+Plug 'whatot/gtags-cscope.vim', { 'on': [] }
+
+augroup load_gtags
+    autocmd!
+    autocmd BufReadPost * call plug#load('gen_tags.vim') 
+    autocmd BufReadPost * call plug#load('gtags-cscope.vim')
+augroup END
+
 "gen_tags
 let g:gen_tags#ctags_auto_gen = 0
 let g:gen_tags#gtags_auto_gen = 0
