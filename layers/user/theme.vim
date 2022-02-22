@@ -9,9 +9,10 @@ if !exists('$TMUX')
     if has("nvim") || version > 800
         set termguicolors
         set background=dark " or light if you prefer the light version
-        let g:two_firewatch_italics=1
-        colo two-firewatch
-        let g:airline_theme='twofirewatch'
+        "let g:two_firewatch_italics=1
+        "colo two-firewatch
+        colo nord
+        "let g:airline_theme='twofirewatch'
 
         hi SignColumn ctermbg=NONE guibg=NONE
         hi StatusLineNC guifg=#444444 guibg=#3a3a3a
@@ -39,7 +40,8 @@ if !exists('$TMUX')
     endif
 else
     set background=dark 
-    colorscheme ayu
+    "colorscheme ayu
+    colo nord
 endif
 
 "autocmd VimEnter *
