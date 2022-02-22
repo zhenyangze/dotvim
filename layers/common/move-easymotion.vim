@@ -7,5 +7,5 @@ Plug 'easymotion/vim-easymotion', { 'on': [] }
 
 augroup load_easymotion
     autocmd!
-    autocmd BufReadPost * call plug#load('vim-easymotion') 
+    autocmd BufReadPost * silent! call plug#load('vim-easymotion') 
 augroup END

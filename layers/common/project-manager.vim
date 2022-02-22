@@ -2,7 +2,7 @@
  
 
  let g:vim_project_autoload_on_start = 0
- let g:vim_project_auto_detect = 'ask'
+ let g:vim_project_auto_detect = 'no'
  let g:vim_project_config = '~/.cache/'
  let g:vim_project_debug = 0
  let g:vim_project_ignore_branch = 1

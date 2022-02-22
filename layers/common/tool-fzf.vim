@@ -122,6 +122,7 @@ if executable('rg')
 endif
 
 function! FzfProjectList()
+  call project#load()
   let list = exists('g:vim_project_projects')
         \ ? g:vim_project_projects
         \ : []

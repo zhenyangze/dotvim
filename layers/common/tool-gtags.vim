@@ -3,8 +3,8 @@ Plug 'whatot/gtags-cscope.vim', { 'on': [] }
 
 augroup load_gtags
     autocmd!
-    autocmd BufReadPost * call plug#load('gen_tags.vim') 
-    autocmd BufReadPost * call plug#load('gtags-cscope.vim')
+    autocmd BufReadPost * silent! call plug#load('gen_tags.vim') 
+    autocmd BufReadPost * silent! call plug#load('gtags-cscope.vim')
 augroup END
 
 "gen_tags
