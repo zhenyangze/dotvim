@@ -1,12 +1,13 @@
 "nmap ,b :FzfBuffers<CR>
 nmap ,a gg0vG$<CR>
 
-if has("nvim")
-    tmap ,b <C-\><C-n>:call ToggleWindowShow(['conque_term', 'zsh'], 'VSTerminalToggle', 'quit')<CR>
-elseif version > 800
-    tmap ,b <C-w>:call ToggleWindowShow(['conque_term', 'zsh'], 'VSTerminalToggle', 'quit')<CR>
-endif
-nmap ,b <C-w>:call ToggleWindowShow(['conque_term', 'zsh'], 'VSTerminalToggle', 'quit')<CR>
+"if has("nvim")
+    "tmap ,b <C-\><C-n>:call ToggleWindowShow(['conque_term', 'zsh'], 'VSTerminalToggle', 'quit')<CR>
+"elseif version > 800
+    "tmap ,b <C-w>:call ToggleWindowShow(['conque_term', 'zsh'], 'VSTerminalToggle', 'quit')<CR>
+"endif
+"nmap ,b <C-w>:call ToggleWindowShow(['conque_term', 'zsh'], 'VSTerminalToggle', 'quit')<CR>
+nmap ,b :FloatermToggle<CR>
 nmap ,c :call ToggleWindowShow('qf', 'copen', 'cclose')<CR>
 nmap ,d :FzfDirs<CR>
 nmap ,D :Dox<CR>
