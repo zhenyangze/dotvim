@@ -201,9 +201,9 @@ function! AckReplace(is_replace)
     if a:is_replace == 2
         let l:replace_str = escape(l:replace_str, '/')
         let l:search_str = escape(l:search_str, '/')
-        exec "Lacks /" . l:search_str . "/" . l:replace_str . "/ "
+        exec "Acks /" . l:search_str . "/" . l:replace_str . "/ "
     elseif a:is_replace == 1
-        exec "Lack " . l:search_str . " ". l:search_path
+        exec "Ack " . l:search_str . " ". l:search_path
     else
         exec "Ag " . l:search_str
     endif
