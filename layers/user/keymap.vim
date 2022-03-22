@@ -558,7 +558,7 @@ let g:which_key_map.q = {
             \'name': 'Quick List',
             \'n': ['cn', 'Next'],
             \'p': ['cp', 'Previous'],
-            \'q': ['cq', 'Quit'],
+            \'q': ['cclose', 'Quit'],
             \'l': ['cl', 'List'],
             \'o': ['copen', 'Open'],
             \} 
