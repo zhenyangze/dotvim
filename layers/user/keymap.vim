@@ -256,7 +256,7 @@ let g:which_key_map.w = {
             \'|': ['vs', 'Double'],
             \'-': ['split', 'Split'],
             \'v': ['VoomToggle', 'Toggle Outline'],
-            \'f': ['NERDTree', 'Files Tree'],
+            \'f': ['NERDTreeToggle', 'Files Tree'],
             \'s': ['FernFindCurrentFile()', 'Find Files'],
             \'t': ['ShowTagbarToggle()', 'TagBarToggle'],
             \'g': ['ShowGunDo()', 'GunDoToggle'],
