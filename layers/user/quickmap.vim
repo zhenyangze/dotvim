@@ -35,7 +35,7 @@ nmap ,s :call FernFindCurrentFile()<CR>
 "nmap ,t :silent! Fern . -drawer<CR>
 nmap ,t :TagbarToggle<CR>
 nmap ,k :FzfGtags<CR>
-nmap ,T :TMToggle<CR>
+nmap ,T :FzfTags<CR>
 nmap ,w :w!<CR>
 nmap ,y :YankHistoryRgPaste<CR>
 nmap ,1 :call JumpToWindow(1)<CR>
