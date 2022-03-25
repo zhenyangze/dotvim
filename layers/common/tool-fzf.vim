@@ -90,7 +90,7 @@ inoremap <expr> <c-x><c-l> fzf#vim#complete(fzf#wrap({
 function! s:fzfdir(e) 
     let l:filename = trim(a:e, './')
     if exists(":NERDTreeFind")
-        silent! exec 'NERDTreeFind ' . l:filename
+        silent! exec 'NERDTreeFind ' . l:filename . '/'
     else
         silent! exec 'Fern  . -reveal=' . l:filename . ' -drawer'
     endif
