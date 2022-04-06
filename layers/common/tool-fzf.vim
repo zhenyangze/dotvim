@@ -34,6 +34,7 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 let g:fzf_buffers_jump = 0
 imap <C-x><C-f> <plug>(fzf-complete-file-ag)
 imap <C-x><C-l> <plug>(fzf-complete-line)
+imap <C-x><C-b> <plug>(fzf-complete-buffer-line)
 
 command! -bang -nargs=* Ag
   \ call fzf#vim#ag(<q-args>,
