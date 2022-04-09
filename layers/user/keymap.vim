@@ -598,6 +598,7 @@ let g:which_key_map.s = {
             \'r': [':ProjectRoot', 'Project Root'],
             \'c': [':ProjectConfig', 'Project Config'],
             \'h': [':ProjectPluginConfig', 'Project Plugin Config'],
+            \'n': [':exec "Project(getcwd())"', 'New Project'],
             \}
 let g:which_key_map.a = {
             \'name': 'AsyncRun',
