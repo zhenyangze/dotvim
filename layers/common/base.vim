@@ -46,7 +46,11 @@ set smartindent "智能缩进
 
 " line
 set number "显示行号
-set relativenumber "显示相对行号
+augroup relative_numbser
+    autocmd!
+    autocmd InsertEnter * :set norelativenumber
+    autocmd InsertLeave * :set relativenumber
+augroup END
 set cursorline " 显示当前行
 set ruler "显示位置指示器
 
