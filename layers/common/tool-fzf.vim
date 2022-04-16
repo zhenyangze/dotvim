@@ -116,9 +116,9 @@ if executable('rg')
   set grepprg=rg\ --vimgrep
   command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
   command! -bang RgFiles 
-              \ call fzf#run(fzf#wrap('RgFiles', {'source':'rg --files --sort=path --hidden --follow --glob "!.git/*" 3>/dev/null' , 'sink': 'e', 'options': '--ansi --delimiter / --nth -2..'}, 0))
+              \ call fzf#run(fzf#wrap('RgFiles', {'source':'rg --files --sort=path --hidden --follow --glob "!.git/*" 3>/dev/null' , 'options': '--ansi --delimiter / --nth -2..'}, 0))
   command! -bang RgAllFiles 
-              \ call fzf#run(fzf#wrap('RgFiles', {'source':'rg --files --sort=path --hidden --follow --no-ignore --glob "!.git/*" 3>/dev/null' , 'sink': 'e', 'options': '--ansi --delimiter / --nth -2..'}, 0))
+              \ call fzf#run(fzf#wrap('RgFiles', {'source':'rg --files --sort=path --hidden --follow --no-ignore --glob "!.git/*" 3>/dev/null' , 'options': '--ansi --delimiter / --nth -2..'}, 0))
 
 endif
 
@@ -174,7 +174,7 @@ command! -bang FzfProject
     \ call fzf#run(fzf#wrap('fzfsession', {'source': FzfProjectList(), 'sink': function('s:FzfProjectOpen')}, 0))
 
 command! -bang FzfChangeFiles 
-            \ call fzf#run(fzf#wrap('FzfChangeFiles', {'source': 'git status --porcelain | sed s/^...//', 'sink': 'e', 'options': ['--layout=reverse', '--info=inline', '--preview','~/.vim/plugged/fzf.vim/bin/preview.sh {}']}, 0))
+            \ call fzf#run(fzf#wrap('FzfChangeFiles', {'source': 'git status --porcelain | sed s/^...//', 'options': ['--layout=reverse', '--info=inline', '--preview','~/.vim/plugged/fzf.vim/bin/preview.sh {}']}, 0))
 
 command! -bang FzfArtisan
     \ call fzf#run(fzf#wrap('fzfartisan', {'source': 'php artisan | grep ":" | awk "{print \$1}"', 'sink': 'fzfAg'}, 0))
@@ -284,7 +284,6 @@ function! s:fzf_neighbouring_files()
   let command = 'ag -g "" -f ' . cwd . ' --depth 2'
   call fzf#run(fzf#wrap('fzfneigh', {
         \ 'source': command,
-        \ 'sink':   'e',
         \ 'options': '-m -x +s',
         \ 'window':  { 'width': 0.8, 'height': 0.6, 'border': 'rounded' } }))
 endfunction
