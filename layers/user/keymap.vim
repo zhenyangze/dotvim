@@ -514,7 +514,7 @@ let g:which_key_map.f = {
             \'i': ['AckReplace(1)', 'Search'],
             \'I': ['AckReplace(2)', 'Replace'],
             \'l': ['FzfTodo', 'Todo List'],
-            \'m': ['FzfMarks', 'Marks'],
+            \'m': ['FZFBookmarks', 'Marks'],
             \'n': ['FZFNeigh', 'Neighbouring Files'],
             \'p': ['FzfMaps', 'Maps'],
             \'t': ['FzfBTags', 'Bufer`s Tags'],
