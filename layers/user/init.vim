@@ -35,7 +35,9 @@ set cmdheight=1
 autocmd bufenter * if (winnr("$") == 1 && &buftype == 'quickfix') | q | endif
 
 
-au FileType qf call AdjustWindowHeight(2, 7)
+if version > 800
+    au FileType qf call AdjustWindowHeight(2, 7)
+endif
 function! AdjustWindowHeight(minheight, maxheight)
     "let l = 1
     "let n_lines = 0
