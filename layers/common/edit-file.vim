@@ -11,7 +11,7 @@ function! LargeFile()
     " save memory when other file is viewed
     setlocal bufhidden=unload
     " is read-only (write with :w new_filename)
-    setlocal buftype=nowrite
+    "setlocal buftype=nowrite
     " no undo possible
     setlocal undolevels=-1
     " display message

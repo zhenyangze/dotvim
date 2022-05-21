@@ -40,6 +40,7 @@ let g:ale_linters = {
             \ 'c++': ['ccls'],
             \ 'c': ['ccls'],
             \ 'go': ['gopls'],
+            \ 'php': ['intelephense'],
             \}
 
 let g:ale_cpp_ccls_init_options = {
