@@ -193,18 +193,21 @@ function! AckReplace(is_replace)
     elseif a:is_replace == 2
         let l:replace_str = input("Replace String: ", "")
     endif
-    let l:search_str = GetRgSearchText(l:search_str)
+
     if a:is_replace == 2
-        let l:replace_str = GetRgSearchText(l:replace_str)
-    endif
- 
-    if a:is_replace == 2
+        if !has('nvim') 
+            let l:search_str = GetRgSearchText(l:search_str)
+            let l:replace_str = GetRgSearchText(l:replace_str)
+        endif
+
         let l:replace_str = escape(l:replace_str, '/')
         let l:search_str = escape(l:search_str, '/')
         exec "Acks /" . l:search_str . "/" . l:replace_str . "/ "
     elseif a:is_replace == 1
+        let l:search_str = GetRgSearchText(l:search_str)
         exec "Ack " . l:search_str . " ". l:search_path
     else
+        let l:search_str = GetRgSearchText(l:search_str)
         exec "Ag " . l:search_str
     endif
 endfunction
