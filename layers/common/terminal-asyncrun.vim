@@ -39,7 +39,7 @@ function! AsyncRunTest()
         endfor
         let l:funcName = expand("<cword>")
         call setpos('.', save_cursor)
-        if match(l:funcName, "test") == 0 
+        if match(l:funcName, "test") >= 0 
             execute 'AsyncRun! -mode=' . g:asyncrun_mode . ' -pos=bottom -rows=10 -cwd=<root> ./vendor/bin/phpunit tests --filter ' . l:funcName
         else
             execute 'AsyncRun! -mode=' . g:asyncrun_mode . ' -pos=bottom -rows=10 -cwd=<root> ./vendor/bin/phpunit tests'
