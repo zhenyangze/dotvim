@@ -310,6 +310,8 @@ noremap <leader>ecr :call GetSearchPat()<CR>
 let g:which_key_map.e = {
             \'name': 'Edit',
             \'a': {'name': 'Align'},
+            \'A': ['AppendText(2)', "Append test to the line end"],
+            \'P': ['AppendText(4)', "Append test to the line pre"],
             \'c': {'name': 'Copy'},
             \'f': {
                 \'name': 'File',

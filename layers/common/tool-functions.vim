@@ -186,7 +186,7 @@ endfunction
 
 let g:ack_search_str = ""
 function! AckReplace(is_replace)
-    let l:search_str = input("Search String: ", g:ack_search_str)
+    let l:search_str = input("Search String: ", "")
     let g:ack_search_str = l:search_str
     if a:is_replace == 1
         let l:search_path = input("Search Path: ", "./", "file")
@@ -294,6 +294,22 @@ endfunction
 
 function! InitTemplate()
     silent! execute 'Template *.' . expand('%:e')
+endfunction
+
+function! AppendText(type)
+    let l:append_text = input("Append String: ", "")
+    if len(l:append_text) == 0
+        return
+    endif
+    if a:type == 1
+        exec "%s/$/" . l:append_text . "/g" 
+    elseif a:type == 2
+        exec "g/\\S\\+/s/$/" . l:append_text . "/g" 
+    elseif a:type == 3
+        exec "%s/^/" . l:append_text . "/g" 
+    elseif a:type == 4
+        exec "g/\\S\\+/s/^/" . l:append_text . "/g" 
+    endif
 endfunction
 
 function! ToggleWindowShow(fileTypeName, openCommend, closeCommend)
