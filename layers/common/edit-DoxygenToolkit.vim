@@ -1,4 +1,4 @@
-Plug 'vim-scripts/DoxygenToolkit.vim'
+Plug 'zhenyangze/DoxygenToolkit.vim'
 
 " dooxygentookit"{{{
 if !exists("g:DoxygenToolkit_briefTag_pre")
