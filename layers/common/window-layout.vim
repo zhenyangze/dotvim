@@ -1,1 +1,0 @@
-"Plug 'paroxayte/vwm.vim'

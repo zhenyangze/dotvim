@@ -334,7 +334,7 @@ let g:which_key_map.e = {
                 \},
             \'t': {
                 \'name': 'transform',
-                \'a': ['ArgWrap', '参数折叠'],
+                \'a': ['gJ', '参数折叠'],
                 \'u': [':set ff=unix', 'Set file to Unix'],
                 \'d': [':set ff=dos', 'Set file type to Dos']
                 \},
@@ -397,12 +397,6 @@ let g:which_key_map.d = {
             \'v': 'Content',
             \'e': 'Eval',
             \}
-
-let g:which_key_map.h = {
-            \'name': 'Helper',
-            \'f': ['TranslateW', 'Translate'],
-            \}
-
 
 let g:which_key_map.l = {
             \'name': 'Laravel',

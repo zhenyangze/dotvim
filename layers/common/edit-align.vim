@@ -1,5 +1,4 @@
 Plug 'junegunn/vim-easy-align'
-Plug 'andrewradev/splitjoin.vim'
 
 nmap <Leader>ea <Plug>(EasyAlign)
 xmap <Leader>ea <Plug>(EasyAlign)
