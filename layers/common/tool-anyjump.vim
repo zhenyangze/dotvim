@@ -1,9 +1,7 @@
 Plug 'pechorin/any-jump.vim'
 
-let g:any_jump_disable_default_keybindings = 1
-
 " Show line numbers in search rusults
-let g:any_jump_list_numbers = 0
+let g:any_jump_list_numbers = 1
 
 " Auto search references
 let g:any_jump_references_enabled = 1
@@ -59,7 +57,7 @@ let g:any_jump_remove_comments_from_results = 1
 
 " Custom ignore files
 " default is: ['*.tmp', '*.temp']
-let g:any_jump_ignored_files = ['*.tmp', '*.temp']
+let g:any_jump_ignored_files = ['*.tmp', '*.temp', 'tags', '.DS_Store']
 
 " Search references only for current file type
 " (default: false, so will find keyword in all filetypes)
