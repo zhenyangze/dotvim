@@ -178,6 +178,8 @@ if !exists("g:plug_threads")
     vnoremap <tab> %
     nnoremap ; :
     vnoremap ; :
+    noremap H ^
+    noremap L g_
 
     nmap ,a gg0vG$<CR>
     nmap ,d :Lexplore<CR>

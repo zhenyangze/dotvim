@@ -16,6 +16,8 @@ nnoremap j gj
 nnoremap gj j
 nnoremap Q :qall!<CR>
 command! W w !sudo tee % > /dev/null
+noremap H ^
+noremap L g_
 
 "屏蔽掉讨厌的F1键
 "inoremap <F1> <ESC>
