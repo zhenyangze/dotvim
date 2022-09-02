@@ -1,4 +1,4 @@
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release','on': []}
 
 " if hidden is not set, TextEdit might fail.
 set encoding=utf-8
