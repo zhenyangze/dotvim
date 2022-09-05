@@ -499,7 +499,7 @@ let g:which_key_map.f = {
             \'name': 'FZF & Find',
             \'+': ['FzfChangeFiles', 'Git Change Files'],
             \'G': ['Gtags -r', 'gtags'],
-            \'T': ['FzfGtags', 'Tags'],
+            \'T': ['FzfTags', 'Tags'],
             \'a': ['AckReplace(3)', 'Rg'],
             \'b': ['FzfBuffers', 'Buffers'],
             \'c': ['FzfCommits', 'Commit'],
