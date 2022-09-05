@@ -498,7 +498,6 @@ let g:which_key_map.j.g.C = "Generate Constructor With Args"
 let g:which_key_map.f = { 
             \'name': 'FZF & Find',
             \'+': ['FzfChangeFiles', 'Git Change Files'],
-            \'G': ['Gtags -r', 'gtags'],
             \'T': ['FzfTags', 'Tags'],
             \'a': ['AckReplace(3)', 'Rg'],
             \'b': ['FzfBuffers', 'Buffers'],
@@ -507,7 +506,6 @@ let g:which_key_map.f = {
             \'D': ['FzfDirs', 'NerdTreeFind'],
             \'f': ['ShowfindFiles()', 'File'],
             \'F': ['FzfFiletypes', 'File types'],
-            \'g': ['Gtags', 'gtags'],
             \'h': ['FzfHistory', 'Histroy'],
             \'i': ['AckReplace(1)', 'Search'],
             \'I': ['AckReplace(2)', 'Replace'],
@@ -520,22 +518,20 @@ let g:which_key_map.f = {
             \} 
 
 
-let g:which_key_map.k = { 
-            \'name': 'Cscope',
-            \'n': ['GenGTAGS', 'Gen GTAGS'],
-            \'r': ['FzfCscope("s", "<cword>")', 'References'],
-            \'d': ['FzfCscope("g", "<cword>")', 'Global Definition'],
-            \'C': ['FzfCscope("d", "<cword>")', 'Calls'],
-            \'t': ['FzfCscope("t", "<cword>")', 'Text'],
-            \'T': ['FzfGtags', 'Tags'],
-            \'e': ['FzfCscope("e", "<cword>")', 'Egrep Search'],
-            \'f': ['FzfCscope("f", "<cword>")', 'Filename'],
-            \'i': ['FzfCscope("i", "<cword>")', 'Includes'],
-            \'c': ['FzfCscope("c", "<cword>")', 'called'],
-            \'a': ['FzfCscope("a", "<cword>")', 'Assigned'],
-            \} 
-
-
+"let g:which_key_map.k = { 
+            "\'name': 'Cscope',
+            "\'n': ['GenGTAGS', 'Gen GTAGS'],
+            "\'r': ['FzfCscope("s", "<cword>")', 'References'],
+            "\'d': ['FzfCscope("g", "<cword>")', 'Global Definition'],
+            "\'C': ['FzfCscope("d", "<cword>")', 'Calls'],
+            "\'t': ['FzfCscope("t", "<cword>")', 'Text'],
+            "\'T': ['FzfGtags', 'Tags'],
+            "\'e': ['FzfCscope("e", "<cword>")', 'Egrep Search'],
+            "\'f': ['FzfCscope("f", "<cword>")', 'Filename'],
+            "\'i': ['FzfCscope("i", "<cword>")', 'Includes'],
+            "\'c': ['FzfCscope("c", "<cword>")', 'called'],
+            "\'a': ['FzfCscope("a", "<cword>")', 'Assigned'],
+            "\} 
 
 let g:which_key_map.g = { 
             \'name': 'Git',
