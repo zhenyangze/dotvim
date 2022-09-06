@@ -14,6 +14,7 @@ function! LargeFile()
     "setlocal buftype=nowrite
     " no undo possible
     setlocal undolevels=-1
+    setlocal noswapfile
     " display message
     autocmd VimEnter *  echo "The file is larger than " . (g:LargeFile / 1024 / 1024) . " MB, so some options are changed (see .vimrc for details)."
 endfunction

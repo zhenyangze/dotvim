@@ -1,5 +1,3 @@
-Plug 'tpope/vim-git'
 Plug 'tpope/vim-fugitive'
 Plug 'chemzqm/vim-easygit'
-Plug 'gregsexton/gitv'
 Plug 'mhinz/vim-signify'

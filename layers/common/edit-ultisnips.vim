@@ -1,4 +1,4 @@
-Plug 'SirVer/ultisnips', { 'on': []  }
+Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'zhenyangze/vim-snippets-append'
 
