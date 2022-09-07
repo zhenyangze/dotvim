@@ -1,4 +1,5 @@
 Plug 'easymotion/vim-easymotion', { 'on': [] }
+Plug 'ZSaberLv0/vim-easymotion-chs'
 
 "vim-easymotion{{{
     let g:EasyMotion_smartcase = 1
