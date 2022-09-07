@@ -18,7 +18,7 @@ nmap ,3 :call JumpToWindow(3)<CR>
 nmap ,4 :call JumpToWindow(4)<CR>
 nmap ,5 :call JumpToWindow(5)<CR>
 nmap ,D :Dox<CR>
-nmap ,F :RgAllFiles<CR>
+"nmap ,F :RgAllFiles<CR>
 nmap ,G :RgAll<CR>
 nmap ,R :redraw<CR>
 nmap ,T :FzfTags<CR>
@@ -31,7 +31,7 @@ nmap ,E :call AckReplace(2)<CR>
 nmap ,f :RgFiles<CR>
 nmap ,g :Rg<CR>
 nmap ,h :Startify<CR>
-nmap ,k :FzfGtags<CR>
+"nmap ,k :FzfGtags<CR>
 nmap ,m :FZFBookmarks<CR>
 nmap ,n :tabnew<CR>
 nmap ,o :call ToggleWindowShow('tagbar', 'call ShowTagbarToggle()', 'call ShowTagbarToggle()')<CR>
