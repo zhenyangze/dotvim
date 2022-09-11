@@ -69,9 +69,9 @@ let g:any_jump_disable_vcs_ignore = 0
 
 
 " Normal mode: Jump to definition under cursor
-nnoremap gf :AnyJump<CR>
+nnoremap gj :AnyJump<CR>
 " Visual mode: jump to selected text in visual mode
-xnoremap gf :AnyJumpVisual<CR>
+xnoremap gj :AnyJumpVisual<CR>
 " Normal mode: open previous opened file (after jump)
 nnoremap gb :AnyJumpBack<CR>
 " Normal mode: open last closed search window again

@@ -62,7 +62,13 @@ nmap <silent> gn :CocCommand document.renameCurrentWord<CR>
 nmap <silent> gp <Plug>(coc-cursors-word)
 nmap <silent> gc <Plug>(coc-refactor)
 nmap <silent> gs :CocSearch -w <C-R><C-W><CR>
-map <silent> ga :CocAction<CR>
+xmap <silent> gf  <Plug>(coc-format-selected)
+nmap <silent> gf  <Plug>(coc-format-selected)
+
+xmap ga <Plug>(coc-codeaction-selected)
+nmap ga <Plug>(coc-codeaction-cursor)
+nmap gA <Plug>(coc-codeaction)
+nmap gL <Plug>(coc-codelens-action)
 
 nmap <silent> ]d <Plug>(coc-definition)
 nmap <silent> [d <C-o>
@@ -182,3 +188,5 @@ nnoremap <silent><nowait> <space>om  :<C-u>CocAction<CR>
 vmap <silent><nowait> <space>om  :<C-u>CocAction<CR>
 nnoremap <silent><nowait> <space>of  :Format<cr>
 nnoremap <silent><nowait> <space>oz  :Fold<cr>
+
+let g:coc_disable_transparent_cursor = 1
