@@ -302,13 +302,13 @@ function! AppendText(type)
         return
     endif
     if a:type == 1
-        exec "%s/$/" . l:append_text . "/g" 
+        silent! exec "%s/$/" . l:append_text . "/g" 
     elseif a:type == 2
-        exec "g/\\S\\+/s/$/" . l:append_text . "/g" 
+        silent! exec "g/\\S\\+/s/$/" . l:append_text . "/g" 
     elseif a:type == 3
-        exec "%s/^/" . l:append_text . "/g" 
+        silent! exec "%s/^/" . l:append_text . "/g" 
     elseif a:type == 4
-        exec "g/\\S\\+/s/^/" . l:append_text . "/g" 
+        silent! exec "g/\\S\\+/s/^/" . l:append_text . "/g" 
     endif
 endfunction
 
