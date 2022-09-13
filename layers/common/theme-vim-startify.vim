@@ -14,6 +14,7 @@ let g:startify_bookmarks = systemlist("cut -sd' ' -f 2- ~/.NERDTreeBookmarks")
 let g:startify_files_number = 8
 let g:NERDTreeHijackNetrw = 0
 let g:startify_session_autoload = 1
+let g:startify_session_dir = '~/.vim/session'
 
 function! s:gitModified()
     let files = systemlist('git ls-files -m 2>/dev/null')
