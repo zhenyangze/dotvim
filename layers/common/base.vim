@@ -83,6 +83,9 @@ set ttyfast
 
 " cursor
 set wildmode=list:longest "命令行提示
+if has('nvim-0.4.0') || has('patch-8.2.0750')
+    set wildoptions=pum
+endif
 set scrolloff=30 "光标在中间
 set backspace=indent,eol,start
 set hidden " 离开缓存时不保存"
