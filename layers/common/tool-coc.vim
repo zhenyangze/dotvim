@@ -65,8 +65,8 @@ nmap <silent> gs :CocSearch -w <C-R><C-W><CR>
 xmap <silent> gf  <Plug>(coc-format-selected)
 nmap <silent> gf  <Plug>(coc-format-selected)
 
-xmap ga <Plug>(coc-codeaction-selected)
-nmap ga <Plug>(coc-codeaction-cursor)
+nmap <silent> ga <Plug>(coc-codeaction-line)
+xmap <silent> ga <Plug>(coc-codeaction-selected)
 nmap gA <Plug>(coc-codeaction)
 nmap gL <Plug>(coc-codelens-action)
 
