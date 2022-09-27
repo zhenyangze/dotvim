@@ -1,4 +1,6 @@
-Plug 'puremourning/vimspector'
+if has("python3")
+    Plug 'puremourning/vimspector'
+endif
 Plug 'vim-vdebug/vdebug', {'for': 'php'}
 
 let g:vimspector_enable_mappings = 'HUMAN'

@@ -83,7 +83,7 @@ set ttyfast
 
 " cursor
 set wildmode=list:longest "命令行提示
-if has('nvim-0.4.0') || has('patch-8.2.0750')
+if (has('nvim-0.4.0') || has('patch-8.2.0750')) && (has("python3"))
     set wildoptions=pum
 endif
 set scrolloff=30 "光标在中间
