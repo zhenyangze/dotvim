@@ -11,7 +11,7 @@ if !exists('$TMUX')
         set background=dark " or light if you prefer the light version
         "let g:two_firewatch_italics=1
         "colo two-firewatch
-        colo nord
+        "colo nord
         "let g:airline_theme='twofirewatch'
 
         hi SignColumn ctermbg=NONE guibg=NONE
@@ -23,6 +23,10 @@ if !exists('$TMUX')
             hi TabLineSel ctermfg=70 ctermbg=234 guifg=#67b11d guibg=#212026 guisp=NONE cterm=NONE gui=NONE
             hi TabLine cterm=none guifg=#5C6370 ctermfg=59 guibg=#282c34
         endif
+        
+        let g:gruvbox_material_background = 'soft'
+        let g:gruvbox_material_better_performance = 1
+        colorscheme gruvbox-material
     else
         let g:material_style='palenight'
         set background=dark
