@@ -18,7 +18,7 @@ Plug 'w0rp/ale', {'on': []}
 	let g:ale_keep_list_window_open = 0
 	let g:ale_lint_on_save = 1
 	let g:ale_lint_on_text_changed = 0
-    let g:ale_lint_on_enter = 0
+    let g:ale_lint_on_enter = 1
     let g:ale_list_vertical = 0
 "}}}
 augroup load_ale
@@ -28,11 +28,8 @@ augroup END
 
 
 let g:ale_fixers = {
-\  'php': [
-\    'remove_trailing_lines',
-\    'isort',
-\    'trim_whitespace'
-\   ]
+\  'php': ['remove_trailing_lines', 'isort', 'trim_whitespace'],
+\ 'python': ['nayvy#ale_fixer', 'autopep8', 'isort'],
 \}
 
 let g:ale_linters = {
@@ -40,7 +37,7 @@ let g:ale_linters = {
             \ 'c++': ['ccls'],
             \ 'c': ['ccls'],
             \ 'go': ['gopls'],
-            \ 'php': ['intelephense'],
+            \ 'php': ['phpstan'],
             \}
 
 let g:ale_cpp_ccls_init_options = {
