@@ -1,14 +1,14 @@
 if version > 800 || has("nvim")
 Plug 'PangPangPangPangPang/vim-terminal'
 
-map <silent> <F2> :VSTerminalToggle<cr>
+map <silent> <Leader>tt :VSTerminalToggle<cr>
 
 if has("nvim")
     tmap <silent> <F2> <C-\><C-n>:VSTerminalToggle<cr>
     tmap <silent><Leader>tt <C-\><C-n>:VSTerminalToggle<cr>
     tmap <silent><Leader>to <C-\><C-n>:call TerminalOpenWithIndex()<cr>
     tmap <silent><Leader>td <C-\><C-n>:call TerminalDeleteWithIndex()<cr>
-    tmap <silent><Leader>tc <C-\><C-n>:VSTerminalOpenNew<cr>
+    tmap <silent><Leader>tn <C-\><C-n>:VSTerminalOpenNew<cr>
     tmap <silent><Leader>t1 <C-\><C-n>:call TerminalOpenIndex(1)<cr>
     tmap <silent><Leader>t2 <C-\><C-n>:call TerminalOpenIndex(2)<cr>
     tmap <silent><Leader>t3 <C-\><C-n>:call TerminalOpenIndex(3)<cr>
@@ -19,7 +19,7 @@ else
     tmap <silent><Leader>tt <c-w>:VSTerminalToggle<cr>
     tmap <silent><Leader>to <c-w>:call TerminalOpenWithIndex()<cr>
     tmap <silent><Leader>td <c-w>:call TerminalDeleteWithIndex()<cr>
-    tmap <silent><Leader>tc <c-w>:VSTerminalOpenNew<cr>
+    tmap <silent><Leader>tn <c-w>:VSTerminalOpenNew<cr>
     tmap <silent><Leader>t1 <c-w>:call TerminalOpenIndex(1)<cr>
     tmap <silent><Leader>t2 <c-w>:call TerminalOpenIndex(2)<cr>
     tmap <silent><Leader>t3 <c-w>:call TerminalOpenIndex(3)<cr>

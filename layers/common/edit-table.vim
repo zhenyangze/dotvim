@@ -12,3 +12,5 @@ inoreabbrev <expr> <bar><bar>
 inoreabbrev <expr> __
           \ <SID>isAtStartOfLine('__') ?
           \ '<c-o>:silent! TableModeDisable<cr>' : '__'
+
+let g:table_mode_tableize_map = '<Leader>zt'
