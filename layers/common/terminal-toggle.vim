@@ -54,3 +54,5 @@ if !has("nvim")
 endif
 autocmd bufenter * if (winnr("$") == 1 && exists('b:rootDir') && &buftype == 'terminal') | q! | endif
 endif
+
+tnoremap <Esc> <C-\><C-n>
