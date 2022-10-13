@@ -55,4 +55,22 @@ endif
 autocmd bufenter * if (winnr("$") == 1 && exists('b:rootDir') && &buftype == 'terminal') | q! | endif
 endif
 
-tnoremap <Esc> <C-\><C-n>
+fun! RemapTerminalEsc()
+    if has("nvim")
+        if &ft =~ 'fzf' || &ft =~ 'floaterm'
+            silent! tunmap <buffer> <Esc>
+        else
+            au TermOpen * set ft=terminal
+            au FileType terminal  tnoremap <Esc> <C-\><C-n>   "tnoremap stands for terminal mode mappings in neovim"
+            au FileType terminal  tnoremap <buffer> <silent> <c-h> <C-\><C-N><C-w>h
+            au FileType terminal  tnoremap <buffer> <silent> <c-j> <C-\><C-N><C-w>j
+            au FileType terminal  tnoremap <buffer> <silent> <c-k> <C-\><C-N><C-w>k
+            au FileType terminal  tnoremap <buffer> <silent> <c-j> <C-\><C-N><C-w>j
+        endif
+    endif
+endfun
+
+augroup vimrc
+    autocmd!
+    autocmd BufEnter * silent! call RemapTerminalEsc()
+augroup END

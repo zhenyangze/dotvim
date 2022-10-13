@@ -102,7 +102,8 @@ set cmdheight=1
 " leader
 let mapleader = "\<Space>"  " 这个leader就映射为逗号
 let g:mapleader = "\<Space>"
-
+nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
+nnoremap <leader>= :wincmd =<cr>
 
 " window
 set splitright

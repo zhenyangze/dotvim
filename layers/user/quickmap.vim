@@ -1,12 +1,12 @@
 "nmap ,b :FzfBuffers<CR>
 nmap ,a gg0vG$<CR>
 
-"if has("nvim")
-    "tmap ,b <C-\><C-n>:call ToggleWindowShow(['conque_term', 'zsh'], 'VSTerminalToggle', 'quit')<CR>
-"elseif version > 800
-    "tmap ,b <C-w>:call ToggleWindowShow(['conque_term', 'zsh'], 'VSTerminalToggle', 'quit')<CR>
-"endif
-"nmap ,b <C-w>:call ToggleWindowShow(['conque_term', 'zsh'], 'VSTerminalToggle', 'quit')<CR>
+if has("nvim")
+    tmap ,b <C-\><C-n>:call ToggleWindowShow(['conque_term', 'zsh'], 'VSTerminalToggle', 'quit')<CR>
+elseif version > 800
+    tmap ,b <C-w>:call ToggleWindowShow(['conque_term', 'zsh'], 'VSTerminalToggle', 'quit')<CR>
+endif
+nmap ,b <C-w>:call ToggleWindowShow(['conque_term', 'zsh'], 'VSTerminalToggle', 'quit')<CR>
 "nmap ,G :Ag <C-R>=expand("<cword>")<CR><CR>
 "nmap ,g :Ag<CR>
 "nmap ,p :ProjectList<cr>
@@ -23,7 +23,7 @@ nmap ,G :RgAll<CR>
 nmap ,R :redraw<CR>
 nmap ,T :FzfTags<CR>
 nmap ,V :CtrlSFToggle<CR>
-nmap ,b :FloatermToggle<CR>
+nmap ,t :FloatermToggle<CR>
 nmap ,c :call ToggleWindowShow('qf', 'copen', 'cclose')<CR>
 nmap ,d :FzfDirs<CR>
 nmap ,e :call AckReplace(1)<CR>
@@ -39,7 +39,7 @@ nmap ,p :FzfProject<cr>
 nmap ,q :q!<CR>
 nmap ,r :Rooter<CR>
 nmap ,s :call FernFindCurrentFile()<CR>
-nmap ,t :TagbarToggle<CR>
+nmap ,. :TagbarToggle<CR>
 nmap ,v :<C-U>execute("CtrlSF \"" . GetCtrlsfSearchText("") . "\"")<CR>
 nmap ,w :w!<CR>
 nmap ,y :YankHistoryRgPaste<CR>
