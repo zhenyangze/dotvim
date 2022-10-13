@@ -39,7 +39,7 @@ nmap ,p :FzfProject<cr>
 nmap ,q :q!<CR>
 nmap ,r :Rooter<CR>
 nmap ,s :call FernFindCurrentFile()<CR>
-nmap ,. :TagbarToggle<CR>
+nmap ,k :TagbarToggle<CR>
 nmap ,v :<C-U>execute("CtrlSF \"" . GetCtrlsfSearchText("") . "\"")<CR>
 nmap ,w :w!<CR>
 nmap ,y :YankHistoryRgPaste<CR>
