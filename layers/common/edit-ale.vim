@@ -1,5 +1,5 @@
 if version > 800 || has("nvim")
-Plug 'w0rp/ale', {'on': []}
+Plug 'dense-analysis/ale', {'on': []}
 
 "ale {{{
 	let g:ale_sign_column_always = 1
