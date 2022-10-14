@@ -65,10 +65,10 @@ nmap <silent> gs :CocSearch -w <C-R><C-W><CR>
 xmap <silent> gf  <Plug>(coc-format-selected)
 nmap <silent> gf  <Plug>(coc-format-selected)
 
-nmap <silent> ga <Plug>(coc-codeaction-line)
-xmap <silent> ga <Plug>(coc-codeaction-selected)
-nmap gA <Plug>(coc-codeaction)
-nmap gL <Plug>(coc-codelens-action)
+nmap <silent> <leader>aa <Plug>(coc-codeaction-line)
+xmap <silent> <leader>aa <Plug>(coc-codeaction-selected)
+nmap <leader>ac <Plug>(coc-codeaction)
+nmap <leader>al <Plug>(coc-codelens-action)
 
 nmap <silent> ]d <Plug>(coc-definition)
 nmap <silent> [d <C-o>
@@ -115,7 +115,7 @@ augroup end
 " Remap for do codeAction of current line
 "nmap <leader>ac  <Plug>(coc-codeaction)
 " Fix autofix problem of current line
-"nmap <leader>qf  <Plug>(coc-fix-current)
+nmap <leader>qf  <Plug>(coc-fix-current)
 
 nnoremap <silent><nowait> <space>fs  :<C-u>CocList -I symbols<cr>
 " Create mappings for function text object, requires document symbols feature of languageserver.

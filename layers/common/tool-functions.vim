@@ -34,7 +34,7 @@ endfunction
 
 " jump to tab
 function! JumpToTab(num)
-    exec "tabn " . a:num
+    silent! exec "tabn " . a:num
 endfunction
 
 " ToggleMouse 
@@ -65,10 +65,10 @@ let g:toggle_list_data = {}
 function! ToggleSet(type, firstCommand, secondCommand)
     if (get(g:toggle_list_data, a:type) == 0) 
         let g:toggle_list_data[a:type]=1
-        exec a:firstCommand
+        silent! exec a:firstCommand
     else
         let g:toggle_list_data[a:type]=0
-        exec a:secondCommand
+        silent! exec a:secondCommand
     endif
 endfunction
 
@@ -103,10 +103,10 @@ function! ShowfindFiles()
         call FzfFilesFunction()
     elseif (g:leaderf_loaded > 0)
         if (exists("g:Lf_ShortcutF"))
-            execute "Leaderf"
+            silent! execute "Leaderf"
         else
             let g:Lf_ShortcutF = '<Leader>zf'
-            execute "Leaderf"
+            silent! execute "Leaderf"
         endif
     else
         let findFileName = escape(input('find file: '), '/\&~')
@@ -131,7 +131,7 @@ function! Find(cmd)
         silent! put =l:files
         normal ggdd
         nnoremap <buffer> <Enter> <C-W>gf
-        execute 'autocmd BufEnter <buffer> lcd ' . getcwd()
+        silent! execute 'autocmd BufEnter <buffer> lcd ' . getcwd()
     endif
 endfunction
 
@@ -168,7 +168,7 @@ endfunction
 
 function! FzfTagsFunction()
     let s:current_word = GetVisualSelection()
-    exec "FzfTags " . s:current_word
+    silent! exec "FzfTags " . s:current_word
 endfunction
 function! FzfFilesFunction()
     let s:current_word = GetVisualSelection()
@@ -176,12 +176,12 @@ function! FzfFilesFunction()
         let s:current_word = expand("<cword>")
     endif
     let g:fzf_files_options = ['-m', '--query', s:current_word]
-    exec "FzfFiles"
+    silent! exec "FzfFiles"
     let g:fzf_files_options = ['-m', '--query', '']
 endfunction
 function! AckVisualSearch()
     let s:current_word = GetVisualSelection()
-    exec "Ack " . substitute(escape(s:current_word, '\'), ' ', '\\ ', 'g')
+    silent! exec "Ack " . substitute(escape(s:current_word, '\'), ' ', '\\ ', 'g')
 endfunction
 
 let g:ack_search_str = ""
@@ -194,6 +194,10 @@ function! AckReplace(is_replace)
         let l:replace_str = input("Replace String: ", "")
     endif
 
+    if l:search_str == ""
+        return
+    endif
+
     if a:is_replace == 2
         if !has('nvim') 
             let l:search_str = GetRgSearchText(l:search_str)
@@ -202,13 +206,13 @@ function! AckReplace(is_replace)
 
         let l:replace_str = escape(l:replace_str, '/')
         let l:search_str = escape(l:search_str, '/')
-        exec "Acks /" . l:search_str . "/" . l:replace_str . "/ "
+        silent! exec "Acks /" . l:search_str . "/" . l:replace_str . "/ "
     elseif a:is_replace == 1
         let l:search_str = GetRgSearchText(l:search_str)
-        exec "Ack " . l:search_str . " ". l:search_path
+        silent! exec "Ack " . l:search_str . " ". l:search_path
     else
         let l:search_str = GetRgSearchText(l:search_str)
-        exec "Ag " . l:search_str
+        silent! exec "Ag " . l:search_str
     endif
 endfunction
 
@@ -332,10 +336,10 @@ function! ToggleWindowShow(fileTypeName, openCommend, closeCommend)
         endif
     endfor
     if l:has_quick_list
-        exec a:closeCommend
+        silent! exec a:closeCommend
         silent! call win_gotoid(l:current_window_id)
     else
-        exec a:openCommend
+        silent! exec a:openCommend
     endif
 endfunction
 function! JumpToWindow(winNo) 
@@ -353,7 +357,7 @@ function! LangFunctionCall(method)
     let l:firstLetter = strpart(l:filetype, 0, 1)
     let l:funcName = toupper(l:firstLetter) . strpart(l:filetype, 1) . a:method
     if exists("*" . l:funcName)
-        exec 'call ' . l:funcName . '()'
+        silent! exec 'call ' . l:funcName . '()'
     else
         echomsg "function not found: " . l:funcName
     endif
