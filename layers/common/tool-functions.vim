@@ -173,7 +173,7 @@ endfunction
 function! FzfFilesFunction()
     let s:current_word = GetVisualSelection()
     if len(s:current_word) == 0 
-        let s:current_word = expand("<cword>")
+        let s:current_word = trim(expand('<cfile>'), './')
     endif
     let g:fzf_files_options = ['-m', '--query', s:current_word]
     silent! exec "FzfFiles"

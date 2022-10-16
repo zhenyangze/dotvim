@@ -62,8 +62,9 @@ nmap <silent> gn :CocCommand document.renameCurrentWord<CR>
 nmap <silent> gp <Plug>(coc-cursors-word)
 nmap <silent> gc <Plug>(coc-refactor)
 nmap <silent> gs :CocSearch -w <C-R><C-W><CR>
-xmap <silent> gf  <Plug>(coc-format-selected)
-nmap <silent> gf  <Plug>(coc-format-selected)
+"xmap <silent> gf  <Plug>(coc-format-selected)
+"nmap <silent> gf  <Plug>(coc-format-selected)
+nmap <silent> gf :call FzfFilesFunction()<CR>
 
 nmap <silent> <leader>aa <Plug>(coc-codeaction-line)
 xmap <silent> <leader>aa <Plug>(coc-codeaction-selected)
