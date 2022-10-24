@@ -599,6 +599,7 @@ let g:which_key_map.a = {
             \'r': ['AsyncRunRun()', 'Run Current File'],
             \'m': ['AsyncRunMake()', 'Make File'],
             \'t': ['AsyncRunTest()', 'Run Test'],
+            \'s': ['AsyncRunSwitch()', 'Switch Mode'],
             \'z': ['asyncrun#quickfix_toggle(6)', 'Toggle Async'],
             \'q': ['asyncrun#stop(6)', 'Stop Async']
             \}

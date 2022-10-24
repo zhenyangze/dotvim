@@ -6,6 +6,16 @@ if has("nvim")
     let g:asyncrun_mode = "async"
 endif
 
+function! AsyncRunSwitch()
+    if g:asyncrun_mode == "term"
+        let g:asyncrun_mode = "async"
+        echo "switch async run mode: async"
+    else
+        let g:asyncrun_mode = "term"
+        echo "switch async run mode: term"
+    endif
+endfunction
+
 "nnoremap <Leader>at :call asyncrun#quickfix_toggle(6)<cr>
 "nnoremap <silent> <leader>ac :AsyncRun gcc -Wall -O2 "$(VIM_FILEPATH)" -o "$(VIM_FILEDIR)/$(VIM_FILENOEXT)" <cr>
 "nnoremap <silent> <Leader>ar :AsyncRun -raw -cwd=$(VIM_FILEDIR) "$(VIM_FILEDIR)/$(VIM_FILENOEXT)" <cr>
