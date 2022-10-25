@@ -33,9 +33,9 @@ let g:ale_fixers = {
 \}
 
 let g:ale_linters = {
-            \ 'cpp': ['ccls'],
-            \ 'c++': ['ccls'],
-            \ 'c': ['ccls'],
+            \ 'cpp': ['clang'],
+            \ 'c++': ['clang'],
+            \ 'c': ['clang'],
             \ 'go': ['gopls'],
             \ 'php': ['phpstan'],
             \}
