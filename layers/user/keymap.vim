@@ -580,7 +580,8 @@ let g:which_key_map.z = {
             \'r': ['Rooter', 'Change Root Path'],
             \'s': ['ToggleSyntax()', 'Syntax Toggle'],
             \'c' : ['popup_clear()', 'Clear Popup'],
-            \'l' : ['TogglePopup()', 'Toggle Popup']
+            \'l' : ['TogglePopup()', 'Toggle Popup'],
+            \'t' : ['TableModeToggle', 'Toggle TableMode']
             \}
 let g:which_key_map.z.q = 'Toggle Pairs'
 
