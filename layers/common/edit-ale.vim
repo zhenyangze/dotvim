@@ -29,7 +29,7 @@ augroup END
 
 let g:ale_fixers = {
 \  'php': ['remove_trailing_lines', 'isort', 'trim_whitespace'],
-\ 'python': ['nayvy#ale_fixer', 'autopep8', 'isort'],
+\ 'python': ['autopep8', 'nayvy#ale_fixer', 'isort'],
 \}
 
 let g:ale_linters = {
@@ -37,7 +37,7 @@ let g:ale_linters = {
             \ 'c++': ['clang'],
             \ 'c': ['clang'],
             \ 'go': ['gopls'],
-            \ 'php': ['phpstan'],
+            \ 'php': ['phpstan']
             \}
 
 let g:ale_cpp_ccls_init_options = {
