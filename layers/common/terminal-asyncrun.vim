@@ -26,7 +26,8 @@ let g:asyncrun_rootmarks = ['.svn', '.git', '.root', '_darcs', 'build.xml']
 
 function! AsyncRunMake()
     if &filetype == 'python'
-        execute 'CocCommand python.execInTerminal'
+        "execute 'CocCommand python.execInTerminal'
+        "execute 'AsyncRun! -cwd=<root> -raw go build "$(VIM_RELNAME)"'
     elseif &filetype == 'go'
         execute 'AsyncRun! -cwd=<root> -raw go build "$(VIM_RELNAME)"'
     elseif &filetype == 'rust'
@@ -79,9 +80,10 @@ function! AsyncRunTest()
         exec 'RustTest'
         "execute 'AsyncRun! -mode=' . g:asyncrun_mode . ' -pos=bottom -rows=10 -cwd=<root> -raw cargo test'
     endif
+    if &filetype == "python"
+        execute 'CocCommand pyright.singleTest'
+    endif
 endfunction
-
-
 
 function! AsyncRunRun()
     if &filetype == 'php'
@@ -93,10 +95,10 @@ function! AsyncRunRun()
     elseif &filetype == 'cpp'
         execute 'AsyncRun! -mode=' . g:asyncrun_mode . ' -pos=bottom -rows=10 g++ -Wall -O2 "$(VIM_FILEPATH)" -levent -o "$(VIM_FILEDIR)/$(VIM_FILENOEXT)" ; "$(VIM_FILEDIR)/$(VIM_FILENOEXT)"'
     elseif &filetype == 'python'
-        execute 'CocCommand python.execInTerminal'
+        "execute 'CocCommand python.execInTerminal'
         "let $PYTHONNUNBUFFERED=1
-        "execute 'AsyncRun! -cwd=<root> -raw python %'
-        let $PYTHONNUNBUFFERED=1
+        execute 'AsyncRun! -cwd=<root> -raw python %'
+        "let $PYTHONNUNBUFFERED=1
     elseif &filetype == 'go'
         if len(matchstr(expand('%:t'), '_test.go')) > 0
             execute 'AsyncRun! -mode=' . g:asyncrun_mode . ' -pos=bottom -rows=10 -cwd=<root> -raw go test -v "$(VIM_RELNAME)"'
