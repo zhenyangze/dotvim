@@ -97,7 +97,7 @@ function! AsyncRunRun()
     elseif &filetype == 'python'
         "execute 'CocCommand python.execInTerminal'
         "let $PYTHONNUNBUFFERED=1
-        execute 'AsyncRun! -cwd=<root> -raw python %'
+        execute 'AsyncRun!  -mode=' . g:asyncrun_mode . ' -pos=bottom -rows=10 -cwd=<root> -raw python %'
         "let $PYTHONNUNBUFFERED=1
     elseif &filetype == 'go'
         if len(matchstr(expand('%:t'), '_test.go')) > 0
