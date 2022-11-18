@@ -88,6 +88,24 @@ inoremap <expr> <c-x><c-l> fzf#vim#complete(fzf#wrap({
             \ 'options': '--ansi --delimiter : --nth 3..',
             \ 'reducer': { lines -> join(split(lines[0], ':\zs')[2:], '') }}))
 
+command! -bang -nargs=* FzfWPHook
+            \ call fzf#vim#grep(
+            \   'rg --column --line-number --no-heading --ignore-case --no-ignore --hidden --follow --glob "!.git/*" -t php  -e  "(apply_filters|do_action)(_ref_array)?" 2> /dev/null', 1,
+            \   <bang>0 ? fzf#vim#with_preview('up:60%')
+            \           : fzf#vim#with_preview('down', '?'),
+            \   <bang>0
+            \ )
+command! -bang -nargs=* FzfWPHookDef
+            \ call fzf#vim#grep(
+            \   'rg --column --line-number --no-heading --ignore-case --no-ignore --hidden --follow --glob "!.git/*" -t php  -e  "(add_filter|add_action)" 2> /dev/null', 1,
+            \   <bang>0 ? fzf#vim#with_preview('up:60%')
+            \           : fzf#vim#with_preview('down', '?'),
+            \   <bang>0
+            \ )
+
+
+
+
 function! s:fzfdir(e) 
     let l:filename = trim(a:e, './')
     if exists(":NERDTreeFind")
