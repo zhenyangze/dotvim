@@ -2,6 +2,7 @@ Plug 'skywind3000/asyncrun.vim'
 let g:asyncrun_open = 6
 let g:asyncrun_bell = 1
 let g:asyncrun_mode = "term"
+let g:asyncrun_command = ""
 if has("nvim")
     let g:asyncrun_mode = "async"
 endif
@@ -17,8 +18,8 @@ function! AsyncRunSwitch()
 endfunction
 
 "nnoremap <Leader>at :call asyncrun#quickfix_toggle(6)<cr>
-"nnoremap <silent> <leader>ac :AsyncRun gcc -Wall -O2 "$(VIM_FILEPATH)" -o "$(VIM_FILEDIR)/$(VIM_FILENOEXT)" <cr>
-"nnoremap <silent> <Leader>ar :AsyncRun -raw -cwd=$(VIM_FILEDIR) "$(VIM_FILEDIR)/$(VIM_FILENOEXT)" <cr>
+"nnoremap <silent> <leader>ac :AsyncRun gcc -Wall -O2 "$(VIM_FILEPATH)" -o shellescape(expand("%:r")) <cr>
+"nnoremap <silent> <Leader>ar :AsyncRun -raw -cwd=$(VIM_FILEDIR) shellescape(expand("%:r")) <cr>
 "nnoremap <silent> <Leader>am :AsyncRun -cwd=<root> cmake . <cr>
 let g:asyncrun_rootmarks = ['.svn', '.git', '.root', '_darcs', 'build.xml'] 
 "nnoremap <silent> <Leader>ab :AsyncRun -cwd=<root> make <cr>
@@ -27,12 +28,13 @@ let g:asyncrun_rootmarks = ['.svn', '.git', '.root', '_darcs', 'build.xml']
 function! AsyncRunMake()
     if &filetype == 'python'
         "execute 'CocCommand python.execInTerminal'
-        "execute 'AsyncRun! -cwd=<root> -raw go build "$(VIM_RELNAME)"'
+        "execute 'AsyncRun! -cwd=<root> -raw go build ' . shellescape(expand("%:f")) . ''
     elseif &filetype == 'go'
-        execute 'AsyncRun! -cwd=<root> -raw go build "$(VIM_RELNAME)"'
+        let g:asyncrun_command = 'AsyncRun! -cwd=<root> -raw go build ' . shellescape(expand("%:f")) . ''
     elseif &filetype == 'rust'
-        execute 'AsyncRun! -cwd=<root> -raw cargo build --release'
+        let g:asyncrun_command = 'AsyncRun! -cwd=<root> -raw cargo build --release'
     endif
+    call AsyncRunRepeat()
 endfunction
 
 function! AsyncRunTest()
@@ -51,9 +53,9 @@ function! AsyncRunTest()
         let l:funcName = expand("<cword>")
         call setpos('.', save_cursor)
         if match(l:funcName, "test") >= 0 
-            execute 'AsyncRun! -mode=' . g:asyncrun_mode . ' -pos=bottom -rows=10 -cwd=<root> ./vendor/bin/phpunit tests --filter ' . l:funcName
+            let g:asyncrun_command = 'AsyncRun! -mode=' . g:asyncrun_mode . ' -pos=bottom -rows=10 -cwd=<root> ./vendor/bin/phpunit tests --filter ' . l:funcName
         else
-            execute 'AsyncRun! -mode=' . g:asyncrun_mode . ' -pos=bottom -rows=10 -cwd=<root> ./vendor/bin/phpunit tests'
+            let g:asyncrun_command = 'AsyncRun! -mode=' . g:asyncrun_mode . ' -pos=bottom -rows=10 -cwd=<root> ./vendor/bin/phpunit tests'
         endif
     endif
     if &filetype == 'go'
@@ -71,49 +73,57 @@ function! AsyncRunTest()
         let l:funcName = expand("<cword>")
         call setpos('.', save_cursor)
         if match(l:funcName, "Test") == 0 
-            execute 'AsyncRun! -mode=' . g:asyncrun_mode . ' -pos=bottom -rows=10 -cwd=<root> -raw go test -v "$(VIM_RELNAME)" -run="' . l:funcName . '"'
+            let g:asyncrun_command = 'AsyncRun! -mode=' . g:asyncrun_mode . ' -pos=bottom -rows=10 -cwd=<root> -raw go test -v ' . shellescape(expand("%:f")) . ' -run="' . l:funcName . '"'
         else
-            execute 'AsyncRun! -mode=' . g:asyncrun_mode . ' -pos=bottom -rows=10 -cwd=<root> -raw go test -v "$(VIM_RELNAME)"'
+            let g:asyncrun_command = 'AsyncRun! -mode=' . g:asyncrun_mode . ' -pos=bottom -rows=10 -cwd=<root> -raw go test -v ' . shellescape(expand("%:f")) . ''
         endif
     endif
     if &filetype == "rust"
-        exec 'RustTest'
+        let g:asyncrun_command = "RustTest"
         "execute 'AsyncRun! -mode=' . g:asyncrun_mode . ' -pos=bottom -rows=10 -cwd=<root> -raw cargo test'
     endif
     if &filetype == "python"
-        execute 'CocCommand pyright.singleTest'
+        let g:asyncrun_command = 'CocCommand pyright.singleTest'
     endif
+    call AsyncRunRepeat()
 endfunction
 
 function! AsyncRunRun()
     if &filetype == 'php'
-        execute 'AsyncRun! -mode=' . g:asyncrun_mode . ' -pos=bottom -rows=10 -cwd=<root> php $(VIM_RELNAME)'
+        let g:asyncrun_command = 'AsyncRun! -mode=' . g:asyncrun_mode . ' -pos=bottom -rows=10 -cwd=<root> php ' . shellescape(expand("%:f")) . ''
     elseif &filetype == 'lua'
-        execute 'AsyncRun! -mode=' . g:asyncrun_mode . ' -pos=bottom -rows=10 -cwd=<root> lua $(VIM_RELNAME)'
+        let g:asyncrun_command = 'AsyncRun! -mode=' . g:asyncrun_mode . ' -pos=bottom -rows=10 -cwd=<root> lua ' . shellescape(expand("%:f")) . ''
     elseif &filetype == 'c'
-        execute 'AsyncRun! -mode=' . g:asyncrun_mode . ' -pos=bottom -rows=10 gcc -Wall -O2 "$(VIM_FILEPATH)" -o "$(VIM_FILEDIR)/$(VIM_FILENOEXT)" ; "$(VIM_FILEDIR)/$(VIM_FILENOEXT)"'
+        let g:asyncrun_command = 'AsyncRun! -mode=' . g:asyncrun_mode . ' -pos=bottom -rows=10 gcc -Wall -O2 "$(VIM_FILEPATH)" -o ' . shellescape(expand("%:r")) . ' ;./' . shellescape(expand("%:r"))
     elseif &filetype == 'cpp'
-        execute 'AsyncRun! -mode=' . g:asyncrun_mode . ' -pos=bottom -rows=10 g++ -Wall -O2 "$(VIM_FILEPATH)" -levent -o "$(VIM_FILEDIR)/$(VIM_FILENOEXT)" ; "$(VIM_FILEDIR)/$(VIM_FILENOEXT)"'
+        let g:asyncrun_command = 'AsyncRun! -mode=' . g:asyncrun_mode . ' -pos=bottom -rows=10 g++ -Wall -O2 "$(VIM_FILEPATH)" -levent -o ' . shellescape(expand("%:r")) . ' ;./' . shellescape(expand("%:r"))
     elseif &filetype == 'python'
         "execute 'CocCommand python.execInTerminal'
         "let $PYTHONNUNBUFFERED=1
-        execute 'AsyncRun!  -mode=' . g:asyncrun_mode . ' -pos=bottom -rows=10 -cwd=<root> -raw python %'
+        let g:asyncrun_command = 'AsyncRun!  -mode=' . g:asyncrun_mode . ' -pos=bottom -rows=10 -cwd=<root> -raw python %'
         "let $PYTHONNUNBUFFERED=1
     elseif &filetype == 'go'
         if len(matchstr(expand('%:t'), '_test.go')) > 0
-            execute 'AsyncRun! -mode=' . g:asyncrun_mode . ' -pos=bottom -rows=10 -cwd=<root> -raw go test -v "$(VIM_RELNAME)"'
+            let g:asyncrun_command = 'AsyncRun! -mode=' . g:asyncrun_mode . ' -pos=bottom -rows=10 -cwd=<root> -raw go test -v ' . shellescape(expand("%:f")) . ''
         else
-            execute 'AsyncRun! -mode=' . g:asyncrun_mode . ' -pos=bottom -rows=10 -cwd=<root> -raw go run "$(VIM_RELNAME)"'
+            let g:asyncrun_command = 'AsyncRun! -mode=' . g:asyncrun_mode . ' -pos=bottom -rows=10 -cwd=<root> -raw go run ' . shellescape(expand("%:f")) . ''
         endif
     elseif &filetype == 'sh'
-        execute 'AsyncRun! -mode=' . g:asyncrun_mode . ' -pos=bottom -rows=10 -cwd=<root> sh "$(VIM_RELNAME)"'
+        let g:asyncrun_command = 'AsyncRun! -mode=' . g:asyncrun_mode . ' -pos=bottom -rows=10 -cwd=<root> sh ' . shellescape(expand("%:f")) . ''
     elseif &filetype == 'java'
-        execute 'AsyncRun! -mode=' . g:asyncrun_mode . ' -pos=bottom -rows=10 -cwd=<root> javac "$(VIM_RELNAME)" ; java $(VIM_FILENOEXT)'
+        let g:asyncrun_command = 'AsyncRun! -mode=' . g:asyncrun_mode . ' -pos=bottom -rows=10 -cwd=<root> javac ' . shellescape(expand("%:f")) . ' ; java ' . shellescape(expand("%:t:r"))
     elseif &filetype == 'rust'
-        exec 'RustRun'
+        let g:asyncrun_command = "RustRun"
         "execute 'AsyncRun! -mode=' . g:asyncrun_mode . ' -pos=bottom -rows=10 -cwd=<root> -raw cargo run'
     endif
+    call AsyncRunRepeat()
 endfunction
 
 function! AsyncRunProject()
+endfunction
+
+function! AsyncRunRepeat()
+    if g:asyncrun_command != ""
+        exec g:asyncrun_command
+    endif
 endfunction
