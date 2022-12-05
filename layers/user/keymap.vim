@@ -515,6 +515,7 @@ let g:which_key_map.f = {
             \'p': ['FzfMaps', 'Maps'],
             \'t': ['FzfBTags', 'Bufer`s Tags'],
             \'w': ['FzfWindows', 'Windows'],
+            \'q': ['FindFileToQuickfix("")', 'Search File In Quickfix']
             \} 
 
 

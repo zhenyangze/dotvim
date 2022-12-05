@@ -216,6 +216,16 @@ function! AckReplace(is_replace)
     endif
 endfunction
 
+function! FindFileToQuickfix(fileName)
+    let l:fileName = a:fileName
+    if l:fileName == "" 
+        let l:fileName = input("Search File Name: ")
+    end
+    "cexpr glob('**/' . a:fileName, v:true, v:true)->map({_, v -> v..'|1| '..v})
+    cexpr split(system('rg --files --sort=path --hidden --follow --glob "!.git/*" 3>/dev/null | grep -i ' . l:fileName))->map({_, v -> v..'|1| '..v})
+    cw
+endfunction
+command! -nargs=1 Fd call FindFileToQuickfix(<f-args>)
 
 function! GetVisualSelection()
     " Why is this not a built-in Vim script function?!
