@@ -134,7 +134,7 @@ if executable('rg')
   set grepprg=rg\ --vimgrep
   command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
   command! -bang RgFiles 
-              \ call fzf#run(fzf#wrap('RgFiles', {'source':'rg --files --sort=path --hidden --follow --glob "!.git/*" 3>/dev/null' , 'options': ['--ansi', '--delimiter', '/', '--nth', '-2..,..']}, 0))
+              \ call fzf#run(fzf#wrap('RgFiles', {'source':'rg --files --sort=path --hidden --follow --glob "!.git/*" 3>/dev/null | grep -v ".gitkeep" | grep -v ".gitignore"' , 'options': ['--ansi', '--delimiter', '/', '--nth', '-2..,..']}, 0))
 
 endif
 
