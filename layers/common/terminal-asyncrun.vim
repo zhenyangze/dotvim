@@ -53,9 +53,9 @@ function! AsyncRunTest()
         let l:funcName = expand("<cword>")
         call setpos('.', save_cursor)
         if match(l:funcName, "test") >= 0 
-            let g:asyncrun_command = 'AsyncRun! -mode=' . g:asyncrun_mode . ' -pos=bottom -rows=10 -cwd=<root> ./vendor/bin/phpunit tests --filter ' . l:funcName
+            let g:asyncrun_command = 'AsyncRun! -mode=' . g:asyncrun_mode . ' -pos=bottom -rows=10 -cwd=<root> ./vendor/bin/phpunit tests --filter ' . l:funcName . ' ' . shellescape(expand("%:f"))
         else
-            let g:asyncrun_command = 'AsyncRun! -mode=' . g:asyncrun_mode . ' -pos=bottom -rows=10 -cwd=<root> ./vendor/bin/phpunit tests'
+            let g:asyncrun_command = 'AsyncRun! -mode=' . g:asyncrun_mode . ' -pos=bottom -rows=10 -cwd=<root> ./vendor/bin/phpunit tests' . ' ' . shellescape(expand("%:f"))
         endif
     endif
     if &filetype == 'go'
