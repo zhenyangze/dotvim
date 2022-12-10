@@ -1,5 +1,5 @@
 if version > 800 || has("nvim")
-Plug 'dense-analysis/ale', {'on': [], 'for': ['bash', 'shell', 'php', 'java', 'python', 'lua', 'js', 'cpp', 'c', 'go', 'c++']}
+Plug 'dense-analysis/ale', {'on': []}
 
 "ale {{{
 	let g:ale_sign_column_always = 1
@@ -21,11 +21,13 @@ Plug 'dense-analysis/ale', {'on': [], 'for': ['bash', 'shell', 'php', 'java', 'p
     let g:ale_lint_on_enter = 1
     let g:ale_list_vertical = 0
 "}}}
+let g:ale_is_loaded = 0
 augroup load_ale
     autocmd!
-    autocmd InsertEnter * call plug#load('ale') | autocmd! load_ale
+    autocmd InsertEnter * call plug#load('ale') | let g:ale_is_loaded = 1 | autocmd! load_ale
 augroup END
-
+"autocmd! FileType fzf if(g:ale_is_loaded == 1) | :ALELintStop | endif | autocmd BufLeave <buffer> if(g:ale_is_loaded == 1) | :ALELint | endif
+autocmd! FileType fzf if(g:ale_is_loaded == 1) | :ALEDisable | endif | autocmd BufLeave <buffer> if(g:ale_is_loaded == 1) | :ALEEnable | endif
 
 let g:ale_fixers = {
 \  'php': ['remove_trailing_lines', 'isort', 'trim_whitespace'],
