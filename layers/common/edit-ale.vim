@@ -1,5 +1,5 @@
 if version > 800 || has("nvim")
-Plug 'dense-analysis/ale', {'on': []}
+Plug 'dense-analysis/ale', {'on': [], 'for': ['bash', 'shell', 'php', 'java', 'python', 'lua', 'js', 'cpp', 'c', 'go', 'c++']}
 
 "ale {{{
 	let g:ale_sign_column_always = 1
