@@ -20,6 +20,7 @@ Plug 'dense-analysis/ale', {'on': []}
 	let g:ale_lint_on_text_changed = 0
     let g:ale_lint_on_enter = 1
     let g:ale_list_vertical = 0
+    let g:ale_linters_explicit = 1
 "}}}
 let g:ale_is_loaded = 0
 augroup load_ale

@@ -230,7 +230,7 @@ function! FindFileToQuickfix(fileName, filePath = ".")
         return
     end
     "cexpr glob('**/' . a:fileName, v:true, v:true)->map({_, v -> v..'|1| '..v})
-    cexpr split(system('rg ' . shellescape(l:filePath) . ' --files --sort=path --hidden --follow --glob "!.git/*" 3>/dev/null | grep -i ' . l:fileName))->map({_, v -> v..'|1| '..v})
+    cexpr split(system('rg ' . shellescape(l:filePath) . ' --files --sort=path --hidden --follow --glob "!.git/*" 3>/dev/null | grep -v ".gitkeep" | grep -v ".gitignore" | grep -i ' . l:fileName))->map({_, v -> v..'|1| '..v})
     cw
 endfunction
 command! -nargs=+ -complete=file Fd call FindFileToQuickfix(<f-args>)
