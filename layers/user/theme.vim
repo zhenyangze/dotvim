@@ -14,6 +14,10 @@ if !exists('$TMUX')
         "colo nord
         "let g:airline_theme='twofirewatch'
 
+        let g:gruvbox_material_background = 'soft'
+        let g:gruvbox_material_better_performance = 1
+        colorscheme gruvbox-material
+
         hi SignColumn ctermbg=NONE guibg=NONE
         hi StatusLineNC guifg=#444444 guibg=#3a3a3a
         if has("nvim")
@@ -24,9 +28,6 @@ if !exists('$TMUX')
             hi TabLine cterm=none guifg=#5C6370 ctermfg=59 guibg=#282c34
         endif
         
-        let g:gruvbox_material_background = 'soft'
-        let g:gruvbox_material_better_performance = 1
-        colorscheme gruvbox-material
     else
         let g:material_style='palenight'
         set background=dark
