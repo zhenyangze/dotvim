@@ -80,9 +80,11 @@ inoremap ˚ <c-\><c-o>gk
 "inoremap <c-l> <right>
 "inoremap <c-h> <left>
 
-nmap f <Plug>(easymotion-bd-f)
-nmap f <Plug>(easymotion-overwin-f)
-nmap F <Plug>(easymotion-overwin-f2)
+"nmap f <Plug>(easymotion-bd-f)
+"nmap f <Plug>(easymotion-overwin-f)
+"nmap F <Plug>(easymotion-overwin-f2)
+map f <Plug>(easymotion-bd-w)
+"nmap <Leader>w <Plug>(easymotion-overwin-w)
 
 " @ find
 " -----------------------------------------------------------------------------
