@@ -350,6 +350,11 @@ let g:which_key_map.e = {
                 \'g': [':set fileencoding=GBK', 'Save as Gbk'],
                 \'u': [':set fileencoding=UTF-8', 'Save as Utf-8'],
                 \},
+            \'x': {
+                \'name' : 'XXD Editing',
+                \'d': [':%!xxd', 'Edit as XXD'],
+                \'r': [':%!xxd -r', 'Recover from XXD'],
+                \},
             \'i': {
                 \'t': ['InitTemplate()', 'Init Template']
                 \},
