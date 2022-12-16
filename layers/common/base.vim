@@ -51,6 +51,7 @@ augroup relative_numbser
     autocmd InsertEnter * :set norelativenumber
     autocmd InsertLeave * :set relativenumber
 augroup END
+
 set cursorline " 显示当前行
 set ruler "显示位置指示器
 
