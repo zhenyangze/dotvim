@@ -286,10 +286,10 @@ function! GetCtrlsfSearchText(s)
     let l:reg_list = ['\\', '\\', '$', '[', ']', '(', ')', '*', '{', '}', '?', '|', '.', "'", "\"", '+']
 
     for item in l:reg_list
-        let l:s = escape(l:s, item)
+        "let l:s = escape(l:s, item)
     endfor
 
-    let l:s = substitute(substitute(l:s, '\n', '\\n', 'g'), '\t', '\\t', 'g')
+    "let l:s = substitute(substitute(l:s, '\n', '\\n', 'g'), '\t', '\\t', 'g')
     return l:s
 endfunction
 

@@ -40,12 +40,12 @@ nmap ,q :q!<CR>
 nmap ,r :Rooter<CR>
 nmap ,s :call FernFindCurrentFile()<CR>
 nmap ,k :TagbarToggle<CR>
-nmap ,v :<C-U>execute("CtrlSF \"" . GetCtrlsfSearchText("") . "\"")<CR>
 nmap ,w :w!<CR>
 nmap ,y :YankHistoryRgPaste<CR>
 vmap ,f :<C-u>call FzfFilesFunction()<CR>
 vmap ,g :<C-U>execute("Rg " . GetRgSearchTextV2(""))<CR>
-vmap ,v :<C-U>execute("CtrlSF \"" . GetCtrlsfSearchText("") . "\"")<CR>
+vmap ,v :<C-U>execute("CtrlSF \"" . escape(GetCtrlsfSearchText(""), '"') . "\"")<CR>
+nmap ,v :<C-U>execute("CtrlSF \"" . escape(GetCtrlsfSearchText(""), '"') . "\"")<CR>
 
 nmap =1 :q 1<CR>
 nmap =2 :q 2<CR>
