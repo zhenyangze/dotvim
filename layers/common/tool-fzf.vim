@@ -61,7 +61,7 @@ autocmd VimEnter * command! -bang Colors
             \ call fzf#vim#colors({'left': '15%', 'options': '--reverse --margin 30%,0'}, <bang>0)
 
 command! -bang -nargs=* FzfTodo
-  \ call fzf#vim#ag('[^\w_\$\''''\>](FIXME|TODO|todo|fixme|Todo|ToDo|toDo):?[^\w_\/\(\'''']',
+  \ call fzf#vim#ag('[^\w_\$\''''\>](FIXME|TODO|todo|fixme|Todo|ToDo|toDo|FEATURE|feature|Feature):?[^\w_\/\(\'''']',
   \                 <bang>0 ? fzf#vim#with_preview('up:60%')
   \                         : fzf#vim#with_preview('down', '?'),
   \                 <bang>0)
