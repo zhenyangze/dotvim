@@ -12,6 +12,8 @@ let g:fzf_action = {
             \ 'ctrl-x': 'split',
             \ 'ctrl-v': 'vsplit'
             \ }
+let $FZF_DEFAULT_OPTS = '--bind ctrl-q:select-all+accept'
+
 let g:fzf_colors =
             \ { 'fg':      ['fg', 'Normal'],
             \ 'bg':      ['bg', 'Normal'],
