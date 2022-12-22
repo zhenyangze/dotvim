@@ -563,8 +563,8 @@ let g:which_key_map.q = {
             \'q': ['cclose', 'Quit'],
             \'l': ['cl', 'List'],
             \'o': ['copen', 'Open'],
-            \'h': [':Chistory', 'History'],
-            \'H': [':Chistory', 'Location History'],
+            \'h': ['FzfQuiclfixHistory', 'History'],
+            \'H': ['FzfQuickfixLocalOpen', 'Location History'],
             \} 
 
 let g:which_key_map.c = { 'name': 'Comment'}

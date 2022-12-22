@@ -105,9 +105,6 @@ command! -bang -nargs=* FzfWPHookDef
             \   <bang>0
             \ )
 
-
-
-
 function! s:fzfdir(e) 
     let l:filename = trim(a:e, './')
     if exists(":NERDTreeFind")
@@ -306,3 +303,62 @@ function! s:fzf_neighbouring_files()
         \ 'window':  { 'width': 0.8, 'height': 0.6, 'border': 'rounded' } }))
 endfunction
 command! FZFNeigh call s:fzf_neighbouring_files()
+
+function! FzfGetQuickFixList(cmdstr)
+    let l:quickhistory = trim(execute(a:cmdstr))
+    let l:newQuickfixHistoryList = []
+    if l:quickhistory == "No entries"
+        return l:newQuickfixHistoryList
+    endif
+    let l:quickHistoryList = split(l:quickhistory, "\n")
+    if len(l:quickHistoryList) == 0 || l:quickhistory == "No entries"
+        echomsg "no quick fix list"
+        return l:newQuickfixHistoryList
+    endif
+
+    let l:quickHistoryList = reverse(l:quickHistoryList)
+
+    for item in l:quickHistoryList
+        let itemInfo = split(item, ";")
+        let numsList = split(itemInfo[0], " ")
+        let nums = 0
+        for subItem in numsList
+            if subItem == "of"
+                break
+            endif
+            let nums = subItem
+        endfor
+        if nums != "" 
+            call add(l:newQuickfixHistoryList, nums . ':' . itemInfo[1])
+        endif
+    endfor
+
+    return l:newQuickfixHistoryList
+endfunction
+
+function! s:FzfQuickfixOpen(line)
+    if a:line == "" 
+        return
+    endif
+    let lineInfo = split(a:line, ":")
+    let nums = lineInfo[0]
+    exec nums . "chi"
+    copen
+endfunction
+function! s:FzfQuickfixLocalOpen(line)
+    if a:line == "" 
+        return
+    endif
+    let lineInfo = split(a:line, ":")
+    let nums = lineInfo[0]
+    exec nums . "lhi"
+    lopen
+endfunction
+
+
+
+command! -bang FzfQuiclfixHistory
+    \ call fzf#run(fzf#wrap('fzfquickfix', {'source': FzfGetQuickFixList('chi'), 'sink': function('s:FzfQuickfixOpen')}, 0))
+
+command! -bang FzfQuiclfixLocalHistory
+    \ call fzf#run(fzf#wrap('fzfquickfix', {'source': FzfGetQuickFixList('lhi'), 'sink': function('s:FzfQuickfixLocalOpen')}, 0))
