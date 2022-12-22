@@ -32,6 +32,7 @@ nmap ,f :RgFiles<CR>
 nmap ,g :Rg<CR>
 nmap ,h :Startify<CR>
 "nmap ,k :FzfGtags<CR>
+nmap ,l :call AutoFormatFile()<CR>
 nmap ,m :FZFBookmarks<CR>
 nmap ,n :tabnew<CR>
 nmap ,o :call ToggleWindowShow('tagbar', 'call ShowTagbarToggle()', 'call ShowTagbarToggle()')<CR>

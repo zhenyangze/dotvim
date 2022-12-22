@@ -367,6 +367,16 @@ function! JumpToWindow(winNo)
     endif
 endfunction
 
+function! AutoFormatFile()
+    let l:filetype = &filetype
+    if l:filetype == "php"
+        silent! exec "Format"
+    else
+        silent! exec "Autoformat"
+    endif
+    echomsg "Formated"
+endfunction
+
 "}}}
 
 "{{{============================= language ================================
