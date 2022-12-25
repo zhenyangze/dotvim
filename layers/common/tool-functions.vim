@@ -371,6 +371,8 @@ function! AutoFormatFile()
     let l:filetype = &filetype
     if l:filetype == "php"
         silent! exec "Format"
+    elseif l:filetype == "java"
+        silent! exec "Format"
     else
         silent! exec "Autoformat"
     endif
