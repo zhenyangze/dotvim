@@ -28,7 +28,7 @@ function! s:gitUntracked()
 endfunction
 
 function! s:gitRecent()
-    let files = systemlist('git log -m -5 --name-only --pretty="format:"  HEAD 2>/dev/null | grep  "\S" | head -16 | sort | uniq')
+    let files = systemlist('git log -m -5 --name-only --pretty="format:"  HEAD 2>/dev/null | grep  "\S" | head -16 | uniq')
     return map(files, "{'line': v:val, 'path': v:val}")
 endfunction
 
