@@ -84,6 +84,9 @@ function! TogglePopup()
 endfunction
 
 function! FernFindCurrentFile()
+    if &filetype == "nerdtree"
+        return
+    endif
     silent! execute "Rooter"
     let l:filename = trim(expand('%'), './')
     if exists(":NERDTreeFind")

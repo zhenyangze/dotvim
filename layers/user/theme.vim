@@ -1,5 +1,4 @@
-syntax enable
-
+"syntax enable
 " color dracula
 " colorscheme molokai
 " colorscheme spacegray

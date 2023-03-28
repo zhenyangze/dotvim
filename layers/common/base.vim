@@ -1,5 +1,5 @@
 " syntax
-syn on " 语法支持
+"syn on " 语法支持
 
 " encoding
 set encoding=utf-8
