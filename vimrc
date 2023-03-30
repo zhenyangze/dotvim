@@ -23,10 +23,7 @@ call plug#begin('~/.vim/plugged')
 let g:plug_threads = 8
 let g:plug_timeout = 3600
 for files in s:plug_files
-    "exec "runtime! " . files
-  for f in split(glob(s:vim_home.files), "\n")
-    exec "source ".f
-  endfor
+    exec "runtime! " . files
 endfor
 
 call plug#end()
@@ -36,8 +33,5 @@ let s:user_files = [
   \ "layers/user/*.vim",
   \ ]
 for files in s:user_files
-    "exec "runtime! " . files
-  for f in split(glob(s:vim_home.files), "\n")
-    exec "source ".f
-  endfor
+    exec "runtime! " . files
 endfor
