@@ -78,3 +78,4 @@ endfunction
 let g:NERDTreeDirArrowExpandable = ''
 let g:NERDTreeDirArrowCollapsible = ''
 let NERDTreeMinimalUI=1
+let g:NERDTreeNodeDelimiter = ''
