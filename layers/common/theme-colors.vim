@@ -8,6 +8,7 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'liuchengxu/space-vim-theme'
 Plug 'rakr/vim-two-firewatch'
 Plug 'sainnhe/gruvbox-material'
+Plug 'glepnir/oceanic-material'
 if has('mac')
     Plug 'ryanoasis/vim-devicons'
     if !has('nvim')

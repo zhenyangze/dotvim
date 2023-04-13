@@ -1,0 +1,1 @@
+Plug 'rcarriga/nvim-notify'

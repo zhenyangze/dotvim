@@ -382,6 +382,27 @@ function! AutoFormatFile()
     echomsg "Formated"
 endfunction
 
+function! ChangeColorchemes()
+  " 获取当前主题
+  let current_theme = g:colors_name
+
+  " 获取所有主题
+  let all_themes = getcompletion('', 'color')
+
+  " 获取下一个主题
+  let next_theme = all_themes[0]
+  for theme in all_themes
+    if theme == current_theme
+      let next_theme = all_themes[(index(all_themes, theme) + 1) % len(all_themes)]
+      break
+    endif
+  endfor
+
+  " 切换到下一个主题
+  execute 'colorscheme' next_theme
+  echo "colorscheme:" . next_theme
+endfunction
+
 "}}}
 
 "{{{============================= language ================================

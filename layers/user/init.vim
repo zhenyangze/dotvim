@@ -35,10 +35,12 @@ set cmdheight=1
 autocmd bufenter * if (winnr("$") == 1 && &buftype == 'quickfix') | q | endif
 
 
+let g:qf_min_height = 7
+let g:qf_max_height = 12
 if version > 800
-    au FileType qf call AdjustWindowHeight(2, 7)
+    au FileType qf call AdjustWindowHeight()
 endif
-function! AdjustWindowHeight(minheight, maxheight)
+function! AdjustWindowHeight()
     "let l = 1
     "let n_lines = 0
     "let w_width = winwidth(0)
@@ -50,7 +52,7 @@ function! AdjustWindowHeight(minheight, maxheight)
         "let n_lines += float2nr(ceil(line_width))
         "let l += 1
     "endw
-    exe max([min([line('$'), a:maxheight]), a:minheight]) . "wincmd _"
+    exe max([min([line('$'), g:qf_max_height]), g:qf_min_height]) . "wincmd _"
 endfunction
 
  let g:context_enabled = 0
