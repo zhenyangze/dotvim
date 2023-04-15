@@ -16,8 +16,8 @@ if !exists('$TMUX')
         let g:gruvbox_material_background = 'soft'
         let g:gruvbox_material_better_performance = 1
         "colorscheme gruvbox-material
-        colorscheme oceanic_material
-        "colorscheme onehalfdark
+        "colorscheme oceanic_material
+        colorscheme onehalfdark
         hi SignColumn ctermbg=NONE guibg=NONE
         hi StatusLineNC guifg=#444444 guibg=#3a3a3a
         if has("nvim")
