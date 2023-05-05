@@ -47,6 +47,8 @@ vmap ,f :<C-u>call FzfFilesFunction()<CR>
 vmap ,g :<C-U>execute("Rg " . GetRgSearchTextV2(""))<CR>
 vmap ,v :<C-U>execute("CtrlSF \"" . escape(GetCtrlsfSearchText(""), '"') . "\"")<CR>
 nmap ,v :<C-U>execute("CtrlSF \"" . escape(GetCtrlsfSearchText(""), '"') . "\"")<CR>
+nmap ,/ :<C-u>BitoAi
+vmap ,/ :BitoAi
 
 nmap =1 :q 1<CR>
 nmap =2 :q 2<CR>
@@ -65,9 +67,6 @@ nmap ]c <plug>(signify-next-hunk)
 
 nnoremap [s :<c-u>ALEPrevious<cr>
 nnoremap ]s :<c-u>ALENext<cr>
-
-nnoremap [t :<c-u>pop<cr>
-nnoremap ]t :<c-u>call TagsJumpFunction()<cr>
 
 
 nnoremap [b :<c-u>bp<cr>

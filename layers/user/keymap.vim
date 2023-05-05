@@ -246,7 +246,6 @@ let g:which_key_map[']'] = {
             \'q': ['cn', 'Next Quick'],
             \'s': ['ALENext', 'Next Ale'],
             \'e': [":execute 'move +'. v:count1", 'Next Edit'],
-            \'t': ['call TagsJumpFunction()', 'Next Tag'],
             \'f': ['BesideFile("")', 'Next File in Current Dir'],
             \}
 

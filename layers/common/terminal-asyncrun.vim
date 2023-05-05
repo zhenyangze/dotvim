@@ -21,7 +21,7 @@ endfunction
 "nnoremap <silent> <leader>ac :AsyncRun gcc -Wall -O2 "$(VIM_FILEPATH)" -o shellescape(expand("%:r")) <cr>
 "nnoremap <silent> <Leader>ar :AsyncRun -raw -cwd=$(VIM_FILEDIR) shellescape(expand("%:r")) <cr>
 "nnoremap <silent> <Leader>am :AsyncRun -cwd=<root> cmake . <cr>
-let g:asyncrun_rootmarks = ['.svn', '.git', '.root', '_darcs', 'build.xml'] 
+let g:asyncrun_rootmarks = ['.svn', '.git', '.root', '_darcs', 'build.xml']
 "nnoremap <silent> <Leader>ab :AsyncRun -cwd=<root> make <cr>
 "nnoremap <silent> <Leader>ap :AsyncRun -cwd=<root> -mode=4 make run <cr>
 
@@ -42,7 +42,7 @@ function! AsyncRunTest()
         let save_cursor = getcurpos()
 
         let l:line = getline(".")
-        if match(l:line, "function test") < 0 
+        if match(l:line, "function test") < 0
             normal [[
             let l:line = getline(".")
         endif
@@ -52,7 +52,7 @@ function! AsyncRunTest()
         endfor
         let l:funcName = expand("<cword>")
         call setpos('.', save_cursor)
-        if match(l:funcName, "test") >= 0 
+        if match(l:funcName, "test") >= 0
             let g:asyncrun_command = 'AsyncRun! -mode=' . g:asyncrun_mode . ' -pos=bottom -rows=10 -cwd=<root> ./vendor/bin/phpunit tests --filter ' . l:funcName . ' ' . shellescape(expand("%:f"))
         else
             let g:asyncrun_command = 'AsyncRun! -mode=' . g:asyncrun_mode . ' -pos=bottom -rows=10 -cwd=<root> ./vendor/bin/phpunit tests' . ' ' . shellescape(expand("%:f"))
@@ -62,7 +62,7 @@ function! AsyncRunTest()
         let save_cursor = getcurpos()
 
         let l:line = getline(".")
-        if match(l:line, "func Test") < 0 
+        if match(l:line, "func Test") < 0
             normal [[
             let l:line = getline(".")
         endif
@@ -72,7 +72,7 @@ function! AsyncRunTest()
         endfor
         let l:funcName = expand("<cword>")
         call setpos('.', save_cursor)
-        if match(l:funcName, "Test") == 0 
+        if match(l:funcName, "Test") == 0
             let g:asyncrun_command = 'AsyncRun! -mode=' . g:asyncrun_mode . ' -pos=bottom -rows=10 -cwd=<root> -raw go test -v ' . shellescape(expand("%:f")) . ' -run="' . l:funcName . '"'
         else
             let g:asyncrun_command = 'AsyncRun! -mode=' . g:asyncrun_mode . ' -pos=bottom -rows=10 -cwd=<root> -raw go test -v ' . shellescape(expand("%:f")) . ''
@@ -89,33 +89,31 @@ function! AsyncRunTest()
 endfunction
 
 function! AsyncRunRun()
+    let l:command = ''
     if &filetype == 'php'
-        let g:asyncrun_command = 'AsyncRun! -mode=' . g:asyncrun_mode . ' -pos=bottom -rows=10 -cwd=<root> php ' . shellescape(expand("%:f")) . ''
+        let l:command = 'php '.shellescape(expand('%'))
     elseif &filetype == 'lua'
-        let g:asyncrun_command = 'AsyncRun! -mode=' . g:asyncrun_mode . ' -pos=bottom -rows=10 -cwd=<root> lua ' . shellescape(expand("%:f")) . ''
+        let l:command = 'lua '.shellescape(expand('%'))
     elseif &filetype == 'c'
-        let g:asyncrun_command = 'AsyncRun! -mode=' . g:asyncrun_mode . ' -pos=bottom -rows=10 gcc -Wall -O2 "$(VIM_FILEPATH)" -o ' . shellescape(expand("%:r")) . ' ;./' . shellescape(expand("%:r"))
+        let l:command = 'gcc -Wall -O2 "'.shellescape(expand('%:p')).'" -o "'.shellescape(expand('%:r')).'" && '.'./'.shellescape(expand('%:r'))
     elseif &filetype == 'cpp'
-        let g:asyncrun_command = 'AsyncRun! -mode=' . g:asyncrun_mode . ' -pos=bottom -rows=10 g++ -Wall -O2 "$(VIM_FILEPATH)" -levent -o ' . shellescape(expand("%:r")) . ' ;./' . shellescape(expand("%:r"))
+        let l:command = 'g++ -Wall -O2 "'.shellescape(expand('%:p')).'" -o "'.shellescape(expand('%:r')).'" -levent && '.'./'.shellescape(expand('%:r'))
     elseif &filetype == 'python'
-        "execute 'CocCommand python.execInTerminal'
-        "let $PYTHONNUNBUFFERED=1
-        let g:asyncrun_command = 'AsyncRun!  -mode=' . g:asyncrun_mode . ' -pos=bottom -rows=10 -cwd=<root> -raw python %'
-        "let $PYTHONNUNBUFFERED=1
+        let l:command = 'python %'
     elseif &filetype == 'go'
         if len(matchstr(expand('%:t'), '_test.go')) > 0
-            let g:asyncrun_command = 'AsyncRun! -mode=' . g:asyncrun_mode . ' -pos=bottom -rows=10 -cwd=<root> -raw go test -v ' . shellescape(expand("%:f")) . ''
+            let l:command = 'go test -v '.shellescape(expand('%'))
         else
-            let g:asyncrun_command = 'AsyncRun! -mode=' . g:asyncrun_mode . ' -pos=bottom -rows=10 -cwd=<root> -raw go run ' . shellescape(expand("%:f")) . ''
+            let l:command = 'go run '.shellescape(expand('%'))
         endif
     elseif &filetype == 'sh'
-        let g:asyncrun_command = 'AsyncRun! -mode=' . g:asyncrun_mode . ' -pos=bottom -rows=10 -cwd=<root> sh ' . shellescape(expand("%:f")) . ''
+        let l:command = 'sh '.shellescape(expand('%'))
     elseif &filetype == 'java'
-        let g:asyncrun_command = 'AsyncRun! -mode=' . g:asyncrun_mode . ' -pos=bottom -rows=10 -cwd=<root> javac ' . shellescape(expand("%:f")) . ' ; java ' . shellescape(expand("%:t:r"))
+        let l:command = 'javac '.shellescape(expand('%')) .' && java '.shellescape(expand('%:t:r'))
     elseif &filetype == 'rust'
-        let g:asyncrun_command = "RustRun"
-        "execute 'AsyncRun! -mode=' . g:asyncrun_mode . ' -pos=bottom -rows=10 -cwd=<root> -raw cargo run'
+        let l:command = "cargo run"
     endif
+    let g:asyncrun_command = 'AsyncRun! -mode='.g:asyncrun_mode.' -pos=bottom -rows=10 -cwd=<root> '.l:command
     call AsyncRunRepeat()
 endfunction
 

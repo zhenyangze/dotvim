@@ -1,12 +1,4 @@
 "{{{common function
-function! ShowNerdTree()
-    if (exists(":NERDTreeTabsToggle") == 0)
-        silent! exec "NERDTreeToggle"
-    else
-        silent! exec "NERDTreeTabsToggle"
-    endif
-endfunction
-
 function! ShowTagbarToggle()
     if (exists(":Vista") > 0 )
         silent! exec "Vista!!"
@@ -164,11 +156,6 @@ function! BesideFile(type)
     endif
 endfunction
 
-function! TagsJumpFunction()
-    let s:current_word = expand("<cword>")
-    exec "tag " . s:current_word
-endfunction
-
 function! FzfTagsFunction()
     let s:current_word = GetVisualSelection()
     silent! exec "FzfTags " . s:current_word
@@ -178,9 +165,7 @@ function! FzfFilesFunction()
     if len(s:current_word) == 0 
         let s:current_word = trim(expand('<cfile>'), './')
     endif
-    let g:fzf_files_options = ['-m', '--query', s:current_word]
-    silent! exec "FzfFiles"
-    let g:fzf_files_options = ['-m', '--query', '']
+    silent! exec "Find " . s:current_word
 endfunction
 function! AckVisualSearch()
     let s:current_word = GetVisualSelection()
