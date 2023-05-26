@@ -103,7 +103,7 @@ map f <Plug>(easymotion-bd-w)
 "let g:Lf_ShortcutB = '<Leader>fb'
 "let g:Lf_ShortcutF = '<Leader>ff'
 "nmap <Leader>ff :call ShowfindFiles()<CR>
-command! -nargs=1 Find call Find("find . -iname '*'" . shellescape('<args>') . "'*'")
+command! -nargs=1 Find call Find("find . -type f | grep " . shellescape('<args>'))
 command! -nargs=1 Gfind call Find('git ls-files | grep -E ' . shellescape('<args>'))
 command! -nargs=1 Gtfind call Find('git rev-parse --show-toplevel && git ls-files | grep -E ' . shellescape('<args>'))
 command! -nargs=1 Locate call Find('locate ' . shellescape('<args>'))
