@@ -29,10 +29,10 @@ function! JumpToTab(num)
     silent! exec "tabn " . a:num
 endfunction
 
-" ToggleMouse 
+" ToggleMouse
 let g:mouse_status = 0
 function! ToggleMouse()
-    if (g:mouse_status == 0) 
+    if (g:mouse_status == 0)
         let g:mouse_status = 1
         set mouse=nc
         set scrolloff=0
@@ -46,16 +46,16 @@ function! ToggleMouse()
 endfunction
 
 function! ToggleSyntax()
-    if exists("g:syntax_on") 
-        syntax off 
-    else 
+    if exists("g:syntax_on")
+        syntax off
+    else
         syntax enable
     endif
 endfunction
 
 let g:toggle_list_data = {}
 function! ToggleSet(type, firstCommand, secondCommand)
-    if (get(g:toggle_list_data, a:type) == 0) 
+    if (get(g:toggle_list_data, a:type) == 0)
         let g:toggle_list_data[a:type]=1
         silent! exec a:firstCommand
     else
@@ -69,7 +69,7 @@ function! TogglePopup()
     if (g:fzf_popup_status == 0)
         let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
         let g:fzf_popup_status = 1
-    else 
+    else
         let g:fzf_layout = { 'down': '~40%' }
         let g:fzf_popup_status = 0
     endif
@@ -87,7 +87,7 @@ function! FernFindCurrentFile()
         else
             silent! exec "NERDTreeFind"
         endif
-    else 
+    else
         "silent! exec "Fern . -drawer -reveal=" . l:filename
     endif
 endfunction
@@ -111,23 +111,19 @@ endfunction
 
 
 function! Find(cmd)
-    if (executable('ag'))
-        call fzf#run(fzf#wrap('fzffind', {'source': a:cmd}, 0))
-    else
-        let l:files = system(a:cmd)
-        if (l:files =~ '^\s*$')
-            echomsg 'No matching files.'
-            return
-        endif
-        "new
-        vne
-        set filetype=filelist
-        set buftype=nofile
-        silent! put =l:files
-        normal ggdd
-        nnoremap <buffer> <Enter> <C-W>gf
-        silent! execute 'autocmd BufEnter <buffer> lcd ' . getcwd()
+    let l:files = system(a:cmd)
+    if (l:files =~ '^\s*$')
+        echomsg 'No matching files.'
+        return
     endif
+
+    let l:files = split(l:files)
+    if len(l:files) == 1
+        exec 'e ' . l:files[0]
+        return
+    endif
+
+    call fzf#run(fzf#wrap('fzffind', {'source': l:files}, 0))
 endfunction
 
 function! BesideFile(type)
@@ -142,7 +138,7 @@ function! BesideFile(type)
     let l:index = 0
     for item in l:file_list
         let l:index += 1
-        if (item == l:current_file) 
+        if (item == l:current_file)
             let l:current_index = l:index
         endif
         if (l:index == (l:current_index + 1))
@@ -162,7 +158,7 @@ function! FzfTagsFunction()
 endfunction
 function! FzfFilesFunction()
     let s:current_word = GetVisualSelection()
-    if len(s:current_word) == 0 
+    if len(s:current_word) == 0
         let s:current_word = trim(expand('<cfile>'), './')
     endif
     silent! exec "Find " . s:current_word
@@ -187,7 +183,7 @@ function! AckReplace(is_replace)
     endif
 
     if a:is_replace == 2
-        if !has('nvim') 
+        if !has('nvim')
             let l:search_str = GetRgSearchText(l:search_str)
             let l:replace_str = GetRgSearchText(l:replace_str)
         endif
@@ -207,290 +203,290 @@ endfunction
 function! FindFileToQuickfix(fileName, filePath = ".")
     let l:fileName = a:fileName
     let l:filePath = a:filePath
-    if l:fileName == "" 
+    if l:fileName == ""
         let l:fileName = input("Search File Name: ", "", "file")
         let l:filePath = input("Search File Path: ",  "./", "file")
-    end
-    if l:filePath == ""
-        let l:filePath = "."
-    end
-    if l:fileName == ""
-        return
-    end
-    "cexpr glob('**/' . a:fileName, v:true, v:true)->map({_, v -> v..'|1| '..v})
-    cexpr split(system('rg ' . shellescape(l:filePath) . ' --files --sort=path --hidden --follow --glob "!.git/*" 3>/dev/null | grep -v ".gitkeep" | grep -v ".gitignore" | grep -i ' . l:fileName))->map({_, v -> v..'|1| '..v})
-    cw
-endfunction
-command! -nargs=+ -complete=file Fd call FindFileToQuickfix(<f-args>)
+        end
+        if l:filePath == ""
+            let l:filePath = "."
+            end
+            if l:fileName == ""
+                return
+                end
+                "cexpr glob('**/' . a:fileName, v:true, v:true)->map({_, v -> v..'|1| '..v})
+                cexpr split(system('rg ' . shellescape(l:filePath) . ' --files --sort=path --hidden --follow --glob "!.git/*" 3>/dev/null | grep -v ".gitkeep" | grep -v ".gitignore" | grep -i ' . l:fileName))->map({_, v -> v..'|1| '..v})
+                cw
+            endfunction
+            command! -nargs=+ -complete=file Fd call FindFileToQuickfix(<f-args>)
 
-function! GetVisualSelection()
-    " Why is this not a built-in Vim script function?!
-    let [line_start, column_start] = getpos("'<")[1:2]
-    let [line_end, column_end] = getpos("'>")[1:2]
-    let lines = getline(line_start, line_end)
-    if len(lines) == 0
-        return ''
-    endif
-    let lines[-1] = lines[-1][: column_end - (&selection == 'inclusive' ? 1 : 2)]
-    let lines[0] = lines[0][column_start - 1:]
-    return join(lines, "\n")
-endfunction
-" get Regular
-function! GetSelectedText()
-       let tmp = @"
-       normal! gvy
-       normal! gv
-       let [tmp, @"] = [@", tmp]
-       return tmp
-endfunc
+            function! GetVisualSelection()
+                " Why is this not a built-in Vim script function?!
+                let [line_start, column_start] = getpos("'<")[1:2]
+                let [line_end, column_end] = getpos("'>")[1:2]
+                let lines = getline(line_start, line_end)
+                if len(lines) == 0
+                    return ''
+                endif
+                let lines[-1] = lines[-1][: column_end - (&selection == 'inclusive' ? 1 : 2)]
+                let lines[0] = lines[0][column_start - 1:]
+                return join(lines, "\n")
+            endfunction
+            " get Regular
+            function! GetSelectedText()
+                let tmp = @"
+                normal! gvy
+                normal! gv
+                let [tmp, @"] = [@", tmp]
+                return tmp
+            endfunc
 
-function! PlainTextPattern(s)
-       return substitute(substitute('\V'.escape(a:s, '\'), '\n', '\\n', 'g'), '\t', '\\t', 'g')
-endfunc
+            function! PlainTextPattern(s)
+                return substitute(substitute('\V'.escape(a:s, '\'), '\n', '\\n', 'g'), '\t', '\\t', 'g')
+            endfunc
 
-function! GetSearchPat()
-    let @+ = PlainTextPattern(GetSelectedText())
-endfunc
+            function! GetSearchPat()
+                let @+ = PlainTextPattern(GetSelectedText())
+            endfunc
 
-function! GetRgSearchTextV2(s)
-    let l:s = a:s
-    if len(l:s) == 0
-        let l:s = GetVisualSelection()
-    endif
-    let l:reg_list = ['\\', '$', '-', '[', ']', '(', ')', '*', '{', '}', '?', '|', '.']
+            function! GetRgSearchTextV2(s)
+                let l:s = a:s
+                if len(l:s) == 0
+                    let l:s = GetVisualSelection()
+                endif
+                let l:reg_list = ['\\', '$', '-', '[', ']', '(', ')', '*', '{', '}', '?', '|', '.']
 
-    for item in l:reg_list
-        let l:s = escape(l:s, item)
-    endfor
+                for item in l:reg_list
+                    let l:s = escape(l:s, item)
+                endfor
 
-    let l:s = substitute(substitute(l:s, '\n', '\\n', 'g'), '\t', '\\t', 'g')
-    return l:s
-endfunction
-function! GetCtrlsfSearchText(s)
-    let l:s = a:s
-    if len(l:s) == 0
-        let l:s = GetVisualSelection()
-    endif
-    let l:reg_list = ['\\', '\\', '$', '[', ']', '(', ')', '*', '{', '}', '?', '|', '.', "'", "\"", '+']
+                let l:s = substitute(substitute(l:s, '\n', '\\n', 'g'), '\t', '\\t', 'g')
+                return l:s
+            endfunction
+            function! GetCtrlsfSearchText(s)
+                let l:s = a:s
+                if len(l:s) == 0
+                    let l:s = GetVisualSelection()
+                endif
+                let l:reg_list = ['\\', '\\', '$', '[', ']', '(', ')', '*', '{', '}', '?', '|', '.', "'", "\"", '+']
 
-    for item in l:reg_list
-        "let l:s = escape(l:s, item)
-    endfor
+                for item in l:reg_list
+                    "let l:s = escape(l:s, item)
+                endfor
 
-    "let l:s = substitute(substitute(l:s, '\n', '\\n', 'g'), '\t', '\\t', 'g')
-    return l:s
-endfunction
-
-
-function! GetRgSearchText(s)
-    let l:s = a:s
-    if len(l:s) == 0
-        let l:s = GetVisualSelection()
-    endif
-    let l:reg_list = ['\\', '$', '-', '[', ']', '(', ')', ' ', '*', '{', '}', '?', '|', '.']
-
-    for item in l:reg_list
-        let l:s = escape(l:s, item)
-    endfor
-
-    " repalce \t \n
-    let l:s = substitute(l:s, '\r', '\\r', 'g')
-    let l:s = substitute(l:s, '\n', '\\n', 'g')
-    let l:s = substitute(l:s, '\t', '\\t', 'g')
-
-    return l:s
-endfunction
+                "let l:s = substitute(substitute(l:s, '\n', '\\n', 'g'), '\t', '\\t', 'g')
+                return l:s
+            endfunction
 
 
-function! InitTemplate()
-    silent! execute 'Template *.' . expand('%:e')
-endfunction
+            function! GetRgSearchText(s)
+                let l:s = a:s
+                if len(l:s) == 0
+                    let l:s = GetVisualSelection()
+                endif
+                let l:reg_list = ['\\', '$', '-', '[', ']', '(', ')', ' ', '*', '{', '}', '?', '|', '.']
 
-function! AppendText(type)
-    let l:append_text = input("Append String: ", "")
-    if len(l:append_text) == 0
-        return
-    endif
-    if a:type == 1
-        silent! exec "%s/$/" . l:append_text . "/g" 
-    elseif a:type == 2
-        silent! exec "g/\\S\\+/s/$/" . l:append_text . "/g" 
-    elseif a:type == 3
-        silent! exec "%s/^/" . l:append_text . "/g" 
-    elseif a:type == 4
-        silent! exec "g/\\S\\+/s/^/" . l:append_text . "/g" 
-    endif
-endfunction
+                for item in l:reg_list
+                    let l:s = escape(l:s, item)
+                endfor
 
-function! ToggleWindowShow(fileTypeName, openCommend, closeCommend)
-    let l:current_window_id = win_getid()
-    let l:fileTypeName = []
-    if type(a:fileTypeName) != type([])
-        call add(l:fileTypeName, a:fileTypeName)
-    else 
-        let l:fileTypeName = a:fileTypeName
-    endif
-    let l:has_quick_list = 0
-    for index in range(1, winnr('$'))
-        let l:window_id = win_getid(index)
-        call win_gotoid(l:window_id)
+                " repalce \t \n
+                let l:s = substitute(l:s, '\r', '\\r', 'g')
+                let l:s = substitute(l:s, '\n', '\\n', 'g')
+                let l:s = substitute(l:s, '\t', '\\t', 'g')
 
-        let l:window_type = &filetype
-        if index(l:fileTypeName, l:window_type) >= 0
-            let l:has_quick_list = 1
-            break
-        endif
-    endfor
-    if l:has_quick_list
-        silent! exec a:closeCommend
-        silent! call win_gotoid(l:current_window_id)
-    else
-        silent! exec a:openCommend
-    endif
-endfunction
-function! JumpToWindow(winNo) 
-    let l:window_id = win_getid(a:winNo)
-    if l:window_id >= 1000
-        call win_gotoid(l:window_id)
-    endif
-endfunction
+                return l:s
+            endfunction
 
-function! AutoFormatFile()
-    let l:filetype = &filetype
-    if l:filetype == "php"
-        silent! exec "Format"
-    elseif l:filetype == "java"
-        silent! exec "Format"
-    else
-        silent! exec "Autoformat"
-    endif
-    echomsg "Formated"
-endfunction
 
-function! ChangeColorchemes()
-  " 获取当前主题
-  let current_theme = g:colors_name
+            function! InitTemplate()
+                silent! execute 'Template *.' . expand('%:e')
+            endfunction
 
-  " 获取所有主题
-  let all_themes = getcompletion('', 'color')
+            function! AppendText(type)
+                let l:append_text = input("Append String: ", "")
+                if len(l:append_text) == 0
+                    return
+                endif
+                if a:type == 1
+                    silent! exec "%s/$/" . l:append_text . "/g"
+                elseif a:type == 2
+                    silent! exec "g/\\S\\+/s/$/" . l:append_text . "/g"
+                elseif a:type == 3
+                    silent! exec "%s/^/" . l:append_text . "/g"
+                elseif a:type == 4
+                    silent! exec "g/\\S\\+/s/^/" . l:append_text . "/g"
+                endif
+            endfunction
 
-  " 获取下一个主题
-  let next_theme = all_themes[0]
-  for theme in all_themes
-    if theme == current_theme
-      let next_theme = all_themes[(index(all_themes, theme) + 1) % len(all_themes)]
-      break
-    endif
-  endfor
+            function! ToggleWindowShow(fileTypeName, openCommend, closeCommend)
+                let l:current_window_id = win_getid()
+                let l:fileTypeName = []
+                if type(a:fileTypeName) != type([])
+                    call add(l:fileTypeName, a:fileTypeName)
+                else
+                    let l:fileTypeName = a:fileTypeName
+                endif
+                let l:has_quick_list = 0
+                for index in range(1, winnr('$'))
+                    let l:window_id = win_getid(index)
+                    call win_gotoid(l:window_id)
 
-  " 切换到下一个主题
-  execute 'colorscheme' next_theme
-  echo "colorscheme:" . next_theme
-endfunction
+                    let l:window_type = &filetype
+                    if index(l:fileTypeName, l:window_type) >= 0
+                        let l:has_quick_list = 1
+                        break
+                    endif
+                endfor
+                if l:has_quick_list
+                    silent! exec a:closeCommend
+                    silent! call win_gotoid(l:current_window_id)
+                else
+                    silent! exec a:openCommend
+                endif
+            endfunction
+            function! JumpToWindow(winNo)
+                let l:window_id = win_getid(a:winNo)
+                if l:window_id >= 1000
+                    call win_gotoid(l:window_id)
+                endif
+            endfunction
 
-"}}}
+            function! AutoFormatFile()
+                let l:filetype = &filetype
+                if l:filetype == "php"
+                    silent! exec "Format"
+                elseif l:filetype == "java"
+                    silent! exec "Format"
+                else
+                    silent! exec "Autoformat"
+                endif
+                echomsg "Formated"
+            endfunction
 
-"{{{============================= language ================================
-function! LangFunctionCall(method)
-    let l:filetype = &filetype
-    let l:firstLetter = strpart(l:filetype, 0, 1)
-    let l:funcName = toupper(l:firstLetter) . strpart(l:filetype, 1) . a:method
-    if exists("*" . l:funcName)
-        silent! exec 'call ' . l:funcName . '()'
-    else
-        echomsg "function not found: " . l:funcName
-    endif
-endfunction
-function! LangRenameLocalVariable()
-    call LangFunctionCall("RenameLocalVariable")
-endfunction
+            function! ChangeColorchemes()
+                " 获取当前主题
+                let current_theme = g:colors_name
 
-function! LangRenameClassVariable()
-    call LangFunctionCall("RenameClassVariable")
-endfunction
+                " 获取所有主题
+                let all_themes = getcompletion('', 'color')
 
-function! LangRenameMethod()
-    call LangFunctionCall("RenameMethod")
-endfunction
+                " 获取下一个主题
+                let next_theme = all_themes[0]
+                for theme in all_themes
+                    if theme == current_theme
+                        let next_theme = all_themes[(index(all_themes, theme) + 1) % len(all_themes)]
+                        break
+                    endif
+                endfor
 
-function! LangExtractExpression()
-    call LangFunctionCall("ExtractExpression")
-endfunction
+                " 切换到下一个主题
+                execute 'colorscheme' next_theme
+                echo "colorscheme:" . next_theme
+            endfunction
 
-function! LangClassExpand()
-    call LangFunctionCall("ClassExpand")
-endfunction
+            "}}}
 
-function! LangExtractConst()
-    call LangFunctionCall("ExtractConst")
-endfunction
+            "{{{============================= language ================================
+            function! LangFunctionCall(method)
+                let l:filetype = &filetype
+                let l:firstLetter = strpart(l:filetype, 0, 1)
+                let l:funcName = toupper(l:firstLetter) . strpart(l:filetype, 1) . a:method
+                if exists("*" . l:funcName)
+                    silent! exec 'call ' . l:funcName . '()'
+                else
+                    echomsg "function not found: " . l:funcName
+                endif
+            endfunction
+            function! LangRenameLocalVariable()
+                call LangFunctionCall("RenameLocalVariable")
+            endfunction
 
-function! LangExtractUse()
-    call LangFunctionCall("ExtractUse")
-endfunction
+            function! LangRenameClassVariable()
+                call LangFunctionCall("RenameClassVariable")
+            endfunction
 
-function! LangExtractClassProperty()
-    call LangFunctionCall("ExtractClassProperty")
-endfunction
+            function! LangRenameMethod()
+                call LangFunctionCall("RenameMethod")
+            endfunction
 
-function! LangExtractMethod()
-    call LangFunctionCall("ExtractMethod")
-endfunction
+            function! LangExtractExpression()
+                call LangFunctionCall("ExtractExpression")
+            endfunction
 
-function! LangClassNew()
-    call LangFunctionCall("ClassNew")
-endfunction
+            function! LangClassExpand()
+                call LangFunctionCall("ClassExpand")
+            endfunction
 
-function! LangClassInflect()
-    call LangFunctionCall("ClassInflect")
-endfunction
+            function! LangExtractConst()
+                call LangFunctionCall("ExtractConst")
+            endfunction
 
-function! LangChangeVisibility()
-    call LangFunctionCall("ChangeVisibility")
-endfunction
+            function! LangExtractUse()
+                call LangFunctionCall("ExtractUse")
+            endfunction
 
-function! LangGenerateAccessors()
-    call LangFunctionCall("GenerateAccessors")
-endfunction
+            function! LangExtractClassProperty()
+                call LangFunctionCall("ExtractClassProperty")
+            endfunction
 
-function! LangCreateSettersAndGetters()
-    call LangFunctionCall("CreateSettersAndGetters")
-endfunction
+            function! LangExtractMethod()
+                call LangFunctionCall("ExtractMethod")
+            endfunction
 
-function! LangCreateGetters()
-    call LangFunctionCall("CreateGetters")
-endfunction
+            function! LangClassNew()
+                call LangFunctionCall("ClassNew")
+            endfunction
 
-function! LangImportClass()
-    call LangFunctionCall("ImportClass")
-endfunction
+            function! LangClassInflect()
+                call LangFunctionCall("ClassInflect")
+            endfunction
 
-function! LangImportMissingClasses()
-    call LangFunctionCall("ImportMissingClasses")
-endfunction
+            function! LangChangeVisibility()
+                call LangFunctionCall("ChangeVisibility")
+            endfunction
 
-function! LangGotoDefinition()
-    call LangFunctionCall("GotoDefinition")
-endfunction
-function! LangGotoImplementations()
-    call LangFunctionCall("GotoImplementations")
-endfunction
-function! LangFindReferences()
-    call LangFunctionCall("FindReferences")
-endfunction
-function! LangDocAll()
-    call LangFunctionCall("DocAll")
-endfunction
-function! LangUnitSwitchFile()
-    call LangFunctionCall("UnitSwitchFile")
-endfunction
-function! LangTransform()
-    call LangFunctionCall("Transform")
-endfunction
-function! LangHover()
-    call LangFunctionCall("Hover")
-endfunction
-function! LangContextMenu()
-    call LangFunctionCall("ContextMenu")
-endfunction
-"============================= language end ============================ }}}
+            function! LangGenerateAccessors()
+                call LangFunctionCall("GenerateAccessors")
+            endfunction
+
+            function! LangCreateSettersAndGetters()
+                call LangFunctionCall("CreateSettersAndGetters")
+            endfunction
+
+            function! LangCreateGetters()
+                call LangFunctionCall("CreateGetters")
+            endfunction
+
+            function! LangImportClass()
+                call LangFunctionCall("ImportClass")
+            endfunction
+
+            function! LangImportMissingClasses()
+                call LangFunctionCall("ImportMissingClasses")
+            endfunction
+
+            function! LangGotoDefinition()
+                call LangFunctionCall("GotoDefinition")
+            endfunction
+            function! LangGotoImplementations()
+                call LangFunctionCall("GotoImplementations")
+            endfunction
+            function! LangFindReferences()
+                call LangFunctionCall("FindReferences")
+            endfunction
+            function! LangDocAll()
+                call LangFunctionCall("DocAll")
+            endfunction
+            function! LangUnitSwitchFile()
+                call LangFunctionCall("UnitSwitchFile")
+            endfunction
+            function! LangTransform()
+                call LangFunctionCall("Transform")
+            endfunction
+            function! LangHover()
+                call LangFunctionCall("Hover")
+            endfunction
+            function! LangContextMenu()
+                call LangFunctionCall("ContextMenu")
+            endfunction
+            "============================= language end ============================ }}}
