@@ -62,8 +62,8 @@ nnoremap ]e  :<c-u>execute 'move +'. v:count1<cr>
 nnoremap [<space>  :<c-u>put! =repeat(nr2char(10), v:count1)<cr>
 nnoremap ]<space>  :<c-u>put =repeat(nr2char(10), v:count1)<cr>
 
-nmap [c <plug>(signify-prev-hunk)
-nmap ]c <plug>(signify-next-hunk)
+nmap ]c <Plug>(GitGutterNextHunk)
+nmap [c <Plug>(GitGutterPrevHunk)
 
 nnoremap [s :<c-u>ALEPrevious<cr>
 nnoremap ]s :<c-u>ALENext<cr>

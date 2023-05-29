@@ -551,8 +551,10 @@ let g:which_key_map.g = {
             \'p': ['Gpush', 'git push'],
             \'r': ['Gremove', 'git remove'],
             \'s': ['Gstatus', 'git status'],
-            \'j': ['<plug>(signify-next-hunk)', 'Jump Next Change'],
-            \'k': ['<plug>(signify-prev-hunk)', 'Jump Prev Change'],
+            \'j': ['<plug>(GitGutterNextHunk)', 'Jump Next Change'],
+            \'k': ['<plug>(GitGutterPrevHunk)', 'Jump Prev Change'],
+            \'q': [':GitGutterQuickFix | copen', 'Quickfix'],
+            \'P': ['<Plug>(GitGutterPreviewHunk)', 'Preview'],
             \} 
 
 let g:which_key_map.q = { 
