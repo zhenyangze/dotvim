@@ -165,6 +165,13 @@ let g:netrw_winsize=20
 "let g:netrw_list_hide=netrw_gitignore#Hide()
 let g:netrw_list_hide=',\(^\|\s\s\)\zs\.\S\+'
 
+nnoremap <c-y> /{<cr>:noh<cr>va}<c-g>
+nnoremap <c-t> ?}<cr>:noh<cr>va{<c-g>
+inoremap <c-y> <c-[>/{<cr>:noh<cr>va}<c-g>
+vnoremap <c-y> <c-[>/{<cr>:noh<cr>va}<c-g>
+vnoremap <c-t> <c-[>?}<cr>:noh<cr>va{<c-g>
+inoremap <c-t> <c-[>?}<cr>:noh<cr>va{<c-g>
+
 if !exists("g:plug_threads")
     vnoremap < <gv
     vnoremap > >gv
@@ -225,4 +232,81 @@ if !exists("g:plug_threads")
     endfunction
 
     inoremap <tab> <c-r>=Smart_TabComplete()<CR>
+
+    " map enter
+    func! s:Enter()
+        let ch=getline('.')[col('.')-1]|let last=getline('.')[col('.')-2]
+        if ch=='}'&&last=='{'
+            let str=matchstr(getline('.'),"^\\s*")
+            call append(line('.'),str.ch)
+            return "\<del>\<cr>"
+        endif
+        return "\<cr>"
+    endfunc
+    inoremap <silent><cr> <c-r>=<sid>Enter()<cr>
+
+    " set pair baket
+    inoremap ( ()<left>
+    inoremap [ []<left>
+    inoremap { {}<left>
+    cnoremap ( ()<left>
+    cnoremap [ []<left>
+    cnoremap { {}<left>
+
+    " jump
+    func! s:Judge(ch,mode)
+        if a:mode!='c'
+            let ch=getline('.')[col('.')-1]
+        else
+            let ch=getcmdline()[getcmdpos()-1]
+        endif
+        if a:ch=='"'||a:ch=="'"||a:ch=='`'
+            if ch!=a:ch
+                return a:ch.a:ch."\<left>"
+            endif
+        endif
+        if ch==a:ch
+            return "\<right>"
+        endif
+        return a:ch
+    endfunc
+    inoremap <expr><silent>" <sid>Judge('"','i')
+    inoremap <expr><silent>` <sid>Judge('`','i')
+    inoremap <expr><silent>' <sid>Judge("'",'i')
+    inoremap <expr><silent>> <sid>Judge('>','i')
+    inoremap <expr><silent>) <sid>Judge(')','i')
+    inoremap <expr><silent>} <sid>Judge('}','i')
+    inoremap <expr><silent>] <sid>Judge(']','i')
+    cnoremap <expr>" <sid>Judge('"','c')
+    cnoremap <expr>` <sid>Judge('`','c')
+    cnoremap <expr>' <sid>Judge("'",'c')
+    cnoremap <expr>> <sid>Judge('>','c')
+    cnoremap <expr>) <sid>Judge(')','c')
+    cnoremap <expr>} <sid>Judge('}','c')
+    cnoremap <expr>] <sid>Judge(']','c')
+
+    " quick to change dir
+    cab cdn cd <c-r>=expand('%:p:h')<cr>
+    cab cdr cd <c-r>=<sid>FindRoot()<cr>
+    func! s:FindRoot()
+        let s:gitdir = finddir(".git", getcwd() .';')
+        if !empty(s:gitdir)
+            if s:gitdir==".git"|let s:gitdir=getcwd()
+            else|let s:gitdir=strpart(s:gitdir,0,strridx(s:gitdir,"/"))
+            endif
+            return s:gitdir
+        endif
+    endfunc
+
+
+    " select move
+    xnoremap <silent><up>    :move '<-2<cr>gv
+    xnoremap <silent><down>  :move '>+1<cr>gv
+    xnoremap <silent><right> y<c-w>lo<c-[>Vpgv
+    xnoremap <silent><left>  y<c-w>ho<c-[>Vpgv
+    xnoremap <silent><c-j>   :move '>+1<cr>gv
+    xnoremap <silent><c-k>   :move '<-2<cr>gv
+    xnoremap <silent><c-l>   y<c-w>lo<c-[>Vpgv
+    xnoremap <silent><c-h>   y<c-w>ho<c-[>Vpgv
+
 endif
