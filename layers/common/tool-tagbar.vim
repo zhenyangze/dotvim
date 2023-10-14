@@ -186,6 +186,18 @@ let g:tagbar_type_go = {
     \ 'sort' : 0
     \ }
 
+ let g:tagbar_type_vue = {
+    \ 'ctagstype' : 'vue',
+    \ 'kinds'     : [
+        \ 'v:variables:variables',
+        \ 'f:filters:filters',
+        \ 'd:directives:directives',
+        \ 'm:methods:methods',
+        \ 'p:props:props',
+        \ 'c:components:components'
+    \ ],
+\ }
+
 let g:tagbar_map_closefold = ''
 
 "let g:tagbar_phpctags_bin='/usr/bin/ctags' 

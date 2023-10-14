@@ -3,7 +3,7 @@
 Plug 'adoy/vim-php-refactoring-toolbox', {'for': 'php'}
 Plug 'xwsoul/vim-zephir', {'for': 'zep'}
 "Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
-Plug 'phpactor/phpactor', {'do': 'composer install', 'for': 'php'}
+Plug 'phpactor/phpactor', {'do': 'composer install', 'for': 'php', 'tag': '2022.11.12'}
 
 ".phpcd.vim 
 "创建 .autoload.php 文件，并写入以下内容：

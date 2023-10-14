@@ -3,7 +3,7 @@
 
 autocmd TextChangedI,CompleteDone,InsertLeave * silent! exec "call popup_clear()"
 
-let g:coc_global_extensions = ['coc-css', 'coc-snippets', 'coc-pyright', 'coc-html', 'coc-sh', 'coc-java', 'coc-tsserver', 'coc-sumneko-lua', 'coc-json', 'coc-rust-analyzer', 'coc-spell-checker']
+let g:coc_global_extensions = ['coc-css', 'coc-snippets', 'coc-pyright', 'coc-html', 'coc-sh', 'coc-java', 'coc-tsserver', 'coc-sumneko-lua', 'coc-json', 'coc-rust-analyzer', 'coc-spell-checker', 'coc-tsserver']
 
 "let g:phpactorPhpBin = "/Applications/MxSrvs/bin/php/bin/php"
 let g:phpactorOmniAutoClassImport = v:true
@@ -56,3 +56,6 @@ function! AdjustWindowHeight()
 endfunction
 
  let g:context_enabled = 0
+
+ let g:rooter_patterns = ['artisan', 'think', 'composer.lock', 'go.mod']
+ let g:coc_disable_startup_warning = 1
