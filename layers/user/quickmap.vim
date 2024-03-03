@@ -17,6 +17,7 @@ nmap ,2 :call JumpToWindow(2)<CR>
 nmap ,3 :call JumpToWindow(3)<CR>
 nmap ,4 :call JumpToWindow(4)<CR>
 nmap ,5 :call JumpToWindow(5)<CR>
+nmap ,6 :call JumpToWindow(6)<CR>
 nmap ,D :Dox<CR>
 "nmap ,F :RgAllFiles<CR>
 nmap ,G :RgAll<CR>
@@ -35,7 +36,7 @@ nmap ,h :Startify<CR>
 nmap ,l :call AutoFormatFile()<CR>
 nmap ,m :FZFBookmarks<CR>
 nmap ,n :tabnew<CR>
-nmap ,o :call ToggleWindowShow('tagbar', 'call ShowTagbarToggle()', 'call ShowTagbarToggle()')<CR>
+"nmap ,o :call ToggleWindowShow('tagbar', 'call ShowTagbarToggle()', 'call ShowTagbarToggle()')<CR>
 nmap ,p :FzfProject<cr>
 nmap ,q :q!<CR>
 nmap ,r :Rooter<CR>
@@ -49,6 +50,7 @@ vmap ,v :<C-U>execute("CtrlSF \"" . escape(GetCtrlsfSearchText(""), '"') . "\"")
 nmap ,v :<C-U>execute("CtrlSF \"" . escape(GetCtrlsfSearchText(""), '"') . "\"")<CR>
 nmap ,/ :<C-u>BitoAi
 vmap ,/ :BitoAi
+nmap // :FzfBLines<CR>
 
 nmap =1 :q 1<CR>
 nmap =2 :q 2<CR>
