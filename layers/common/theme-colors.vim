@@ -10,6 +10,8 @@ Plug 'rakr/vim-two-firewatch'
 Plug 'sainnhe/gruvbox-material'
 Plug 'glepnir/oceanic-material'
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+Plug 'sainnhe/everforest'
+Plug 'sainnhe/edge'
 if has('mac')
     Plug 'ryanoasis/vim-devicons'
     if !has('nvim')

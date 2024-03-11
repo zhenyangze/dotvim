@@ -1,5 +1,6 @@
 "nmap ,b :FzfBuffers<CR>
 nmap ,a gg0vG$<CR>
+nmap ,A :%y+<CR>
 
 if has("nvim")
     tmap ,b <C-\><C-n>:call ToggleWindowShow(['conque_term', 'zsh'], 'VSTerminalToggle', 'quit')<CR>
@@ -41,7 +42,7 @@ nmap ,p :FzfProject<cr>
 nmap ,q :q!<CR>
 nmap ,r :Rooter<CR>
 nmap ,s :call FernFindCurrentFile()<CR>
-nmap ,k :TagbarToggle<CR>
+nmap ,k :call ShowTagbarToggle()<CR>
 nmap ,w :w!<CR>
 nmap ,y :YankHistoryRgPaste<CR>
 vmap ,f :<C-u>call FzfFilesFunction()<CR>
