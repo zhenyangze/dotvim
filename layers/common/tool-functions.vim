@@ -79,7 +79,7 @@ function! FernFindCurrentFile()
     if &filetype == "nerdtree"
         return
     endif
-    silent! execute "Rooter"
+    "silent! execute "Rooter"
     let l:filename = trim(expand('%'), './')
     if exists(":NERDTreeFind")
         if l:filename == 'Startify' || l:filename == ''

@@ -58,4 +58,6 @@ endfunction
  let g:context_enabled = 0
 
  let g:rooter_patterns = ['artisan', 'think', 'composer.lock', 'go.mod', 'pom.xml', 'package.json', '.git']
+ let g:rooter_change_directory_for_non_project_files = ''
  let g:coc_disable_startup_warning = 1
+ let g:rooter_manual_only = 1

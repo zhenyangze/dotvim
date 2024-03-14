@@ -9,12 +9,12 @@ let g:startify_skiplist = [
             \ '.*/\.git/*'
             \ ]
 
-let g:startify_bookmarks = systemlist("cut -sd' ' -f 2- ~/.NERDTreeBookmarks")
+"let g:startify_bookmarks = systemlist("cut -sd' ' -f 2- ~/.NERDTreeBookmarks")
 
 let g:startify_files_number = 8
 let g:NERDTreeHijackNetrw = 0
-let g:startify_session_autoload = 1
-let g:startify_session_dir = '~/.vim/session'
+let g:startify_session_autoload = 0
+"let g:startify_session_dir = '~/.vim/session'
 
 function! s:gitModified()
     let files = systemlist('git ls-files -m 2>/dev/null')
@@ -38,7 +38,7 @@ let g:startify_lists = [
         \ { 'type': function('s:gitRecent'),    'header': ['   Git Recent'] },
         \ { 'type': 'dir',       'header': ['   📂 Dirs'] },
         \ { 'type': 'files',     'header': ['   📔 Files']            },
-        \ { 'type': 'sessions',  'header': ['   📦 Sessions']       },
-        \ { 'type': 'bookmarks', 'header': ['   🔖 Bookmarks']      },
+        "\ { 'type': 'sessions',  'header': ['   📦 Sessions']       },
+        "\ { 'type': 'bookmarks', 'header': ['   🔖 Bookmarks']      },
         \ { 'type': 'commands',  'header': ['   Commands']       },
         \ ]

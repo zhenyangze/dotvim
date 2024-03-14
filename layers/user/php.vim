@@ -109,7 +109,7 @@ function! PhpUnitSwitchFile()
     let f = expand('%')
     let cmd = ''
     let is_test = expand('%:t') =~ "Test\."
-    exec 'Rooter'
+    "exec 'Rooter'
     let rpwd = getcwd()
     if is_test
         " remove phpunit_testroot

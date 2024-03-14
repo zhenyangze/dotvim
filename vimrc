@@ -10,7 +10,7 @@ if empty(glob("~/.vim/autoload/plug.vim"))
 endif
 
 " plugin
-syn sync fromstart
+"syn sync fromstart
 set nocompatible
 filetype off 
 let s:plug_files = [
