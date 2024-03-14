@@ -28,10 +28,15 @@ endfor
 
 call plug#end()
 
-" user
 let s:user_files = [
   \ "layers/user/*.vim",
   \ ]
-for files in s:user_files
+
+function! LoadUserFiles()
+  for files in s:user_files
     exec "runtime! " . files
-endfor
+  endfor
+endfunction
+
+" 调用函数在 Vim 启动后加载用户文件
+autocmd VimEnter * call LoadUserFiles()
