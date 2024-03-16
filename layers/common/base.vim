@@ -81,6 +81,7 @@ set foldmethod=indent
 "6. marker //用标志折叠
 set lazyredraw "延迟
 set ttyfast
+set re=1
 
 " cursor
 set wildmode=list:longest "命令行提示
