@@ -191,3 +191,4 @@ nnoremap <silent><nowait> <space>of  :Format<cr>
 nnoremap <silent><nowait> <space>oz  :Fold<cr>
 
 let g:coc_disable_transparent_cursor = 1
+let g:coc_disable_startup_warning = 1
