@@ -140,12 +140,11 @@ if has("gui_running")
     set guioptions-=L
     set guioptions-=r
     set guioptions-=R
-    set guicursor=i:ver1
     if !has('nvim')
         set noantialias
     endif
     set linespace=1
-    set guicursor=n-v-c:ver10
+    highlight iCursor guifg=white guibg=steelblue
     set scrolloff=0
     set mouse=a
 end
